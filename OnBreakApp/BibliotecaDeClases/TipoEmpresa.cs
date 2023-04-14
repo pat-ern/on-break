@@ -9,7 +9,7 @@ namespace BibliotecaDeClases
 {
     public class TipoEmpresa
     {
-
+        // Escribiendo un comentario para nada//
         // propiedades //
         public int IdTipoEmpresa { get; set; }
 
