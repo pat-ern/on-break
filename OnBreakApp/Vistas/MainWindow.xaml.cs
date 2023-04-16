@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -28,11 +28,8 @@ namespace Vistas
         private void btn_contraste_Click(object sender, RoutedEventArgs e)
         {
             // HACER UN CAMBIO EN EL CONTRASTE
-<<<<<<< HEAD
             if (btn_contraste.Content.ToString() == "D")
-=======
             if (btn_contraste.Content.ToString() == "")
->>>>>>> 19669a1732b4b1cf13b08ef694b063b6ef56352a
             {
                 btn_contraste.Content = "A";
                 Background = Brushes.White;
@@ -49,11 +46,8 @@ namespace Vistas
             }
             else
             {
-<<<<<<< HEAD
                 btn_contraste.Content = "D";
-=======
                 btn_contraste.Content = "";
->>>>>>> 19669a1732b4b1cf13b08ef694b063b6ef56352a
                 Background = Brushes.Black;
                 Foreground = Brushes.White;
                 btn_adm_cliente.Background = btn_adm_contratos.Background = btn_contratos.Background = btn_cliente.Background = Brushes.White;
