@@ -7,11 +7,45 @@
         mc:Ignorable="d"
         Title="OnBreakApp" Height="600" Width="1000">
     <Grid>
+<<<<<<< HEAD
         <Image HorizontalAlignment="Left" Height="94" Margin="29,14,0,0" VerticalAlignment="Top" Width="99" Source="../Vistas/Img/Removal-461.png"/>
         <Button x:Name="btn_adm_cliente" Content="ADMINISTRACIÓN DE CLIENTES" HorizontalAlignment="Left" Margin="121,95,0,0" VerticalAlignment="Top" Height="197" Width="379" Background="Beige"  FontSize="18"/>
         <Button x:Name="btn_adm_contratos" Content="ADMINISTRACIÓN DE CONTRATOS" HorizontalAlignment="Left" Margin="531,95,0,0" VerticalAlignment="Top" Height="197" Width="379" Background="Coral"  FontSize="18"/>
         <Button x:Name="btn_cliente" Content="LISTADO DE CLIENTES" HorizontalAlignment="Left" Margin="121,330,0,0" VerticalAlignment="Top" Height="192" Width="379" Background="Cyan"  FontSize="18"/>
         <Button x:Name="btn_contratos" Content="LISTADOS DE CONTRATOS" HorizontalAlignment="Left" Margin="531,330,0,0" VerticalAlignment="Top" Height="192" Width="379" Background="CornflowerBlue"  FontSize="18"/>
         <Button x:Name="btn_contraste" Content="A" HorizontalAlignment="Left" Margin="931,34,0,0" VerticalAlignment="Top" Height="46" Width="32" Background="Black" Foreground="White" FontWeight="Bold" Click="btn_contraste_Click"/>
+=======
+        <Image HorizontalAlignment="Left" Height="94" Margin="29,14,0,0" VerticalAlignment="Top" Width="99" Source="OnBreak.png"/>
+        <Button x:Name="btn_adm_cliente" HorizontalAlignment="Left" Margin="121,95,0,0" VerticalAlignment="Top" Height="197" Width="379" Background="Beige"  FontSize="18">
+            <StackPanel>
+                <Image Source="/objetivo.png" Width="100"/>
+                
+                <Label Content="ADMINISTRACIÓN DE CLIENTES"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btn_adm_contratos" HorizontalAlignment="Left" Margin="531,95,0,0" VerticalAlignment="Top" Height="197" Width="379" Background="Coral"  FontSize="18">
+            <StackPanel>
+                <Image Source="/contrato.png" Width="100"/>
+                <Label Content="ADMINISTRACIÓN DE CONTRATOS"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btn_cliente" HorizontalAlignment="Left" Margin="121,330,0,0" VerticalAlignment="Top" Height="192" Width="379" Background="Cyan"  FontSize="18">
+            <StackPanel>
+                <Image Source="/cliente.png" Width="100"/>
+                <Label Content="LISTADO DE CLIENTES"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btn_contratos" HorizontalAlignment="Left" Margin="531,330,0,0" VerticalAlignment="Top" Height="192" Width="379" Background="CornflowerBlue"  FontSize="18">
+            <StackPanel>
+                <Image Source="/lista-de-verificacion.png" Width="100"/>
+                <Label Content="LISTADOS DE CONTRATOS"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btn_contraste" HorizontalAlignment="Left" Margin="931,34,0,0" VerticalAlignment="Top" FontWeight="Bold" Click="btn_contraste_Click">
+            <StackPanel>
+                <Image Source="/simbolo-de-circulo-de-contraste.png" Width="40"/>
+            </StackPanel>
+        </Button>
+>>>>>>> 19669a1732b4b1cf13b08ef694b063b6ef56352a
     </Grid>
 </Window>
