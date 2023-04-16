@@ -7,8 +7,6 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
-<<<<<<< HEAD
-=======
   <ItemGroup>
     <None Remove="cliente.png" />
     <None Remove="contrato.png" />
@@ -32,5 +30,4 @@
     <Resource Include="simbolo-de-circulo-de-contraste.png" />
   </ItemGroup>
 
->>>>>>> 19669a1732b4b1cf13b08ef694b063b6ef56352a
 </Project>
