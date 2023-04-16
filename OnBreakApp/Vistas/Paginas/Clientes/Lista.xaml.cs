@@ -17,11 +17,18 @@ namespace Vistas.Paginas.Clientes
     /// <summary>
     /// Lógica de interacción para Lista.xaml
     /// </summary>
-    public partial class Lista : Window
+    public partial class Lista 
     {
         public Lista()
         {
             InitializeComponent();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Index index = new Index();
+            this.Close();
+            index.Show();
         }
     }
 }

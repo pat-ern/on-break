@@ -54,6 +54,11 @@ namespace Vistas
                 btn_contraste.FontSize = btn_adm_cliente.FontSize = btn_adm_contratos.FontSize = btn_contratos.FontSize = btn_cliente.FontSize = 22;
                 btn_contraste.FontWeight = btn_adm_cliente.FontWeight = btn_adm_contratos.FontWeight = btn_contratos.FontWeight = btn_cliente.FontWeight = FontWeights.Bold;
             }
+            //}
+            //}
+            //}
+            //}
+            //}
         }
 
         private void btn_adm_cliente_Click(object sender, RoutedEventArgs e)
