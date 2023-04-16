@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
@@ -30,6 +30,7 @@
     <Resource Include="objetivo.png" />
     <Resource Include="OnBreak.png" />
     <Resource Include="simbolo-de-circulo-de-contraste.png" />
+	  
   </ItemGroup>
 
 </Project>
