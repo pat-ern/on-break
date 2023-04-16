@@ -40,9 +40,5 @@
                 <Image Source="/simbolo-de-circulo-de-contraste.png" Width="40"/>
             </StackPanel>
         </Button>
-
-
-
-
     </Grid>
 </mah:MetroWindow>
