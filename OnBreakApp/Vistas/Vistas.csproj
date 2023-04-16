@@ -7,4 +7,27 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="cliente.png" />
+    <None Remove="contrato.png" />
+    <None Remove="lista-de-verificacion.png" />
+    <None Remove="objetivo.png" />
+    <None Remove="OnBreak.png" />
+    <None Remove="simbolo-de-circulo-de-contraste.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FontAwesome" Version="4.7.0" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="cliente.png" />
+    <Resource Include="contrato.png" />
+    <Resource Include="lista-de-verificacion.png" />
+    <Resource Include="objetivo.png" />
+    <Resource Include="OnBreak.png" />
+    <Resource Include="simbolo-de-circulo-de-contraste.png" />
+  </ItemGroup>
+
 </Project>

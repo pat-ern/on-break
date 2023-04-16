@@ -28,7 +28,7 @@ namespace Vistas
         private void btn_contraste_Click(object sender, RoutedEventArgs e)
         {
             // HACER UN CAMBIO EN EL CONTRASTE
-            if (btn_contraste.Content.ToString() == "D")
+            if (btn_contraste.Content.ToString() == "")
             {
                 btn_contraste.Content = "A";
                 Background = Brushes.White;
@@ -45,7 +45,7 @@ namespace Vistas
             }
             else
             {
-                btn_contraste.Content = "D";
+                btn_contraste.Content = "";
                 Background = Brushes.Black;
                 Foreground = Brushes.White;
                 btn_adm_cliente.Background = btn_adm_contratos.Background = btn_contratos.Background = btn_cliente.Background = Brushes.White;
