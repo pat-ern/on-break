@@ -8,6 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="adm_clientes.png" />
     <None Remove="cliente.png" />
     <None Remove="contrato.png" />
     <None Remove="lista-de-verificacion.png" />
@@ -22,6 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="adm_clientes.png" />
     <Resource Include="cliente.png" />
     <Resource Include="contrato.png" />
     <Resource Include="lista-de-verificacion.png" />

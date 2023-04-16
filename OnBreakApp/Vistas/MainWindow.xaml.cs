@@ -28,9 +28,9 @@ namespace Vistas
         private void btn_contraste_Click(object sender, RoutedEventArgs e)
         {
             // HACER UN CAMBIO EN EL CONTRASTE
-            if (btn_contraste.Content.ToString() == "")
+            if ((string)btn_contraste.Tag == "false")
             {
-                btn_contraste.Content = "A";
+                btn_contraste.Tag = "true";
                 Background = Brushes.White;
                 Foreground = Brushes.Black;
                 btn_contraste.Background = Brushes.White;
@@ -45,14 +45,12 @@ namespace Vistas
             }
             else
             {
-                btn_contraste.Content = "";
+                btn_contraste.Tag = "false";
                 Background = Brushes.Black;
-                Foreground = Brushes.White;
                 btn_adm_cliente.Background = btn_adm_contratos.Background = btn_contratos.Background = btn_cliente.Background = Brushes.White;
                 btn_contraste.Background = Brushes.White;
                 btn_contraste.FontSize = btn_adm_cliente.FontSize = btn_adm_contratos.FontSize = btn_contratos.FontSize = btn_cliente.FontSize = 22;
                 btn_contraste.FontWeight = btn_adm_cliente.FontWeight = btn_adm_contratos.FontWeight = btn_contratos.FontWeight = btn_cliente.FontWeight = FontWeights.Bold;
-
             }
         }
     }
