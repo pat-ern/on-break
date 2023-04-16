@@ -28,16 +28,16 @@
         <Label Content="Tipo Empresa" HorizontalAlignment="Left" Margin="110,477,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="134" Height="36"/>
 
 
-        <Button HorizontalAlignment="Left" Margin="666,131,0,0" VerticalAlignment="Top" Height="152" Width="258" Background="CornflowerBlue"  FontSize="18">
+        <Button HorizontalAlignment="Left" Margin="666,131,0,0" VerticalAlignment="Top" Height="152" Width="258" Background="CornflowerBlue"  FontSize="18" Click="Button_Click_1">
             <StackPanel>
-                <!--<Image Source="/lista-de-verificacion.png" Width="100"/>-->
-                <Label Content="ENVIAR"/>
+                <Image Source="/enviar.png" Width="103" Height="97"/>
+                <Label Content="ENVIAR" Width="78"/>
             </StackPanel>
         </Button>
 
-        <Button  HorizontalAlignment="Left" Margin="666,343,0,0" VerticalAlignment="Top" Height="152" Width="258" Background="CornflowerBlue"  FontSize="18">
+        <Button  HorizontalAlignment="Left" Margin="666,343,0,0" VerticalAlignment="Top" Height="152" Width="258" Background="CornflowerBlue"  FontSize="18" Click="Button_Click_2">
             <StackPanel>
-                <!--<Image Source="/lista-de-verificacion.png" Width="100"/>-->
+                <Image Source="/limpiar.png" Width="100"/>
                 <Label Content="LIMPIAR"/>
             </StackPanel>
         </Button>
