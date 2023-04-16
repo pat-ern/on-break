@@ -15,6 +15,7 @@
     <None Remove="objetivo.png" />
     <None Remove="OnBreak.png" />
     <None Remove="simbolo-de-circulo-de-contraste.png" />
+	<None Remove="añadir_cliente.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +31,7 @@
     <Resource Include="objetivo.png" />
     <Resource Include="OnBreak.png" />
     <Resource Include="simbolo-de-circulo-de-contraste.png" />
+	<Resource Include="añadir_cliente.png" />
 	  
   </ItemGroup>
 

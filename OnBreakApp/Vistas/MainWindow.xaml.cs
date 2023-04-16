@@ -29,31 +29,30 @@ namespace Vistas
 
         private void btn_contraste_Click(object sender, RoutedEventArgs e)
         {
-            // HACER UN CAMBIO EN EL CONTRASTE
-            //if ((string)btn_contraste.Tag == "false")
-            //{
-            //    btn_contraste.Tag = "true";
-            //    Background = Brushes.White;
-            //    Foreground = Brushes.Black;
-            //    btn_contraste.Background = Brushes.White;
-            //    btn_adm_cliente.Background = Brushes.Beige;
-            //    btn_adm_contratos.Background = Brushes.Coral;
-            //    btn_contratos.Background = Brushes.CornflowerBlue;
-            //    btn_cliente.Background = Brushes.Cyan;
-            //    btn_contraste.Foreground = Brushes.Black;
-            //    btn_contraste.FontSize = btn_adm_cliente.FontSize = btn_adm_contratos.FontSize = btn_contratos.FontSize = btn_cliente.FontSize = 18;
-            //    btn_contraste.FontWeight = btn_adm_cliente.FontWeight = btn_adm_contratos.FontWeight = btn_contratos.FontWeight = btn_cliente.FontWeight = FontWeights.DemiBold;
+            if ((string)btn_contraste.Tag == "false")
+            {
+                btn_contraste.Tag = "true";
+                Background = Brushes.White;
+                Foreground = Brushes.Black;
+                btn_contraste.Background = Brushes.White;
+                btn_adm_cliente.Background = Brushes.Beige;
+                btn_adm_contratos.Background = Brushes.Coral;
+                btn_contratos.Background = Brushes.CornflowerBlue;
+                btn_cliente.Background = Brushes.Cyan;
+                btn_contraste.Foreground = Brushes.Black;
+                btn_contraste.FontSize = btn_adm_cliente.FontSize = btn_adm_contratos.FontSize = btn_contratos.FontSize = btn_cliente.FontSize = 18;
+                btn_contraste.FontWeight = btn_adm_cliente.FontWeight = btn_adm_contratos.FontWeight = btn_contratos.FontWeight = btn_cliente.FontWeight = FontWeights.DemiBold;
 
-            //}
-            //else
-            //{
-            //    btn_contraste.Tag = "false";
-            //    Background = Brushes.Black;
-            //    btn_adm_cliente.Background = btn_adm_contratos.Background = btn_contratos.Background = btn_cliente.Background = Brushes.White;
-            //    btn_contraste.Background = Brushes.White;
-            //    btn_contraste.FontSize = btn_adm_cliente.FontSize = btn_adm_contratos.FontSize = btn_contratos.FontSize = btn_cliente.FontSize = 22;
-            //    btn_contraste.FontWeight = btn_adm_cliente.FontWeight = btn_adm_contratos.FontWeight = btn_contratos.FontWeight = btn_cliente.FontWeight = FontWeights.Bold;
-            //}
+            }
+            else
+            {
+                btn_contraste.Tag = "false";
+                Background = Brushes.Black;
+                btn_adm_cliente.Background = btn_adm_contratos.Background = btn_contratos.Background = btn_cliente.Background = Brushes.White;
+                btn_contraste.Background = Brushes.White;
+                btn_contraste.FontSize = btn_adm_cliente.FontSize = btn_adm_contratos.FontSize = btn_contratos.FontSize = btn_cliente.FontSize = 22;
+                btn_contraste.FontWeight = btn_adm_cliente.FontWeight = btn_adm_contratos.FontWeight = btn_contratos.FontWeight = btn_cliente.FontWeight = FontWeights.Bold;
+            }
         }
 
         private void btn_adm_cliente_Click(object sender, RoutedEventArgs e)
