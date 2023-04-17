@@ -24,6 +24,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BibliotecaDeClases\BibliotecaDeClases.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="adm_clientes.png" />
     <Resource Include="cliente.png" />
     <Resource Include="contrato.png" />

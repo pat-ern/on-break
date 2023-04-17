@@ -62,5 +62,13 @@ namespace Vistas
             this.Close();
             index.Show();
         }
+
+        private void btn_cliente_Click(object sender, RoutedEventArgs e)
+        {
+            // ABRIR LA VISTA DE LISTA DE CLIENTES
+            Paginas.Clientes.Lista lista = new Paginas.Clientes.Lista();
+            this.Close();
+            lista.Show();
+        }
     }
 }
