@@ -32,7 +32,7 @@
         </Button>
         <TextBox Controls:TextBoxHelper.Watermark="Buscar" HorizontalAlignment="Left" Margin="650,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="293" Controls:TextBoxHelper.ClearTextButton="True" TextChanged="TextBox_TextChanged" Height="32" />
         <Label x:Name="lbl_titulo" Content="Administración de clientes" Margin="28,47,0,0" Width="329" FontFamily="Arial Black" FontSize="20" Height="37" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button Content="VOLVER" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <Button Content="VOLVER" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Height="33" Width="118"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="-58,226,0,0" VerticalAlignment="Top"/>
 
     </Grid>

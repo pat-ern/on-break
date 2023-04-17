@@ -23,50 +23,23 @@ namespace Vistas.Paginas.Clientes
         public Agregar()
         {
             InitializeComponent();
+
+            string[] actividadEmpresaItems = new string[] { "Item 1", "Item 2", "Item 3" };
+            cbx_actividadEmpresa.ItemsSource = actividadEmpresaItems;
+
+
+            string[] tipoEmpresaItems = new string[] { "Item 1", "Item 2", "Item 3" };
+            cbx_tipoEmpresa.ItemsSource = tipoEmpresaItems;
         }
 
-        private void txt_Rut(object sender, TextChangedEventArgs e)
+        private void btn_volver_Click(object sender, RoutedEventArgs e)
         {
+            Paginas.Clientes.Index lista = new Index();
 
-        }
-
-        private void txt_razonSocial(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-
-        private void Txt_nombreContacto(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Index index = new Index();
             this.Close();
-            index.Show();
+
+            lista.Show();
 
         }
-
-        private void Button_Click_1(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void Button_Click_2(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-
-
-
-
-
-        //private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        //{
-
-        //}
     }
 }
