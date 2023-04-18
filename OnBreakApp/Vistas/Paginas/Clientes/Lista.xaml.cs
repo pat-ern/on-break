@@ -53,7 +53,7 @@ namespace Vistas.Paginas.Clientes
         {
             MainWindow mainWindow = new MainWindow();
             this.Close();
-            mainWindow.Show();
+
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
