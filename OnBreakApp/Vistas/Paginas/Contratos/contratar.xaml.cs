@@ -47,7 +47,7 @@ namespace Vistas.Paginas.Contratos
         private void btn_buscar_Click(object sender, RoutedEventArgs e)
         {
             //abrir pagina de lista de clientes para poder buscar informacion
-            Paginas.Clientes.Lista lista = new Lista();
+            Paginas.Clientes.Lista lista = new Paginas.Clientes.Lista();
             lista.Show();
         }
 
