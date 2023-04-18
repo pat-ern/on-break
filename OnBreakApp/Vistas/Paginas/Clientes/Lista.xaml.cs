@@ -124,5 +124,10 @@ namespace Vistas.Paginas.Clientes
                 index.Show();
             }
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.miTabla.ItemsSource = this.customers;
+        }
     }
 }
