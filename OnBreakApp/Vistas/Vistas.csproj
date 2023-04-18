@@ -15,11 +15,18 @@
     <None Remove="objetivo.png" />
     <None Remove="OnBreak.png" />
     <None Remove="simbolo-de-circulo-de-contraste.png" />
+	<None Remove="añadir_cliente.png" />
+	<None Include="enviar.png" />
+	<None Include="limpiar.png" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="FontAwesome" Version="4.7.0" />
     <PackageReference Include="MahApps.Metro" Version="2.4.9" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BibliotecaDeClases\BibliotecaDeClases.csproj" />
   </ItemGroup>
 
   <ItemGroup>
@@ -30,6 +37,9 @@
     <Resource Include="objetivo.png" />
     <Resource Include="OnBreak.png" />
     <Resource Include="simbolo-de-circulo-de-contraste.png" />
+	<Resource Include="añadir_cliente.png" />
+	<Resource Include="enviar.png" />
+	<Resource Include="limpiar.png" />
 	  
   </ItemGroup>
 

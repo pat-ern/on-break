@@ -22,7 +22,7 @@
                 <Label Content="ADMINISTRACIÓN DE CONTRATOS"/>
             </StackPanel>
         </Button>
-        <Button x:Name="btn_cliente" HorizontalAlignment="Left" Margin="121,330,0,0" VerticalAlignment="Top" Height="192" Width="379" Background="Cyan"  FontSize="18">
+        <Button x:Name="btn_cliente" HorizontalAlignment="Left" Margin="121,330,0,0" VerticalAlignment="Top" Height="192" Width="379" Background="Cyan"  FontSize="18" Click="btn_cliente_Click">
             <StackPanel>
                 <Image Source="/cliente.png" Width="100"/>
                 <Label Content="LISTADO DE CLIENTES"/>
