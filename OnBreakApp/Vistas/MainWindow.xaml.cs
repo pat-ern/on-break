@@ -70,5 +70,12 @@ namespace Vistas
             this.Close();
             lista.Show();
         }
+
+        private void btn_adm_contratos_Click(object sender, RoutedEventArgs e)
+        {
+            Paginas.Contratos.Contratar contratar = new Paginas.Contratos.Contratar();
+            this.Close();
+            contratar.Show();
+        }
     }
 }
