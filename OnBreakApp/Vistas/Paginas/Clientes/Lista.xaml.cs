@@ -109,5 +109,19 @@ namespace Vistas.Paginas.Clientes
             this.miTabla.ItemsSource = resultadosTip.ToList();
 
         }
+
+        private void miTabla_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            // al apretar un dato de la tabla quiero que me lleve a otra ventana
+
+            var clienteSeleccionado = miTabla.SelectedItem as Cliente;
+
+            if (clienteSeleccionado != null)
+            {
+                var index = new Index(clienteSeleccionado);
+                this.Close();
+                index.Show();
+            }
+        }
     }
 }
