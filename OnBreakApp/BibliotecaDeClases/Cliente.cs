@@ -14,7 +14,7 @@ namespace BibliotecaDeClases
         public string MailContacto { get; set; } = string.Empty;
         public string Direccion { get; set; } = string.Empty;
         public string Telefono { get; set; } = string.Empty;
-        public int IdActividadEmpresa { get; set; } = 0;
+        public ActividadEmpresa ActividadEmpresa { get; set; } = new ActividadEmpresa();
         public TipoEmpresa TipoEmpresa { get; set; } = new TipoEmpresa();
 
         public Cliente() 
@@ -30,7 +30,7 @@ namespace BibliotecaDeClases
             MailContacto = string.Empty;
             Direccion = string.Empty;
             Telefono = string.Empty;
-            IdActividadEmpresa = 0;
+            ActividadEmpresa = new ActividadEmpresa();
             TipoEmpresa = new TipoEmpresa();
         }
 

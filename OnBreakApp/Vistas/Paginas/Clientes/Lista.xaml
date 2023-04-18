@@ -13,16 +13,26 @@
         <Button Content="Volver" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Height="33" Width="118"/>
         
         <!-- BUSQUEDA RUT -->
-        <TextBox Controls:TextBoxHelper.Watermark="Buscar por Rut" HorizontalAlignment="Right" Margin="0,10,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Controls:TextBoxHelper.ClearTextButton="True" TextChanged="TextBox_TextChanged" Height="32" />
+        <TextBox x:Name="txt_busquedaRut" Controls:TextBoxHelper.Watermark="Buscar por Rut" HorizontalAlignment="Right" Margin="0,10,10,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Controls:TextBoxHelper.ClearTextButton="True" TextChanged="TextBox_TextChanged" Height="32" />
         <!-- FILTRO TIPO EMPRESA -->
         <mah:DropDownButton x:Name="filtroTipoEmpresa" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,268,0" Width="240" Height="32"  
                     Content="Tipo de empresa"
                     ItemsSource="{Binding tipoEmpresaItems}">
+            <mah:DropDownButton.ItemContainerStyle>
+                <Style TargetType="MenuItem">
+                    <EventSetter Event="Click" Handler="TipoEmpresa_Click"/>
+                </Style>
+            </mah:DropDownButton.ItemContainerStyle>
         </mah:DropDownButton>
         <!-- FILTRO ACTIVIDAD EMPRESA -->
         <mah:DropDownButton x:Name="filtroActividadEmpresa" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="230,10,0,0" Width="240" Height="32"
                     Content="Actividad empresa"
                     ItemsSource="{Binding actividadEmpresaItems}">
+            <mah:DropDownButton.ItemContainerStyle>
+                <Style TargetType="MenuItem">
+                    <EventSetter Event="Click" Handler="ActividadEmpresa_Click"/>
+                </Style>
+            </mah:DropDownButton.ItemContainerStyle>
         </mah:DropDownButton>
 
         <Grid Margin="0,61,0,0">
@@ -38,8 +48,8 @@
                     <DataGridTextColumn Header="Correo Contacto" Binding="{Binding MailContacto}" />
                     <DataGridTextColumn Header="Direccion" Binding="{Binding Direccion}" />
                     <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />
-                    <DataGridTextColumn Header="Actividad Empresa" Binding="{Binding IdActividadEmpresa}" />
-                    <DataGridTextColumn Header="Tipo Empresa" Binding="{Binding TipoEmpresa}" />
+                    <DataGridTextColumn Header="Actividad Empresa" Binding="{Binding ActividadEmpresa.Descripcion}" />
+                    <DataGridTextColumn Header="Tipo Empresa" Binding="{Binding TipoEmpresa.Descripcion}" />
                 </DataGrid.Columns>
             </DataGrid>
 
