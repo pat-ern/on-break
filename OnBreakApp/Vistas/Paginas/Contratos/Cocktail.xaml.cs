@@ -10,28 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace Vistas.Paginas.Contratos
 {
     /// <summary>
-    /// Lógica de interacción para contratar.xaml
+    /// Lógica de interacción para Cocktail.xaml
     /// </summary>
-    public partial class contratar : Window
+    public partial class Cocktail : Page
     {
-        public contratar()
+        public Cocktail()
         {
             InitializeComponent();
-        }
-
-        private void InitializeComponent()
-        {
-            throw new NotImplementedException();
-        }
-
-        private void btn_coffee_Click(object sender, RoutedEventArgs e)
-        {
-            
         }
     }
 }
