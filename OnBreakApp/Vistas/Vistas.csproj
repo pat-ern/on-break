@@ -14,6 +14,10 @@
     <None Remove="lista-de-verificacion.png" />
     <None Remove="objetivo.png" />
     <None Remove="OnBreak.png" />
+    <None Remove="Paginas\Contratos\buscar.png" />
+    <None Remove="Paginas\Contratos\coctel.png" />
+    <None Remove="Paginas\Contratos\coffee-break.png" />
+    <None Remove="Paginas\Contratos\plato-de-servir.png" />
     <None Remove="simbolo-de-circulo-de-contraste.png" />
 	<None Remove="añadir_cliente.png" />
 	<None Include="enviar.png" />
@@ -26,12 +30,20 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\BibliotecaDeClases\BibliotecaDeClases.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="adm_clientes.png" />
     <Resource Include="cliente.png" />
     <Resource Include="contrato.png" />
     <Resource Include="lista-de-verificacion.png" />
     <Resource Include="objetivo.png" />
     <Resource Include="OnBreak.png" />
+    <Resource Include="Paginas\Contratos\buscar.png" />
+    <Resource Include="Paginas\Contratos\coctel.png" />
+    <Resource Include="Paginas\Contratos\coffee-break.png" />
+    <Resource Include="Paginas\Contratos\plato-de-servir.png" />
     <Resource Include="simbolo-de-circulo-de-contraste.png" />
 	<Resource Include="añadir_cliente.png" />
 	<Resource Include="enviar.png" />

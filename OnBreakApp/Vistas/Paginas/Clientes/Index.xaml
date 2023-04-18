@@ -10,13 +10,13 @@
         mc:Ignorable="d"
         Title="OnBreakApp" Height="600" Width="1000">
     <Grid>
-        <Button x:Name="btn_listado" HorizontalAlignment="Left" Margin="126,193,0,0" VerticalAlignment="Top" Height="192" Width="380" Background="Cyan"  FontSize="18" Click="btn_listado_Click">
+        <Button x:Name="btn_listado" HorizontalAlignment="Left" Margin="668,138,0,0" VerticalAlignment="Top" Height="154" Width="312" Background="Cyan"  FontSize="18" Click="btn_listado_Click">
             <StackPanel>
                 <Image Source="/cliente.png" Width="100"/>
                 <Label Content="LISTADO DE CLIENTES"/>
             </StackPanel>
         </Button>
-        <Button x:Name="btn_agregar" HorizontalAlignment="Left" Margin="536,193,0,0" VerticalAlignment="Top" Height="192" Width="380" Background="CornflowerBlue"  FontSize="18" Click="btn_agregar_Click">
+        <Button x:Name="btn_agregar" HorizontalAlignment="Left" Margin="668,342,0,0" VerticalAlignment="Top" Height="168" Width="312" Background="CornflowerBlue"  FontSize="18" Click="btn_agregar_Click">
             <StackPanel RenderTransformOrigin="0.5,0.5">
                 <StackPanel.RenderTransform>
                     <TransformGroup>
@@ -30,10 +30,23 @@
                 <Label Content="AGREGAR CLIENTES" Height="31"/>
             </StackPanel>
         </Button>
-        <TextBox Controls:TextBoxHelper.Watermark="Buscar" HorizontalAlignment="Left" Margin="650,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="293" Controls:TextBoxHelper.ClearTextButton="True" TextChanged="TextBox_TextChanged" Height="32" />
-        <Label x:Name="lbl_titulo" Content="Administración de clientes" Margin="28,47,0,0" Width="329" FontFamily="Arial Black" FontSize="20" Height="37" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button Content="VOLVER" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Click"/>
+        <TextBox x:Name="txt_busqueda" Controls:TextBoxHelper.Watermark="Buscar" HorizontalAlignment="Left" Margin="706,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="237" Controls:TextBoxHelper.ClearTextButton="True" TextChanged="TextBox_TextChanged" Height="32" />
+        <Button Content="VOLVER" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Height="33" Width="118"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="-58,226,0,0" VerticalAlignment="Top"/>
+
+        <DataGrid x:Name="miTabla" AutoGenerateColumns="False" Margin="45,175,374,175">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="RUT" Binding="{Binding RutCliente}" />
+                <DataGridTextColumn Header="Razón Social" Binding="{Binding RazonSocial}" />
+                <DataGridTextColumn Header="Nombre Contacto" Binding="{Binding NombreContacto}" />
+                <DataGridTextColumn Header="Correo Contacto" Binding="{Binding MailContacto}" />
+                <DataGridTextColumn Header="Direccion" Binding="{Binding Direccion}" />
+                <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />
+                <DataGridTextColumn Header="Actividad Empresa" Binding="{Binding IdActividadEmpresa}" />
+                <DataGridTextColumn Header="Tipo Empresa" Binding="{Binding TipoEmpresa}" />
+            </DataGrid.Columns>
+        </DataGrid>
+        <Button x:Name="btn_Buscar" Content="Buscar" HorizontalAlignment="Left" Margin="650,35,0,0" VerticalAlignment="Top" Width="56" Click="btn_Buscar_Click" RenderTransformOrigin="-1.911,0.807" Height="32" Background="CornflowerBlue"/>
 
     </Grid>
 </mah:MetroWindow>

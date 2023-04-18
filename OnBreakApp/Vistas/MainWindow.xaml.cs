@@ -69,11 +69,19 @@ namespace Vistas
             index.Show();
         }
 
+        private void btn_cliente_Click(object sender, RoutedEventArgs e)
+        {
+            // ABRIR LA VISTA DE LISTA DE CLIENTES
+            Paginas.Clientes.Lista lista = new Paginas.Clientes.Lista();
+            this.Close();
+            lista.Show();
+        }
+
         private void btn_adm_contratos_Click(object sender, RoutedEventArgs e)
         {
-            Paginas.Contratos.contratar index = new Paginas.Contratos.contratar();
+            Paginas.Contratos.Contratar contratar = new Paginas.Contratos.Contratar();
             this.Close();
-            index.Show();
+            contratar.Show();
         }
     }
 }
