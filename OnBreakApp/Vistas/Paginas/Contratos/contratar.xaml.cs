@@ -11,17 +11,51 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Vistas.Paginas.Clientes;
 
 namespace Vistas.Paginas.Contratos
 {
     /// <summary>
-    /// Lógica de interacción para contratar.xaml
+    /// Lógica de interacción para Contratar.xaml
     /// </summary>
-    public partial class contratar : Window
+    public partial class Contratar
     {
-        public contratar()
+        public Contratar()
         {
             InitializeComponent();
+        }
+
+        private void btn_coffee_Click(object sender, RoutedEventArgs e)
+        {
+            //poner la page en el frame
+            Paginas.Contratos.Coffee coffee = new Paginas.Contratos.Coffee();
+            vtn_opc.Content = coffee;
+        }
+
+        private void btn_cocktail_Click(object sender, RoutedEventArgs e)
+        {
+            Paginas.Contratos.Cocktail cocktail = new Paginas.Contratos.Cocktail();
+            vtn_opc.Content = cocktail;
+        }
+
+        private void btn_cena_Click(object sender, RoutedEventArgs e)
+        {
+            Paginas.Contratos.Cena cena = new Paginas.Contratos.Cena();
+            vtn_opc.Content = cena;
+        }
+
+        private void btn_buscar_Click(object sender, RoutedEventArgs e)
+        {
+            //abrir pagina de lista de clientes para poder buscar informacion
+            Paginas.Clientes.Lista lista = new Lista();
+            lista.Show();
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow mainWindow = new MainWindow();
+            this.Close();
+            mainWindow.Show();
         }
     }
 }
