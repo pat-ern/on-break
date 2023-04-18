@@ -12,7 +12,7 @@
         <Label Content="Modalidad de Servicio:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18"/>
         <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Left" Margin="248,10,0,0" VerticalAlignment="Top" Width="230" SelectionChanged="comboBoxModalidades_SelectionChanged" Height="34"/>
         <Label Content="¿Alimentación Vegetariana?" HorizontalAlignment="Left" Margin="10,71,0,0" VerticalAlignment="Top" FontSize="18"/>
-        <CheckBox x:Name="checkBoxVegetariana" HorizontalAlignment="Left" Margin="248,79,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,0.557" Height="17" Width="20"/>
+        <CheckBox x:Name="checkBoxVegetariana" Content="Sí" HorizontalAlignment="Left" Margin="248,79,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,0.557" Height="17" Width="38"/>
         <Button Content="Contratar" HorizontalAlignment="Left" Margin="248,123,0,0" VerticalAlignment="Top" Width="95" Height="33" Background="{DynamicResource MahApps.Brushes.Accent}"/>
 
     </Grid>

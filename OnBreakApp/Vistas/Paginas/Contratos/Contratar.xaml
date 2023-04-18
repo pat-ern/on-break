@@ -16,25 +16,25 @@
                 <Image Source="/Paginas/Contratos/buscar.png" Width="20"/>
             </StackPanel>
         </Button>
-        <Button x:Name="btn_cocktail" HorizontalAlignment="Left" Margin="729,252,0,0" VerticalAlignment="Top" Height="116" Width="225" Background="Coral"  FontSize="20" Click="btn_cocktail_Click">
+        <Button x:Name="btn_cocktail" HorizontalAlignment="Left" Margin="709,252,0,0" VerticalAlignment="Top" Height="116" Width="245" Background="Coral"  FontSize="20" Click="btn_cocktail_Click">
             <StackPanel>
                 <Image Source="/Paginas/Contratos/coctel.png" Width="50"/>
                 <Label Content="Cocktail"/>
             </StackPanel>
         </Button>
-        <Button x:Name="btn_coffee" HorizontalAlignment="Left" Margin="729,87,0,0" VerticalAlignment="Top" Height="122" Width="225" Background="BurlyWood"  FontSize="20" Click="btn_coffee_Click">
+        <Button x:Name="btn_coffee" HorizontalAlignment="Left" Margin="709,87,0,0" VerticalAlignment="Top" Height="122" Width="245" Background="BurlyWood"  FontSize="20" Click="btn_coffee_Click">
             <StackPanel>
                 <Image Source="/Paginas/Contratos/coffee-break.png" Width="50"/>
                 <Label Content="Coffee Break"/>
             </StackPanel>
         </Button>
-        <Button x:Name="btn_cena" HorizontalAlignment="Left" Margin="727,413,0,0" VerticalAlignment="Top" Height="120" Width="225" Background="{DynamicResource MahApps.Brushes.Gray7}"  FontSize="20" Click="btn_cena_Click">
+        <Button x:Name="btn_cena" HorizontalAlignment="Left" Margin="709,413,0,0" VerticalAlignment="Top" Height="120" Width="243" Background="{DynamicResource MahApps.Brushes.Gray7}"  FontSize="20" Click="btn_cena_Click">
             <StackPanel>
                 <Image Source="/Paginas/Contratos/plato-de-servir.png" Width="50"/>
                 <Label Content="Cenas"/>
             </StackPanel>
         </Button>
-        <Frame x:Name="vtn_opc" Margin="32,226,313,53" NavigationUIVisibility="Hidden" Background="#00000000" />
+        <Frame x:Name="vtn_opc" Margin="32,226,339,53" NavigationUIVisibility="Hidden" Background="#00000000" />
         <Label x:Name="lbl_rut" Content="Rut del Cliente:" HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top" Width="154" FontSize="18"/>
         <TextBox x:Name="txtRut" Controls:TextBoxHelper.Watermark="Buscar" HorizontalAlignment="Left" Margin="278,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206" Controls:TextBoxHelper.ClearTextButton="True" Height="30" />
         <Label x:Name="lbl_razon" Content="Razón Social:" HorizontalAlignment="Left" Margin="42,165,0,0" VerticalAlignment="Top" Width="135" FontSize="18"/>

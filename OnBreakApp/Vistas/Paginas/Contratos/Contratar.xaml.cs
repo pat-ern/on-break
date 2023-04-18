@@ -24,11 +24,6 @@ namespace Vistas.Paginas.Contratos
         public Contratar()
         {
             InitializeComponent();
-
- 
-
-
-
         }
 
         private void btn_coffee_Click(object sender, RoutedEventArgs e)
