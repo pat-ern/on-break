@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using BibliotecaDeClases;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -37,7 +38,9 @@ namespace Vistas.Paginas.Clientes
 
         private void btn_volver_Click(object sender, RoutedEventArgs e)
         {
-            Paginas.Clientes.Index lista = new Index();
+
+            var cliente = new Cliente();
+            Paginas.Clientes.Index lista = new Index(cliente);
 
             this.Close();
 

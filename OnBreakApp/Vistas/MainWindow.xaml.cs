@@ -1,3 +1,4 @@
+using BibliotecaDeClases;
 using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
@@ -58,7 +59,9 @@ namespace Vistas
         private void btn_adm_cliente_Click(object sender, RoutedEventArgs e)
         {
             // ABRIR LA VISTA DE ADMINISTRACION DE CLIENTES
-            Paginas.Clientes.Index index = new Paginas.Clientes.Index();
+
+            var cliente = new Cliente();
+            Paginas.Clientes.Index index = new Paginas.Clientes.Index(cliente);
             this.Close();
             index.Show();
         }

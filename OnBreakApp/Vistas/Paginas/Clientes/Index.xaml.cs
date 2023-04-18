@@ -1,5 +1,6 @@
 ﻿using BibliotecaDeClases;
 using MahApps.Metro.Controls;
+using MahApps.Metro.Controls.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,57 +22,36 @@ namespace Vistas.Paginas.Clientes
     /// </summary>
     public partial class Index 
     {
-        public Index()
+        public Index(Cliente cliente)
         {
             InitializeComponent();
-
-            //miTabla.Visibility = Visibility.Hidden;
+            var customers = new List<Cliente>();
+            customers.Add(cliente);
+            miTabla.ItemsSource = customers;
+            miTabla.Visibility = Visibility.Visible;
         }
-
-
         private void btn_listado_Click(object sender, RoutedEventArgs e)
         {
            Paginas.Clientes.Lista lista = new Lista();
-
-            //this.Close();
-
+            this.Close();
             lista.Show();
         }
 
         private void btn_agregar_Click(object sender, RoutedEventArgs e)
         {
-
             Paginas.Clientes.Agregar agregar = new Agregar();
             this.Close();
             agregar.Show();
-  
-
-
-
         }
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
-        }
-
-        private void Tile_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             this.Close();
             mainWindow.Show();
         }
-
-        private void btn_Buscar_Click(object sender, RoutedEventArgs e)
-        {
-
-            List<Cliente> customers = new List<Cliente>();
-
+        private async void btn_Buscar_Click(object sender, RoutedEventArgs e)
+        {     
+            List <Cliente> customers = new List<Cliente>();
             customers.Add(new Cliente { RutCliente = "16591230", RazonSocial = "Advance", NombreContacto = "Pedro Ramirez", MailContacto = "pramires@mail.com", Direccion = "Calle 1 Villa Las Americas", Telefono = "12345678", IdActividadEmpresa = 1, TipoEmpresa = new TipoEmpresa() });
             customers.Add(new Cliente { RutCliente = "12854638", RazonSocial = "Global Solutions", NombreContacto = "María González", MailContacto = "mgonzalez@mail.com", Direccion = "Av. Providencia 1234", Telefono = "22334455", IdActividadEmpresa = 2, TipoEmpresa = new TipoEmpresa() });
             customers.Add(new Cliente { RutCliente = "13678945", RazonSocial = "Innovatec", NombreContacto = "Luisa Rojas", MailContacto = "lrojas@mail.com", Direccion = "San Diego 456", Telefono = "99887766", IdActividadEmpresa = 3, TipoEmpresa = new TipoEmpresa() });
@@ -83,18 +63,26 @@ namespace Vistas.Paginas.Clientes
             customers.Add(new Cliente { RutCliente = "14567890", RazonSocial = "Innovative Minds", NombreContacto = "Andrea Castro", MailContacto = "acastro@mail.com", Direccion = "Las Condes 456", Telefono = "22110033", IdActividadEmpresa = 2, TipoEmpresa = new TipoEmpresa() });
             customers.Add(new Cliente { RutCliente = "17654321", RazonSocial = "Creative Designs", NombreContacto = "Ricardo Fernández", MailContacto = "rfernandez@mail.com", Direccion = "Santiago Centro 789", Telefono = "66778899", IdActividadEmpresa = 4, TipoEmpresa = new TipoEmpresa() });
 
-
             string textoBusqueda = txt_busqueda.Text;
+            // validar que el campo ingresado solo sea numeros
+            if (int.TryParse(textoBusqueda, out int numero))
+            {
+                var resultados = from c in customers
+                                 where c.RutCliente.Contains(textoBusqueda)
+                                 select c;
+                miTabla.ItemsSource = resultados.ToList();
+            }
+            else
+            {
+                await this.ShowMessageAsync("Advertencia", "Debe ingresar un rut válido.");
+            }
+        }
 
-            // Consultar la lista de objetos para obtener los resultados de la búsqueda
-            var resultados = from c in customers
-                             where c.RutCliente.Contains(textoBusqueda)
-                             select c;
-
-            // Agregar los resultados al control DataGrid
-            miTabla.ItemsSource = resultados.ToList();
-
-            miTabla.Visibility = Visibility.Visible;
+        private void btn_volver_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            this.Close();
+            main.Show();
         }
     }
 }

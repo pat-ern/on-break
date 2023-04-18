@@ -30,11 +30,11 @@
                 <Label Content="AGREGAR CLIENTES" Height="31"/>
             </StackPanel>
         </Button>
-        <TextBox x:Name="txt_busqueda" Controls:TextBoxHelper.Watermark="Buscar" HorizontalAlignment="Left" Margin="706,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="237" Controls:TextBoxHelper.ClearTextButton="True" TextChanged="TextBox_TextChanged" Height="32" />
-        <Button Content="VOLVER" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Height="33" Width="118"/>
+        <TextBox x:Name="txt_busqueda" Controls:TextBoxHelper.Watermark="Buscar" HorizontalAlignment="Left" Margin="706,35,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="237" Controls:TextBoxHelper.ClearTextButton="True" Height="32" />
+        <Button x:Name="btn_volver" Content="VOLVER" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Height="33" Width="118" Click="btn_volver_Click"/>
         <Button Content="Button" HorizontalAlignment="Left" Margin="-58,226,0,0" VerticalAlignment="Top"/>
 
-        <DataGrid x:Name="miTabla" AutoGenerateColumns="False" Margin="45,175,374,175">
+        <DataGrid x:Name="miTabla" AutoGenerateColumns="False" Margin="45,175,374,175" ItemsSource="{Binding}">
             <DataGrid.Columns>
                 <DataGridTextColumn Header="RUT" Binding="{Binding RutCliente}" />
                 <DataGridTextColumn Header="Razón Social" Binding="{Binding RazonSocial}" />

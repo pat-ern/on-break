@@ -30,7 +30,7 @@
                 <RowDefinition Height="388*"/>
                 <RowDefinition Height="197*"/>
             </Grid.RowDefinitions>
-            <DataGrid x:Name="miTabla" AutoGenerateColumns="False" Margin="10,10,10,10" Grid.RowSpan="2">
+            <DataGrid x:Name="miTabla" AutoGenerateColumns="False" Margin="10,10,10,10" Grid.RowSpan="2" SelectionChanged="miTabla_SelectionChanged">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="RUT" Binding="{Binding RutCliente}" />
                     <DataGridTextColumn Header="Razón Social" Binding="{Binding RazonSocial}" />
