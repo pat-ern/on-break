@@ -36,8 +36,9 @@
         </Button>
         <Frame x:Name="vtn_opc" Margin="32,226,313,53" NavigationUIVisibility="Hidden" Background="#00000000" />
         <Label x:Name="lbl_rut" Content="Rut del Cliente:" HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top" Width="154" FontSize="18"/>
-        <TextBox x:Name="txtRut" Controls:TextBoxHelper.Watermark="Buscar" HorizontalAlignment="Left" Margin="278,108,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206" Controls:TextBoxHelper.ClearTextButton="True" Height="30" />
         <Label x:Name="lbl_razon" Content="Razón Social:" HorizontalAlignment="Left" Margin="42,165,0,0" VerticalAlignment="Top" Width="135" FontSize="18"/>
-        <TextBox x:Name="txtRazon" HorizontalAlignment="Left" Margin="277,167,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="260" Height="30"/>
+        <Label x:Name="lbl_Rut" Content="Buscar" HorizontalAlignment="Left" Margin="277,110,0,0" VerticalAlignment="Top" Width="217" Controls:TextBoxHelper.ClearTextButton="True"/>
+        <Label x:Name="lbl_razonSocial" Content="Razon Social
+               " HorizontalAlignment="Left" Margin="277,171,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.086,-5.52" Width="217" Controls:TextBoxHelper.ClearTextButton="True"/>
     </Grid>
 </mah:MetroWindow>

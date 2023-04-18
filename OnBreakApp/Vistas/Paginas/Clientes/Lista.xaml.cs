@@ -12,6 +12,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using Vistas.Paginas.Contratos;
 
 namespace Vistas.Paginas.Clientes
 {
@@ -118,7 +119,7 @@ namespace Vistas.Paginas.Clientes
 
             if (clienteSeleccionado != null)
             {
-                var index = new Index(clienteSeleccionado);
+                var index = new Contratar(clienteSeleccionado);
                 this.Close();
                 index.Show();
             }
