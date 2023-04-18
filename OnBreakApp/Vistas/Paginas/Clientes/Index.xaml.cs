@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using BibliotecaDeClases;
+using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +24,8 @@ namespace Vistas.Paginas.Clientes
         public Index()
         {
             InitializeComponent();
+
+            //miTabla.Visibility = Visibility.Hidden;
         }
 
 
@@ -30,7 +33,7 @@ namespace Vistas.Paginas.Clientes
         {
            Paginas.Clientes.Lista lista = new Lista();
 
-            this.Close();
+            //this.Close();
 
             lista.Show();
         }
@@ -62,6 +65,36 @@ namespace Vistas.Paginas.Clientes
             MainWindow mainWindow = new MainWindow();
             this.Close();
             mainWindow.Show();
+        }
+
+        private void btn_Buscar_Click(object sender, RoutedEventArgs e)
+        {
+
+            List<Cliente> customers = new List<Cliente>();
+
+            customers.Add(new Cliente { RutCliente = "16591230", RazonSocial = "Advance", NombreContacto = "Pedro Ramirez", MailContacto = "pramires@mail.com", Direccion = "Calle 1 Villa Las Americas", Telefono = "12345678", IdActividadEmpresa = 1, TipoEmpresa = new TipoEmpresa() });
+            customers.Add(new Cliente { RutCliente = "12854638", RazonSocial = "Global Solutions", NombreContacto = "María González", MailContacto = "mgonzalez@mail.com", Direccion = "Av. Providencia 1234", Telefono = "22334455", IdActividadEmpresa = 2, TipoEmpresa = new TipoEmpresa() });
+            customers.Add(new Cliente { RutCliente = "13678945", RazonSocial = "Innovatec", NombreContacto = "Luisa Rojas", MailContacto = "lrojas@mail.com", Direccion = "San Diego 456", Telefono = "99887766", IdActividadEmpresa = 3, TipoEmpresa = new TipoEmpresa() });
+            customers.Add(new Cliente { RutCliente = "19876543", RazonSocial = "TechCorp", NombreContacto = "Manuel Díaz", MailContacto = "mdiaz@mail.com", Direccion = "Las Condes 789", Telefono = "77665544", IdActividadEmpresa = 1, TipoEmpresa = new TipoEmpresa() });
+            customers.Add(new Cliente { RutCliente = "14123456", RazonSocial = "EcoGreen", NombreContacto = "Carla Vargas", MailContacto = "cvargas@mail.com", Direccion = "Maipú 321", Telefono = "11223344", IdActividadEmpresa = 4, TipoEmpresa = new TipoEmpresa() });
+            customers.Add(new Cliente { RutCliente = "11567890", RazonSocial = "SoftTech", NombreContacto = "Javier Soto", MailContacto = "jsoto@mail.com", Direccion = "Providencia 567", Telefono = "33221100", IdActividadEmpresa = 2, TipoEmpresa = new TipoEmpresa() });
+            customers.Add(new Cliente { RutCliente = "16789012", RazonSocial = "SmartSolutions", NombreContacto = "Ana López", MailContacto = "alopez@mail.com", Direccion = "La Reina 345", Telefono = "55443322", IdActividadEmpresa = 1, TipoEmpresa = new TipoEmpresa() });
+            customers.Add(new Cliente { RutCliente = "13245678", RazonSocial = "FutureTech", NombreContacto = "Juan Torres", MailContacto = "jtorres@mail.com", Direccion = "Providencia 999", Telefono = "88990011", IdActividadEmpresa = 3, TipoEmpresa = new TipoEmpresa() });
+            customers.Add(new Cliente { RutCliente = "14567890", RazonSocial = "Innovative Minds", NombreContacto = "Andrea Castro", MailContacto = "acastro@mail.com", Direccion = "Las Condes 456", Telefono = "22110033", IdActividadEmpresa = 2, TipoEmpresa = new TipoEmpresa() });
+            customers.Add(new Cliente { RutCliente = "17654321", RazonSocial = "Creative Designs", NombreContacto = "Ricardo Fernández", MailContacto = "rfernandez@mail.com", Direccion = "Santiago Centro 789", Telefono = "66778899", IdActividadEmpresa = 4, TipoEmpresa = new TipoEmpresa() });
+
+
+            string textoBusqueda = txt_busqueda.Text;
+
+            // Consultar la lista de objetos para obtener los resultados de la búsqueda
+            var resultados = from c in customers
+                             where c.RutCliente.Contains(textoBusqueda)
+                             select c;
+
+            // Agregar los resultados al control DataGrid
+            miTabla.ItemsSource = resultados.ToList();
+
+            miTabla.Visibility = Visibility.Visible;
         }
     }
 }

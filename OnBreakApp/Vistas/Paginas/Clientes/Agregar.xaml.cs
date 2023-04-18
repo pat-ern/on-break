@@ -30,6 +30,9 @@ namespace Vistas.Paginas.Clientes
 
             string[] tipoEmpresaItems = new string[] { "Item 1", "Item 2", "Item 3" };
             cbx_tipoEmpresa.ItemsSource = tipoEmpresaItems;
+
+
+
         }
 
         private void btn_volver_Click(object sender, RoutedEventArgs e)
