@@ -108,5 +108,10 @@ namespace Vistas.Paginas.Clientes
             this.miTabla.ItemsSource = resultadosTip.ToList();
 
         }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.miTabla.ItemsSource = this.customers;
+        }
     }
 }
