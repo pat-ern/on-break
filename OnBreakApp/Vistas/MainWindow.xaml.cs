@@ -82,7 +82,8 @@ namespace Vistas
 
         private void btn_adm_contratos_Click(object sender, RoutedEventArgs e)
         {
-            Paginas.Contratos.Contratar contratar = new Paginas.Contratos.Contratar();
+            Cliente cliente = new Cliente();
+            Paginas.Contratos.Contratar contratar = new Paginas.Contratos.Contratar(cliente);
             this.Close();
             contratar.Show();
         }

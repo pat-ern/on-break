@@ -21,9 +21,22 @@ namespace Vistas.Paginas.Contratos
     /// </summary>
     public partial class Contratar
     {
-        public Contratar()
+        public Contratar(Cliente cliente)
         {
             InitializeComponent();
+
+            //txtRut.Context = cliente.RutCliente;
+        
+            lbl_Rut.Content = cliente.RutCliente;
+
+            lbl_razonSocial.Content = cliente.RazonSocial;
+
+
+
+ 
+
+
+
         }
 
         private void btn_coffee_Click(object sender, RoutedEventArgs e)
