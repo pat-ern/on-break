@@ -86,5 +86,10 @@ namespace Vistas
             this.Close();
             contratar.Show();
         }
+
+        private void btn_contratos_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
