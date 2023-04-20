@@ -25,13 +25,6 @@ namespace Vistas.Paginas.Clientes
         {
             InitializeComponent();
 
-            string[] actividadEmpresaItems = new string[] { "Item 1", "Item 2", "Item 3" };
-            cbx_actividadEmpresa.ItemsSource = actividadEmpresaItems;
-
-
-            string[] tipoEmpresaItems = new string[] { "Item 1", "Item 2", "Item 3" };
-            cbx_tipoEmpresa.ItemsSource = tipoEmpresaItems;
-
 
 
         }
@@ -39,8 +32,7 @@ namespace Vistas.Paginas.Clientes
         private void btn_volver_Click(object sender, RoutedEventArgs e)
         {
 
-            var cliente = new Cliente();
-            Paginas.Clientes.Index lista = new Index(cliente);
+            Paginas.Clientes.Index lista = new Index();
 
             this.Close();
 
