@@ -13,7 +13,6 @@
     <None Remove="assets\icon\back-button.png" />
     <None Remove="assets\icon\buscar.png" />
     <None Remove="assets\icon\clear-filter.png" />
-    <None Remove="cliente.png" />
     <None Remove="contrato.png" />
     <None Remove="lista-de-verificacion.png" />
     <None Remove="objetivo.png" />
