@@ -11,7 +11,7 @@
         Title="OnBreakApp" Height="600" Width="1000">
     <Grid>
         <Button Content="VOLVER" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Height="33" Width="118" Click="Button_Click"/>
-        <Button x:Name="btn_buscar" HorizontalAlignment="Left" Margin="499,106,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="-1.911,0.807" Height="32" Background="CornflowerBlue" Click="btn_buscar_Click">
+        <Button x:Name="btn_buscar" HorizontalAlignment="Left" Margin="500,108,0,0" VerticalAlignment="Top" Width="35" RenderTransformOrigin="-1.911,0.807" Height="30" Background="CornflowerBlue" Click="btn_buscar_Click">
             <StackPanel>
                 <Image Source="/Paginas/Contratos/buscar.png" Width="20"/>
             </StackPanel>
@@ -37,8 +37,7 @@
         <Frame x:Name="vtn_opc" Margin="32,226,339,53" NavigationUIVisibility="Hidden" Background="#00000000" />
         <Label x:Name="lbl_rut" Content="Rut del Cliente:" HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top" Width="154" FontSize="18"/>
         <Label x:Name="lbl_razon" Content="Razón Social:" HorizontalAlignment="Left" Margin="42,165,0,0" VerticalAlignment="Top" Width="135" FontSize="18"/>
-        <Label x:Name="lbl_Rut" Content="Buscar" HorizontalAlignment="Left" Margin="277,110,0,0" VerticalAlignment="Top" Width="217" Controls:TextBoxHelper.ClearTextButton="True"/>
-        <Label x:Name="lbl_razonSocial" Content="Razon Social
-               " HorizontalAlignment="Left" Margin="277,171,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.086,-5.52" Width="217" Controls:TextBoxHelper.ClearTextButton="True"/>
+        <TextBox x:Name="txt_Rut" HorizontalAlignment="Left" Margin="277,109,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206" Height="29"/>
+        <TextBox x:Name="txt_razonSocial" HorizontalAlignment="Left" Margin="277,165,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="206" Height="29"/>
     </Grid>
 </mah:MetroWindow>

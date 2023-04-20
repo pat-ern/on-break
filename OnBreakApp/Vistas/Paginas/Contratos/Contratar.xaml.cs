@@ -21,19 +21,24 @@ namespace Vistas.Paginas.Contratos
     /// </summary>
     public partial class Contratar
     {
+
+        private static Cliente? _cliente;
+        public Contratar()
+        {
+            InitializeComponent();
+
+        }
         public Contratar(Cliente cliente)
         {
             InitializeComponent();
 
-            //txtRut.Context = cliente.RutCliente;
-        
-            lbl_Rut.Content = cliente.RutCliente;
+            txt_Rut.Text = cliente.RutCliente;
+            txt_razonSocial.Text = cliente.RazonSocial;
 
-            lbl_razonSocial.Content = cliente.RazonSocial;
-
+            _cliente = cliente;
 
 
- 
+
 
 
 
@@ -60,8 +65,9 @@ namespace Vistas.Paginas.Contratos
 
         private void btn_buscar_Click(object sender, RoutedEventArgs e)
         {
-            //abrir pagina de lista de clientes para poder buscar informacion
-            Paginas.Clientes.Lista lista = new Paginas.Clientes.Lista();
+         
+            Clientes.Lista lista = new Clientes.Lista(cliente);
+
             lista.Show();
         }
 
