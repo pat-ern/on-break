@@ -11,25 +11,25 @@
         <Image HorizontalAlignment="Left" Height="73" Margin="20,13,0,0" VerticalAlignment="Top" Width="92" Source="/OnBreak.png"/>
         <Button x:Name="btn_adm_cliente" Click="btn_adm_cliente_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,65,0,0" Height="215" Width="445" Background="#2186C2"  FontSize="18" RenderTransformOrigin="0.542,0.52">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                <Image Source="/adm_clientes.png" Height="92" Width="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"/>
+                <Image Source="/assets/icon/adm_cli.png" Height="92" Width="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"/>
                 <Label Content="Administración&#xA;      de Clientes" Foreground="White" Height="92" Width="224" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0"/>
             </StackPanel>
         </Button>
         <Button x:Name="btn_adm_contratos" Click="btn_adm_contratos_Click" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,65,50,0" Height="215" Width="445" Background="#7F55D4"  FontSize="18" RenderTransformOrigin="0.542,0.52">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                <Image Source="/adm_clientes.png" Height="92" Width="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"/>
+                <Image Source="/assets/icon/adm_con.png" Height="92" Width="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"/>
                 <Label Content="Administración&#xD;&#xA;   de Contratos" Foreground="White" Height="92" Width="224" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0"/>
             </StackPanel>
         </Button>
         <Button x:Name="btn_cliente" Click="btn_cliente_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50,0,0,65" Height="215" Width="445" Background="#3959E8"  FontSize="18" RenderTransformOrigin="0.542,0.52">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                <Image Source="/adm_clientes.png" Height="92" Width="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"/>
+                <Image Source="/assets/icon/list_cli.png" Height="92" Width="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"/>
                 <Label Content="             Listado&#xD;&#xA;       de Clientes" Foreground="White" Height="92" Width="224" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0"/>
             </StackPanel>
         </Button>
         <Button x:Name="btn_contratos" Click="btn_contratos_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,50,65"  Height="215" Width="445" Background="#A145BB"  FontSize="18" RenderTransformOrigin="0.542,0.52">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                <Image Source="/adm_clientes.png" Height="92" Width="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"/>
+                <Image Source="/assets/icon/list_con.png" Height="92" Width="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"/>
                 <Label Content="             Listado&#xA;    de Contratos" Foreground="White" Height="92" Width="224" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0"/>
             </StackPanel>
         </Button>

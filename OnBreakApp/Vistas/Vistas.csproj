@@ -34,10 +34,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="adm_clientes.png" />
-    <Resource Include="cliente.png" />
-    <Resource Include="contrato.png" />
-    <Resource Include="lista-de-verificacion.png" />
+    <Resource Include="assets\icon\adm_cli.png" />
+    <Resource Include="assets\icon\list_cli.png" />
+    <Resource Include="assets\icon\adm_con.png" />
+    <Resource Include="assets\icon\list_con.png" />
     <Resource Include="objetivo.png" />
     <Resource Include="OnBreak.png" />
     <Resource Include="Paginas\Contratos\buscar.png" />
@@ -49,6 +49,10 @@
 	<Resource Include="enviar.png" />
 	<Resource Include="limpiar.png" />
 	  
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="assets\img\" />
   </ItemGroup>
 
 </Project>
