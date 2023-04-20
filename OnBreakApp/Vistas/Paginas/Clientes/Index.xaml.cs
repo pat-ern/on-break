@@ -22,6 +22,20 @@ namespace Vistas.Paginas.Clientes
     /// </summary>
     public partial class Index 
     {
+
+        List<Cliente> customers = new List<Cliente>();
+
+        ActividadEmpresa actEmp1 = new ActividadEmpresa() { IdActividadEmpresa = 1, Descripcion = "Prestamos y financiamiento" };
+        ActividadEmpresa actEmp2 = new ActividadEmpresa() { IdActividadEmpresa = 2, Descripcion = "Produccion de alimentos" };
+        ActividadEmpresa actEmp3 = new ActividadEmpresa() { IdActividadEmpresa = 3, Descripcion = "Logistica y cadena de suministros" };
+        ActividadEmpresa actEmp4 = new ActividadEmpresa() { IdActividadEmpresa = 4, Descripcion = "Asesoramiento financiero" };
+        ActividadEmpresa actEmp5 = new ActividadEmpresa() { IdActividadEmpresa = 5, Descripcion = "Marketing y publicidad" };
+
+        TipoEmpresa tipEmp1 = new TipoEmpresa() { IdTipoEmpresa = 1, Descripcion = "Sociedad Anonima" };
+        TipoEmpresa tipEmp2 = new TipoEmpresa() { IdTipoEmpresa = 2, Descripcion = "Sociedad Limitada" };
+        TipoEmpresa tipEmp3 = new TipoEmpresa() { IdTipoEmpresa = 3, Descripcion = "Sociedad Anonima Cerrada" };
+        TipoEmpresa tipEmp4 = new TipoEmpresa() { IdTipoEmpresa = 4, Descripcion = "Sociedad en Participacion" };
+        TipoEmpresa tipEmp5 = new TipoEmpresa() { IdTipoEmpresa = 5, Descripcion = "Sociedad en Comandita" };
         public Index(Cliente cliente)
         {
             InitializeComponent();
@@ -49,34 +63,57 @@ namespace Vistas.Paginas.Clientes
             this.Close();
             mainWindow.Show();
         }
-        //private async void btn_Buscar_Click(object sender, RoutedEventArgs e)
-        //{     
-        //    List <Cliente> customers = new List<Cliente>();
-        //    customers.Add(new Cliente { RutCliente = "16591230", RazonSocial = "Advance", NombreContacto = "Pedro Ramirez", MailContacto = "pramires@mail.com", Direccion = "Calle 1 Villa Las Americas", Telefono = "12345678", TipoEmpresa = new TipoEmpresa() });
-        //    customers.Add(new Cliente { RutCliente = "12854638", RazonSocial = "Global Solutions", NombreContacto = "María González", MailContacto = "mgonzalez@mail.com", Direccion = "Av. Providencia 1234", Telefono = "22334455", TipoEmpresa = new TipoEmpresa() });
-        //    customers.Add(new Cliente { RutCliente = "13678945", RazonSocial = "Innovatec", NombreContacto = "Luisa Rojas", MailContacto = "lrojas@mail.com", Direccion = "San Diego 456", Telefono = "99887766", TipoEmpresa = new TipoEmpresa() });
-        //    customers.Add(new Cliente { RutCliente = "19876543", RazonSocial = "TechCorp", NombreContacto = "Manuel Díaz", MailContacto = "mdiaz@mail.com", Direccion = "Las Condes 789", Telefono = "77665544", TipoEmpresa = new TipoEmpresa() });
-        //    customers.Add(new Cliente { RutCliente = "14123456", RazonSocial = "EcoGreen", NombreContacto = "Carla Vargas", MailContacto = "cvargas@mail.com", Direccion = "Maipú 321", Telefono = "11223344", TipoEmpresa = new TipoEmpresa() });
-        //    customers.Add(new Cliente { RutCliente = "11567890", RazonSocial = "SoftTech", NombreContacto = "Javier Soto", MailContacto = "jsoto@mail.com", Direccion = "Providencia 567", Telefono = "33221100", TipoEmpresa = new TipoEmpresa() });
-        //    customers.Add(new Cliente { RutCliente = "16789012", RazonSocial = "SmartSolutions", NombreContacto = "Ana López", MailContacto = "alopez@mail.com", Direccion = "La Reina 345", Telefono = "55443322", TipoEmpresa = new TipoEmpresa() });
-        //    customers.Add(new Cliente { RutCliente = "13245678", RazonSocial = "FutureTech", NombreContacto = "Juan Torres", MailContacto = "jtorres@mail.com", Direccion = "Providencia 999", Telefono = "88990011", TipoEmpresa = new TipoEmpresa() });
-        //    customers.Add(new Cliente { RutCliente = "14567890", RazonSocial = "Innovative Minds", NombreContacto = "Andrea Castro", MailContacto = "acastro@mail.com", Direccion = "Las Condes 456", Telefono = "22110033",TipoEmpresa = new TipoEmpresa() });
-        //    customers.Add(new Cliente { RutCliente = "17654321", RazonSocial = "Creative Designs", NombreContacto = "Ricardo Fernández", MailContacto = "rfernandez@mail.com", Direccion = "Santiago Centro 789", Telefono = "66778899",  TipoEmpresa = new TipoEmpresa() });
+        private async void btn_Buscar_Click(object sender, RoutedEventArgs e)
+        {
+            List<Cliente> customers = new List<Cliente>();
+            customers.Add(new Cliente { RutCliente = "16591230", RazonSocial = "Advance", NombreContacto = "Pedro Ramirez", MailContacto = "pramires@mail.com", Direccion = "Calle 1 Villa Las Americas", Telefono = "12345678", ActividadEmpresa = this.actEmp1, TipoEmpresa = this.tipEmp1 });
+            customers.Add(new Cliente { RutCliente = "12854638", RazonSocial = "Global Solutions", NombreContacto = "María González", MailContacto = "mgonzalez@mail.com", Direccion = "Av. Providencia 1234", Telefono = "22334455", ActividadEmpresa = this.actEmp2, TipoEmpresa = this.tipEmp2 });
+            customers.Add(new Cliente { RutCliente = "13678945", RazonSocial = "Innovatec", NombreContacto = "Luisa Rojas", MailContacto = "lrojas@mail.com", Direccion = "San Diego 456", Telefono = "99887766", ActividadEmpresa = this.actEmp3, TipoEmpresa = this.tipEmp3 });
+            customers.Add(new Cliente { RutCliente = "19876543", RazonSocial = "TechCorp", NombreContacto = "Manuel Díaz", MailContacto = "mdiaz@mail.com", Direccion = "Las Condes 789", Telefono = "77665544", ActividadEmpresa = this.actEmp4, TipoEmpresa = this.tipEmp4 });
+            customers.Add(new Cliente { RutCliente = "14123456", RazonSocial = "EcoGreen", NombreContacto = "Carla Vargas", MailContacto = "cvargas@mail.com", Direccion = "Maipú 321", Telefono = "11223344", ActividadEmpresa = this.actEmp5, TipoEmpresa = this.tipEmp5 });
+            customers.Add(new Cliente { RutCliente = "11567890", RazonSocial = "SoftTech", NombreContacto = "Javier Soto", MailContacto = "jsoto@mail.com", Direccion = "Providencia 567", Telefono = "33221100", ActividadEmpresa = this.actEmp1, TipoEmpresa = this.tipEmp1 });
+            customers.Add(new Cliente { RutCliente = "16789012", RazonSocial = "SmartSolutions", NombreContacto = "Ana López", MailContacto = "alopez@mail.com", Direccion = "La Reina 345", Telefono = "55443322", ActividadEmpresa = this.actEmp2, TipoEmpresa = this.tipEmp2 });
+            customers.Add(new Cliente { RutCliente = "13245678", RazonSocial = "FutureTech", NombreContacto = "Juan Torres", MailContacto = "jtorres@mail.com", Direccion = "Providencia 999", Telefono = "88990011", ActividadEmpresa = this.actEmp3, TipoEmpresa = this.tipEmp3 });
+            customers.Add(new Cliente { RutCliente = "14567890", RazonSocial = "Innovative Minds", NombreContacto = "Andrea Castro", MailContacto = "acastro@mail.com", Direccion = "Las Condes 456", Telefono = "22110033", ActividadEmpresa = this.actEmp4, TipoEmpresa = this.tipEmp4 });
+            customers.Add(new Cliente { RutCliente = "17654321", RazonSocial = "Creative Designs", NombreContacto = "Ricardo Fernández", MailContacto = "rfernandez@mail.com", Direccion = "Santiago Centro 789", Telefono = "66778899", ActividadEmpresa = this.actEmp5, TipoEmpresa = this.tipEmp5 });
+            string textoBusqueda = txt_busqueda.Text;
+            // validar que el campo ingresado solo sea numeros
+            if (int.TryParse(textoBusqueda, out int numero))
+            {
+                var resultados = from c in customers
+                                 where c.RutCliente.Contains(textoBusqueda)
+                                 select c;
 
-        //    string textoBusqueda = txt_busqueda.Text;
-        //    // validar que el campo ingresado solo sea numeros
-        //    if (int.TryParse(textoBusqueda, out int numero))
-        //    {
-        //        var resultados = from c in customers
-        //                         where c.RutCliente.Contains(textoBusqueda)
-        //                         select c;
-        //        miTabla.ItemsSource = resultados.ToList();
-        //    }
-        //    else
-        //    {
-        //        await this.ShowMessageAsync("Advertencia", "Debe ingresar un rut válido.");
-        //    }
-        //}
+                for (int i = 0; i < resultados.Count(); i++)
+                {
+                    if (resultados.ElementAt(i).RutCliente == textoBusqueda)
+                    {
+                        txt_rut.Text = resultados.ElementAt(i).RutCliente;
+                        txt_razonSocial.Text = resultados.ElementAt(i).RazonSocial;
+                        txt_nombreContacto.Text = resultados.ElementAt(i).NombreContacto;
+                        txt_contacto.Text = resultados.ElementAt(i).MailContacto;
+                        txt_direccion.Text = resultados.ElementAt(i).Direccion;
+                        txt_telefono.Text = resultados.ElementAt(i).Telefono;
+                        cbx_actividadEmpresa.ItemsSource = resultados.ElementAt(i).ActividadEmpresa.Descripcion;
+                        cbx_tipoEmpresa.ItemsSource = resultados.ElementAt(i).TipoEmpresa.Descripcion;
+
+
+
+
+
+                        break;
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Advertencia", "No se encontraron resultados.");
+                    }
+                }
+            }
+            else
+            {
+                await this.ShowMessageAsync("Advertencia", "Debe ingresar un rut válido.");
+            }
+        }
 
         private void btn_volver_Click(object sender, RoutedEventArgs e)
         {
