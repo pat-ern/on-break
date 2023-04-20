@@ -9,6 +9,8 @@
 
   <ItemGroup>
     <None Remove="adm_clientes.png" />
+    <None Remove="assets\icon\back-button.png" />
+    <None Remove="assets\icon\clear-filter.png" />
     <None Remove="cliente.png" />
     <None Remove="contrato.png" />
     <None Remove="lista-de-verificacion.png" />
@@ -20,6 +22,12 @@
     <None Remove="Paginas\Contratos\plato-de-servir.png" />
     <None Remove="simbolo-de-circulo-de-contraste.png" />
 	<None Remove="añadir_cliente.png" />
+	<Content Include="assets\icon\back-button.png">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
+	<Content Include="assets\icon\clear-filter.png">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
 	<None Include="enviar.png" />
 	<None Include="limpiar.png" />
   </ItemGroup>

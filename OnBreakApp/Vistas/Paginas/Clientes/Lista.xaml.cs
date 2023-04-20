@@ -125,9 +125,14 @@ namespace Vistas.Paginas.Clientes
             }
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Resetear(object sender, RoutedEventArgs e)
         {
             this.miTabla.ItemsSource = this.customers;
+        }
+
+        private void txt_busquedaRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+
         }
     }
 }
