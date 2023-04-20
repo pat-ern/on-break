@@ -64,7 +64,7 @@ namespace Vistas.Paginas.Clientes
             
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Go_Back(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             this.Close();

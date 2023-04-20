@@ -9,9 +9,13 @@
         xmlns:local="clr-namespace:Vistas.Paginas.Clientes"
         mc:Ignorable="d"
         Title="OnBreakApp" Height="600" Width="1000">
-    <Grid>
-        <Button Content="Volver" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Height="33" Width="118"/>
-        
+    <Grid Background="#34274D">
+        <Button Click="Go_Back" BorderThickness="0" HorizontalAlignment="Left" Margin="0,10,10,0" VerticalAlignment="Top" FontWeight="Bold" Background="White">
+            <StackPanel>
+                <Image Source="/assets/icon/back-button-2.png" Width="40"/>
+            </StackPanel>
+        </Button>
+
         <!-- FILTRO ACTIVIDAD EMPRESA -->
         <mah:DropDownButton x:Name="filtroActividadEmpresa" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,610,0" Width="240" Height="32"
                     Content="Actividad empresa"
