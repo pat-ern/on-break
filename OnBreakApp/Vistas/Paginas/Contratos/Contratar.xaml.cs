@@ -27,10 +27,13 @@ namespace Vistas.Paginas.Contratos
 
             //txtRut.Context = cliente.RutCliente;
         
-            lbl_Rut.Content = cliente.RutCliente;
+            //lbl_Rut.Content = cliente.RutCliente;
 
-            lbl_razonSocial.Content = cliente.RazonSocial;
+            //lbl_razonSocial.Content = cliente.RazonSocial;
 
+
+            txt_Rut.Text = cliente.RutCliente;
+            txt_razonSocial.Text = cliente.RazonSocial;
 
 
  
@@ -63,6 +66,8 @@ namespace Vistas.Paginas.Contratos
             //abrir pagina de lista de clientes para poder buscar informacion
             Paginas.Clientes.Lista lista = new Paginas.Clientes.Lista();
             lista.Show();
+            this.Close();
+
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -70,6 +75,11 @@ namespace Vistas.Paginas.Contratos
             MainWindow mainWindow = new MainWindow();
             this.Close();
             mainWindow.Show();
+        }
+
+        private void txt_Rut_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
         }
     }
 }

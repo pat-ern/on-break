@@ -38,8 +38,26 @@
             </StackPanel>
         </Button>
         <TextBox x:Name="txt_busqueda" Controls:TextBoxHelper.Watermark="Buscar" HorizontalAlignment="Left" Margin="724,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="237" Controls:TextBoxHelper.ClearTextButton="True" Height="32" />
-        <Button x:Name="btn_volver" Content="VOLVER" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Height="33" Width="118" Click="btn_volver_Click"/>
-        <Button x:Name="btn_Buscar" Content="Buscar" HorizontalAlignment="Left" Margin="668,23,0,0" VerticalAlignment="Top" Width="56"  RenderTransformOrigin="-1.911,0.807" Height="32" Background="CornflowerBlue" Click="btn_Buscar_Click"/>
+        <Button x:Name="btn_volver" Click="btn_volver_Click" BorderThickness="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  Background="Transparent">
+            <Image Source="/assets/icon/back-button.png" Width="40"/>
+        </Button>
+
+        <!--<Button x:Name="btn_Buscar" Content="" HorizontalAlignment="Left" Margin="668,23,0,0" VerticalAlignment="Top" Width="56"  RenderTransformOrigin="-1.911,0.807" Height="32" Background="CornflowerBlue" Click="btn_Buscar_Click">
+ 
+        </Button>-->
+        <Button x:Name="btn_buscar" HorizontalAlignment="Left" Margin="686,23,0,0" VerticalAlignment="Top" Width="42" Height="32" Click="btn_buscar_Click_1" RenderTransformOrigin="0.5,0.5" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.217"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.08"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <StackPanel>
+                <Image Source="/Paginas/Contratos/buscar.png" Width="20"/>
+            </StackPanel>
+        </Button>
         <Rectangle HorizontalAlignment="Left" Height="438" Margin="91,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="461" Visibility="Hidden" Grid.RowSpan="5" />
         <Rectangle HorizontalAlignment="Left" Height="475" Margin="43,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="565" Fill="White" Grid.RowSpan="5"/>
         <TextBox x:Name="txt_rut" HorizontalAlignment="Left" Margin="309,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="24" Grid.RowSpan="2"/>
@@ -48,8 +66,8 @@
         <TextBox x:Name="txt_contacto" HorizontalAlignment="Left" Margin="309,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="179" Height="24" Grid.Row="1"/>
         <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Margin="309,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="24" Grid.RowSpan="2" Grid.Row="1"/>
         <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Margin="309,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="24" Grid.Row="2"/>
-        <ComboBox x:Name="cbx_actividadEmpresa" HorizontalAlignment="Left" Margin="309,40,0,0" VerticalAlignment="Top" Width="179" ItemsSource="{Binding actividadEmpresaItems}" Height="24" Grid.Row="2" Grid.RowSpan="2" />
-        <ComboBox x:Name="cbx_tipoEmpresa" HorizontalAlignment="Left" Margin="309,16,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding tipoEmpresaItems}" Height="24" Grid.Row="3"/>
+        <ComboBox x:Name="cbx_actividadEmpresa" HorizontalAlignment="Left" Margin="309,40,0,0" VerticalAlignment="Top" Width="179" ItemsSource="{Binding actividadEmpresaItems}" Height="24" Grid.Row="2" Grid.RowSpan="2" SelectedValuePath="IdActividadEmpresa"/>
+        <ComboBox x:Name="cbx_tipoEmpresa" HorizontalAlignment="Left" Margin="309,16,0,0" VerticalAlignment="Top" Width="180" ItemsSource="{Binding tipoEmpresaItems}" Height="24" Grid.Row="3" SelectedValuePath="IdTipoEmpresa"/>
         <Label x:Name="lbl_Rut" Content="RUT" HorizontalAlignment="Left" Margin="189,138,0,0" VerticalAlignment="Top" Width="115" Height="24" Grid.RowSpan="2"/>
         <Label x:Name="lbl_razonSocial" Content="Razon Social" HorizontalAlignment="Left" Margin="189,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="115" Height="24" Grid.Row="1"/>
         <Label Content="Nombre Contacto" HorizontalAlignment="Left" Margin="189,0,0,0" VerticalAlignment="Center" Width="115" Height="24" Grid.Row="1"/>

@@ -36,6 +36,7 @@ namespace Vistas.Paginas.Clientes
         TipoEmpresa tipEmp3 = new TipoEmpresa() { IdTipoEmpresa = 3, Descripcion = "Sociedad Anonima Cerrada" };
         TipoEmpresa tipEmp4 = new TipoEmpresa() { IdTipoEmpresa = 4, Descripcion = "Sociedad en Participacion" };
         TipoEmpresa tipEmp5 = new TipoEmpresa() { IdTipoEmpresa = 5, Descripcion = "Sociedad en Comandita" };
+
         public Index(Cliente cliente)
         {
             InitializeComponent();
@@ -63,7 +64,18 @@ namespace Vistas.Paginas.Clientes
             this.Close();
             mainWindow.Show();
         }
-        private async void btn_Buscar_Click(object sender, RoutedEventArgs e)
+        //private async void btn_Buscar_Click(object sender, RoutedEventArgs e)
+        //{
+        //}
+
+        private void btn_volver_Click(object sender, RoutedEventArgs e)
+        {
+            MainWindow main = new MainWindow();
+            this.Close();
+            main.Show();
+        }
+
+        private async void btn_buscar_Click_1(object sender, RoutedEventArgs e)
         {
             List<Cliente> customers = new List<Cliente>();
             customers.Add(new Cliente { RutCliente = "16591230", RazonSocial = "Advance", NombreContacto = "Pedro Ramirez", MailContacto = "pramires@mail.com", Direccion = "Calle 1 Villa Las Americas", Telefono = "12345678", ActividadEmpresa = this.actEmp1, TipoEmpresa = this.tipEmp1 });
@@ -83,43 +95,29 @@ namespace Vistas.Paginas.Clientes
                 var resultados = from c in customers
                                  where c.RutCliente.Contains(textoBusqueda)
                                  select c;
-
                 for (int i = 0; i < resultados.Count(); i++)
                 {
-                    if (resultados.ElementAt(i).RutCliente == textoBusqueda)
-                    {
-                        txt_rut.Text = resultados.ElementAt(i).RutCliente;
-                        txt_razonSocial.Text = resultados.ElementAt(i).RazonSocial;
-                        txt_nombreContacto.Text = resultados.ElementAt(i).NombreContacto;
-                        txt_contacto.Text = resultados.ElementAt(i).MailContacto;
-                        txt_direccion.Text = resultados.ElementAt(i).Direccion;
-                        txt_telefono.Text = resultados.ElementAt(i).Telefono;
-                        cbx_actividadEmpresa.ItemsSource = resultados.ElementAt(i).ActividadEmpresa.Descripcion;
-                        cbx_tipoEmpresa.ItemsSource = resultados.ElementAt(i).TipoEmpresa.Descripcion;
+
+                    txt_rut.Text = resultados.ElementAt(i).RutCliente;
+                    txt_razonSocial.Text = resultados.ElementAt(i).RazonSocial;
+                    txt_nombreContacto.Text = resultados.ElementAt(i).NombreContacto;
+                    txt_contacto.Text = resultados.ElementAt(i).MailContacto;
+                    txt_direccion.Text = resultados.ElementAt(i).Direccion;
+                    txt_telefono.Text = resultados.ElementAt(i).Telefono;
+
+                    cbx_actividadEmpresa.ItemsSource = resultados.ElementAt(i).ActividadEmpresa.Descripcion;
+                    cbx_tipoEmpresa.ItemsSource = resultados.ElementAt(i).TipoEmpresa.Descripcion;
 
 
 
 
-
-                        break;
-                    }
-                    else
-                    {
-                        await this.ShowMessageAsync("Advertencia", "No se encontraron resultados.");
-                    }
                 }
             }
             else
             {
                 await this.ShowMessageAsync("Advertencia", "Debe ingresar un rut válido.");
             }
-        }
 
-        private void btn_volver_Click(object sender, RoutedEventArgs e)
-        {
-            MainWindow main = new MainWindow();
-            this.Close();
-            main.Show();
         }
 
 

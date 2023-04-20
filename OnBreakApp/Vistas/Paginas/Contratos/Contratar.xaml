@@ -44,5 +44,9 @@
                 <Label x:Name="lbl_cena" Content="Cena" Foreground="White" Height="60" Width="84" FontSize="30" VerticalAlignment="Top" Margin="0,0,0,0"/>
             </StackPanel>
         </Button>
+        <TextBox x:Name="txt_Rut" HorizontalAlignment="Left" Margin="277,110,0,0" TextWrapping="Wrap" Text="
+                 " VerticalAlignment="Top" Width="209" TextChanged="txt_Rut_TextChanged"/>
+        <TextBox x:Name="txt_razonSocial" HorizontalAlignment="Left" Margin="277,171,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="209"/>
+
     </Grid>
 </mah:MetroWindow>

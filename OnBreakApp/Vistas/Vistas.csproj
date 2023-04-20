@@ -11,6 +11,7 @@
     <None Remove="administrador-de-la-comunidad.png" />
     <None Remove="adm_clientes.png" />
     <None Remove="assets\icon\back-button.png" />
+    <None Remove="assets\icon\buscar.png" />
     <None Remove="assets\icon\clear-filter.png" />
     <None Remove="cliente.png" />
     <None Remove="contrato.png" />
@@ -46,6 +47,7 @@
   <ItemGroup>
     <Resource Include="administrador-de-la-comunidad.png" />
     <Resource Include="assets\icon\adm_cli.png" />
+    <Resource Include="assets\icon\buscar.png" />
     <Resource Include="assets\icon\list_cli.png" />
     <Resource Include="assets\icon\adm_con.png" />
     <Resource Include="assets\icon\list_con.png" />
