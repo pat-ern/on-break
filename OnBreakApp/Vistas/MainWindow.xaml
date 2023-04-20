@@ -7,36 +7,43 @@
         xmlns:local="clr-namespace:Vistas"
         mc:Ignorable="d"
         Title="OnBreakApp" Height="600" Width="1000">
-    <Grid Background="#34274D">
-        <Image HorizontalAlignment="Left" Height="73" Margin="20,13,0,0" VerticalAlignment="Top" Width="92" Source="/OnBreak.png"/>
-        <Button x:Name="btn_adm_cliente" Click="btn_adm_cliente_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="50,65,0,0" Height="215" Width="445" Background="#2186C2"  FontSize="18" RenderTransformOrigin="0.542,0.52">
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                <Image Source="/adm_clientes.png" Height="92" Width="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"/>
-                <Label Content="Administración&#xA;      de Clientes" Foreground="White" Height="92" Width="224" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0"/>
+    <Grid x:Name="grid" Background="#34274D">
+        <Image HorizontalAlignment="Left" Height="73" Margin="22,11,0,0" VerticalAlignment="Top" Width="75" Source="/OnBreak.png"/>
+        <Button x:Name="btn_contraste" Tag="true" BorderThickness="0" Margin="0,20,14,0" VerticalAlignment="Top" FontWeight="Bold" Background="White" Width="62" Height="49" Click="btn_contraste_Click" HorizontalAlignment="Right">
+            <StackPanel>
+                <Image Source="/simbolo-de-circulo-de-contraste.png" Height="30" Width="50"/>
             </StackPanel>
         </Button>
-        <Button x:Name="btn_adm_contratos" Click="btn_adm_contratos_Click" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,65,50,0" Height="215" Width="445" Background="#7F55D4"  FontSize="18" RenderTransformOrigin="0.542,0.52">
+        <Button x:Name="btn_adm_cliente" Click="btn_adm_cliente_Click" HorizontalAlignment="Left" VerticalAlignment="Top" 
+                Margin="50,103,0,0" Height="215" Width="445" Background="#2186C2"  FontSize="18" RenderTransformOrigin="0.542,0.52">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                <Image Source="/adm_clientes.png" Height="92" Width="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"/>
-                <Label Content="Administración&#xD;&#xA;   de Contratos" Foreground="White" Height="92" Width="224" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                <Image Source="/assets/icon/adm_cli.png" Height="92" Width="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"/>
+                <Label x:Name="lbl_adm_cliente" Content="Administración&#xA;      de Clientes" Foreground="White" Height="92" Width="254" FontSize="30" VerticalAlignment="Top" Margin="0,0,0,0"/>
             </StackPanel>
         </Button>
-        <Button x:Name="btn_cliente" Click="btn_cliente_Click" HorizontalAlignment="Left" VerticalAlignment="Bottom" Margin="50,0,0,65" Height="215" Width="445" Background="#3959E8"  FontSize="18" RenderTransformOrigin="0.542,0.52">
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                <Image Source="/adm_clientes.png" Height="92" Width="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"/>
-                <Label Content="             Listado&#xD;&#xA;       de Clientes" Foreground="White" Height="92" Width="224" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0"/>
+        <Button x:Name="btn_adm_contratos" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,334,37,0" Height="215" Width="223" Background="#7F55D4"  FontSize="18" RenderTransformOrigin="0.542,0.52" Click="btn_adm_contratos_Click">
+            <StackPanel Orientation="Horizontal" Width="230">
+                <Image Source="/administrador-de-la-comunidad.png" Height="68" Width="58"/>
+                <Label x:Name="lbl_adm_contratos" Content="Administrar&#xA;Contratos" Foreground="White" Height="92" Width="158" FontSize="25" VerticalContentAlignment="Center"/>
             </StackPanel>
         </Button>
-        <Button x:Name="btn_contratos" Click="btn_contratos_Click" HorizontalAlignment="Right" VerticalAlignment="Bottom" Margin="0,0,50,65"  Height="215" Width="445" Background="#A145BB"  FontSize="18" RenderTransformOrigin="0.542,0.52">
+        <Button x:Name="btn_cliente" Click="btn_cliente_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="48,335,0,0" Height="215" Width="447" Background="#FF2E51D9"  FontSize="18" RenderTransformOrigin="0.542,0.52">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                <Image Source="/adm_clientes.png" Height="92" Width="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"/>
-                <Label Content="             Listado&#xA;    de Contratos" Foreground="White" Height="92" Width="224" FontSize="30" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,0,0,0"/>
+                <Image Source="/assets/icon/list_cli.png" Height="88" Width="165"/>
+                <Label x:Name="lbl_cliente" Content="Listado de &#xA;Clientes" Foreground="White" Height="92" Width="218" FontSize="30" VerticalContentAlignment="Center"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btn_contratos" Click="btn_contratos_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="517,334,0,0"  Height="215" Width="218" Background="#FF973EB1"  FontSize="18" RenderTransformOrigin="0.542,0.52">
+            <StackPanel Orientation="Horizontal" Width="198">
+                <Image Source="/assets/icon/list_con.png" Height="74" Width="59"/>
+                <Label x:Name="lbl_contratos" Content="Listado de&#xA;Contratos" Foreground="White" Height="92" Width="146" FontSize="25" VerticalAlignment="Top" Margin="0,0,0,0" VerticalContentAlignment="Center"/>
             </StackPanel>
         </Button>
 
-        <Button x:Name="btn_contraste" Tag="true" BorderThickness="0" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" FontWeight="Bold" Background="White">
-            <StackPanel>
-                <Image Source="/simbolo-de-circulo-de-contraste.png" Width="40"/>
+        <Button x:Name="btn_crear_contratos" Click="btn_crear_contratos_Click" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,104,38,0" Height="215" Width="445" Background="#FFC53FB5"  FontSize="18" RenderTransformOrigin="0.542,0.52">
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
+                <Image Source="/assets/icon/adm_con.png" Height="92" Width="124" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="15,0,0,0"/>
+                <Label x:Name="lbl_crear_contratos" Content="Crear  Contratos" Foreground="White" Height="92" Width="255" FontSize="30" Margin="0,0,0,0" VerticalContentAlignment="Center"/>
             </StackPanel>
         </Button>
     </Grid>

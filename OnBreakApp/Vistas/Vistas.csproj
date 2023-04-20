@@ -8,18 +8,28 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="administrador-de-la-comunidad.png" />
     <None Remove="adm_clientes.png" />
+    <None Remove="assets\icon\back-button.png" />
+    <None Remove="assets\icon\clear-filter.png" />
     <None Remove="cliente.png" />
     <None Remove="contrato.png" />
     <None Remove="lista-de-verificacion.png" />
     <None Remove="objetivo.png" />
     <None Remove="OnBreak.png" />
+    <None Remove="Paginas\Contratos\atras.png" />
     <None Remove="Paginas\Contratos\buscar.png" />
     <None Remove="Paginas\Contratos\coctel.png" />
     <None Remove="Paginas\Contratos\coffee-break.png" />
     <None Remove="Paginas\Contratos\plato-de-servir.png" />
     <None Remove="simbolo-de-circulo-de-contraste.png" />
 	<None Remove="añadir_cliente.png" />
+	<Content Include="assets\icon\back-button.png">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
+	<Content Include="assets\icon\clear-filter.png">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
 	<None Include="enviar.png" />
 	<None Include="limpiar.png" />
   </ItemGroup>
@@ -34,12 +44,14 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="adm_clientes.png" />
-    <Resource Include="cliente.png" />
-    <Resource Include="contrato.png" />
-    <Resource Include="lista-de-verificacion.png" />
+    <Resource Include="administrador-de-la-comunidad.png" />
+    <Resource Include="assets\icon\adm_cli.png" />
+    <Resource Include="assets\icon\list_cli.png" />
+    <Resource Include="assets\icon\adm_con.png" />
+    <Resource Include="assets\icon\list_con.png" />
     <Resource Include="objetivo.png" />
     <Resource Include="OnBreak.png" />
+    <Resource Include="Paginas\Contratos\atras.png" />
     <Resource Include="Paginas\Contratos\buscar.png" />
     <Resource Include="Paginas\Contratos\coctel.png" />
     <Resource Include="Paginas\Contratos\coffee-break.png" />
@@ -49,6 +61,10 @@
 	<Resource Include="enviar.png" />
 	<Resource Include="limpiar.png" />
 	  
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="assets\img\" />
   </ItemGroup>
 
 </Project>

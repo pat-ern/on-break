@@ -9,12 +9,16 @@
         xmlns:local="clr-namespace:Vistas.Paginas.Clientes"
         mc:Ignorable="d"
         Title="OnBreakApp" Height="600" Width="1000">
-    <Grid>
-        <Button Content="Volver" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="Button_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Height="33" Width="118"/>
-        
+
+    <Grid Background="#34274D">
+
+        <Button Click="Go_Back" BorderThickness="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="Transparent">
+            <Image Source="/assets/icon/back-button.png" Width="40"/>
+        </Button>
+
         <!-- FILTRO ACTIVIDAD EMPRESA -->
-        <mah:DropDownButton x:Name="filtroActividadEmpresa" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,610,0" Width="240" Height="32"
-                    Content="Actividad empresa"
+        <mah:DropDownButton x:Name="filtroActividadEmpresa" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,610,0" Width="240" Height="42" FontSize="15"
+                    Content="ACTIVIDAD DE EMPRESA"
                     ItemsSource="{Binding actividadEmpresaItems}">
             <mah:DropDownButton.ItemContainerStyle>
                 <Style TargetType="MenuItem">
@@ -24,8 +28,8 @@
         </mah:DropDownButton>
 
         <!-- FILTRO TIPO EMPRESA -->
-        <mah:DropDownButton x:Name="filtroTipoEmpresa" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,10,350,0" Width="240" Height="32"  
-                    Content="Tipo de empresa"
+        <mah:DropDownButton x:Name="filtroTipoEmpresa" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,350,0" Width="240" Height="42"  FontSize="15"
+                    Content="TIPO DE EMPRESA"
                     ItemsSource="{Binding tipoEmpresaItems}">
             <mah:DropDownButton.ItemContainerStyle>
                 <Style TargetType="MenuItem">
@@ -34,11 +38,26 @@
             </mah:DropDownButton.ItemContainerStyle>
         </mah:DropDownButton>
 
-        <!-- BUSQUEDA RUT -->
-        <TextBox x:Name="txt_busquedaRut" Controls:TextBoxHelper.Watermark="Buscar por Rut" HorizontalAlignment="Right" Margin="0,10,90,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="240" Controls:TextBoxHelper.ClearTextButton="True" TextChanged="TextBox_TextChanged" Height="32" />
-        <!-- RESETEAR FILTROS -->
-        <Button Content="Resetear" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Height="32" Width="62" Click="Button_Click_1"/>
 
+
+        <!-- BUSQUEDA RUT -->
+        <TextBox x:Name="txt_busquedaRut" HorizontalAlignment="Right" Margin="0,15,90,0" VerticalAlignment="Top" Width="240" TextChanged="TextBox_TextChanged" Height="42"
+                 
+                 Padding="10" FontSize="15"
+                 
+                 Controls:TextBoxHelper.ClearTextButton="True" 
+                 Controls:TextBoxHelper.Watermark="BUSCAR POR RUT"
+                 
+            >
+
+          
+        </TextBox>
+        <!-- RESETEAR FILTROS -->
+        <Button Click="Resetear" BorderThickness="0" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Background="Transparent">
+            <Image Source="/assets/icon/clear-filter.png" Width="40"/>
+        </Button>
+        
+        
         <Grid Margin="0,61,0,0">
             <Grid.RowDefinitions>
                 <RowDefinition Height="388*"/>
