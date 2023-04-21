@@ -26,6 +26,7 @@
     <None Remove="Paginas\Contratos\plato-de-servir.png" />
     <None Remove="simbolo-de-circulo-de-contraste.png" />
 	<None Remove="añadir_cliente.png" />
+	<None Remove="cliente.png" />
 	<Content Include="assets\icon\back-button.png">
 	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	</Content>
@@ -65,6 +66,7 @@
 	<Resource Include="añadir_cliente.png" />
 	<Resource Include="enviar.png" />
 	<Resource Include="limpiar.png" />
+	<Resource Include="cliente.png" />
 	  
   </ItemGroup>
 
