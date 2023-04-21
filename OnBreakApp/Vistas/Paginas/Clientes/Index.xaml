@@ -9,7 +9,9 @@
         x:Class="Vistas.Paginas.Clientes.Index"
         mc:Ignorable="d"
         Title="OnBreakApp" Height="600" Width="1000">
-    <Grid Background="#2186C2">
+    <Grid Background="#34274D">
+        
+
         <Grid.RowDefinitions>
             <RowDefinition Height="143*"/>
             <RowDefinition Height="148*"/>
@@ -17,6 +19,8 @@
             <RowDefinition Height="61*"/>
             <RowDefinition Height="177*"/>
         </Grid.RowDefinitions>
+        <Label x:Name="lbl_titulo" Content="ADMINISTRACIÓN DE CLIENTES" Margin="65,18,0,0" Width="570" FontFamily="Arial Black" FontSize="30" Height="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+
         <Button x:Name="btn_listado" HorizontalAlignment="Left" Margin="643,85,0,0" VerticalAlignment="Top" Height="219" Width="337" Background="#FFA145BB"  FontSize="18" Click="btn_listado_Click" Grid.RowSpan="3">
             <StackPanel>
                 <Image Source="/cliente.png" Width="100"/>
@@ -37,7 +41,15 @@
                 <Label Content="AGREGAR CLIENTES" Height="31"/>
             </StackPanel>
         </Button>
-        <TextBox x:Name="txt_busqueda" Controls:TextBoxHelper.Watermark="Buscar" HorizontalAlignment="Left" Margin="724,23,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="237" Controls:TextBoxHelper.ClearTextButton="True" Height="32" />
+
+        <TextBox x:Name="txt_busqueda" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Width="337" TextChanged="TextBox_TextChanged" Height="42"
+                 
+                 Padding="10" FontSize="15"
+                 
+                 Controls:TextBoxHelper.ClearTextButton="True" 
+                 Controls:TextBoxHelper.Watermark="BUSCAR POR RUT" />
+
+
         <Button x:Name="btn_volver" Click="btn_volver_Click" BorderThickness="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  Background="Transparent">
             <Image Source="/assets/icon/back-button.png" Width="40"/>
         </Button>
@@ -45,19 +57,7 @@
         <!--<Button x:Name="btn_Buscar" Content="" HorizontalAlignment="Left" Margin="668,23,0,0" VerticalAlignment="Top" Width="56"  RenderTransformOrigin="-1.911,0.807" Height="32" Background="CornflowerBlue" Click="btn_Buscar_Click">
  
         </Button>-->
-        <Button x:Name="btn_buscar" HorizontalAlignment="Left" Margin="686,23,0,0" VerticalAlignment="Top" Width="42" Height="32" Click="btn_buscar_Click_1" RenderTransformOrigin="0.5,0.5" >
-            <Button.RenderTransform>
-                <TransformGroup>
-                    <ScaleTransform/>
-                    <SkewTransform AngleY="-0.217"/>
-                    <RotateTransform/>
-                    <TranslateTransform Y="-0.08"/>
-                </TransformGroup>
-            </Button.RenderTransform>
-            <StackPanel>
-                <Image Source="/Paginas/Contratos/buscar.png" Width="20"/>
-            </StackPanel>
-        </Button>
+
         <Rectangle HorizontalAlignment="Left" Height="438" Margin="91,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="461" Visibility="Hidden" Grid.RowSpan="5" />
         <Rectangle HorizontalAlignment="Left" Height="475" Margin="43,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="565" Fill="White" Grid.RowSpan="5"/>
         <TextBox x:Name="txt_rut" HorizontalAlignment="Left" Margin="309,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" Height="24" Grid.RowSpan="2"/>

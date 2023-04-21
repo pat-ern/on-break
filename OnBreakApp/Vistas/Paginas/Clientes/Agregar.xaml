@@ -9,41 +9,45 @@
         mc:Ignorable="d"
         Title="OnBreakApp" Height="600" Width="1000">
 
-    <Grid>
-        <TextBox x:Name="txt_rut" HorizontalAlignment="Left" Margin="250,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="36"/>
-        <TextBox x:Name="txt_razonSocial" HorizontalAlignment="Left" Margin="250,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="36"/>
-        <Label x:Name="lbl_Rut" Content="RUT" HorizontalAlignment="Left" Margin="94,107,0,0" VerticalAlignment="Top" Width="156" Height="36"/>
-        <Label x:Name="lbl_razonSocial" Content="Razon Social" HorizontalAlignment="Left" Margin="94,162,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="118" Height="36"/>
-        <TextBox x:Name="txt_nombreContacto" HorizontalAlignment="Left" Margin="250,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="36"/>
-        <TextBox x:Name="txt_contacto" HorizontalAlignment="Left" Margin="250,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="36"/>
-        <Label Content="Nombre Contacto" HorizontalAlignment="Left" Margin="94,213,0,0" VerticalAlignment="Top" Width="156" Height="36"/>
-        <Label Content="Correo Contacto" HorizontalAlignment="Left" Margin="94,268,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="118" Height="36"/>
-        <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Margin="250,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="36"/>
-        <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Margin="250,382,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="36"/>
-        <Label Content="Dirección" HorizontalAlignment="Left" Margin="94,326,0,0" VerticalAlignment="Top" Width="156" Height="36"/>
-        <Label Content="Teléfono" HorizontalAlignment="Left" Margin="94,382,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="78" Height="36"/>
-        <Label Content="Actividad Empresa" HorizontalAlignment="Left" Margin="94,432,0,0" VerticalAlignment="Top" Width="156" Height="36"/>
-        <Label Content="Tipo Empresa" HorizontalAlignment="Left" Margin="94,486,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="134" Height="36"/>
+    <Grid Background="#34274D">
+
+        <Button Click="btn_volver" BorderThickness="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="Transparent">
+            <Image Source="/Paginas/Clientes/back-button.png" Width="40"/>
+        </Button>
+
+        <TextBox x:Name="txt_rut" HorizontalAlignment="Left" Margin="281,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="36" />
+        <TextBox x:Name="txt_razonSocial" HorizontalAlignment="Left" Margin="281,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="36" RenderTransformOrigin="0.511,-0.054"/>
+        <Label x:Name="lbl_Rut" Content="RUT" HorizontalAlignment="Left" Margin="60,107,0,0" VerticalAlignment="Top" Width="216" Height="36" Foreground="White" FontSize="20" FontWeight="Bold" />
+        <Label x:Name="lbl_razonSocial" Content="RAZÓN SOCIAL" HorizontalAlignment="Left" Margin="60,153,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="216" Height="36" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <TextBox x:Name="txt_nombreContacto" HorizontalAlignment="Left" Margin="281,213,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="36"/>
+        <TextBox x:Name="txt_contacto" HorizontalAlignment="Left" Margin="281,268,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="36"/>
+        <Label Content="NOMBRE CONTACTO" HorizontalAlignment="Left" Margin="60,213,0,0" VerticalAlignment="Top" Width="216" Height="36" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <Label Content="CORREO CONTACTO" HorizontalAlignment="Left" Margin="60,268,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="216" Height="36" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Margin="281,326,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="36"/>
+        <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Margin="281,382,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="284" Height="36"/>
+        <Label Content="DIRECCIÓN" HorizontalAlignment="Left" Margin="60,326,0,0" VerticalAlignment="Top" Width="216" Height="36" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <Label Content="TELÉFONO" HorizontalAlignment="Left" Margin="60,382,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="216" Height="36" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <Label Content="ACTIVIDAD EMPRESA" HorizontalAlignment="Left" Margin="60,432,0,0" VerticalAlignment="Top" Width="216" Height="36" Foreground="White" FontSize="20" FontWeight="Bold"/>
+        <Label Content="TIPO EMPRESA" HorizontalAlignment="Left" Margin="60,486,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="216" Height="36" Foreground="White" FontSize="20" FontWeight="Bold"/>
 
 
-        <Button HorizontalAlignment="Left" Margin="650,140,0,0" VerticalAlignment="Top" Height="152" Width="258" Background="CornflowerBlue"  FontSize="18">
+        <Button HorizontalAlignment="Left" Margin="639,107,0,0" VerticalAlignment="Top" Height="197" Width="288" Background="CornflowerBlue"  FontSize="18">
             <StackPanel>
                 <Image Source="/enviar.png" Width="103" Height="97"/>
                 <Label Content="ENVIAR" Width="78"/>
             </StackPanel>
         </Button>
 
-        <Button  HorizontalAlignment="Left" Margin="650,352,0,0" VerticalAlignment="Top" Height="152" Width="258" Background="CornflowerBlue"  FontSize="18">
+        <Button  HorizontalAlignment="Left" Margin="639,325,0,0" VerticalAlignment="Top" Height="196" Width="288" Background="CornflowerBlue"  FontSize="18">
             <StackPanel>
                 <Image Source="/limpiar.png" Width="100"/>
                 <Label Content="LIMPIAR"/>
             </StackPanel>
         </Button>
 
-        <Label x:Name="lbl_titulo" Content="Agregar Clientes" Margin="20,51,0,0" Width="328" FontFamily="Arial Black" FontSize="20" Height="37" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top"/>
-        <Button x:Name="btn_volver" Content="VOLVER" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Click="btn_volver_Click" Style="{StaticResource MahApps.Styles.Button.Square.Accent}" Height="33" Width="118"/>
-        <ComboBox x:Name="cbx_actividadEmpresa" HorizontalAlignment="Left" Margin="254,432,0,0" VerticalAlignment="Top" Width="152" ItemsSource="{Binding actividadEmpresaItems}" />
-        <ComboBox x:Name="cbx_tipoEmpresa" HorizontalAlignment="Left" Margin="254,486,0,0" VerticalAlignment="Top" Width="152" ItemsSource="{Binding tipoEmpresaItems}"/>
+        <Label x:Name="lbl_titulo" Content="AGREGAR UN NUEVO CLIENTE" Margin="65,18,0,0" Width="570" FontFamily="Arial Black" FontSize="30" Height="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+        <ComboBox x:Name="cbx_actividadEmpresa" HorizontalAlignment="Left" Margin="281,432,0,0" VerticalAlignment="Top" Width="284" ItemsSource="{Binding actividadEmpresaItems}" Height="36" />
+        <ComboBox x:Name="cbx_tipoEmpresa" HorizontalAlignment="Left" Margin="281,485,0,0" VerticalAlignment="Top" Width="284" ItemsSource="{Binding tipoEmpresaItems}" Height="36"/>
 
     </Grid>
 

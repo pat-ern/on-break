@@ -75,6 +75,12 @@ namespace Vistas.Paginas.Clientes
             main.Show();
         }
 
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+
         private async void btn_buscar_Click_1(object sender, RoutedEventArgs e)
         {
             List<Cliente> customers = new List<Cliente>();

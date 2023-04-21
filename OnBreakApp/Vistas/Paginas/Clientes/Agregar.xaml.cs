@@ -36,7 +36,7 @@ namespace Vistas.Paginas.Clientes
 
         }
 
-        private void btn_volver_Click(object sender, RoutedEventArgs e)
+        private void btn_volver(object sender, RoutedEventArgs e)
         {
 
             var cliente = new Cliente();
