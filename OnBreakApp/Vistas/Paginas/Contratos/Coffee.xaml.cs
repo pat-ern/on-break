@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+//using System.Windows.Forms;
+
 
 namespace Vistas.Paginas.Contratos
 {
@@ -46,7 +48,40 @@ namespace Vistas.Paginas.Contratos
             //    return;
             //}
 
+            //boton buscar
+
         }
+
+        private void btn_buscar_Click(object sender, RoutedEventArgs e)
+        {
+            //abrir pagina de lista de clientes para poder buscar informacion
+            Paginas.Clientes.Lista lista = new Paginas.Clientes.Lista();
+            lista.Show();
+        }
+
+        //private void txt_asistentes_TextChanged(object sender, KeyPressEventArgs e)
+        //{
+        //    Permite solo números y teclas de control(como borrar o pegar)
+        //    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+        //    {
+        //        e.Handled = true;
+        //    }
+
+        //    Si se escribe algo en el TextBox, borra el valor predeterminado de cero
+        //    if (txt_asistentes.Text == "0")
+        //    {
+        //        txt_asistentes.Text = "";
+        //    }
+        //}
+
+        //private void textBox1_Leave(object sender, EventArgs e)
+        //{
+        //    Si no se ha escrito nada en el TextBox, establece el valor en cero
+        //    if (string.IsNullOrEmpty(txt_asistentes.Text))
+        //    {
+        //        txt_asistentes.Text = "0";
+        //    }
+        //}
 
     }
 }
