@@ -31,9 +31,15 @@
         <RadioButton x:Name="radioButtonLocalOnBreak" Content="OnBreak" HorizontalAlignment="Left" Margin="253,225,0,0" VerticalAlignment="Top" Height="22" Width="108" Foreground="White" Background="Transparent"/>
         <RadioButton x:Name="radioButtonLocalOtro" Content="Otro" HorizontalAlignment="Left" Margin="393,225,0,0" VerticalAlignment="Top" Height="22" Width="75" Foreground="White" Background="Transparent"/>
         <Button Content="Contratar" HorizontalAlignment="Left" Margin="251,353,0,0" VerticalAlignment="Top" Width="95" Height="50" Background="CadetBlue" Foreground="White"/>
+<<<<<<< HEAD
         <Label Content="Fecha y hora de inicio:" HorizontalAlignment="Left" Margin="17,259,0,0" VerticalAlignment="Top" Height="34" Width="199" FontSize="18" Foreground="White"/>
         <mah:DateTimePicker x:Name="fechaIni" HorizontalAlignment="Left" Margin="250,261,0,0" VerticalAlignment="Top"/>
         <Label Content="Fecha y hora de termino:" HorizontalAlignment="Left" Margin="17,301,0,0" VerticalAlignment="Top" Height="33" Width="214" FontSize="18" Foreground="White"/>
+=======
+        <Label Content="Fecha y hora de inicio:" HorizontalAlignment="Left" Margin="19,262,0,0" VerticalAlignment="Top" Height="34" Width="199" FontSize="18" Foreground="White"/>
+        <mah:DateTimePicker x:Name="fechaIni" HorizontalAlignment="Left" Margin="250,261,0,0" VerticalAlignment="Top"/>
+        <Label Content="Fecha y hora de termino:" HorizontalAlignment="Left" Margin="19,301,0,0" VerticalAlignment="Top" Height="33" Width="214" FontSize="18" Foreground="White"/>
+>>>>>>> noemi2
         <mah:DateTimePicker x:Name="fechaFin" HorizontalAlignment="Left" Margin="249,304,0,0" VerticalAlignment="Top"/>
     </Grid>
 </Page>
