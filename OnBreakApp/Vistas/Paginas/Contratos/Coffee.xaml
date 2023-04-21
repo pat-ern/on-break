@@ -12,7 +12,7 @@
     <Grid>
         <Label x:Name="lbl_rutCliente" Content="Rut del Cliente:" HorizontalAlignment="Left" Margin="12,6,0,0" VerticalAlignment="Top" Width="154" FontSize="18"  Foreground="White"/>
         <Label x:Name="lbl_Rut" Content="Buscar" HorizontalAlignment="Left" Margin="250,13,0,0" VerticalAlignment="Top" Width="218" Foreground="White" BorderBrush="White" BorderThickness="1"/>
-        <Button x:Name="btn_buscar" HorizontalAlignment="Left" Margin="477,10,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="-1.911,0.807" Height="32" Background="White" >
+        <Button x:Name="btn_buscar" HorizontalAlignment="Left" Margin="477,10,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="-1.911,0.807" Height="32" Background="White" Click="btn_buscar_Click" >
             <StackPanel>
                 <Image Source="/Paginas/Contratos/buscar.png" Width="20"/>
             </StackPanel>
@@ -24,10 +24,15 @@
         <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Left" Margin="248,109,0,0" VerticalAlignment="Top" Width="220" Height="27"/>
         <Label Content="¿Alimentación Vegetariana?" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" />
         <CheckBox x:Name="checkBoxVegetariana" Content="Sí" HorizontalAlignment="Left" Margin="249,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,0.557" Height="17" Width="38"/>
-        <Label Content="Fecha y hora de inicio:" HorizontalAlignment="Left" Margin="13,197,0,0" VerticalAlignment="Top" Height="34" Width="199" FontSize="18" Foreground="White"/>
-        <mah:DateTimePicker x:Name="fechaIni" HorizontalAlignment="Left" Margin="251,201,0,0" VerticalAlignment="Top"/>
-        <Label Content="Fecha y hora de termino:" HorizontalAlignment="Left" Margin="14,241,0,0" VerticalAlignment="Top" Height="33" Width="214" FontSize="18" Foreground="White"/>
-        <mah:DateTimePicker x:Name="fechaFin" HorizontalAlignment="Left" Margin="250,244,0,0" VerticalAlignment="Top"/>
-        <Button Content="Contratar" HorizontalAlignment="Left" Margin="251,294,0,0" VerticalAlignment="Top" Width="95" Height="50" Background="CadetBlue" Foreground="White"/>
+        <Label Content="Fecha y hora de inicio:" HorizontalAlignment="Left" Margin="13,199,0,0" VerticalAlignment="Top" Height="34" Width="199" FontSize="18" Foreground="White"/>
+        <mah:DateTimePicker x:Name="fechaIni" HorizontalAlignment="Left" Margin="251,203,0,0" VerticalAlignment="Top"/>
+        <Label Content="Fecha y hora de termino:" HorizontalAlignment="Left" Margin="13,244,0,0" VerticalAlignment="Top" Height="33" Width="214" FontSize="18" Foreground="White"/>
+        <mah:DateTimePicker x:Name="fechaFin" HorizontalAlignment="Left" Margin="250,250,0,0" VerticalAlignment="Top"/>
+        <Label Content="Asistentes:" HorizontalAlignment="Left" Margin="13,293,0,0" VerticalAlignment="Top" Height="33" Width="214" FontSize="18" Foreground="White"/>
+        <Label Content="Personal Adicional:" HorizontalAlignment="Left" Margin="13,331,0,0" VerticalAlignment="Top" Height="33" Width="214" FontSize="18" Foreground="White"/>
+        <TextBox x:Name="txt_asistentes" HorizontalAlignment="Left" Margin="251,295,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="txt_personal" HorizontalAlignment="Left" Margin="251,338,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Contratar" HorizontalAlignment="Left" Margin="252,373,0,0" VerticalAlignment="Top" Width="95" Height="50" Background="CadetBlue" Foreground="White"/>
+        
     </Grid>
 </Page>

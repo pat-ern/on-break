@@ -40,10 +40,18 @@ namespace Vistas.Paginas.Clientes
         public Index(Cliente cliente)
         {
             InitializeComponent();
-            //var customers = new List<Cliente>();
-            //customers.Add(cliente);
-            //miTabla.ItemsSource = customers;
-            //miTabla.Visibility = Visibility.Visible;
+
+            // asignar valores a los textbox
+            txt_rut.Text = cliente.RutCliente;
+            txt_razonSocial.Text = cliente.RazonSocial;
+            txt_nombreContacto.Text = cliente.NombreContacto;
+            txt_contacto.Text = cliente.MailContacto;
+            txt_direccion.Text = cliente.Direccion;
+            txt_telefono.Text = cliente.Telefono;
+            txt_actividadEmpresa.Text = cliente.ActividadEmpresa.Descripcion;
+            txt_tipoEmpresa.Text = cliente.TipoEmpresa.Descripcion;
+
+
         }
         private void btn_listado_Click(object sender, RoutedEventArgs e)
         {
@@ -101,22 +109,49 @@ namespace Vistas.Paginas.Clientes
                 var resultados = from c in customers
                                  where c.RutCliente.Contains(textoBusqueda)
                                  select c;
+
+
+                var cliente = new Cliente();
+
                 for (int i = 0; i < resultados.Count(); i++)
                 {
+                    if(resultados.ElementAt(i).RutCliente == textoBusqueda)
+                    {
+                        //this.ShowMessageAsync("Advertencia", "Debe ingresar un rut válido.");
 
-                    txt_rut.Text = resultados.ElementAt(i).RutCliente;
-                    txt_razonSocial.Text = resultados.ElementAt(i).RazonSocial;
-                    txt_nombreContacto.Text = resultados.ElementAt(i).NombreContacto;
-                    txt_contacto.Text = resultados.ElementAt(i).MailContacto;
-                    txt_direccion.Text = resultados.ElementAt(i).Direccion;
-                    txt_telefono.Text = resultados.ElementAt(i).Telefono;
+                        cliente = resultados.ElementAt(i);
 
-                    cbx_actividadEmpresa.ItemsSource = resultados.ElementAt(i).ActividadEmpresa.Descripcion;
-                    cbx_tipoEmpresa.ItemsSource = resultados.ElementAt(i).TipoEmpresa.Descripcion;
-
+                        txt_rut.Text = cliente.RutCliente;
+                        txt_razonSocial.Text = cliente.RazonSocial;
+                        txt_nombreContacto.Text = cliente.NombreContacto;
+                        txt_contacto.Text = cliente.MailContacto;
+                        txt_direccion.Text = cliente.Direccion;
+                        txt_telefono.Text = cliente.Telefono;
 
 
 
+                        txt_actividadEmpresa.Text = cliente.ActividadEmpresa.Descripcion;
+                        txt_tipoEmpresa.Text = cliente.TipoEmpresa.Descripcion;
+
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Advertencia", "Debe ingresar un rut válido.");
+
+                    }
+
+                    //txt_rut.Text = resultados.ElementAt(i).RutCliente;
+                    //txt_razonSocial.Text = resultados.ElementAt(i).RazonSocial;
+                    //txt_nombreContacto.Text = resultados.ElementAt(i).NombreContacto;
+                    //txt_contacto.Text = resultados.ElementAt(i).MailContacto;
+                    //txt_direccion.Text = resultados.ElementAt(i).Direccion;
+                    //txt_telefono.Text = resultados.ElementAt(i).Telefono;
+
+                    //cbx_actividadEmpresa.ItemsSource = resultados.ElementAt(i).ActividadEmpresa.Descripcion;
+                    //cbx_tipoEmpresa.ItemsSource = resultados.ElementAt(i).TipoEmpresa.Descripcion;
+
+
+                    break;
                 }
             }
             else
@@ -124,6 +159,35 @@ namespace Vistas.Paginas.Clientes
                 await this.ShowMessageAsync("Advertencia", "Debe ingresar un rut válido.");
             }
 
+        }
+
+
+        private void TipoEmpresa_Click(object sender, RoutedEventArgs e)
+        {
+            // Obtener el valor seleccionado del DropDownButton
+            //var valorSeleccionado = ((MenuItem)sender).Header;
+
+            //var resultadosTip = from c in customers
+            //                    where c.TipoEmpresa.Descripcion.Equals((String)valorSeleccionado)
+            //                    select c;
+
+            //miTabla.ItemsSource = resultadosTip.ToList();
+
+        }
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            // limpiar textbox
+            txt_busqueda.Text = "";
+            txt_rut.Text = "";
+            txt_razonSocial.Text = "";
+            txt_nombreContacto.Text = "";
+            txt_contacto.Text = "";
+            txt_direccion.Text = "";
+            txt_telefono.Text = "";
+            txt_actividadEmpresa.Text = "";
+            txt_tipoEmpresa.Text = "";
+             
         }
 
 
