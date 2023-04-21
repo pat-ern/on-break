@@ -13,7 +13,7 @@
             <Image Source="/Paginas/Contratos/back-button.png" Width="40"/>
         </Button>
         <!-- FILTRO ACTIVIDAD EMPRESA -->
-        <mah:DropDownButton x:Name="filtroTipoEvento" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,610,0" Width="160" Height="42" FontSize="10"
+        <mah:DropDownButton x:Name="filtroTipoEvento" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,14,696,0" Width="188" Height="42" FontSize="10"
                     Content="TIPO DE EVENTO"
                     ItemsSource="{Binding tipoEventoItems}">
             <mah:DropDownButton.ItemContainerStyle>
@@ -24,7 +24,7 @@
         </mah:DropDownButton>
 
         <!-- FILTRO TIPO EMPRESA -->
-        <mah:DropDownButton x:Name="filtroModalidadServicio" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,430,0" Width="160" Height="42"  FontSize="10"
+        <mah:DropDownButton x:Name="filtroModalidadServicio" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,486,0" Width="188" Height="42"  FontSize="10"
                     Content="MODALIDAD DE SERVICIO"
                     ItemsSource="{Binding ModalidadServicioItems}">
             <mah:DropDownButton.ItemContainerStyle>
@@ -35,14 +35,14 @@
         </mah:DropDownButton>
 
         <!-- BUSQUEDA RUT -->
-        <TextBox x:Name="txt_busquedaRut" HorizontalAlignment="Right" Margin="0,15,250,0" VerticalAlignment="Top" Width="160" TextChanged="TextBoxRut_TextChanged" Height="42"
+        <TextBox x:Name="txt_busquedaRut" HorizontalAlignment="Right" Margin="0,15,278,0" VerticalAlignment="Top" Width="188" TextChanged="TextBoxRut_TextChanged" Height="42"
                  Padding="10" FontSize="15"
                  Controls:TextBoxHelper.ClearTextButton="True" 
                  Controls:TextBoxHelper.Watermark="RUT CLIENTE">
         </TextBox>
 
         <!-- BUSQUEDA RUT -->
-        <TextBox x:Name="txt_busquedaNroContrato" HorizontalAlignment="Right" Margin="0,15,70,0" VerticalAlignment="Top" Width="160" TextChanged="TextBoxNroContrato_TextChanged" Height="42"
+        <TextBox x:Name="txt_busquedaNroContrato" HorizontalAlignment="Right" Margin="0,15,70,0" VerticalAlignment="Top" Width="188" TextChanged="TextBoxNroContrato_TextChanged" Height="42"
                  Padding="10" FontSize="15"
                  Controls:TextBoxHelper.ClearTextButton="True" 
                  Controls:TextBoxHelper.Watermark="NRO CONTRATO">

@@ -23,7 +23,7 @@ namespace Vistas.Paginas.Clientes
     public partial class Index 
     {
 
-        List<Cliente> customers = new List<Cliente>();
+        List<Cliente> clientes = new List<Cliente>();
 
         ActividadEmpresa actEmp1 = new ActividadEmpresa() { IdActividadEmpresa = 1, Descripcion = "Prestamos y financiamiento" };
         ActividadEmpresa actEmp2 = new ActividadEmpresa() { IdActividadEmpresa = 2, Descripcion = "Produccion de alimentos" };
@@ -51,11 +51,17 @@ namespace Vistas.Paginas.Clientes
             txt_actividadEmpresa.Text = cliente.ActividadEmpresa.Descripcion;
             txt_tipoEmpresa.Text = cliente.TipoEmpresa.Descripcion;
 
-
         }
+
+        public Index(List<Cliente> clientes)
+        {
+            InitializeComponent();
+            this.clientes = clientes;
+        }
+
         private void btn_listado_Click(object sender, RoutedEventArgs e)
         {
-           Paginas.Clientes.Lista lista = new Lista();
+            Paginas.Clientes.Lista lista = new Lista(clientes);
             this.Close();
             lista.Show();
         }
@@ -92,6 +98,7 @@ namespace Vistas.Paginas.Clientes
         private async void btn_buscar_Click_1(object sender, RoutedEventArgs e)
         {
             List<Cliente> customers = new List<Cliente>();
+
             customers.Add(new Cliente { RutCliente = "16591230", RazonSocial = "Advance", NombreContacto = "Pedro Ramirez", MailContacto = "pramires@mail.com", Direccion = "Calle 1 Villa Las Americas", Telefono = "12345678", ActividadEmpresa = this.actEmp1, TipoEmpresa = this.tipEmp1 });
             customers.Add(new Cliente { RutCliente = "12854638", RazonSocial = "Global Solutions", NombreContacto = "María González", MailContacto = "mgonzalez@mail.com", Direccion = "Av. Providencia 1234", Telefono = "22334455", ActividadEmpresa = this.actEmp2, TipoEmpresa = this.tipEmp2 });
             customers.Add(new Cliente { RutCliente = "13678945", RazonSocial = "Innovatec", NombreContacto = "Luisa Rojas", MailContacto = "lrojas@mail.com", Direccion = "San Diego 456", Telefono = "99887766", ActividadEmpresa = this.actEmp3, TipoEmpresa = this.tipEmp3 });
@@ -102,6 +109,7 @@ namespace Vistas.Paginas.Clientes
             customers.Add(new Cliente { RutCliente = "13245678", RazonSocial = "FutureTech", NombreContacto = "Juan Torres", MailContacto = "jtorres@mail.com", Direccion = "Providencia 999", Telefono = "88990011", ActividadEmpresa = this.actEmp3, TipoEmpresa = this.tipEmp3 });
             customers.Add(new Cliente { RutCliente = "14567890", RazonSocial = "Innovative Minds", NombreContacto = "Andrea Castro", MailContacto = "acastro@mail.com", Direccion = "Las Condes 456", Telefono = "22110033", ActividadEmpresa = this.actEmp4, TipoEmpresa = this.tipEmp4 });
             customers.Add(new Cliente { RutCliente = "17654321", RazonSocial = "Creative Designs", NombreContacto = "Ricardo Fernández", MailContacto = "rfernandez@mail.com", Direccion = "Santiago Centro 789", Telefono = "66778899", ActividadEmpresa = this.actEmp5, TipoEmpresa = this.tipEmp5 });
+            
             string textoBusqueda = txt_busqueda.Text;
             // validar que el campo ingresado solo sea numeros
             if (int.TryParse(textoBusqueda, out int numero))
@@ -127,9 +135,6 @@ namespace Vistas.Paginas.Clientes
                         txt_contacto.Text = cliente.MailContacto;
                         txt_direccion.Text = cliente.Direccion;
                         txt_telefono.Text = cliente.Telefono;
-
-
-
                         txt_actividadEmpresa.Text = cliente.ActividadEmpresa.Descripcion;
                         txt_tipoEmpresa.Text = cliente.TipoEmpresa.Descripcion;
 
@@ -139,16 +144,6 @@ namespace Vistas.Paginas.Clientes
                         await this.ShowMessageAsync("Advertencia", "Debe ingresar un rut válido.");
 
                     }
-
-                    //txt_rut.Text = resultados.ElementAt(i).RutCliente;
-                    //txt_razonSocial.Text = resultados.ElementAt(i).RazonSocial;
-                    //txt_nombreContacto.Text = resultados.ElementAt(i).NombreContacto;
-                    //txt_contacto.Text = resultados.ElementAt(i).MailContacto;
-                    //txt_direccion.Text = resultados.ElementAt(i).Direccion;
-                    //txt_telefono.Text = resultados.ElementAt(i).Telefono;
-
-                    //cbx_actividadEmpresa.ItemsSource = resultados.ElementAt(i).ActividadEmpresa.Descripcion;
-                    //cbx_tipoEmpresa.ItemsSource = resultados.ElementAt(i).TipoEmpresa.Descripcion;
 
 
                     break;
@@ -175,7 +170,7 @@ namespace Vistas.Paginas.Clientes
 
         }
 
-        private void Button_Click_1(object sender, RoutedEventArgs e)
+        private void Button_Clear(object sender, RoutedEventArgs e)
         {
             // limpiar textbox
             txt_busqueda.Text = "";

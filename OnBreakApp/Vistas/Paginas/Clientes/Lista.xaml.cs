@@ -22,7 +22,7 @@ namespace Vistas.Paginas.Clientes
     /// </summary>
     public partial class Lista 
     {
-        List<Cliente> customers = new List<Cliente>();
+        List<Cliente> clientes = new List<Cliente>();
 
         ActividadEmpresa actEmp1 = new ActividadEmpresa() { IdActividadEmpresa = 1, Descripcion = "Prestamos y financiamiento" };
         ActividadEmpresa actEmp2 = new ActividadEmpresa() { IdActividadEmpresa = 2, Descripcion = "Produccion de alimentos" };
@@ -36,23 +36,17 @@ namespace Vistas.Paginas.Clientes
         TipoEmpresa tipEmp4 = new TipoEmpresa() { IdTipoEmpresa = 4, Descripcion = "Sociedad en Participacion" };
         TipoEmpresa tipEmp5 = new TipoEmpresa() { IdTipoEmpresa = 5, Descripcion = "Sociedad en Comandita" };
 
+        public Lista() { 
+            InitializeComponent();
+        }
 
-        public Lista()
+        public Lista(List<Cliente> clientes)
         {
             InitializeComponent();
 
-            this.customers.Add(new Cliente { RutCliente = "16591230", RazonSocial = "Advance", NombreContacto = "Pedro Ramirez",  MailContacto = "pramires@mail.com", Direccion = "Calle 1 Villa Las Americas", Telefono = "12345678", ActividadEmpresa = this.actEmp1, TipoEmpresa = this.tipEmp1 });
-            this.customers.Add(new Cliente { RutCliente = "12854638", RazonSocial = "Global Solutions", NombreContacto = "María González", MailContacto = "mgonzalez@mail.com", Direccion = "Av. Providencia 1234", Telefono = "22334455", ActividadEmpresa = this.actEmp2, TipoEmpresa = this.tipEmp2 });
-            this.customers.Add(new Cliente { RutCliente = "13678945", RazonSocial = "Innovatec", NombreContacto = "Luisa Rojas", MailContacto = "lrojas@mail.com", Direccion = "San Diego 456", Telefono = "99887766", ActividadEmpresa = this.actEmp3, TipoEmpresa = this.tipEmp3 });
-            this.customers.Add(new Cliente { RutCliente = "19876543", RazonSocial = "TechCorp", NombreContacto = "Manuel Díaz", MailContacto = "mdiaz@mail.com", Direccion = "Las Condes 789", Telefono = "77665544", ActividadEmpresa = this.actEmp4, TipoEmpresa = this.tipEmp4 });
-            this.customers.Add(new Cliente { RutCliente = "14123456", RazonSocial = "EcoGreen", NombreContacto = "Carla Vargas", MailContacto = "cvargas@mail.com", Direccion = "Maipú 321", Telefono = "11223344", ActividadEmpresa = this.actEmp5, TipoEmpresa = this.tipEmp5 });
-            this.customers.Add(new Cliente { RutCliente = "11567890", RazonSocial = "SoftTech", NombreContacto = "Javier Soto", MailContacto = "jsoto@mail.com", Direccion = "Providencia 567", Telefono = "33221100", ActividadEmpresa = this.actEmp1, TipoEmpresa = this.tipEmp1 });
-            this.customers.Add(new Cliente { RutCliente = "16789012", RazonSocial = "SmartSolutions", NombreContacto = "Ana López", MailContacto = "alopez@mail.com", Direccion = "La Reina 345", Telefono = "55443322", ActividadEmpresa = this.actEmp2, TipoEmpresa = this.tipEmp2 });
-            this.customers.Add(new Cliente { RutCliente = "13245678", RazonSocial = "FutureTech", NombreContacto = "Juan Torres", MailContacto = "jtorres@mail.com", Direccion = "Providencia 999", Telefono = "88990011", ActividadEmpresa = this.actEmp3, TipoEmpresa = this.tipEmp3 });
-            this.customers.Add(new Cliente { RutCliente = "14567890", RazonSocial = "Innovative Minds", NombreContacto = "Andrea Castro", MailContacto = "acastro@mail.com", Direccion = "Las Condes 456", Telefono = "22110033", ActividadEmpresa = this.actEmp4, TipoEmpresa = this.tipEmp4 });
-            this.customers.Add(new Cliente { RutCliente = "17654321", RazonSocial = "Creative Designs", NombreContacto = "Ricardo Fernández", MailContacto = "rfernandez@mail.com", Direccion = "Santiago Centro 789", Telefono = "66778899", ActividadEmpresa = this.actEmp5, TipoEmpresa = this.tipEmp5 });
-            
-            this.miTabla.ItemsSource = this.customers;
+            this.clientes = clientes;
+
+            this.miTabla.ItemsSource = this.clientes;
 
             string[] tipoEmpresaItems = new string[] { this.tipEmp1.Descripcion, this.tipEmp2.Descripcion, this.tipEmp3.Descripcion, this.tipEmp4.Descripcion, this.tipEmp5.Descripcion };
 
@@ -77,8 +71,8 @@ namespace Vistas.Paginas.Clientes
             string textoBusqueda = txt_busquedaRut.Text;
 
             // Consultar la lista de objetos para obtener los resultados de la búsqueda
-            var resultadosRut = from c in customers
-                             where c.RutCliente.Contains(textoBusqueda)
+            var resultadosRut = from c in clientes
+                                where c.RutCliente.Contains(textoBusqueda)
                              select c;
 
             // Agregar los resultados al control DataGrid
@@ -90,7 +84,7 @@ namespace Vistas.Paginas.Clientes
             // Obtener el valor seleccionado del DropDownButton
             var valorSeleccionado = ((MenuItem)sender).Header;
 
-            var resultadosAct = from c in customers
+            var resultadosAct = from c in clientes
                              where c.ActividadEmpresa.Descripcion.Equals((String)valorSeleccionado)
                                 select c;
 
@@ -103,7 +97,7 @@ namespace Vistas.Paginas.Clientes
             // Obtener el valor seleccionado del DropDownButton
             var valorSeleccionado = ((MenuItem)sender).Header;
 
-            var resultadosTip = from c in customers
+            var resultadosTip = from c in clientes
                                 where c.TipoEmpresa.Descripcion.Equals((String)valorSeleccionado)
                                 select c;
 
@@ -111,22 +105,9 @@ namespace Vistas.Paginas.Clientes
 
         }
 
-        private void miTabla_SelectionChanged(object sender, SelectionChangedEventArgs e, NavigationService navigationService)
-        {
-            // al apretar un dato de la tabla quiero que me lleve a otra ventana
-
-            //var clienteSeleccionado = miTabla.SelectedItem as Cliente;
-
-            //if (clienteSeleccionado != null)
-            //{
-            //    Contratos.Coffee coffe = new Contratos.Coffee(clienteSeleccionado);
-            //    navigationService.Navigate(coffe);
-            //}
-        }
-
         private void Resetear(object sender, RoutedEventArgs e)
         {
-            this.miTabla.ItemsSource = this.customers;
+            this.miTabla.ItemsSource = this.clientes;
         }
 
         private void txt_busquedaRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -134,7 +115,7 @@ namespace Vistas.Paginas.Clientes
 
         }
 
-        private void miTabla_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
+        private void miTabla_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 
             var clienteSeleccionado = miTabla.SelectedItem as Cliente;

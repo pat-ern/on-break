@@ -10,7 +10,7 @@
         mc:Ignorable="d"
         Title="OnBreakApp" Height="600" Width="1000">
     <Grid Background="#34274D">
-        
+
 
         <Grid.RowDefinitions>
             <RowDefinition Height="143*"/>
@@ -21,28 +21,29 @@
         </Grid.RowDefinitions>
         <Label x:Name="lbl_titulo" Content="ADMINISTRACIÓN DE CLIENTES" Margin="65,18,0,0" Width="570" FontFamily="Arial Black" FontSize="30" Height="44" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
 
-        <Button x:Name="btn_listado" HorizontalAlignment="Left" Margin="643,85,0,0" VerticalAlignment="Top" Height="219" Width="337" Background="#FFA145BB"  FontSize="18" Click="btn_listado_Click" Grid.RowSpan="3">
+        <Button x:Name="btn_buscar" HorizontalAlignment="Left" Margin="644,85,0,0" VerticalAlignment="Top" Width="46" Height="42" Click="btn_buscar_Click_1" RenderTransformOrigin="0.5,0.5" >
+            <Button.RenderTransform>
+                <TransformGroup>
+                    <ScaleTransform/>
+                    <SkewTransform AngleY="-0.217"/>
+                    <RotateTransform/>
+                    <TranslateTransform Y="-0.08"/>
+                </TransformGroup>
+            </Button.RenderTransform>
+            <StackPanel>
+                <Image Source="/Paginas/Contratos/buscar.png" Width="20"/>
+            </StackPanel>
+        </Button>
+
+        <Button x:Name="btn_listado" HorizontalAlignment="Left" Margin="644,4,0,0" VerticalAlignment="Top" Height="152" Width="336" Background="#FFA145BB"  FontSize="18" Click="btn_listado_Click" Grid.RowSpan="2" Grid.Row="1">
             <StackPanel>
                 <Image Source="/cliente.png" Width="100"/>
                 <Label Content="LISTADO DE CLIENTES"/>
             </StackPanel>
         </Button>
-        <Button x:Name="btn_agregar" HorizontalAlignment="Left" Margin="643,49,0,0" VerticalAlignment="Top" Height="219" Width="337" Background="CornflowerBlue"  FontSize="18" Click="btn_agregar_Click" Grid.Row="2" Grid.RowSpan="3">
-            <StackPanel RenderTransformOrigin="0.5,0.5">
-                <StackPanel.RenderTransform>
-                    <TransformGroup>
-                        <ScaleTransform/>
-                        <SkewTransform/>
-                        <RotateTransform Angle="0.717"/>
-                        <TranslateTransform/>
-                    </TransformGroup>
-                </StackPanel.RenderTransform>
-                <Image Source="/añadir_cliente.png" Width="100"/>
-                <Label Content="AGREGAR CLIENTES" Height="31"/>
-            </StackPanel>
-        </Button>
 
-        <TextBox x:Name="txt_busqueda" HorizontalAlignment="Right" Margin="0,20,20,0" VerticalAlignment="Top" Width="337" TextChanged="TextBox_TextChanged" Height="42"
+
+        <TextBox x:Name="txt_busqueda" HorizontalAlignment="Right" Margin="0,85,20,0" VerticalAlignment="Top" Width="294" TextChanged="TextBox_TextChanged" Height="42"
                  
                  Padding="10" FontSize="15"
                  
@@ -59,37 +60,36 @@
         </Button>-->
 
         <Rectangle HorizontalAlignment="Left" Height="438" Margin="91,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="461" Visibility="Hidden" Grid.RowSpan="5" />
-        <Rectangle HorizontalAlignment="Left" Height="475" Margin="43,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="565" Fill="White" Grid.RowSpan="5"/>
-        <TextBox x:Name="txt_rut" HorizontalAlignment="Left" Margin="309,138,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="24" Grid.RowSpan="2"/>
-        <TextBox x:Name="txt_razonSocial" HorizontalAlignment="Left" Margin="309,29,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="24" Grid.Row="1"/>
-        <TextBox x:Name="txt_nombreContacto" HorizontalAlignment="Left" Margin="309,60,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="24" Grid.Row="1"/>
-        <TextBox x:Name="txt_contacto" HorizontalAlignment="Left" Margin="309,93,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="24" Grid.Row="1"/>
-        <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Margin="309,124,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="24" Grid.RowSpan="2" Grid.Row="1"/>
-        <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Margin="309,9,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="24" Grid.Row="2"/>
-        <Label x:Name="lbl_Rut" Content="RUT" HorizontalAlignment="Left" Margin="189,138,0,0" VerticalAlignment="Top" Width="115" Height="24" Grid.RowSpan="2"/>
-        <Label x:Name="lbl_razonSocial" Content="Razon Social" HorizontalAlignment="Left" Margin="189,29,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="115" Height="24" Grid.Row="1"/>
-        <Label Content="Nombre Contacto" HorizontalAlignment="Left" Margin="189,0,0,0" VerticalAlignment="Center" Width="115" Height="24" Grid.Row="1"/>
-        <Label Content="Correo Contacto" HorizontalAlignment="Left" Margin="189,94,0,23" RenderTransformOrigin="-0.026,-1.424" Width="115" Grid.Row="1"/>
-        <Label Content="Dirección" HorizontalAlignment="Left" Margin="189,125,0,0" VerticalAlignment="Top" Width="115" Height="25" Grid.Row="1" Grid.RowSpan="2"/>
-        <Label Content="Teléfono" HorizontalAlignment="Left" Margin="189,10,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="101" Height="24" Grid.Row="2"/>
-        <Label Content="Actividad Empresa" HorizontalAlignment="Left" Margin="189,41,0,0" VerticalAlignment="Top" Width="115" Height="24" Grid.Row="2" Grid.RowSpan="2"/>
-        <Label Content="Tipo Empresa" HorizontalAlignment="Left" Margin="189,16,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="111" Height="25" Grid.Row="3"/>
-        <Button HorizontalAlignment="Left" Margin="104,13,0,0" VerticalAlignment="Top" Height="90" Width="186" Background="#FF99ACFF"  FontSize="18"  Grid.Row="4">
+        <Rectangle HorizontalAlignment="Left" Height="474" Margin="43,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="565" Fill="White" Grid.RowSpan="5"/>
+        <TextBox x:Name="txt_rut" HorizontalAlignment="Left" Margin="277,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="42" Grid.RowSpan="2"/>
+        <TextBox x:Name="txt_razonSocial" HorizontalAlignment="Left" Margin="277,25,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="42" Grid.Row="1"/>
+        <TextBox x:Name="txt_nombreContacto" HorizontalAlignment="Left" Margin="277,78,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="42" Grid.Row="1"/>
+        <TextBox x:Name="txt_contacto" HorizontalAlignment="Left" Margin="277,132,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="41" Grid.Row="1" Grid.RowSpan="2"/>
+        <TextBox x:Name="txt_direccion" HorizontalAlignment="Left" Margin="277,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="42" Grid.Row="2" Grid.RowSpan="2"/>
+        <TextBox x:Name="txt_telefono" HorizontalAlignment="Left" Margin="277,87,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="41" Grid.Row="4"/>
+        <Label x:Name="lbl_Rut" Content="RUT" HorizontalAlignment="Left" Margin="84,109,0,0" VerticalAlignment="Top" Width="187" Height="39" Grid.RowSpan="2" FontWeight="Bold"  FontSize="15"/>
+        <Label x:Name="lbl_razonSocial" Content="RAZÓN SOCIAL" HorizontalAlignment="Left" Margin="84,28,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="187" Height="39" Grid.Row="1"  FontWeight="Bold" FontSize="15"/>
+        <Label Content="NOMBRE CONTACTO" HorizontalAlignment="Left" Margin="84,80,0,0" VerticalAlignment="Top" Width="187" Height="39" Grid.Row="1"  FontWeight="Bold" FontSize="15"/>
+        <Label Content="CORREO CONTACTO" HorizontalAlignment="Left" Margin="84,130,0,33" RenderTransformOrigin="-0.026,-1.424" Width="187" Grid.Row="1"  FontWeight="Bold" Grid.RowSpan="2" FontSize="15"/>
+        <Label Content="DIRECCIÓN" HorizontalAlignment="Left" Margin="84,37,0,0" VerticalAlignment="Top" Width="187" Height="41" Grid.Row="2" Grid.RowSpan="2"  FontWeight="Bold" FontSize="15"/>
+        <Label Content="TELÉFONO" HorizontalAlignment="Left" Margin="84,90,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="187" Height="39" Grid.Row="4"  FontWeight="Bold" FontSize="15"/>
+        <Label Content="ACTIVIDAD EMPRESA" HorizontalAlignment="Left" Margin="84,36,0,0" VerticalAlignment="Top" Width="193" Height="39" Grid.Row="3"  FontWeight="Bold" Grid.RowSpan="2" FontSize="15"/>
+        <Label Content="TIPO EMPRESA" HorizontalAlignment="Left" Margin="84,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="187" Height="40" Grid.Row="4"  FontWeight="Bold" FontSize="15"/>
+        <Button HorizontalAlignment="Left" Margin="643,10,0,0" VerticalAlignment="Top" Height="90" Width="337" Background="#FF99ACFF"  FontSize="15" Grid.RowSpan="2" Grid.Row="3">
             <StackPanel>
-                <Image Source="/enviar.png" Width="76" Height="45"/>
-                <Label Content="Guardar"/>
+                <Image Source="/assets/icon/diskette.png" Width="76" Height="45"/>
+                <Label Content="GUARDAR"/>
             </StackPanel>
         </Button>
-        <Button  HorizontalAlignment="Left" Margin="377,13,0,0" VerticalAlignment="Top" Height="90" Width="186" Background="#FF99ACFF"  FontSize="18" Grid.Row="4" Click="Button_Click_1">
+        <Button  HorizontalAlignment="Left" Margin="643,62,0,0" VerticalAlignment="Top" Height="90" Width="337" Background="#FF99ACFF"  FontSize="18" Grid.Row="4" Click="Button_Clear">
             <StackPanel>
-                <Image Source="/limpiar.png" Width="76" Height="45
+                <Image Source="/assets/icon/clear-format.png" Width="76" Height="45
                        "/>
-                <Label Content="Limpiar"/>
+                <Label Content="LIMPIAR"/>
             </StackPanel>
         </Button>
-        <Image Source="/añadir_cliente.png" Margin="79,132,834,96" Grid.RowSpan="2"/>
-        <TextBox x:Name="txt_actividadEmpresa" HorizontalAlignment="Left" Margin="309,41,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="243" Height="24" Grid.Row="2" Grid.RowSpan="2"/>
-        <TextBox x:Name="txt_tipoEmpresa" HorizontalAlignment="Left" Margin="309,0,0,0" TextWrapping="Wrap" VerticalAlignment="Center" Width="243" Height="24" Grid.Row="3"/>
+        <TextBox x:Name="txt_actividadEmpresa" HorizontalAlignment="Left" Margin="277,34,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="42" Grid.Row="3" Grid.RowSpan="2"/>
+        <TextBox x:Name="txt_tipoEmpresa" HorizontalAlignment="Left" Margin="277,30,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="42" Grid.Row="4"/>
 
     </Grid>
 </mah:MetroWindow>

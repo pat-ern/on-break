@@ -12,7 +12,10 @@
     <None Remove="adm_clientes.png" />
     <None Remove="assets\icon\back-button.png" />
     <None Remove="assets\icon\buscar.png" />
+    <None Remove="assets\icon\clear-filter-2.png" />
     <None Remove="assets\icon\clear-filter.png" />
+    <None Remove="assets\icon\clear-format.png" />
+    <None Remove="assets\icon\diskette.png" />
     <None Remove="contrato.png" />
     <None Remove="lista-de-verificacion.png" />
     <None Remove="objetivo.png" />
@@ -30,7 +33,16 @@
 	<Content Include="assets\icon\back-button.png">
 	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	</Content>
+	<Content Include="assets\icon\clear-filter-2.png">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
 	<Content Include="assets\icon\clear-filter.png">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
+	<Content Include="assets\icon\clear-format.png">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
+	<Content Include="assets\icon\diskette.png">
 	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	</Content>
 	<None Include="enviar.png" />
