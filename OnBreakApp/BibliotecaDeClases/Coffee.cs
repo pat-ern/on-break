@@ -6,21 +6,29 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDeClases
 {
-    public enum ModalidadServicioCoffee
-    {
-        LightBreak,
-        JournalBreak,
-        DayBreak
-    }
     public class Coffee
     {
-        public ModalidadServicioCoffee Servicio { get; set; }
-        public bool AlimentacionVegetariana { get; set; }
+        public string Numero { get; set; }
+        public bool Vegetariana { get; set; }
 
-        public Coffee(ModalidadServicioCoffee servicio, bool alimentacionVegetariana)
+        public Coffee(string numero, bool vegetariana)
         {
-            Servicio = servicio;
-            AlimentacionVegetariana = alimentacionVegetariana;
+            Numero = numero;
+            Vegetariana = vegetariana;
         }
+
+        public Coffee()
+        {
+            this.Init();
+        }
+
+        private void Init() 
+        {
+            Numero = string.Empty;
+            Vegetariana = false;
+
+        }
+
+
     }
 }

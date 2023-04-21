@@ -6,43 +6,65 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDeClases
 {
-    public class Contrato
+    public class Contrato 
     {
-        public string IdContrato { get; set; }
-        public string RutCliente { get; set; } = string.Empty;
-        public Cliente Cliente { get; set; } = new Cliente();
+        public string Numero { get; set; }
+        public DateTime Creacion { get; set; }
+        public DateTime Termino { get; set; }
+        public Cliente Cliente { get; set; }
+        public ModalidadServicio ModalidadServicio { get; set; }
+        public DateTime FechaHoraInicio { get; set; }
+        public DateTime FechaHoraTermino { get; set; }
+        public int Asistentes { get; set; }
+        public int PersonalAdicional { get; set; }
+        public bool Realizado { get; set; }
+        public float ValorTotalContrato { get; set; }
+        public string Observaciones { get; set; }
 
-        private Cena cena;
-        private Coffee coffee;
-        private Cocktail cocktail;
+
         public Contrato()
         {
-            // Generar número de contrato en base a la fecha y hora actual
             DateTime fechaHoraActual = DateTime.Now;
             string formatoNumeroContrato = "yyyyMMddHHmm";
-            this.IdContrato = fechaHoraActual.ToString(formatoNumeroContrato);
-        }
-        public Contrato(Cena cena)
-        {
-            this.cena = cena;
+            this.Numero = fechaHoraActual.ToString(formatoNumeroContrato);
+
+            this.Init();
         }
 
-        public Contrato(Coffee coffee)
+        public Contrato(string numero, DateTime creacion, DateTime termino, Cliente cliente, ModalidadServicio modalidadServicio, DateTime fechaHoraInicio, DateTime fechaHoraTermino, int asistentes, int personalAdicional, bool realizado, float valorTotalContrato, string observaciones)
         {
-            this.coffee = coffee;
-        }
-
-        public Contrato(Cocktail cocktail)
-        {
-            this.cocktail = cocktail;
-        }
+            Numero = numero;
+            Creacion = creacion;
+            Termino = termino;
+            Cliente = cliente;
+            ModalidadServicio = modalidadServicio;
+            FechaHoraInicio = fechaHoraInicio;
+            FechaHoraTermino = fechaHoraTermino;
+            Asistentes = asistentes;
+            PersonalAdicional = personalAdicional;
+            Realizado = realizado;
+            ValorTotalContrato = valorTotalContrato;
+            Observaciones = observaciones;
+        }  
 
         private void Init()
         {
-            IdContrato = string.Empty;
+            Creacion = DateTime.Now;
+            Termino = DateTime.Now;
             Cliente = new Cliente();
+            ModalidadServicio = new ModalidadServicio();
+            FechaHoraInicio = DateTime.Now;
+            FechaHoraTermino = DateTime.Now;
+            Asistentes = 0;
+            PersonalAdicional = 0;
+            Realizado = false;
+            ValorTotalContrato = 0;
+            Observaciones = string.Empty;
+
 
         }
+
+
     }
 
 }

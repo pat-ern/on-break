@@ -12,7 +12,21 @@ namespace BibliotecaDeClases
         public int IdActividadEmpresa { get; set; }
         public string Descripcion { get; set; }
 
+        public ActividadEmpresa()
+        {
+            this.Init();
+        }
+
+        private void Init()
+        {
+            IdActividadEmpresa = 0;
+            Descripcion = string.Empty;
+        }
+
+
     }
+
+
 
 
 

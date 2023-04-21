@@ -6,25 +6,38 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDeClases
 {
-    public enum ModalidadServicioCocktail
+    public class Cocktail : Contrato
     {
-        QuickCocktail,
-        AmbientCocktail
-    }
-
-    public class Cocktail
-    {
-        public ModalidadServicioCocktail Servicio { get; set; }
+        public string Numero { get; set; }
+        public TipoAmbientacion TipoAmbientacion { get; set; }
         public bool Ambientacion { get; set; }
         public bool MusicaAmbiental { get; set; }
-        public string TipoAmbientacion { get; set; }
+        public bool MusicaCliente { get; set; }
 
-        public Cocktail(ModalidadServicioCocktail servicio, bool ambientacion, bool musicaAmbiental, string tipoAmbientacion)
+
+        public Cocktail(string numero, TipoAmbientacion tipoAmbientacion, bool ambientacion, bool musicaAmbiental, bool musicaCliente)
         {
-            Servicio = servicio;
+            Numero = numero;
+            TipoAmbientacion = tipoAmbientacion;
             Ambientacion = ambientacion;
             MusicaAmbiental = musicaAmbiental;
-            TipoAmbientacion = tipoAmbientacion;
+            MusicaCliente = musicaCliente;
+        }
+
+        public Cocktail()
+        {
+            this.Init();
+        }
+
+
+        private void Init()
+        {
+            Numero = string.Empty;
+            TipoAmbientacion = new TipoAmbientacion();
+            Ambientacion = false;
+            MusicaAmbiental = false;
+            MusicaCliente = false;
+
         }
     }
 

@@ -6,41 +6,43 @@ using System.Threading.Tasks;
 
 namespace BibliotecaDeClases
 {
-    public class Cena
+    public class Cena : Contrato
     {
-        public enum ModalidadServicioCena
-        {
-            Ejecutivo,
-            Celebracion
-        }
-
-        public enum Ambientacion
-        {
-            Basica,
-            Personalizada
-        }
-
-        public enum Local
-        {
-            OnBreak,
-            Otro
-        }
-
-        public ModalidadServicioCena Servicio { get; set; }
-        public Ambientacion TipoAmbientacion { get; set; }
+        public string Numero { get; set; }
+        public TipoAmbientacion TipoAmbientacion { get; set; }
         public bool MusicaAmbiental { get; set; }
-        public Local Lugar { get; set; }
+        public bool LocalOnBreak { get; set; }
+        public bool OtroLocalOnBreak { get; set; }
+        public float ValorArriendo { get; set; }
+
 
         // Constructor
-        public Cena(ModalidadServicioCena servicio, Ambientacion tipoAmbientacion, bool musicaAmbiental, Local lugar)
+
+        public Cena(string numero, TipoAmbientacion tipoAmbientacion, bool musicaAmbiental, bool localOnBreak, bool otroLocalOnBreak, float valorArriendo)
         {
-            Servicio = servicio;
+            Numero = numero;
             TipoAmbientacion = tipoAmbientacion;
             MusicaAmbiental = musicaAmbiental;
-            Lugar = lugar;
+            LocalOnBreak = localOnBreak;
+            OtroLocalOnBreak = otroLocalOnBreak;
+            ValorArriendo = valorArriendo;
         }
 
         public Cena()
-        { }
+        {
+            this.Init();
+        }
+
+        private void Init()
+        {
+
+            Numero = string.Empty;
+            TipoAmbientacion = new TipoAmbientacion();
+            MusicaAmbiental = false;
+            LocalOnBreak = false;
+            OtroLocalOnBreak = false;
+            ValorArriendo = 0;
+
+        }
     }
 }

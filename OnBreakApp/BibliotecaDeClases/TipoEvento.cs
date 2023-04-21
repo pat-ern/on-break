@@ -11,9 +11,19 @@ namespace BibliotecaDeClases
         public int IdTipoEvento { get; set; }
         public string Descripcion { get; set; }
 
+        public TipoEvento()
+        {
+            this.Init();
+        }
 
-
+        private void Init()
+        {
+            IdTipoEvento = 0;
+            Descripcion = string.Empty;
+        }
 
     }
+
+
 
 }
