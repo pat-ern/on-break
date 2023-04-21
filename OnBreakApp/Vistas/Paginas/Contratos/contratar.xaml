@@ -5,27 +5,25 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
-        xmlns:local="clr-namespace:Vistas.Paginas.Contratos"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:Vistas.Paginas.Contratos"
         mc:Ignorable="d"
         Title="OnBreakApp" Height="600" Width="1000">
     <Grid x:Name="grid" Background="#FF951A86">
-        <Button HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="33" Width="47" Click="Button_Click">
-            <StackPanel>
-                <Image Source="/Paginas/Contratos/atras.png" Width="20"/>
-            </StackPanel>
+        <Button Click="Go_Back" BorderThickness="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="Transparent">
+            <Image Source="/Paginas/Contratos/back-button.png" Width="40"/>
         </Button>
-        <Button x:Name="btn_buscar" HorizontalAlignment="Left" Margin="499,106,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="-1.911,0.807" Height="32" Background="White"  Click="btn_buscar_Click">
+        <Button x:Name="btn_buscar" HorizontalAlignment="Left" Margin="501,106,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="-1.911,0.807" Height="32" Background="White"  Click="btn_buscar_Click">
             <StackPanel>
                 <Image Source="/Paginas/Contratos/buscar.png" Width="20"/>
             </StackPanel>
         </Button>
         <Frame x:Name="vtn_opc" Margin="32,226,339,53" NavigationUIVisibility="Hidden" Background="#00000000" />
         <Label x:Name="lbl_rut" Content="Rut del Cliente:" HorizontalAlignment="Left" Margin="42,104,0,0" VerticalAlignment="Top" Width="154" FontSize="18"  Foreground="White"/>
+        <Label x:Name="lbl_Rut" Content="Buscar" HorizontalAlignment="Left" Margin="279,110,0,0" VerticalAlignment="Top" Width="217" Controls:TextBoxHelper.ClearTextButton="True" Foreground="White" BorderBrush="White" BorderThickness="1"/>
         <Label x:Name="lbl_razon" Content="Razón Social:" HorizontalAlignment="Left" Margin="42,165,0,0" VerticalAlignment="Top" Width="135" FontSize="18"  Foreground="White"/>
-        <Label x:Name="lbl_Rut" Content="Buscar" HorizontalAlignment="Left" Margin="277,110,0,0" VerticalAlignment="Top" Width="217" Controls:TextBoxHelper.ClearTextButton="True"  Foreground="White"/>
-        <Label x:Name="lbl_razonSocial" Content="Razon Social
-               " HorizontalAlignment="Left" Margin="277,171,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.086,-5.52" Width="217" Controls:TextBoxHelper.ClearTextButton="True"  Foreground="White"/>
+        <Label x:Name="lbl_razonSocial" Content="Razon Social" HorizontalAlignment="Left" Margin="279,171,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.086,-5.52" Width="217" Controls:TextBoxHelper.ClearTextButton="True" 
+               Foreground="White" BorderBrush="White" BorderThickness="1"/>
         <Button x:Name="btn_coffee" FontSize="20" Click="btn_coffee_Click" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,95,28,0" Height="146" Width="262" Background="#7F55D4" RenderTransformOrigin="0.542,0.52">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                 <Image Source="/Paginas/Contratos/coffee-break.png" Height="50" Width="50" OpacityMask="{DynamicResource MahApps.Brushes.Gray10}"/>

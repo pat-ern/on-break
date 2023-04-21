@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace BibliotecaDeClases
 {
     public class Cliente
-    {
+    { 
         public string RutCliente { get; set; } = string.Empty;
         public string RazonSocial { get; set; } = string.Empty;
         public string NombreContacto { get; set; } = string.Empty;

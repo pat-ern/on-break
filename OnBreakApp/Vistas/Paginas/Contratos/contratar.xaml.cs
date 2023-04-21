@@ -29,17 +29,6 @@ namespace Vistas.Paginas.Contratos
         
             //lbl_Rut.Content = cliente.RutCliente;
 
-            //lbl_razonSocial.Content = cliente.RazonSocial;
-
-
-            txt_Rut.Text = cliente.RutCliente;
-            txt_razonSocial.Text = cliente.RazonSocial;
-
-
- 
-
-
-
         }
 
         private void btn_coffee_Click(object sender, RoutedEventArgs e)
@@ -70,7 +59,7 @@ namespace Vistas.Paginas.Contratos
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Go_Back(object sender, RoutedEventArgs e)
         {
             MainWindow mainWindow = new MainWindow();
             this.Close();

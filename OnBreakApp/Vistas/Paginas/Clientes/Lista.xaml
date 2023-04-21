@@ -13,7 +13,7 @@
     <Grid Background="#34274D">
 
         <Button Click="Go_Back" BorderThickness="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="Transparent">
-            <Image Source="/assets/icon/back-button.png" Width="40"/>
+            <Image Source="/Paginas/Clientes/back-button.png" Width="40"/>
         </Button>
 
         <!-- FILTRO ACTIVIDAD EMPRESA -->

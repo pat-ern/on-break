@@ -17,7 +17,9 @@
     <None Remove="lista-de-verificacion.png" />
     <None Remove="objetivo.png" />
     <None Remove="OnBreak.png" />
+    <None Remove="Paginas\Clientes\back-button.png" />
     <None Remove="Paginas\Contratos\atras.png" />
+    <None Remove="Paginas\Contratos\back-button.png" />
     <None Remove="Paginas\Contratos\buscar.png" />
     <None Remove="Paginas\Contratos\coctel.png" />
     <None Remove="Paginas\Contratos\coffee-break.png" />
@@ -52,7 +54,9 @@
     <Resource Include="assets\icon\list_con.png" />
     <Resource Include="objetivo.png" />
     <Resource Include="OnBreak.png" />
+    <Resource Include="Paginas\Clientes\back-button.png" />
     <Resource Include="Paginas\Contratos\atras.png" />
+    <Resource Include="Paginas\Contratos\back-button.png" />
     <Resource Include="Paginas\Contratos\buscar.png" />
     <Resource Include="Paginas\Contratos\coctel.png" />
     <Resource Include="Paginas\Contratos\coffee-break.png" />

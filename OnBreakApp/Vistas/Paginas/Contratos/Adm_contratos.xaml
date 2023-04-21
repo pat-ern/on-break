@@ -9,17 +9,28 @@
         mc:Ignorable="d"
         Title="OnBreakApp" Height="600" Width="1000">
     <Grid x:Name="grid" Background="#FF6849A6">
-        <Button HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Height="33" Width="47" Click="Button_Click">
-            <StackPanel>
-                <Image Source="/Paginas/Contratos/atras.png" Width="20"/>
-            </StackPanel>
+        <Button Click="Go_Back" BorderThickness="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="Transparent">
+            <Image Source="/Paginas/Clientes/back-button.png" Width="40"/>
         </Button>
         <!-- BUSQUEDA RUT -->
         <TextBox x:Name="txt_busquedaCliente" HorizontalAlignment="Right" Margin="0,15,90,0" VerticalAlignment="Top" Width="240" Height="42"
                  Padding="10" FontSize="15"
                  Controls:TextBoxHelper.ClearTextButton="True" 
-                 Controls:TextBoxHelper.Watermark="BUSCAR POR CLIENTE"
-            >
+                 Controls:TextBoxHelper.Watermark="BUSCAR POR CLIENTE">
         </TextBox>
+        <Rectangle HorizontalAlignment="Left" Height="475" Margin="43,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="565" Fill="White" Grid.RowSpan="5"/>
+        <Button HorizontalAlignment="Left" Margin="113,453,0,0" VerticalAlignment="Top" Height="87" Width="174" Background="#FF99ACFF"  FontSize="18">
+            <StackPanel>
+                <Image Source="/enviar.png" Width="62" Height="35"/>
+                <Label Content="EDITAR"/>
+            </StackPanel>
+        </Button>
+        <Button  HorizontalAlignment="Left" Margin="363,452,0,0" VerticalAlignment="Top" Height="88" Width="186" Background="#FF99ACFF"  FontSize="18">
+            <StackPanel>
+                <Image Source="/limpiar.png" Width="76" Height="45
+                       "/>
+                <Label Content="Limpiar"/>
+            </StackPanel>
+        </Button>
     </Grid>
 </mah:MetroWindow>

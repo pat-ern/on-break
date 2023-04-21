@@ -74,7 +74,7 @@ namespace Vistas
                 btn_contratos.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#A145BB"));
                 btn_cliente.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#3959E8"));
                 btn_crear_contratos.Background = new SolidColorBrush((Color)ColorConverter.ConvertFromString("#FFC53FB5"));
-                btn_contraste.FontWeight = btn_adm_cliente.FontWeight = btn_adm_contratos.FontWeight = btn_contratos.FontWeight = btn_cliente.FontWeight = FontWeights.DemiBold;
+                btn_contraste.FontWeight = btn_adm_cliente.FontWeight = btn_adm_contratos.FontWeight = btn_contratos.FontWeight = btn_cliente.FontWeight = btn_crear_contratos.FontWeight = FontWeights.DemiBold;
             }
             else
             {

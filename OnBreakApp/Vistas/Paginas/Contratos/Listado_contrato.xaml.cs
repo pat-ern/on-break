@@ -1,4 +1,5 @@
-﻿using System;
+﻿using BibliotecaDeClases;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,17 +20,18 @@ namespace Vistas.Paginas.Contratos
     /// </summary>
     public partial class Listado_contrato
     {
+
         public Listado_contrato()
         {
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void Go_Back(object sender, RoutedEventArgs e)
         {
-
             MainWindow mainWindow = new MainWindow();
             this.Close();
             mainWindow.Show();
         }
+
     }
 }

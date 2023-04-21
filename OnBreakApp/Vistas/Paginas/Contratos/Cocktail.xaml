@@ -9,13 +9,13 @@
       Title="Cocktail">
 
     <Grid>
-        <Label Content="Modalidad de Servicio:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18"/>
+        <Label Content="Modalidad de Servicio:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" />
         <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Left" Margin="248,10,0,0" VerticalAlignment="Top" Width="230" Height="34"/>
-        <Label Content="¿Ambientación?:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Height="36" Width="155" FontSize="18"/>
-        <RadioButton x:Name="radioButtonAmbientacionBasica" Content="Básica" HorizontalAlignment="Left" Margin="248,72,0,0" VerticalAlignment="Top" Height="35" Width="74"/>
-        <RadioButton x:Name="radioButtonAmbientacionPersonalizada" Content="Personalizada" HorizontalAlignment="Left" Margin="352,72,0,0" VerticalAlignment="Top" Height="35" Width="112"/>
-        <Label Content="¿Música Ambiental?" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Height="38" Width="185" FontSize="18"/>
+        <Label Content="¿Ambientación?:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Height="36" Width="155" FontSize="18" Foreground="White"/>
+        <RadioButton x:Name="radioButtonAmbientacionBasica" Content="Básica" HorizontalAlignment="Left" Margin="248,72,0,0" VerticalAlignment="Top" Height="35" Width="74" Foreground="White" Background="Transparent"/>
+        <RadioButton x:Name="radioButtonAmbientacionPersonalizada" Content="Personalizada" HorizontalAlignment="Left" Margin="352,72,0,0" VerticalAlignment="Top" Height="35" Width="112" Foreground="White" Background="Transparent"/>
+        <Label Content="¿Música Ambiental?" HorizontalAlignment="Left" Margin="10,124,0,0" VerticalAlignment="Top" Height="38" Width="185" FontSize="18" Foreground="White"/>
         <CheckBox x:Name="checkBoxMusicaAmbiental" Content="Sí" HorizontalAlignment="Left" Margin="248,131,0,0" VerticalAlignment="Top" Height="19" Width="37"/>
-        <Button Content="Contratar" HorizontalAlignment="Left" Margin="246,171,0,0" VerticalAlignment="Top" Width="95" Height="33" Background="{DynamicResource MahApps.Brushes.Accent}"/>
+        <Button Content="Contratar" HorizontalAlignment="Left" Margin="248,175,0,0" VerticalAlignment="Top" Width="95" Height="50" Background="CadetBlue" Foreground="White"/>
     </Grid>
 </Page>
