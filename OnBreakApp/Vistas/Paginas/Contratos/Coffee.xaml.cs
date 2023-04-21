@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -59,29 +60,43 @@ namespace Vistas.Paginas.Contratos
             lista.Show();
         }
 
-        //private void txt_asistentes_TextChanged(object sender, KeyPressEventArgs e)
-        //{
-        //    Permite solo números y teclas de control(como borrar o pegar)
-        //    if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-        //    {
-        //        e.Handled = true;
-        //    }
+        private void txt_asistentes_TextChanged(object sender, EventArgs e)
+        {
+            // Si el TextBox está vacío, establece el valor predeterminado en cero
+            if (string.IsNullOrEmpty(txt_asistentes.Text))
+            {
+                txt_asistentes.Text = "0";
+            }
 
-        //    Si se escribe algo en el TextBox, borra el valor predeterminado de cero
-        //    if (txt_asistentes.Text == "0")
-        //    {
-        //        txt_asistentes.Text = "";
-        //    }
-        //}
-
-        //private void textBox1_Leave(object sender, EventArgs e)
-        //{
-        //    Si no se ha escrito nada en el TextBox, establece el valor en cero
-        //    if (string.IsNullOrEmpty(txt_asistentes.Text))
-        //    {
-        //        txt_asistentes.Text = "0";
-        //    }
-        //}
+            // Verifica que el contenido del TextBox sea un número del 2 en adelante
+            if (int.TryParse(txt_asistentes.Text, out int result) && result >= 2)
+            {
+                // El contenido es un número válido del 2 en adelante, hay que hacer el calculo con la uf
+                double costo;
+                if (result == 2)
+                {
+                    costo = 2;
+                }
+                else if (result == 3)
+                {
+                    costo = 3;
+                }
+                else if (result == 4)
+                {
+                    costo = 3.5;
+                }
+                else
+                {
+                    costo = 3.5 + (result - 4) * 0.5;
+                }
+                // Aqui ya deberia tener el valor para multiplicarlo con la uf!!!
+            }
+            else
+            {
+                // Si el contenido del TextBox no es un número válido del 2 en adelante, establece el valor en 2
+                txt_asistentes.Text = "0";
+            }
+        }
 
     }
 }
