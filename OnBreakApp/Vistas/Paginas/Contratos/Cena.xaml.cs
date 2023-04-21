@@ -23,7 +23,6 @@ namespace Vistas.Paginas.Contratos
         public Cena()
         {
             InitializeComponent();
-            // Agrega las opciones al ComboBox
             comboBoxModalidades.Items.Add("Ejecutiva");
             comboBoxModalidades.Items.Add("Celebración");
         }

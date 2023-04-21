@@ -20,8 +20,7 @@ namespace Vistas.Paginas.Contratos
     /// </summary>
     public partial class Coffee : Page
     {
-        //Declarar variable valor para calcular el valor total
-        private int valor;
+
 
         public Coffee()
         {
