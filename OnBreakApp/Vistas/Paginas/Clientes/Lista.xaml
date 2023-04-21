@@ -50,20 +50,24 @@
                  
             >
 
-          
+
         </TextBox>
         <!-- RESETEAR FILTROS -->
         <Button Click="Resetear" BorderThickness="0" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Background="Transparent">
             <Image Source="/assets/icon/clear-filter.png" Width="40"/>
         </Button>
-        
-        
+
+
         <Grid Margin="0,61,0,0">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="237*"/>
+                <ColumnDefinition Width="13*"/>
+            </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="388*"/>
                 <RowDefinition Height="197*"/>
             </Grid.RowDefinitions>
-            <DataGrid x:Name="miTabla" AutoGenerateColumns="False" Margin="10,10,10,10" Grid.RowSpan="2" SelectionChanged="miTabla_SelectionChanged">
+            <DataGrid x:Name="miTabla" AutoGenerateColumns="False" Margin="10,10,10,10" Grid.RowSpan="2" SelectionChanged="miTabla_SelectionChanged" Grid.ColumnSpan="2">
                 <DataGrid.Columns>
                     <DataGridTextColumn Header="RUT" Binding="{Binding RutCliente}" />
                     <DataGridTextColumn Header="Razón Social" Binding="{Binding RazonSocial}" />

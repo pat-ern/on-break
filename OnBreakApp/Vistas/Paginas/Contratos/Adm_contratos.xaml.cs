@@ -12,6 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
+using BibliotecaDeClases;
+
 namespace Vistas.Paginas.Contratos
 {
     /// <summary>
@@ -21,6 +23,10 @@ namespace Vistas.Paginas.Contratos
     {
         public Adm_contratos()
         {
+            InitializeComponent();
+        }
+
+        public Adm_contratos(Contrato contrato) {
             InitializeComponent();
         }
 
