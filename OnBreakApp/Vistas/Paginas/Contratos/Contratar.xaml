@@ -9,7 +9,7 @@
         xmlns:local="clr-namespace:Vistas.Paginas.Contratos"
         mc:Ignorable="d"
         Title="OnBreakApp" Height="600" Width="1000">
-    <Grid x:Name="grid" Background="#FF951A86">
+    <Grid x:Name="grid" Background="#6B317B">
         <Button Click="Go_Back" BorderThickness="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="Transparent">
             <Image Source="/Paginas/Contratos/back-button.png" Width="40"/>
         </Button>
