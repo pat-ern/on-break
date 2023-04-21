@@ -8,9 +8,9 @@
         mc:Ignorable="d"
         Title="OnBreakApp" Height="600" Width="1000">
     <Grid x:Name="grid" Background="#34274D">
-        <Image HorizontalAlignment="Left" Height="73" Margin="22,11,0,0" VerticalAlignment="Top" Width="75" Source="/OnBreak.png"/>
+        <Image HorizontalAlignment="Left" Height="73" Margin="50,11,0,0" VerticalAlignment="Top" Width="75" Source="/OnBreak.png"/>
 
-        <Button x:Name="btn_contraste" Tag="true" BorderThickness="0" VerticalAlignment="Top" FontWeight="Bold" Background="White" Margin="0,20,14,0" Width="62" Height="49" Click="btn_contraste_Click" HorizontalAlignment="Right">
+        <Button x:Name="btn_contraste" Tag="true" BorderThickness="0" VerticalAlignment="Top" FontWeight="Bold" Background="White" Margin="0,20,50,0" Width="62" Height="49" Click="btn_contraste_Click" HorizontalAlignment="Right">
             <StackPanel>
                 <Image Source="/simbolo-de-circulo-de-contraste.png" Height="30" Width="50"/>
             </StackPanel>

@@ -135,5 +135,9 @@ namespace Vistas.Paginas.Contratos
             txt_valor_total.Text = string.Empty;
         }
 
+        private void txt_numero_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }

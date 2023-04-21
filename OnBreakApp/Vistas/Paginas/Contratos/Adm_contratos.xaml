@@ -58,7 +58,7 @@
         </Button>-->
 
         <Rectangle HorizontalAlignment="Left" Height="438" Margin="91,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="461" Visibility="Hidden" Grid.RowSpan="5" />
-        <Rectangle HorizontalAlignment="Left" Height="474" Margin="43,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="565" Fill="White" Grid.RowSpan="5"/>
+        <Rectangle HorizontalAlignment="Left" Height="465" Margin="43,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="565" Fill="White" Grid.RowSpan="5"/>
 
         <TextBox x:Name="txt_numero" HorizontalAlignment="Left" Margin="277,106,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="32"/>
         <TextBox x:Name="txt_creacion" HorizontalAlignment="Left" Margin="277,4,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="301" Height="32" Grid.Row="1"/>
