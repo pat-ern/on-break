@@ -90,6 +90,7 @@ namespace Vistas.Paginas.Contratos
                     costo = 3.5 + (result - 4) * 0.5;
                 }
                 // Aqui ya deberia tener el valor para multiplicarlo con la uf!!!
+                //reto
             }
             else
             {
@@ -98,5 +99,9 @@ namespace Vistas.Paginas.Contratos
             }
         }
 
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

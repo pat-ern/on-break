@@ -28,5 +28,10 @@ namespace Vistas.Paginas.Contratos
             comboBoxModalidades.Items.Add("Quick Cocktail");
             comboBoxModalidades.Items.Add("Ambient Cocktail");
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
