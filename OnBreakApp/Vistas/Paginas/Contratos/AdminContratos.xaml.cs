@@ -19,19 +19,19 @@ using Vistas.Paginas.Clientes;
 namespace Vistas.Paginas.Contratos
 {
 
-    public partial class Adm_contratos
+    public partial class AdminContratos
     {
 
         List<Contrato> contratos = new List<Contrato>();
 
         Contrato contrato = new Contrato();
 
-        public Adm_contratos()
+        public AdminContratos()
         {
             InitializeComponent();
         }
 
-        public Adm_contratos(Contrato contrato) {
+        public AdminContratos(Contrato contrato) {
             InitializeComponent();
 
             this.contrato = contrato;
@@ -49,7 +49,7 @@ namespace Vistas.Paginas.Contratos
             txt_valor_total.Text = contrato.ValorTotalContrato.ToString();
         }
 
-        public Adm_contratos(List<Contrato> contratos)
+        public AdminContratos(List<Contrato> contratos)
         {
             InitializeComponent();
             this.contratos = contratos;
@@ -139,5 +139,13 @@ namespace Vistas.Paginas.Contratos
         {
 
         }
+
+        private void btn_crear_contrato_Click(object sender, RoutedEventArgs e)
+        {
+            CreacionContrato creacionContrato = new();
+            this.Close();
+            creacionContrato.Show();
+        }
+
     }
 }

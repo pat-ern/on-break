@@ -8,14 +8,20 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="assets\img\**" />
+    <EmbeddedResource Remove="assets\img\**" />
+    <None Remove="assets\img\**" />
+    <Page Remove="assets\img\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="administrador-de-la-comunidad.png" />
     <None Remove="adm_clientes.png" />
-    <None Remove="assets\icon\back-button.png" />
-    <None Remove="assets\icon\buscar.png" />
-    <None Remove="assets\icon\clear-filter-2.png" />
-    <None Remove="assets\icon\clear-filter.png" />
-    <None Remove="assets\icon\clear-format.png" />
-    <None Remove="assets\icon\diskette.png" />
+    <None Remove="assets\back-button.png" />
+    <None Remove="assets\buscar.png" />
+    <None Remove="assets\coctel.png" />
+    <None Remove="assets\coffee-break.png" />
+    <None Remove="assets\plato-de-servir.png" />
     <None Remove="contrato.png" />
     <None Remove="lista-de-verificacion.png" />
     <None Remove="objetivo.png" />
@@ -30,23 +36,18 @@
     <None Remove="simbolo-de-circulo-de-contraste.png" />
 	<None Remove="añadir_cliente.png" />
 	<None Remove="cliente.png" />
-	<Content Include="assets\icon\back-button.png">
+	<Content Include="assets\clear-filter-2.png">
 	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	</Content>
-	<Content Include="assets\icon\clear-filter-2.png">
+	<Content Include="assets\clear-filter.png">
 	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	</Content>
-	<Content Include="assets\icon\clear-filter.png">
+	<Content Include="assets\clear-format.png">
 	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	</Content>
-	<Content Include="assets\icon\clear-format.png">
+	<Content Include="assets\diskette.png">
 	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	</Content>
-	<Content Include="assets\icon\diskette.png">
-	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-	</Content>
-	<None Include="enviar.png" />
-	<None Include="limpiar.png" />
   </ItemGroup>
 
   <ItemGroup>
@@ -59,31 +60,26 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="administrador-de-la-comunidad.png" />
-    <Resource Include="assets\icon\adm_cli.png" />
-    <Resource Include="assets\icon\buscar.png" />
-    <Resource Include="assets\icon\list_cli.png" />
-    <Resource Include="assets\icon\adm_con.png" />
-    <Resource Include="assets\icon\list_con.png" />
-    <Resource Include="objetivo.png" />
-    <Resource Include="OnBreak.png" />
-    <Resource Include="Paginas\Clientes\back-button.png" />
-    <Resource Include="Paginas\Contratos\atras.png" />
-    <Resource Include="Paginas\Contratos\back-button.png" />
-    <Resource Include="Paginas\Contratos\buscar.png" />
-    <Resource Include="Paginas\Contratos\coctel.png" />
-    <Resource Include="Paginas\Contratos\coffee-break.png" />
-    <Resource Include="Paginas\Contratos\plato-de-servir.png" />
-    <Resource Include="simbolo-de-circulo-de-contraste.png" />
-	<Resource Include="añadir_cliente.png" />
-	<Resource Include="enviar.png" />
-	<Resource Include="limpiar.png" />
-	<Resource Include="cliente.png" />
+    <Resource Include="assets\admin-contratos.png" />
+    <Resource Include="assets\buscar.png" />
+    <Resource Include="assets\coctel.png" />
+    <Resource Include="assets\coffee-break.png" />
+    <Resource Include="assets\adm_cli.png" />
+    <Resource Include="assets\list_cli.png" />
+    <Resource Include="assets\adm_con.png" />
+    <Resource Include="assets\list_con.png" />
+    <Resource Include="assets\plato-de-servir.png" />
+    <Resource Include="assets\objetivo.png" />
+    <Resource Include="assets\OnBreak.png" />
+    <Content Include="assets\back-button.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Resource Include="assets\contraste.png" />
+	<Resource Include="assets\añadir_cliente.png" />
+	<Resource Include="assets\enviar.png" />
+	<Resource Include="assets\limpiar.png" />
+	<Resource Include="assets\cliente.png" />
 	  
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="assets\img\" />
   </ItemGroup>
 
 </Project>

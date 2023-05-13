@@ -14,7 +14,7 @@
         <Label x:Name="lbl_Rut" Content="Buscar" HorizontalAlignment="Left" Margin="250,13,0,0" VerticalAlignment="Top" Width="218" Foreground="White" BorderBrush="White" BorderThickness="1"/>
         <Button x:Name="btn_buscar" HorizontalAlignment="Left" Margin="477,10,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="-1.911,0.807" Height="32" Background="White" Click="btn_buscar_Click" >
             <StackPanel>
-                <Image Source="/Paginas/Contratos/buscar.png" Width="20"/>
+                <Image Source="/assets/buscar.png" Width="20"/>
             </StackPanel>
         </Button>
         <Label x:Name="lbl_razon" Content="Razón Social:" HorizontalAlignment="Left" Margin="12,56,0,0" VerticalAlignment="Top" Width="135" FontSize="18"  Foreground="White"/>

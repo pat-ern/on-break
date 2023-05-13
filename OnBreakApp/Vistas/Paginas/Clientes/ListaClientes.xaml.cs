@@ -20,7 +20,7 @@ namespace Vistas.Paginas.Clientes
     /// <summary>
     /// Lógica de interacción para Lista.xaml
     /// </summary>
-    public partial class Lista 
+    public partial class ListaClientes
     {
         List<Cliente> clientes = new List<Cliente>();
 
@@ -36,11 +36,11 @@ namespace Vistas.Paginas.Clientes
         TipoEmpresa tipEmp4 = new TipoEmpresa() { IdTipoEmpresa = 4, Descripcion = "Sociedad en Participacion" };
         TipoEmpresa tipEmp5 = new TipoEmpresa() { IdTipoEmpresa = 5, Descripcion = "Sociedad en Comandita" };
 
-        public Lista() { 
+        public ListaClientes() { 
             InitializeComponent();
         }
 
-        public Lista(List<Cliente> clientes)
+        public ListaClientes(List<Cliente> clientes)
         {
             InitializeComponent();
 
@@ -122,7 +122,7 @@ namespace Vistas.Paginas.Clientes
 
             if (clienteSeleccionado != null)
             {
-                Index lista = new Index(clienteSeleccionado);
+                AdminClientes lista = new AdminClientes(clienteSeleccionado);
                 this.Close();
                 lista.Show();
             }

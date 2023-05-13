@@ -129,9 +129,9 @@ namespace Vistas.Paginas.Contratos
 
             if (contratoSeleccionado != null)
             {
-                Adm_contratos adm_contratos = new Adm_contratos(contratoSeleccionado);
+                AdminContratos adminContratos = new AdminContratos(contratoSeleccionado);
                 this.Close();
-                adm_contratos.Show();
+                adminContratos.Show();
             }
 
         }

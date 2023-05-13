@@ -19,9 +19,14 @@ namespace Vistas.Paginas.Contratos
     /// <summary>
     /// Lógica de interacción para Contratar.xaml
     /// </summary>
-    public partial class Contratar
+    public partial class CreacionContrato
     {
-        public Contratar(Cliente cliente)
+
+        public CreacionContrato() { 
+            InitializeComponent();
+        }
+
+        public CreacionContrato(Cliente cliente)
         {
             InitializeComponent();
 
@@ -53,17 +58,17 @@ namespace Vistas.Paginas.Contratos
         private void btn_buscar_Click(object sender, RoutedEventArgs e)
         {
             //abrir pagina de lista de clientes para poder buscar informacion
-            Paginas.Clientes.Lista lista = new Paginas.Clientes.Lista();
-            lista.Show();
+            Paginas.Clientes.ListaClientes listaClientes = new Paginas.Clientes.ListaClientes();
+            listaClientes.Show();
             this.Close();
 
         }
 
         private void Go_Back(object sender, RoutedEventArgs e)
         {
-            MainWindow mainWindow = new MainWindow();
+            AdminContratos adminContratos = new AdminContratos();
             this.Close();
-            mainWindow.Show();
+            adminContratos.Show();
         }
 
         private void txt_Rut_TextChanged(object sender, TextChangedEventArgs e)

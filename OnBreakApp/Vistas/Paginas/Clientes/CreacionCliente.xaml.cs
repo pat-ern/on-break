@@ -19,9 +19,9 @@ namespace Vistas.Paginas.Clientes
     /// <summary>
     /// Lógica de interacción para Agregar.xaml
     /// </summary>
-    public partial class Agregar
+    public partial class CreacionCliente
     {
-        public Agregar()
+        public CreacionCliente()
         {
             InitializeComponent();
 
@@ -40,11 +40,11 @@ namespace Vistas.Paginas.Clientes
         {
 
             var cliente = new Cliente();
-            Paginas.Clientes.Index lista = new Index(cliente);
+            Paginas.Clientes.AdminClientes adminClientes = new AdminClientes(cliente);
 
             this.Close();
 
-            lista.Show();
+            adminClientes.Show();
 
         }
     }

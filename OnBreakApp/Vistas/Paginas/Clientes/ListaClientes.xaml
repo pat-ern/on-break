@@ -1,4 +1,4 @@
-﻿<mah:MetroWindow x:Class="Vistas.Paginas.Clientes.Lista"
+﻿<mah:MetroWindow x:Class="Vistas.Paginas.Clientes.ListaClientes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -13,7 +13,7 @@
     <Grid Background="#34274D">
 
         <Button Click="Go_Back" BorderThickness="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="Transparent">
-            <Image Source="/Paginas/Clientes/back-button.png" Width="40"/>
+            <Image Source="/assets/back-button.png" Width="40"/>
         </Button>
 
         <!-- FILTRO ACTIVIDAD EMPRESA -->
@@ -54,7 +54,7 @@
         </TextBox>
         <!-- RESETEAR FILTROS -->
         <Button Click="Resetear" BorderThickness="0" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Background="Transparent">
-            <Image Source="/assets/icon/clear-filter.png" Width="40"/>
+            <Image Source="/assets/clear-filter.png" Width="40"/>
         </Button>
 
 

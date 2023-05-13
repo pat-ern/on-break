@@ -1,4 +1,4 @@
-﻿<mah:MetroWindow
+﻿<mah:MetroWindow x:Class="Vistas.Paginas.Clientes.AdminClientes"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -6,7 +6,6 @@
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:local="clr-namespace:Vistas.Paginas.Clientes"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
-        x:Class="Vistas.Paginas.Clientes.Index"
         mc:Ignorable="d"
         Title="OnBreakApp" Height="600" Width="1000">
     <Grid Background="#34274D">
@@ -31,13 +30,13 @@
                 </TransformGroup>
             </Button.RenderTransform>
             <StackPanel>
-                <Image Source="/Paginas/Contratos/buscar.png" Width="20"/>
+                <Image Source="/assets/buscar.png" Width="20"/>
             </StackPanel>
         </Button>
 
         <Button x:Name="btn_listado" HorizontalAlignment="Left" Margin="644,4,0,0" VerticalAlignment="Top" Height="152" Width="336" Background="#FFA145BB"  FontSize="18" Click="btn_listado_Click" Grid.RowSpan="2" Grid.Row="1">
             <StackPanel>
-                <Image Source="/cliente.png" Width="100"/>
+                <Image Source="/assets/cliente.png" Width="100"/>
                 <Label Content="LISTADO DE CLIENTES"/>
             </StackPanel>
         </Button>
@@ -52,7 +51,7 @@
 
 
         <Button x:Name="btn_volver" Click="btn_volver_Click" BorderThickness="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"  Background="Transparent">
-            <Image Source="/assets/icon/back-button.png" Width="40"/>
+            <Image Source="/assets/back-button.png" Width="40"/>
         </Button>
 
         <!--<Button x:Name="btn_Buscar" Content="" HorizontalAlignment="Left" Margin="668,23,0,0" VerticalAlignment="Top" Width="56"  RenderTransformOrigin="-1.911,0.807" Height="32" Background="CornflowerBlue" Click="btn_Buscar_Click">
@@ -77,13 +76,13 @@
         <Label Content="TIPO EMPRESA" HorizontalAlignment="Left" Margin="84,30,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="187" Height="40" Grid.Row="4"  FontWeight="Bold" FontSize="15"/>
         <Button HorizontalAlignment="Left" Margin="643,10,0,0" VerticalAlignment="Top" Height="90" Width="337" Background="#FF99ACFF"  FontSize="15" Grid.RowSpan="2" Grid.Row="3">
             <StackPanel>
-                <Image Source="/assets/icon/diskette.png" Width="76" Height="45"/>
+                <Image Source="/assets/diskette.png" Width="76" Height="45"/>
                 <Label Content="GUARDAR"/>
             </StackPanel>
         </Button>
         <Button  HorizontalAlignment="Left" Margin="643,62,0,0" VerticalAlignment="Top" Height="90" Width="337" Background="#FF99ACFF"  FontSize="18" Grid.Row="4" Click="Button_Clear">
             <StackPanel>
-                <Image Source="/assets/icon/clear-format.png" Width="76" Height="45
+                <Image Source="/assets/clear-format.png" Width="76" Height="45
                        "/>
                 <Label Content="LIMPIAR"/>
             </StackPanel>

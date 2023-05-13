@@ -20,7 +20,7 @@ namespace Vistas.Paginas.Clientes
     /// <summary>
     /// Lógica de interacción para Index.xaml
     /// </summary>
-    public partial class Index 
+    public partial class AdminClientes 
     {
 
         List<Cliente> clientes = new List<Cliente>();
@@ -37,7 +37,7 @@ namespace Vistas.Paginas.Clientes
         TipoEmpresa tipEmp4 = new TipoEmpresa() { IdTipoEmpresa = 4, Descripcion = "Sociedad en Participacion" };
         TipoEmpresa tipEmp5 = new TipoEmpresa() { IdTipoEmpresa = 5, Descripcion = "Sociedad en Comandita" };
 
-        public Index(Cliente cliente)
+        public AdminClientes(Cliente cliente)
         {
             InitializeComponent();
 
@@ -53,7 +53,7 @@ namespace Vistas.Paginas.Clientes
 
         }
 
-        public Index(List<Cliente> clientes)
+        public AdminClientes(List<Cliente> clientes)
         {
             InitializeComponent();
             this.clientes = clientes;
@@ -61,16 +61,16 @@ namespace Vistas.Paginas.Clientes
 
         private void btn_listado_Click(object sender, RoutedEventArgs e)
         {
-            Paginas.Clientes.Lista lista = new Lista(clientes);
+            Paginas.Clientes.ListaClientes listaClientes = new ListaClientes(clientes);
             this.Close();
-            lista.Show();
+            listaClientes.Show();
         }
 
         private void btn_agregar_Click(object sender, RoutedEventArgs e)
         {
-            Paginas.Clientes.Agregar agregar = new Agregar();
+            Paginas.Clientes.CreacionCliente creacionCliente = new CreacionCliente();
             this.Close();
-            agregar.Show();
+            creacionCliente.Show();
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
