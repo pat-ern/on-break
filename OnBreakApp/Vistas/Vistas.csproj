@@ -57,10 +57,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\BibliotecaDeClases\BibliotecaDeClases.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="assets\admin-contratos.png" />
     <Resource Include="assets\buscar.png" />
     <Resource Include="assets\coctel.png" />
@@ -75,6 +71,7 @@
     <Content Include="assets\back-button.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <ProjectReference Include="..\OnBreak.BC\OnBreak.BC.csproj" />
     <Resource Include="assets\contraste.png" />
 	<Resource Include="assets\añadir_cliente.png" />
 	<Resource Include="assets\enviar.png" />

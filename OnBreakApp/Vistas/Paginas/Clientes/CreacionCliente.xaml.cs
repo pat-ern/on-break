@@ -1,4 +1,4 @@
-﻿using BibliotecaDeClases;
+﻿
 using MahApps.Metro.Controls;
 using System;
 using System.Collections.Generic;
@@ -39,8 +39,7 @@ namespace Vistas.Paginas.Clientes
         private void btn_volver(object sender, RoutedEventArgs e)
         {
 
-            var cliente = new Cliente();
-            Paginas.Clientes.AdminClientes adminClientes = new AdminClientes(cliente);
+            Paginas.Clientes.AdminClientes adminClientes = new AdminClientes();
 
             this.Close();
 

@@ -12,7 +12,6 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 
-using BibliotecaDeClases;
 using MahApps.Metro.Controls.Dialogs;
 using Vistas.Paginas.Clientes;
 
@@ -22,38 +21,28 @@ namespace Vistas.Paginas.Contratos
     public partial class AdminContratos
     {
 
-        List<Contrato> contratos = new List<Contrato>();
+        //List<Contrato> contratos = new List<Contrato>();
 
-        Contrato contrato = new Contrato();
+        //Contrato contrato = new Contrato();
 
-        public AdminContratos()
-        {
-            InitializeComponent();
-        }
-
-        public AdminContratos(Contrato contrato) {
+        public AdminContratos() {
             InitializeComponent();
 
-            this.contrato = contrato;
+            //this.contrato = contrato;
 
-            txt_numero.Text = contrato.Numero;
-            txt_creacion.Text = contrato.Creacion.ToString();
-            txt_termino.Text = contrato.Termino.ToString();
-            txt_cliente.Text = contrato.Cliente.RutCliente;
-            txt_tipo_evento.Text = contrato.ModalidadServicio.TipoEvento.Descripcion;
-            txt_fecha_inicio.Text = contrato.FechaHoraInicio.ToString();
-            txt_fecha_termino.Text = contrato.FechaHoraTermino.ToString();
-            txt_asistentes.Text = contrato.Asistentes.ToString();
-            txt_personal_adicional.Text = contrato.PersonalAdicional.ToString();
-            txt_realizado.Text = contrato.Realizado.ToString();
-            txt_valor_total.Text = contrato.ValorTotalContrato.ToString();
+            //txt_numero.Text = contrato.Numero;
+            //txt_creacion.Text = contrato.Creacion.ToString();
+            //txt_termino.Text = contrato.Termino.ToString();
+            //txt_cliente.Text = contrato.Cliente.RutCliente;
+            //txt_tipo_evento.Text = contrato.ModalidadServicio.TipoEvento.Descripcion;
+            //txt_fecha_inicio.Text = contrato.FechaHoraInicio.ToString();
+            //txt_fecha_termino.Text = contrato.FechaHoraTermino.ToString();
+            //txt_asistentes.Text = contrato.Asistentes.ToString();
+            //txt_personal_adicional.Text = contrato.PersonalAdicional.ToString();
+            //txt_realizado.Text = contrato.Realizado.ToString();
+            //txt_valor_total.Text = contrato.ValorTotalContrato.ToString();
         }
 
-        public AdminContratos(List<Contrato> contratos)
-        {
-            InitializeComponent();
-            this.contratos = contratos;
-        }
 
         private void Go_Back(object sender, RoutedEventArgs e)
         {
@@ -64,7 +53,7 @@ namespace Vistas.Paginas.Contratos
 
         private void btn_listado_Click(object sender, RoutedEventArgs e)
         {
-            Paginas.Contratos.Listado_contrato lista = new Listado_contrato(contratos);
+            Paginas.Contratos.Listado_contrato lista = new Listado_contrato();
             this.Close();
             lista.Show();
         }
@@ -74,42 +63,42 @@ namespace Vistas.Paginas.Contratos
 
         }
 
-        private async void btn_buscar_Click_1(object sender, RoutedEventArgs e)
+        private void btn_buscar_Click_1(object sender, RoutedEventArgs e)
         {
-            string textoBusqueda = txt_busqueda.Text;
+            //string textoBusqueda = txt_busqueda.Text;
 
-            var resultados = from c in contratos
-                                where c.Numero.Contains(textoBusqueda)
-                                select c;
+            //var resultados = from c in contratos
+            //                    where c.Numero.Contains(textoBusqueda)
+            //                    select c;
 
-            var contrato = new Contrato();
+            //var contrato = new Contrato();
 
-            for (int i = 0; i < resultados.Count(); i++)
-            {
-                if (resultados.ElementAt(i).Numero == textoBusqueda)
-                {
+            //for (int i = 0; i < resultados.Count(); i++)
+            //{
+            //    if (resultados.ElementAt(i).Numero == textoBusqueda)
+            //    {
 
-                    contrato = resultados.ElementAt(i);
+            //        contrato = resultados.ElementAt(i);
 
-                    txt_numero.Text = contrato.Numero;
-                    txt_creacion.Text = contrato.Creacion.ToString();
-                    txt_termino.Text = contrato.Termino.ToString();
-                    txt_cliente.Text = contrato.Cliente.RutCliente;
-                    txt_tipo_evento.Text = contrato.ModalidadServicio.TipoEvento.Descripcion;
-                    txt_fecha_inicio.Text = contrato.FechaHoraInicio.ToString();
-                    txt_fecha_termino.Text = contrato.FechaHoraTermino.ToString();
-                    txt_asistentes.Text = contrato.Asistentes.ToString();
-                    txt_personal_adicional.Text = contrato.PersonalAdicional.ToString();
-                    txt_realizado.Text = contrato.Realizado.ToString();
-                    txt_valor_total.Text = contrato.ValorTotalContrato.ToString();
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Advertencia", "Debe ingresar un numero válido.");
+            //        txt_numero.Text = contrato.Numero;
+            //        txt_creacion.Text = contrato.Creacion.ToString();
+            //        txt_termino.Text = contrato.Termino.ToString();
+            //        txt_cliente.Text = contrato.Cliente.RutCliente;
+            //        txt_tipo_evento.Text = contrato.ModalidadServicio.TipoEvento.Descripcion;
+            //        txt_fecha_inicio.Text = contrato.FechaHoraInicio.ToString();
+            //        txt_fecha_termino.Text = contrato.FechaHoraTermino.ToString();
+            //        txt_asistentes.Text = contrato.Asistentes.ToString();
+            //        txt_personal_adicional.Text = contrato.PersonalAdicional.ToString();
+            //        txt_realizado.Text = contrato.Realizado.ToString();
+            //        txt_valor_total.Text = contrato.ValorTotalContrato.ToString();
+            //    }
+            //    else
+            //    {
+            //        await this.ShowMessageAsync("Advertencia", "Debe ingresar un numero válido.");
 
-                }
-                break;
-            }
+            //    }
+            //    break;
+            //}
 
         }
 

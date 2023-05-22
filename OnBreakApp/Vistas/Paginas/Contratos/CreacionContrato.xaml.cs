@@ -1,5 +1,4 @@
-﻿using BibliotecaDeClases;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -22,11 +21,8 @@ namespace Vistas.Paginas.Contratos
     public partial class CreacionContrato
     {
 
-        public CreacionContrato() { 
-            InitializeComponent();
-        }
 
-        public CreacionContrato(Cliente cliente)
+        public CreacionContrato()
         {
             InitializeComponent();
 
