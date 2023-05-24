@@ -14,6 +14,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Vistas.Paginas.Contratos;
+using OnBreak.BC;
 
 namespace Vistas.Paginas.Clientes
 {
@@ -42,18 +43,22 @@ namespace Vistas.Paginas.Clientes
         {
             InitializeComponent();
 
-            //this.clientes = clientes;
 
-            //this.miTabla.ItemsSource = this.clientes;
+            var clientes = new Cliente().ReadAll();
+            var actEmp = new ActividadEmpresa().ReadAll();
+            var tipEmp = new TipoEmpresa().ReadAll();
 
-            //string[] tipoEmpresaItems = new string[] { this.tipEmp1.Descripcion, this.tipEmp2.Descripcion, this.tipEmp3.Descripcion, this.tipEmp4.Descripcion, this.tipEmp5.Descripcion };
 
-            //filtroTipoEmpresa.ItemsSource = tipoEmpresaItems;
+            // Agregar los resultados al control DataGrid
+            for (int i = 0; i < clientes.Count; i++)
+            {
+                clientes[i].ActividadEmpresa = actEmp.Find(a => a.IdActividadEmpresa == clientes[i].IdActividadEmpresa);
+                clientes[i].TipoEmpresa = tipEmp.Find(t => t.IdTipoEmpresa == clientes[i].IdTipoEmpresa);
+            }
 
-            //string[] actividadEmpresaItems = new string[] { this.actEmp1.Descripcion, this.actEmp2.Descripcion, this.actEmp3.Descripcion, this.actEmp4.Descripcion, this.actEmp5.Descripcion };
+            this.miTabla.ItemsSource = clientes;
 
-            //filtroActividadEmpresa.ItemsSource = actividadEmpresaItems;
-            
+
         }
 
         private void Go_Back(object sender, RoutedEventArgs e)
@@ -66,24 +71,30 @@ namespace Vistas.Paginas.Clientes
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //string textoBusqueda = txt_busquedaRut.Text;
 
-            //// Consultar la lista de objetos para obtener los resultados de la búsqueda
-            //var resultadosRut = from c in clientes
-            //                    where c.RutCliente.Contains(textoBusqueda)
-            //                 select c;
+            var clientes = new Cliente().ReadAll();
 
-            //// Agregar los resultados al control DataGrid
-            //this.miTabla.ItemsSource = resultadosRut.ToList();
+            string textoBusqueda = txt_busquedaRut.Text;
+
+            // Consultar la lista de objetos para obtener los resultados de la búsqueda
+            var resultadosRut = from c in clientes
+                                where c.RutCliente.Contains(textoBusqueda)
+                                select c;
+
+            // Agregar los resultados al control DataGrid
+            this.miTabla.ItemsSource = resultadosRut.ToList();
         }
 
         private void ActividadEmpresa_Click(object sender, RoutedEventArgs e)
         {
-            // Obtener el valor seleccionado del DropDownButton
+            //Obtener el valor seleccionado del DropDownButton
+
+            //var clientes = new Cliente().ReadAll();
+
             //var valorSeleccionado = ((MenuItem)sender).Header;
 
             //var resultadosAct = from c in clientes
-            //                 where c.ActividadEmpresa.Descripcion.Equals((String)valorSeleccionado)
+            //                    where c.ActividadEmpresa.Descripcion.Equals((String)valorSeleccionado)
             //                    select c;
 
             //this.miTabla.ItemsSource = resultadosAct.ToList();
@@ -92,7 +103,8 @@ namespace Vistas.Paginas.Clientes
 
         private void TipoEmpresa_Click(object sender, RoutedEventArgs e)
         {
-            // Obtener el valor seleccionado del DropDownButton
+            //var clientes = new Cliente().ReadAll();
+
             //var valorSeleccionado = ((MenuItem)sender).Header;
 
             //var resultadosTip = from c in clientes
@@ -110,6 +122,7 @@ namespace Vistas.Paginas.Clientes
 
         private void txt_busquedaRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
         {
+
 
         }
 

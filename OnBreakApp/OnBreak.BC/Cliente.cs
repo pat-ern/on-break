@@ -84,6 +84,43 @@ namespace OnBreak.BC
                 return false;
             }
         }
+        public bool Update()
+        {
+            //Crear una conexión al Entities
+            BD.OnBreakEntities bd = new BD.OnBreakEntities();
+            try
+            {
+                //busco por el id el contenido de la entidad a modificar
+                BD.Cliente Cliente =
+                    bd.Cliente.First(e => e.RutCliente.Equals(this.RutCliente));
+                CommonBC.Syncronize(this, Cliente);
+                bd.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
+        public bool Delete()
+        {
+            //Crear una conexión al Entities
+            BD.OnBreakEntities bd = new BD.OnBreakEntities();
+            try
+            {
+                //busco por el id el contenido de la entidad a eliminar
+                BD.Cliente Cliente =
+                    bd.Cliente.First(e => e.RutCliente.Equals(this.RutCliente));
+                bd.Cliente.Remove(Cliente);
+                bd.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
 
         public void LeerDescripcionActividadEmpresa()
