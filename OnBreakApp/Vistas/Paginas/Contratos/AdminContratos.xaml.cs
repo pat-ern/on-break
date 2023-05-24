@@ -37,8 +37,6 @@ namespace Vistas.Paginas.Contratos
             this.contrato = contrato;
 
             txt_numero.Text = contrato.Numero;
-            txt_creacion.Text = contrato.Creacion.ToString();
-            txt_termino.Text = contrato.Termino.ToString();
             txt_cliente.Text = contrato.Cliente.RutCliente;
             txt_tipo_evento.Text = contrato.ModalidadServicio.TipoEvento.Descripcion;
             txt_fecha_inicio.Text = contrato.FechaHoraInicio.ToString();
@@ -92,8 +90,6 @@ namespace Vistas.Paginas.Contratos
                     contrato = resultados.ElementAt(i);
 
                     txt_numero.Text = contrato.Numero;
-                    txt_creacion.Text = contrato.Creacion.ToString();
-                    txt_termino.Text = contrato.Termino.ToString();
                     txt_cliente.Text = contrato.Cliente.RutCliente;
                     txt_tipo_evento.Text = contrato.ModalidadServicio.TipoEvento.Descripcion;
                     txt_fecha_inicio.Text = contrato.FechaHoraInicio.ToString();
@@ -123,8 +119,6 @@ namespace Vistas.Paginas.Contratos
         private void Button_Clear(object sender, RoutedEventArgs e)
         {
             txt_numero.Text = string.Empty;
-            txt_creacion.Text = string.Empty;
-            txt_termino.Text = string.Empty;
             txt_cliente.Text = string.Empty;
             txt_tipo_evento.Text = string.Empty;
             txt_fecha_inicio.Text = string.Empty;
@@ -140,12 +134,61 @@ namespace Vistas.Paginas.Contratos
 
         }
 
-        private void btn_crear_contrato_Click(object sender, RoutedEventArgs e)
+        private void txt_asistentes_TextChanged(object sender, EventArgs e)
         {
-            CreacionContrato creacionContrato = new();
-            this.Close();
-            creacionContrato.Show();
+            // Si el TextBox está vacío, establece el valor predeterminado en cero
+            if (string.IsNullOrEmpty(txt_asistentes.Text))
+            {
+                txt_asistentes.Text = "0";
+            }
+
+            // Verifica que el contenido del TextBox sea un número del 2 en adelante
+            if (int.TryParse(txt_asistentes.Text, out int result) && result >= 2)
+            {
+                // El contenido es un número válido del 2 en adelante, hay que hacer el calculo con la uf
+                double costo;
+                if (result == 2)
+                {
+                    costo = 2;
+                }
+                else if (result == 3)
+                {
+                    costo = 3;
+                }
+                else if (result == 4)
+                {
+                    costo = 3.5;
+                }
+                else
+                {
+                    costo = 3.5 + (result - 4) * 0.5;
+                }
+                // Aqui ya deberia tener el valor para multiplicarlo con la uf!!!
+                //reto
+            }
+            else
+            {
+                // Si el contenido del TextBox no es un número válido del 2 en adelante, establece el valor en 2
+                txt_asistentes.Text = "0";
+            }
         }
 
+        private void btn_cocktail_Click(object sender, RoutedEventArgs e)
+        {
+            Paginas.Contratos.Cocktail cocktail = new Paginas.Contratos.Cocktail();
+            vtn_opc.Content = cocktail;
+        }
+
+        private void btn_cena_Click(object sender, RoutedEventArgs e)
+        {
+            Paginas.Contratos.Cena cena = new Paginas.Contratos.Cena();
+            vtn_opc.Content = cena;
+        }
+
+        private void btn_coffee_Click(object sender, RoutedEventArgs e)
+        {
+            Paginas.Contratos.Coffee coffee = new Paginas.Contratos.Coffee();
+            vtn_opc.Content = coffee;
+        }
     }
 }

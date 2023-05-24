@@ -98,15 +98,6 @@ namespace Vistas
             lista.Show();
         }
 
-        // IR A PAGINA DE CREAR CONTRATOS
-        private void btn_crear_contratos_Click(object sender, RoutedEventArgs e)
-        {
-            Cliente cliente = new Cliente();
-            Paginas.Contratos.CreacionContrato creacionContrato = new Paginas.Contratos.CreacionContrato(cliente);
-            this.Close();
-            creacionContrato.Show();
-        }
-
         // IR A PAGINA DE ADMINISTRACION DE CONTRATOS
         private void btn_contratos_Click(object sender, RoutedEventArgs e)
         {
