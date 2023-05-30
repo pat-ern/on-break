@@ -56,15 +56,15 @@ namespace Vistas
             //ModalidadServicio dayBreak = new ModalidadServicio() { IdModalidad = "03DB", TipoEvento = coffeeBreak, Nombre = "Day Break", ValorBase = 12, PersonalBase = 6 };
 
             //this.clientes.Add(new Cliente { RutCliente = "16591230", RazonSocial = "Advance", NombreContacto = "Pedro Ramirez", MailContacto = "pramires@mail.com", Direccion = "Calle 1 Villa Las Americas", Telefono = "12345678", ActividadEmpresa = this.actEmp1, TipoEmpresa = this.tipEmp1 });
-            //this.clientes.Add(new Cliente { RutCliente = "12854638", RazonSocial = "Global Solutions", NombreContacto = "María González", MailContacto = "mgonzalez@mail.com", Direccion = "Av. Providencia 1234", Telefono = "22334455", ActividadEmpresa = this.actEmp2, TipoEmpresa = this.tipEmp2 });
+            //this.clientes.Add(new Cliente { RutCliente = "12854638", RazonSocial = "Global Solutions", NombreContacto = "Marï¿½a Gonzï¿½lez", MailContacto = "mgonzalez@mail.com", Direccion = "Av. Providencia 1234", Telefono = "22334455", ActividadEmpresa = this.actEmp2, TipoEmpresa = this.tipEmp2 });
             //this.clientes.Add(new Cliente { RutCliente = "13678945", RazonSocial = "Innovatec", NombreContacto = "Luisa Rojas", MailContacto = "lrojas@mail.com", Direccion = "San Diego 456", Telefono = "99887766", ActividadEmpresa = this.actEmp3, TipoEmpresa = this.tipEmp3 });
-            //this.clientes.Add(new Cliente { RutCliente = "19876543", RazonSocial = "TechCorp", NombreContacto = "Manuel Díaz", MailContacto = "mdiaz@mail.com", Direccion = "Las Condes 789", Telefono = "77665544", ActividadEmpresa = this.actEmp4, TipoEmpresa = this.tipEmp4 });
-            //this.clientes.Add(new Cliente { RutCliente = "14123456", RazonSocial = "EcoGreen", NombreContacto = "Carla Vargas", MailContacto = "cvargas@mail.com", Direccion = "Maipú 321", Telefono = "11223344", ActividadEmpresa = this.actEmp5, TipoEmpresa = this.tipEmp5 });
+            //this.clientes.Add(new Cliente { RutCliente = "19876543", RazonSocial = "TechCorp", NombreContacto = "Manuel Dï¿½az", MailContacto = "mdiaz@mail.com", Direccion = "Las Condes 789", Telefono = "77665544", ActividadEmpresa = this.actEmp4, TipoEmpresa = this.tipEmp4 });
+            //this.clientes.Add(new Cliente { RutCliente = "14123456", RazonSocial = "EcoGreen", NombreContacto = "Carla Vargas", MailContacto = "cvargas@mail.com", Direccion = "Maipï¿½ 321", Telefono = "11223344", ActividadEmpresa = this.actEmp5, TipoEmpresa = this.tipEmp5 });
             //this.clientes.Add(new Cliente { RutCliente = "11567890", RazonSocial = "SoftTech", NombreContacto = "Javier Soto", MailContacto = "jsoto@mail.com", Direccion = "Providencia 567", Telefono = "33221100", ActividadEmpresa = this.actEmp1, TipoEmpresa = this.tipEmp1 });
-            //this.clientes.Add(new Cliente { RutCliente = "16789012", RazonSocial = "SmartSolutions", NombreContacto = "Ana López", MailContacto = "alopez@mail.com", Direccion = "La Reina 345", Telefono = "55443322", ActividadEmpresa = this.actEmp2, TipoEmpresa = this.tipEmp2 });
+            //this.clientes.Add(new Cliente { RutCliente = "16789012", RazonSocial = "SmartSolutions", NombreContacto = "Ana Lï¿½pez", MailContacto = "alopez@mail.com", Direccion = "La Reina 345", Telefono = "55443322", ActividadEmpresa = this.actEmp2, TipoEmpresa = this.tipEmp2 });
             //this.clientes.Add(new Cliente { RutCliente = "13245678", RazonSocial = "FutureTech", NombreContacto = "Juan Torres", MailContacto = "jtorres@mail.com", Direccion = "Providencia 999", Telefono = "88990011", ActividadEmpresa = this.actEmp3, TipoEmpresa = this.tipEmp3 });
             //this.clientes.Add(new Cliente { RutCliente = "14567890", RazonSocial = "Innovative Minds", NombreContacto = "Andrea Castro", MailContacto = "acastro@mail.com", Direccion = "Las Condes 456", Telefono = "22110033", ActividadEmpresa = this.actEmp4, TipoEmpresa = this.tipEmp4 });
-            //this.clientes.Add(new Cliente { RutCliente = "17654321", RazonSocial = "Creative Designs", NombreContacto = "Ricardo Fernández", MailContacto = "rfernandez@mail.com", Direccion = "Santiago Centro 789", Telefono = "66778899", ActividadEmpresa = this.actEmp5, TipoEmpresa = this.tipEmp5 });
+            //this.clientes.Add(new Cliente { RutCliente = "17654321", RazonSocial = "Creative Designs", NombreContacto = "Ricardo Fernï¿½ndez", MailContacto = "rfernandez@mail.com", Direccion = "Santiago Centro 789", Telefono = "66778899", ActividadEmpresa = this.actEmp5, TipoEmpresa = this.tipEmp5 });
 
             //this.contratos.Add(new Contrato { Numero = "C01", Creacion = DateTime.Now, Termino = DateTime.Now, Cliente = this.clientes[0], ModalidadServicio = dayBreak, FechaHoraInicio = DateTime.Now, FechaHoraTermino = DateTime.Now, Asistentes = 100, PersonalAdicional = 0, Realizado = false, ValorTotalContrato = 0, Observaciones = "Ninguna" });
             //this.contratos.Add(new Contrato { Numero = "C02", Creacion = DateTime.Now, Termino = DateTime.Now, Cliente = this.clientes[1], ModalidadServicio = journalBreak, FechaHoraInicio = DateTime.Now, FechaHoraTermino = DateTime.Now, Asistentes = 200, PersonalAdicional = 0, Realizado = false, ValorTotalContrato = 0, Observaciones = "Ninguna" });
@@ -95,15 +95,6 @@ namespace Vistas
             Paginas.Clientes.ListaClientes lista = new Paginas.Clientes.ListaClientes();
             this.Close();
             lista.Show();
-        }
-
-        // IR A PAGINA DE CREAR CONTRATOS
-        private void btn_crear_contratos_Click(object sender, RoutedEventArgs e)
-        {
-
-            Paginas.Contratos.CreacionContrato creacionContrato = new Paginas.Contratos.CreacionContrato();
-            this.Close();
-            creacionContrato.Show();
         }
 
         // IR A PAGINA DE ADMINISTRACION DE CONTRATOS
