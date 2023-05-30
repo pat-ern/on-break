@@ -6,14 +6,33 @@
       xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls"
       xmlns:local="clr-namespace:Vistas.Paginas.Contratos"
       mc:Ignorable="d" 
-      d:DesignHeight="394" d:DesignWidth="170"
+      d:DesignHeight="450" d:DesignWidth="800"
       Title="Coffee">
 
     <Grid>
-        <Label Content="Modalidad de Servicio:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" Height="35" />
-        <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Center" Margin="0,56,0,0" VerticalAlignment="Top"  Width="144" Height="28"/>
-        <Label Content="¿Alimentación Vegetariana?" HorizontalAlignment="Left" Margin="6,107,0,0" VerticalAlignment="Top" FontSize="14" />
-        <CheckBox x:Name="checkBoxVegetariana" Content="Sí" HorizontalAlignment="Left" Margin="13,161,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,0.557" Height="17" Width="38"/>
-
+        <Label x:Name="lbl_rutCliente" Content="Rut del Cliente:" HorizontalAlignment="Left" Margin="12,6,0,0" VerticalAlignment="Top" Width="154" FontSize="18"  Foreground="White"/>
+        <Label x:Name="lbl_Rut" Content="Buscar" HorizontalAlignment="Left" Margin="250,13,0,0" VerticalAlignment="Top" Width="218" Foreground="White" BorderBrush="White" BorderThickness="1"/>
+        <Button x:Name="btn_buscar" HorizontalAlignment="Left" Margin="477,10,0,0" VerticalAlignment="Top" Width="38" RenderTransformOrigin="-1.911,0.807" Height="32" Background="White" Click="btn_buscar_Click" >
+            <StackPanel>
+                <Image Source="/assets/buscar.png" Width="20"/>
+            </StackPanel>
+        </Button>
+        <Label x:Name="lbl_razon" Content="Razón Social:" HorizontalAlignment="Left" Margin="12,56,0,0" VerticalAlignment="Top" Width="135" FontSize="18"  Foreground="White"/>
+        <Label x:Name="lbl_razonSocial" Content="Razon Social" HorizontalAlignment="Left" Margin="250,61,0,0" VerticalAlignment="Top" RenderTransformOrigin="1.086,-5.52" Width="217" 
+               Foreground="White" BorderBrush="White" BorderThickness="1"/>
+        <Label Content="Modalidad de Servicio:" HorizontalAlignment="Left" Margin="10,109,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" Height="35" />
+        <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Left" Margin="248,109,0,0" VerticalAlignment="Top" Width="220" Height="27"/>
+        <Label Content="¿Alimentación Vegetariana?" HorizontalAlignment="Left" Margin="10,155,0,0" VerticalAlignment="Top" FontSize="18" Foreground="White" />
+        <CheckBox x:Name="checkBoxVegetariana" Content="Sí" HorizontalAlignment="Left" Margin="249,163,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,0.557" Height="17" Width="38"/>
+        <Label Content="Fecha y hora de inicio:" HorizontalAlignment="Left" Margin="13,199,0,0" VerticalAlignment="Top" Height="34" Width="199" FontSize="18" Foreground="White"/>
+        <mah:DateTimePicker x:Name="fechaIni" HorizontalAlignment="Left" Margin="251,203,0,0" VerticalAlignment="Top" Width="216"/>
+        <Label Content="Fecha y hora de termino:" HorizontalAlignment="Left" Margin="13,244,0,0" VerticalAlignment="Top" Height="33" Width="214" FontSize="18" Foreground="White"/>
+        <mah:DateTimePicker x:Name="fechaFin" HorizontalAlignment="Left" Margin="250,250,0,0" VerticalAlignment="Top" Width="218"/>
+        <Label Content="Asistentes:" HorizontalAlignment="Left" Margin="13,293,0,0" VerticalAlignment="Top" Height="33" Width="214" FontSize="18" Foreground="White"/>
+        <Label Content="Personal Adicional:" HorizontalAlignment="Left" Margin="13,331,0,0" VerticalAlignment="Top" Height="33" Width="214" FontSize="18" Foreground="White"/>
+        <TextBox x:Name="txt_asistentes" HorizontalAlignment="Left" Margin="251,295,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="217"/>
+        <TextBox x:Name="txt_personal" HorizontalAlignment="Left" Margin="251,338,0,0" TextWrapping="Wrap" Text="0" VerticalAlignment="Top" Width="217"/>
+        <Button Content="Contratar" HorizontalAlignment="Left" Margin="252,373,0,0" VerticalAlignment="Top" Width="216" Height="50" Background="CadetBlue" Foreground="White" FontSize="20" Click="Button_Click"/>
+        
     </Grid>
 </Page>
