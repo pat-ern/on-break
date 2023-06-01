@@ -109,7 +109,7 @@ namespace Vistas
         // IR A PAGINA DE ADMINISTRACION DE CONTRATOS
         private void btn_contratos_Click(object sender, RoutedEventArgs e)
         {
-            Paginas.Contratos.Listado_contrato listado = new Paginas.Contratos.Listado_contrato();
+            Paginas.Contratos.ListaContratos listado = new Paginas.Contratos.ListaContratos();
             this.Close();
             listado.Show();
         }

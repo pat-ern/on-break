@@ -18,7 +18,7 @@ namespace Vistas.Paginas.Contratos
     /// <summary>
     /// Lógica de interacción para Listado_contrato.xaml
     /// </summary>
-    public partial class Listado_contrato
+    public partial class ListaContratos
     {
 
         //List<Contrato> contratos = new List<Contrato>();
@@ -37,7 +37,7 @@ namespace Vistas.Paginas.Contratos
         //TipoEmpresa tipEmp4 = new TipoEmpresa() { IdTipoEmpresa = 4, Descripcion = "Sociedad en Participacion" };
         //TipoEmpresa tipEmp5 = new TipoEmpresa() { IdTipoEmpresa = 5, Descripcion = "Sociedad en Comandita" };
 
-        public Listado_contrato()
+        public ListaContratos()
         {
             InitializeComponent();
             //this.contratos = contratos;
