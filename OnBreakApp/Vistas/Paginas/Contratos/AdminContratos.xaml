@@ -24,7 +24,7 @@
 
         <Rectangle HorizontalAlignment="Left" Height="438" Margin="91,85,0,0" Stroke="Black" VerticalAlignment="Top" Width="500" Visibility="Hidden" />
         <Rectangle HorizontalAlignment="Left" Height="510" Margin="37,150,0,0" Stroke="{DynamicResource MahApps.Brushes.Gray1}" VerticalAlignment="Top" Width="635" Fill="{DynamicResource MahApps.Brushes.Flyout.Background}"/>
-        <TextBox x:Name="txt_razon_social" HorizontalAlignment="Left" Margin="501,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Height="2"/>
+        <TextBox x:Name="txt_razon_social" IsReadOnly="True" HorizontalAlignment="Left" Margin="501,100,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="132" Height="2"/>
         <TextBox x:Name="txt_tipo_evento" HorizontalAlignment="Left" Margin="221,344,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="40" IsReadOnly="True"/>
         <Controls:NumericUpDown x:Name="txt_asistentes" HorizontalAlignment="Left" Margin="221,399,0,0" VerticalAlignment="Top" Width="249" Height="40" Minimum="0" ValueChanged="txt_asistentes_ValueChanged">
             <Controls:NumericUpDown.Resources>
@@ -41,9 +41,7 @@
                 </Style>
             </Controls:NumericUpDown.Resources>
         </Controls:NumericUpDown>
-
-        <TextBox x:Name="txt_realizado" HorizontalAlignment="Left" Margin="223,515,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="249" Height="40"/>
-        <TextBox x:Name="txt_valor_total" HorizontalAlignment="Left" Margin="224,569,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="40" IsReadOnly="True"/>
+        <TextBox x:Name="txt_valor_total" HorizontalAlignment="Left" Margin="221,523,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="40" IsReadOnly="True"/>
 
 
         <Label Content="NÚMERO DEL CONTRATO" x:Name="lbl_Rut"  HorizontalAlignment="Left" Margin="58,175,0,0" VerticalAlignment="Top" Width="158" Height="30" FontSize="13"/>
@@ -51,11 +49,10 @@
         <Label Content="FECHA INICIO" HorizontalAlignment="Left" Margin="58,231,0,0" VerticalAlignment="Top" Width="167" Height="30" FontSize="13"/>
         <Label Content="FECHA TÉRMINO" HorizontalAlignment="Left" Margin="58,292,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="167" Height="30"  FontSize="13"/>
         <Label Content="ASISTENTES" HorizontalAlignment="Left" Margin="56,406,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="167" Height="30"  FontSize="13"/>
-        <Label Content="PERSONAL ADICIONAL" HorizontalAlignment="Left" Margin="58,466,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="167" Height="30"  FontSize="13"/>
-        <Label Content="REALIZADO" HorizontalAlignment="Left" Margin="58,522,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="167" Height="30" FontSize="13"/>
-        <Label Content="VALOR TOTAL" HorizontalAlignment="Left" Margin="56,575,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="167" Height="30"  FontSize="13"/>
+        <Label Content="PERSONAL ADICIONAL" HorizontalAlignment="Left" Margin="54,465,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="166" Height="30"  FontSize="13"/>
+        <Label Content="VALOR TOTAL" HorizontalAlignment="Left" Margin="56,528,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="166" Height="30"  FontSize="13"/>
 
-        <Button HorizontalAlignment="Left" Margin="692,484,0,0" VerticalAlignment="Top"  Height="180" Width="280" Background="#FF99ACFF"  FontSize="15" >
+        <Button HorizontalAlignment="Left" Margin="692,484,0,0" VerticalAlignment="Top"  Height="180" Width="280" Background="#FF99ACFF"  FontSize="15" Click="Button_Click" >
             <StackPanel>
                 <Image Source="/assets/diskette.png" Width="76" Height="45"/>
                 <Label Foreground="White" Height="60" Width="118" FontSize="28" Content="Guardar"/>
@@ -68,7 +65,7 @@
                 <Label Foreground="White" Height="60" Width="132" FontSize="28" Content="Limpiar"/>
             </StackPanel>
         </Button>
-        
+
         <!-- BOTON DE COFFE BREAK -->
         <Button x:Name="btn_coffee" FontSize="20" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,96,15,0" Height="180" Width="280" Background="#7F55D4" RenderTransformOrigin="0.542,0.52" Click="btn_coffee_Click">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
@@ -76,7 +73,7 @@
                 <Label x:Name="lbl_coffee_break" Content="Coffe&#xA; break" Foreground="White" Height="84" Width="106" FontSize="28"/>
             </StackPanel>
         </Button>
-        
+
         <!-- BOTON DE COCKTAIL -->
         <Button x:Name="btn_cocktail" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="692,96,0,0" Height="180" Width="280" Background="#00C2C6" RenderTransformOrigin="0.542,0.52" Click="btn_cocktail_Click">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
@@ -84,7 +81,7 @@
                 <Label x:Name="lbl_cocktail" Content="Cocktail" Foreground="White" Height="60" Width="115" FontSize="28" VerticalAlignment="Top" Margin="0,0,0,0"/>
             </StackPanel>
         </Button>
-        
+
         <!-- BOTON DE CENA -->
         <Button x:Name="btn_cena" FontSize="20" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,288,307,0" Height="180" Width="280" Background="#2186C2" RenderTransformOrigin="0.542,0.52" Click="btn_cena_Click">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
@@ -92,7 +89,7 @@
                 <Label x:Name="lbl_cena" Content="Cena" Foreground="White" Height="60" Width="84" FontSize="28" VerticalAlignment="Top" Margin="0,0,0,0"/>
             </StackPanel>
         </Button>
-        
+
         <!--BOTON DE LISTAR CONTRATOS-->
         <Button x:Name="btn_listado" HorizontalAlignment="Left" Margin="985,288,0,0" VerticalAlignment="Top" Height="180" Width="280" Background="#FFA145BB"  FontSize="18" Click="btn_listado_Click">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
@@ -108,7 +105,7 @@
                  
                  mah:TextBoxHelper.ClearTextButton="True" 
                  mah:TextBoxHelper.Watermark="BUSCAR POR NRO"/>
-        <Button x:Name="btn_buscar" HorizontalAlignment="Left" Margin="440,176,0,0" VerticalAlignment="Top" Width="30" Height="30" Click="btn_buscar_Click_1" RenderTransformOrigin="0.5,0.5">
+        <Button x:Name="btn_buscar" HorizontalAlignment="Left" Margin="440,171,0,0" VerticalAlignment="Top" Width="33" Height="35" Click="btn_buscar_Click_1" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -128,7 +125,7 @@
                  
             mah:TextBoxHelper.ClearTextButton="True" 
             mah:TextBoxHelper.Watermark="BUSCAR POR RUT" />
-        <Button x:Name="btn_buscar_Copy" HorizontalAlignment="Left" Margin="338,97,0,0" VerticalAlignment="Top" Width="30" Height="30" RenderTransformOrigin="0.5,0.5" >
+        <Button x:Name="btn_buscar_Copy" HorizontalAlignment="Left" Margin="338,97,0,0" VerticalAlignment="Top" Width="30" Height="30" RenderTransformOrigin="0.5,0.5" Click="btn_buscar_Copy_Click" >
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -147,5 +144,6 @@
         <Frame x:Name="vtn_opc" Margin="491,216,618,95" NavigationUIVisibility="Hidden" Background="#00000000"/>
         <mah:DateTimePicker x:Name="fechaIni" HorizontalAlignment="Left" Margin="221,225,0,0" VerticalAlignment="Top" Width="250" Height="37"/>
         <mah:DateTimePicker x:Name="fechaFin" HorizontalAlignment="Left" Margin="221,286,0,0" VerticalAlignment="Top" Width="250" Height="37"/>
+        <CheckBox x:Name="checkBox_realizado" Content="Realizado" HorizontalAlignment="Left" Margin="221,591,0,0" VerticalAlignment="Top" RenderTransformOrigin="-2.128,1.697" Checked="checkBox_realizado_Checked"/>
     </Grid>
 </mah:MetroWindow>

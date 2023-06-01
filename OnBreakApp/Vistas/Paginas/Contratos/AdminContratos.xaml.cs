@@ -21,12 +21,8 @@ using Vistas.Paginas.Clientes;
 namespace Vistas.Paginas.Contratos
 {
 
-    public partial class AdminContratos
+    public partial class AdminContratos : MetroWindow
     {
-
-        List<Contrato> contratos = new List<Contrato>();
-
-        Contrato contrato = new Contrato();
 
         public AdminContratos()
         {
@@ -36,23 +32,7 @@ namespace Vistas.Paginas.Contratos
         public AdminContratos(Contrato contrato)
         {
             InitializeComponent();
-
-            this.contrato = contrato;
-
-            txt_buscar_rut.Text = contrato.Cliente.RutCliente;
-            txt_tipo_evento.Text = contrato.ModalidadServicio.TipoEvento.Descripcion;
-            string fecha_inicio = contrato.FechaHoraInicio.ToString();
-            string fecha_termino = contrato.FechaHoraTermino.ToString();
-            txt_asistentes.Value = Convert.ToInt32(contrato.Asistentes);
-            txt_personal_adicional.Value = Convert.ToInt32(contrato.PersonalAdicional);
-            txt_realizado.Text = contrato.Realizado.ToString();
-            txt_valor_total.Text = contrato.ValorTotalContrato.ToString();
-        }
-
-        public AdminContratos(List<Contrato> contratos)
-        {
-            InitializeComponent();
-            this.contratos = contratos;
+            this.CargarModalidadServicio();
         }
 
         private void Go_Back(object sender, RoutedEventArgs e)
@@ -65,7 +45,8 @@ namespace Vistas.Paginas.Contratos
         private void btn_listado_Click(object sender, RoutedEventArgs e)
         {
             ListaContratos listaContratos = new ListaContratos();
-            this.Close();
+            listaContratos.VentanaOrigen = "AdminContratos";
+            listaContratos.ParentWindow = this;
             listaContratos.Show();
         }
 
@@ -96,57 +77,81 @@ namespace Vistas.Paginas.Contratos
 
         private async void btn_buscar_Click_1(object sender, RoutedEventArgs e)
         {
-            string textoBusqueda = txt_buscar_nro.Text;
+            //string textoBusqueda = txt_buscar_nro.Text;
 
-            var resultados = from c in contratos
-                             where c.Numero.Contains(textoBusqueda)
-                             select c;
+            //var resultados = from c in contratos
+            //                 where c.Numero.Contains(textoBusqueda)
+            //                 select c;
 
-            var contrato = new Contrato();
+            //var contrato = new Contrato();
 
-            for (int i = 0; i < resultados.Count(); i++)
+            //for (int i = 0; i < resultados.Count(); i++)
+            //{
+            //    if (resultados.ElementAt(i).Numero == textoBusqueda)
+            //    {
+
+            //        contrato = resultados.ElementAt(i);
+
+            //        txt_buscar_rut.Text = contrato.Cliente.RutCliente;
+            //        txt_tipo_evento.Text = contrato.ModalidadServicio.TipoEvento.Descripcion;
+            //        string fecha_inicio = contrato.FechaHoraInicio.ToString();
+            //        string fecha_termino = contrato.FechaHoraTermino.ToString();
+            //        txt_asistentes.Value = Convert.ToInt32(contrato.Asistentes);
+            //        txt_personal_adicional.Value = Convert.ToInt32(contrato.PersonalAdicional);
+            //        //txt_realizado.Text = contrato.Realizado.ToString();
+            //        txt_valor_total.Text = contrato.ValorTotalContrato.ToString();
+
+            //        AsignarFecha(fecha_inicio, fechaIni);
+            //        AsignarFecha(fecha_termino, fechaFin);
+
+
+            //        if (txt_tipo_evento.Text == "Cocktail")
+            //        {
+            //            Paginas.Contratos.Cocktail cocktail = new Paginas.Contratos.Cocktail();
+            //            vtn_opc.Content = cocktail;
+            //        }
+            //        else if (txt_tipo_evento.Text == "Cena")
+            //        {
+            //            Paginas.Contratos.Cena cena = new Paginas.Contratos.Cena();
+            //            vtn_opc.Content = cena;
+            //        }
+            //        else if (txt_tipo_evento.Text == "Coffee Break")
+            //        {
+            //            Paginas.Contratos.Coffee coffee = new Paginas.Contratos.Coffee();
+            //            vtn_opc.Content = coffee;
+            //        }
+
+            //    }
+            //    else
+            //    {
+            //        await this.ShowMessageAsync("Advertencia", "Debe ingresar un numero válido.");
+            //    }
+            //    break;
+            //}
+
+
+            if (txt_tipo_evento.Text == "Cocktail")
             {
-                if (resultados.ElementAt(i).Numero == textoBusqueda)
-                {
-
-                    contrato = resultados.ElementAt(i);
-
-                    txt_buscar_rut.Text = contrato.Cliente.RutCliente;
-                    txt_tipo_evento.Text = contrato.ModalidadServicio.TipoEvento.Descripcion;
-                    string fecha_inicio = contrato.FechaHoraInicio.ToString();
-                    string fecha_termino = contrato.FechaHoraTermino.ToString();
-                    txt_asistentes.Value = Convert.ToInt32(contrato.Asistentes);
-                    txt_personal_adicional.Value = Convert.ToInt32(contrato.PersonalAdicional);
-                    txt_realizado.Text = contrato.Realizado.ToString();
-                    txt_valor_total.Text = contrato.ValorTotalContrato.ToString();
-
-                    AsignarFecha(fecha_inicio, fechaIni);
-                    AsignarFecha(fecha_termino, fechaFin);
-
-
-                    if (txt_tipo_evento.Text == "Cocktail")
-                    {
-                        Paginas.Contratos.Cocktail cocktail = new Paginas.Contratos.Cocktail();
-                        vtn_opc.Content = cocktail;
-                    }
-                    else if (txt_tipo_evento.Text == "Cena")
-                    {
-                        Paginas.Contratos.Cena cena = new Paginas.Contratos.Cena();
-                        vtn_opc.Content = cena;
-                    }
-                    else if (txt_tipo_evento.Text == "Coffee Break")
-                    {
-                        Paginas.Contratos.Coffee coffee = new Paginas.Contratos.Coffee();
-                        vtn_opc.Content = coffee;
-                    }
-
-                }
-                else
-                {
-                    await this.ShowMessageAsync("Advertencia", "Debe ingresar un numero válido.");
-                }
-                break;
+                Paginas.Contratos.Cocktail cocktail = new Paginas.Contratos.Cocktail();
+                vtn_opc.Content = cocktail;
             }
+            else if (txt_tipo_evento.Text == "Cena")
+            {
+                Paginas.Contratos.Cena cena = new Paginas.Contratos.Cena();
+                vtn_opc.Content = cena;
+            }
+            else if (txt_tipo_evento.Text == "Coffee Break")
+            {
+                Paginas.Contratos.Coffee coffee = new Paginas.Contratos.Coffee();
+                vtn_opc.Content = coffee;
+            }
+
+            ListaContratos listaContratos = new ListaContratos();
+            listaContratos.VentanaOrigen = "AdminContratos";
+            listaContratos.ParentWindow = this;
+            listaContratos.Show();
+
+
 
         }
 
@@ -165,7 +170,7 @@ namespace Vistas.Paginas.Contratos
             fechaFin.SelectedDateTime = null;
             txt_asistentes.Value = null;
             txt_personal_adicional.Value = null;
-            txt_realizado.Text = string.Empty;
+            //txt_realizado.Text = string.Empty;
             txt_valor_total.Text = string.Empty;
             txt_buscar_nro.Text = string.Empty;
         }
@@ -195,11 +200,12 @@ namespace Vistas.Paginas.Contratos
                     return; // Sale del método para evitar que continúe la lógica
                 }
 
-                string tipoEvento = txt_tipo_evento.Text;
+                //OnBreak.BC.TipoEvento tipoEvento = new OnBreak.BC.TipoEvento();
+
                 int numero_personas = (int)(txt_personal_adicional.Value ?? 0);
                 double costo = 0;
 
-                if (tipoEvento == "Coffee Break" || tipoEvento == "Cocktail")
+                if (txt_tipo_evento.Text == "Coffee Break" || txt_tipo_evento.Text == "Cocktail")
                 {
                     if (numero_personas == 2)
                     {
@@ -218,7 +224,7 @@ namespace Vistas.Paginas.Contratos
                         costo = 3.5 + 0.5 * (numero_personas - 4);
                     }
                 }
-                else if (tipoEvento == "Cena")
+                else if (txt_tipo_evento.Text == "Cena")  
                 {
                     if (numero_personas == 2)
                     {
@@ -253,12 +259,13 @@ namespace Vistas.Paginas.Contratos
                     return; // Sale del método para evitar que continúe la lógica
                 }
 
-                string tipoEvento = txt_tipo_evento.Text;
+                OnBreak.BC.TipoEvento tipoEvento = new OnBreak.BC.TipoEvento();
+
                 int asistentes = (int)(txt_asistentes.Value ?? 0); // Si el valor es nulo, se asigna 0
 
                 double costo = 0;
 
-                if (tipoEvento == "Coffee Break")
+                if (txt_tipo_evento.Text == "Coffee Break")
                 {
                     if (asistentes >= 1 && asistentes <= 20)
                     {
@@ -274,7 +281,7 @@ namespace Vistas.Paginas.Contratos
                         costo = 5 + (2 * (personasAdicionales / 20));
                     }
                 }
-                else if (tipoEvento == "Cocktail")
+                else if (txt_tipo_evento.Text == "Cocktail")
                 {
                     if (asistentes >= 1 && asistentes <= 20)
                     {
@@ -290,7 +297,7 @@ namespace Vistas.Paginas.Contratos
                         costo = 6 + (2 * (personasAdicionales / 20));
                     }
                 }
-                else if (tipoEvento == "Cena")
+                else if (txt_tipo_evento.Text == "Cena")
                 {
                     if (asistentes >= 1 && asistentes <= 20)
                     {
@@ -331,6 +338,109 @@ namespace Vistas.Paginas.Contratos
             vtn_opc.Content = coffee;
             txt_tipo_evento.Text = "Coffee Break";
             LimpiarValor();
+        }
+
+        private void btn_buscar_Copy_Click(object sender, RoutedEventArgs e)
+        {
+            ListaClientes listaClientes = new ListaClientes();
+            listaClientes.VentanaOrigen = "AdminContratos";
+            listaClientes.ParentWindow2 = this;
+            listaClientes.Show();
+        }
+
+
+        private void CargarModalidadServicio()
+        {
+
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            if (!(vtn_opc.Content is Cocktail cocktail))
+            {
+                return;
+            }
+
+            if (!cocktail.ValidarSeleccionModalidad())
+            {
+                MessageBox.Show("Debe seleccionar una modalidad de servicio");
+                return;
+            }
+
+            if (!cocktail.ValidarSeleccionAmbientacion())
+            {
+                MessageBox.Show("Debe seleccionar una ambientación");
+                return;
+            }
+
+            OnBreak.BC.ModalidadServicio modalidadServicio = cocktail.ObtenerModalidadSeleccionada();
+            if (modalidadServicio != null)
+            {
+                MessageBox.Show($"Modalidad seleccionada: {modalidadServicio.IdModalidad} - {modalidadServicio.Nombre} -  {modalidadServicio.IdTipoEvento} ");
+            }
+
+            OnBreak.BC.TipoAmbientacion tipoAmbientacion = cocktail.ObtenerTipoAmbientacionSeleccionada();
+            if (tipoAmbientacion != null)
+            {
+                MessageBox.Show($"Se seleccionó la ambientación. ID: {tipoAmbientacion.IdTipoAmbientacion}, Descripción: {tipoAmbientacion.Descripcion}");
+            }
+
+            bool musicaAmbiental = cocktail.ObtenerMusicaAmbiental();
+            if (musicaAmbiental)
+            {
+                MessageBox.Show("Se seleccionó la opción de música ambiental");
+            }
+            else
+            {
+                MessageBox.Show("No se seleccionó la opción de música ambiental");
+            }
+
+            // crear contrato 
+            Contrato contrato = new Contrato()
+            {
+                Numero = GenerarNumeroRandom(),
+                Creacion = DateTime.Now,
+                Termino = DateTime.Now,
+                RutCliente = txt_buscar_rut.Text,
+                IdModalidad = modalidadServicio.IdModalidad,
+                IdTipoEvento = modalidadServicio.IdTipoEvento,
+                FechaHoraInicio = fechaIni.SelectedDateTime.Value,
+                FechaHoraTermino = fechaFin.SelectedDateTime.Value,
+                Asistentes = (int)(txt_asistentes.Value ?? 0),
+                PersonalAdicional = (int)(txt_personal_adicional.Value ?? 0),
+                Realizado = obtenerValorCheckbox(checkBox_realizado),
+                ValorTotalContrato = double.Parse(txt_valor_total.Text),
+                Observaciones = "N/A"
+            };
+
+
+            if (contrato.Create())
+            {
+                MessageBox.Show("Contrato creado correctamente");
+            }
+            else
+            {
+                MessageBox.Show("No se pudo crear el contrato");
+            }
+        }
+
+        bool obtenerValorCheckbox(CheckBox checkBox)
+        {
+            return checkBox.IsChecked ?? true;
+        }
+
+        string GenerarNumeroRandom()
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, 6)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
+        }
+
+
+        private void checkBox_realizado_Checked(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

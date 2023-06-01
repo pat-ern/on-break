@@ -29,10 +29,10 @@ namespace Vistas.Paginas.Contratos
         {
             InitializeComponent();
 
-            // Agrega las opciones al ComboBox
-            comboBoxModalidades.Items.Add("Light Break");
-            comboBoxModalidades.Items.Add("Journal Break");
-            comboBoxModalidades.Items.Add("Day Break");
+            //// Agrega las opciones al ComboBox
+            //comboBoxModalidades.Items.Add("Light Break");
+            //comboBoxModalidades.Items.Add("Journal Break");
+            //comboBoxModalidades.Items.Add("Day Break");
 
             //logica para validar fechas
             //DateTime fechaInicio = fechaIni.SelectedDateTime.Value;
@@ -51,6 +51,8 @@ namespace Vistas.Paginas.Contratos
 
             //boton buscar
 
+            LeerModalidad();
+
         }
 
         private void btn_buscar_Click(object sender, RoutedEventArgs e)
@@ -64,5 +66,35 @@ namespace Vistas.Paginas.Contratos
         {
 
         }
+
+        private void comboBoxModalidades_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+
+        private void LeerModalidad()
+        {
+
+            OnBreak.BC.ModalidadServicio modalidadServicio = new OnBreak.BC.ModalidadServicio();
+
+            var modalidadServicios = modalidadServicio.ReadAll();
+
+            // Filtrar los eventos por idTipoEvento igual a 20
+            modalidadServicios = modalidadServicios.Where(m => m.IdTipoEvento == 10).ToList();
+
+            // Crear objeto "Seleccione" y agregarlo al inicio de la lista de modalidad servicio que es un string IdModalidad es un string
+            var opcionSeleccioneModalidad = new OnBreak.BC.ModalidadServicio { IdModalidad = "", Nombre = "Seleccione" };
+            modalidadServicios.Insert(0, opcionSeleccioneModalidad);
+
+            // Asignar lista filtrada al combobox
+
+            comboBoxModalidades.ItemsSource = modalidadServicios;
+            comboBoxModalidades.DisplayMemberPath = "Nombre";
+            comboBoxModalidades.SelectedValuePath = "IdModalidad";
+
+            // Seleccionar el objeto "Seleccione"
+            comboBoxModalidades.SelectedIndex = 0;
+        }
+
     }
 }

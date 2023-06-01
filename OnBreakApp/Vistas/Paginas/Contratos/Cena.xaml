@@ -11,7 +11,7 @@
 
     <Grid>
         <Label Content="Modalidad de Servicio:" HorizontalAlignment="Center" Margin="0,12,0,0" VerticalAlignment="Top" FontSize="14" />
-        <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Center" Margin="0,52,0,0" VerticalAlignment="Top" Width="144" Height="28"/>
+        <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Center" Margin="0,52,0,0" VerticalAlignment="Top" Width="144" Height="28" SelectionChanged="comboBoxModalidades_SelectionChanged"/>
         <Label Content="Ambientación*:" HorizontalAlignment="Left" Margin="14,101,0,0" VerticalAlignment="Top" Height="37" Width="115" FontSize="14"/>
         <RadioButton x:Name="radioButtonAmbientacionBasica" Content="Básica" HorizontalAlignment="Left" Margin="16,138,0,0" VerticalAlignment="Top" Height="32" Width="72" Background="Transparent"/>
         <RadioButton x:Name="radioButtonAmbientacionPersonalizada" Content="Personalizada" HorizontalAlignment="Left" Margin="16,176,0,0" VerticalAlignment="Top" Height="30" Width="141" Background="Transparent"/>

@@ -5,9 +5,13 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         xmlns:local="clr-namespace:Vistas"
+        x:Name="VentanaHijaContainer"
+
+                 
         mc:Ignorable="d"
         Title="OnBreakApp" Height="600" Width="1000"
         WindowStartupLocation="CenterScreen"
+
                  >
     <Grid x:Name="grid" Background="#34274D">
         <Image HorizontalAlignment="Left" Height="73" Margin="50,11,0,0" VerticalAlignment="Top" Width="75" Source="/assets/OnBreak.png"/>

@@ -15,29 +15,20 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Vistas.Paginas.Contratos;
 using OnBreak.BC;
+using MahApps.Metro.Controls;
 
-namespace Vistas.Paginas.Clientes
+namespace Vistas.Paginas.Clientes 
 {
     /// <summary>
     /// Lógica de interacción para Lista.xaml
     /// </summary>
-    public partial class ListaClientes
+    public partial class ListaClientes : MetroWindow
     {
-        //List<Cliente> clientes = new List<Cliente>();
+        public MetroWindow PaginaActual { get; set; }
+        public AdminClientes ParentWindow { get; internal set; }
 
-        //ActividadEmpresa actEmp1 = new ActividadEmpresa() { IdActividadEmpresa = 1, Descripcion = "Prestamos y financiamiento" };
-        //ActividadEmpresa actEmp2 = new ActividadEmpresa() { IdActividadEmpresa = 2, Descripcion = "Produccion de alimentos" };
-        //ActividadEmpresa actEmp3 = new ActividadEmpresa() { IdActividadEmpresa = 3, Descripcion = "Logistica y cadena de suministros" };
-        //ActividadEmpresa actEmp4 = new ActividadEmpresa() { IdActividadEmpresa = 4, Descripcion = "Asesoramiento financiero" };
-        //ActividadEmpresa actEmp5 = new ActividadEmpresa() { IdActividadEmpresa = 5, Descripcion = "Marketing y publicidad" };
-
-        //TipoEmpresa tipEmp1 = new TipoEmpresa() { IdTipoEmpresa = 1, Descripcion = "Sociedad Anonima" };
-        //TipoEmpresa tipEmp2 = new TipoEmpresa() { IdTipoEmpresa = 2, Descripcion = "Sociedad Limitada" };
-        //TipoEmpresa tipEmp3 = new TipoEmpresa() { IdTipoEmpresa = 3, Descripcion = "Sociedad Anonima Cerrada" };
-        //TipoEmpresa tipEmp4 = new TipoEmpresa() { IdTipoEmpresa = 4, Descripcion = "Sociedad en Participacion" };
-        //TipoEmpresa tipEmp5 = new TipoEmpresa() { IdTipoEmpresa = 5, Descripcion = "Sociedad en Comandita" };
-
-
+        public AdminContratos ParentWindow2 { get; internal set; }
+        public string VentanaOrigen { get; set; }
 
         public ListaClientes()
         {
@@ -125,19 +116,55 @@ namespace Vistas.Paginas.Clientes
 
 
         }
-
         private void miTabla_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            var clienteSeleccionado = miTabla.SelectedItem as Cliente;
 
-            //var clienteSeleccionado = miTabla.SelectedItem as Cliente;
+            if (clienteSeleccionado != null)
+            {
+                if(VentanaOrigen == "AdminClientes")
+                {
+                    ParentWindow.txt_rut.Text = clienteSeleccionado.RutCliente;
+                    ParentWindow.txt_razonSocial.Text = clienteSeleccionado.RazonSocial;
+                    ParentWindow.txt_nombreContacto.Text = clienteSeleccionado.NombreContacto;
+                    ParentWindow.txt_contacto.Text = clienteSeleccionado.MailContacto;
+                    ParentWindow.txt_direccion.Text = clienteSeleccionado.Direccion;
+                    ParentWindow.txt_telefono.Text = clienteSeleccionado.Telefono;
+                    ParentWindow.cbx_actividadEmpresa.Text = clienteSeleccionado.ActividadEmpresa.Descripcion;
+                    ParentWindow.cbx_tipoEmpresa.Text = clienteSeleccionado.TipoEmpresa.Descripcion;
 
-            //if (clienteSeleccionado != null)
-            //{
-            //    AdminClientes lista = new AdminClientes(clienteSeleccionado);
-            //    this.Close();
-            //    lista.Show();
-            //}
+                }else if(VentanaOrigen == "AdminContratos")
+                {
+                    ParentWindow2.txt_buscar_rut.Text = clienteSeleccionado.RutCliente;
+                    ParentWindow2.txt_razon_social.Text = clienteSeleccionado.RazonSocial;
 
+                }   
+                this.Close();
+
+
+
+
+            }
         }
+
+
+
     }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 }

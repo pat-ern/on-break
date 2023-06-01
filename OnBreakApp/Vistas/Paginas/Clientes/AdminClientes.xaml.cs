@@ -22,8 +22,12 @@ namespace Vistas.Paginas.Clientes
     /// <summary>
     /// Lógica de interacción para Index.xaml
     /// </summary>
-    public partial class AdminClientes 
+    /// 
+
+    public partial class AdminClientes : MetroWindow
     {
+        public string? VentanaOrigen { get; set; }
+
         public AdminClientes()
         {
             InitializeComponent();
@@ -36,10 +40,36 @@ namespace Vistas.Paginas.Clientes
 
 
 
+
+        // crear un método para cargar los datos de la tabla ListaClientes y cargarlo en formulario 
+        public AdminClientes(Cliente cliente)
+        {
+            InitializeComponent();
+
+            this.CargarActividadEmpresa();
+
+            this.CargarTipoEmpresa();
+
+            txt_rut.Text = cliente.RutCliente;
+            txt_razonSocial.Text = cliente.RazonSocial;
+            txt_nombreContacto.Text = cliente.NombreContacto;
+            txt_contacto.Text = cliente.MailContacto;
+            txt_direccion.Text = cliente.Direccion;
+            txt_telefono.Text = cliente.Telefono;
+            cbx_actividadEmpresa.SelectedValue = cliente.IdActividadEmpresa;
+            cbx_tipoEmpresa.SelectedValue = cliente.IdTipoEmpresa;
+            btn_Actualizar.Visibility = Visibility.Visible;
+            btn_Eliminar.Visibility = Visibility.Visible;
+
+        }
+
+
+
         private void btn_listado_Click(object sender, RoutedEventArgs e)
         {
-            Paginas.Clientes.ListaClientes listaClientes = new ListaClientes();
-            this.Close();
+            ListaClientes listaClientes = new ListaClientes();
+            listaClientes.VentanaOrigen = "AdminClientes";
+            listaClientes.ParentWindow = this;
             listaClientes.Show();
         }
 
