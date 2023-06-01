@@ -60,45 +60,6 @@ namespace Vistas.Paginas.Contratos
             listaClientes.Show();
         }
 
-        private void txt_asistentes_TextChanged(object sender, EventArgs e)
-        {
-            // Si el TextBox está vacío, establece el valor predeterminado en cero
-            if (string.IsNullOrEmpty(txt_asistentes.Text))
-            {
-                txt_asistentes.Text = "0";
-            }
-
-            // Verifica que el contenido del TextBox sea un número del 2 en adelante
-            if (int.TryParse(txt_asistentes.Text, out int result) && result >= 2)
-            {
-                // El contenido es un número válido del 2 en adelante, hay que hacer el calculo con la uf
-                double costo;
-                if (result == 2)
-                {
-                    costo = 2;
-                }
-                else if (result == 3)
-                {
-                    costo = 3;
-                }
-                else if (result == 4)
-                {
-                    costo = 3.5;
-                }
-                else
-                {
-                    costo = 3.5 + (result - 4) * 0.5;
-                }
-                // Aqui ya deberia tener el valor para multiplicarlo con la uf!!!
-                //reto
-            }
-            else
-            {
-                // Si el contenido del TextBox no es un número válido del 2 en adelante, establece el valor en 2
-                txt_asistentes.Text = "0";
-            }
-        }
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
 

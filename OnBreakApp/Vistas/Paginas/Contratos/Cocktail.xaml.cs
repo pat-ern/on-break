@@ -33,5 +33,10 @@ namespace Vistas.Paginas.Contratos
         {
 
         }
+
+        private void comboBoxModalidades_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
     }
 }
