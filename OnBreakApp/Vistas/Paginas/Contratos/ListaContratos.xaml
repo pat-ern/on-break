@@ -7,7 +7,8 @@
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="OnBreakApp" Height="600" Width="1000">
+        Title="OnBreakApp" Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen">
     <Grid x:Name="grid" Background="#34274D">
         <Button Click="Go_Back" BorderThickness="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="Transparent">
             <Image Source="/assets/back-button.png" Width="40"/>

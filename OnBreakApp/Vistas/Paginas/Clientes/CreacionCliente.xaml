@@ -6,7 +6,8 @@
         xmlns:local="clr-namespace:Vistas.Paginas.Clientes"
         xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
         mc:Ignorable="d"
-        Title="OnBreakApp" Height="600" Width="1000">
+        Title="OnBreakApp" Height="600" Width="1000"
+        WindowStartupLocation="CenterScreen">
 
     <Grid Background="#34274D">
 
