@@ -22,15 +22,18 @@
     <None Remove="assets\coctel.png" />
     <None Remove="assets\coffee-break.png" />
     <None Remove="assets\coffee.png" />
+    <None Remove="assets\contract.png" />
     <None Remove="assets\dinner.png" />
     <None Remove="assets\drink.png" />
     <None Remove="assets\eraser.png" />
     <None Remove="assets\list.png" />
+    <None Remove="assets\one-user.png" />
     <None Remove="assets\plato-de-servir.png" />
     <None Remove="assets\save.png" />
     <None Remove="assets\search-black.png" />
     <None Remove="assets\search.png" />
     <None Remove="assets\trash-can.png" />
+    <None Remove="assets\users.png" />
     <None Remove="contrato.png" />
     <None Remove="lista-de-verificacion.png" />
     <None Remove="objetivo.png" />
@@ -45,6 +48,9 @@
     <None Remove="simbolo-de-circulo-de-contraste.png" />
 	<None Remove="añadir_cliente.png" />
 	<None Remove="cliente.png" />
+	<Content Include="assets\contract.png">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
 	<Content Include="assets\search-black.png">
 	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
 	</Content>
@@ -101,6 +107,9 @@
     <Resource Include="assets\list_cli.png" />
     <Resource Include="assets\adm_con.png" />
     <Resource Include="assets\list_con.png" />
+    <Content Include="assets\one-user.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
     <Resource Include="assets\plato-de-servir.png" />
     <Resource Include="assets\objetivo.png" />
     <Resource Include="assets\OnBreak.png" />
@@ -113,6 +122,9 @@
 	<Resource Include="assets\enviar.png" />
 	<Resource Include="assets\limpiar.png" />
 	<Resource Include="assets\cliente.png" />
+	<Content Include="assets\users.png">
+	  <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+	</Content>
 	  
   </ItemGroup>
 
