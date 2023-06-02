@@ -76,30 +76,10 @@ namespace Vistas.Paginas.Contratos
 
         private void btn_buscar_Click_1(object sender, RoutedEventArgs e)
         {
-
-            if (txt_tipo_evento.Text == "Cocktail")
-            {
-                Paginas.Contratos.Cocktail cocktail = new Paginas.Contratos.Cocktail();
-                vtn_opc.Content = cocktail;
-            }
-            else if (txt_tipo_evento.Text == "Cena")
-            {
-                Paginas.Contratos.Cena cena = new Paginas.Contratos.Cena();
-                vtn_opc.Content = cena;
-            }
-            else if (txt_tipo_evento.Text == "Coffee Break")
-            {
-                Paginas.Contratos.Coffee coffee = new Paginas.Contratos.Coffee();
-                vtn_opc.Content = coffee;
-            }
-
             ListaContratos listaContratos = new ListaContratos();
             listaContratos.VentanaOrigen = "AdminContratos";
             listaContratos.ParentWindow = this;
             listaContratos.Show();
-
-
-
         }
 
         private void btn_volver_Click(object sender, RoutedEventArgs e)
@@ -296,11 +276,13 @@ namespace Vistas.Paginas.Contratos
         }
 
 
+        // Este metodo se encarga de obtener el valor de un checkbox
         bool obtenerValorCheckbox(CheckBox checkBox)
         {
             return checkBox.IsChecked ?? true;
         }
 
+        // este metodo genera un numero random para el Numero de Contraro (MODIFICAR, ADAPTARLO AL REQUERIMIENTO)
         string GenerarNumeroRandom()
         {
             Random random = new Random();
@@ -311,16 +293,19 @@ namespace Vistas.Paginas.Contratos
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            // aqui valido que el contenido de la ventana sea un objeto de tipo Cocktail
             if (!(vtn_opc.Content is Cocktail cocktail))
             {
                 return;
             }
-
+            // este metodo esta declarado en la Pagina Cocktail y se encarga de validar que los campos esten completos.
             if (!cocktail.ValidarSeleccionModalidad())
             {
                 MessageBox.Show("Debe seleccionar una modalidad de servicio");
                 return;
             }
+
+            // este metodo esta declarado en la Pagina Cocktail y se encarga de validar que los campos esten completos.
 
             if (!cocktail.ValidarSeleccionAmbientacion())
             {
@@ -328,12 +313,16 @@ namespace Vistas.Paginas.Contratos
                 return;
             }
 
+            // este metodo esta declarado en la Pagina Cocktail y se encarga de obtener la modalidad seleccionada en la pagina.
             ModalidadServicio modalidadServicio = cocktail.ObtenerModalidadSeleccionada();
 
+            // este metodo esta declarado en la Pagina Cocktail y se encarga de obtener la ambientacion seleccionada en la pagina.
             TipoAmbientacion tipoAmbientacion = cocktail.ObtenerTipoAmbientacionSeleccionada();
 
+            // este metodo esta declarado en la Pagina Cocktail y se encarga de obtener el valor de la musica ambiental seleccionada en la pagina.
             bool musicaAmbiental = cocktail.ObtenerMusicaAmbiental();
 
+            // este metetdo esta declarado en la Pagina Cocktail y se encarga de obtener el valor de la seleccion de ambientacion cliente seleccionada en la pagina.
             bool tieneAmbientacion = cocktail.ValidarSeleccionAmbientacion();
 
 
@@ -355,14 +344,14 @@ namespace Vistas.Paginas.Contratos
                 Observaciones = "N/A"
             };
 
-            // Asignar el número de contrato al objeto Cocktail
+            // Asignar el número de contrato al objeto Cocktail para que se cree en la base de datos
             OnBreak.BC.Cocktail datosCocktail = new OnBreak.BC.Cocktail()
             {
                 Numero = contrato.Numero, // Asignar el mismo número de contrato
-                IdTipoAmbientacion = tipoAmbientacion.IdTipoAmbientacion,
-                Ambientacion = tieneAmbientacion,
-                MusicaAmbiental = musicaAmbiental,
-                MusicaCliente = false
+                IdTipoAmbientacion = tipoAmbientacion.IdTipoAmbientacion, // Asignar el id de la ambientación
+                Ambientacion = tieneAmbientacion, // Asignar si tiene ambientación
+                MusicaAmbiental = musicaAmbiental, // Asignar si tiene música ambiental
+                MusicaCliente = false // Pendiente
             };
 
             if (contrato.Create() && datosCocktail.Create())

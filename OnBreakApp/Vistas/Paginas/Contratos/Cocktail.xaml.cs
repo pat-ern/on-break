@@ -25,10 +25,11 @@ namespace Vistas.Paginas.Contratos
         public Cocktail()
         {
             InitializeComponent();
+            // Lee la modalidad para mostrarla en el combobox
             LeerModalidad();
 
         }
-
+        // Valida que se haya seleccionado una modalidad en el combobox
         public bool ValidarSeleccionModalidad()
         {
             if (comboBoxModalidades.SelectedIndex <= 0)
@@ -36,10 +37,10 @@ namespace Vistas.Paginas.Contratos
                 MessageBox.Show("Debe seleccionar una modalidad.");
                 return false;
             }
-
             return true;
         }
 
+        // Valida que se haya seleccionado una ambientación en los radio button
         public bool ValidarSeleccionAmbientacion()
         {
             if (radioButtonAmbientacionBasica.IsChecked == false && radioButtonAmbientacionPersonalizada.IsChecked == false)
@@ -50,7 +51,17 @@ namespace Vistas.Paginas.Contratos
 
             return true;
         }
+        // obtiene el valor del check box de musica ambiental.
+        public bool ObtenerMusicaAmbiental()
+        {
+            OnBreak.BC.Cocktail cocktail = new OnBreak.BC.Cocktail();
+            bool musicaAmbiental = checkBoxMusicaAmbiental.IsChecked ?? false;
+            cocktail.MusicaAmbiental = musicaAmbiental;
 
+            return musicaAmbiental;
+        }
+
+        // Este metodo lo que hace es que cuando se selecciona una modalidad, se envia el id de la modalidad seleccionada pero se muestra el nombre de la modalidad.
         public void LeerModalidad()
         {
             OnBreak.BC.ModalidadServicio modalidadServicio = new OnBreak.BC.ModalidadServicio();
@@ -74,6 +85,7 @@ namespace Vistas.Paginas.Contratos
             comboBoxModalidades.SelectedIndex = 0;
         }
 
+        // Este metodo lo que hace es que obtener la modalidad seleccionada y retornarla.
         public OnBreak.BC.ModalidadServicio ObtenerModalidadSeleccionada()
         {
             if (comboBoxModalidades.SelectedItem is OnBreak.BC.ModalidadServicio modalidadServicio)
@@ -84,7 +96,7 @@ namespace Vistas.Paginas.Contratos
             return null;
         }
 
-
+        // Este metodo es para obtener el tipo de ambietancion seleccionada en los radio button.
         public OnBreak.BC.TipoAmbientacion ObtenerTipoAmbientacionSeleccionada()
         {
             OnBreak.BC.TipoAmbientacion ambientacion = new OnBreak.BC.TipoAmbientacion();
@@ -108,14 +120,7 @@ namespace Vistas.Paginas.Contratos
             return null;
         }
 
-        public bool ObtenerMusicaAmbiental()
-        {
-            OnBreak.BC.Cocktail cocktail = new OnBreak.BC.Cocktail();
-            bool musicaAmbiental = checkBoxMusicaAmbiental.IsChecked ?? false;
-            cocktail.MusicaAmbiental = musicaAmbiental;
 
-            return musicaAmbiental;
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -134,19 +139,19 @@ namespace Vistas.Paginas.Contratos
 
         private void radioButtonAmbientacionBasica_Checked(object sender, RoutedEventArgs e)
         {
-            //EnviarTipoAmbientacion();
+
 
         }
 
         private void radioButtonAmbientacionPersonalizada_Checked(object sender, RoutedEventArgs e)
         {
-            //EnviarTipoAmbientacion();
+  
 
         }
 
         private void checkBoxMusicaAmbiental_Checked(object sender, RoutedEventArgs e)
         {
-            //EnviarDatosCocktail();
+
         }
 
         public void comboBoxModalidades_SelectionChanged_2(object sender, SelectionChangedEventArgs e)
