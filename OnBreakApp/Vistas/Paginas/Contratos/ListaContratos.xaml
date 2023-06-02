@@ -14,7 +14,7 @@
             <Image Source="/assets/back-button.png" Width="40"/>
         </Button>
         <!-- FILTRO ACTIVIDAD EMPRESA -->
-        <mah:DropDownButton x:Name="filtroTipoEvento" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,14,696,0" Width="188" Height="42" FontSize="10"
+        <mah:DropDownButton x:Name="filtroTipoEvento" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,14,696,0" Width="188" Height="42" FontSize="15"
                     Content="TIPO DE EVENTO"
                     ItemsSource="{Binding tipoEventoItems}">
             <mah:DropDownButton.ItemContainerStyle>
@@ -25,8 +25,8 @@
         </mah:DropDownButton>
 
         <!-- FILTRO TIPO EMPRESA -->
-        <mah:DropDownButton x:Name="filtroModalidadServicio" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,486,0" Width="188" Height="42"  FontSize="10"
-                    Content="MODALIDAD DE SERVICIO"
+        <mah:DropDownButton x:Name="filtroModalidadServicio" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,486,0" Width="188" Height="42"  FontSize="15"
+                    Content="MODALIDAD"
                     ItemsSource="{Binding ModalidadServicioItems}">
             <mah:DropDownButton.ItemContainerStyle>
                 <Style TargetType="MenuItem">
