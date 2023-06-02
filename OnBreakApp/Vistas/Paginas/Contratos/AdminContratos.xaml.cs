@@ -175,14 +175,14 @@ namespace Vistas.Paginas.Contratos
             txt_personal_adicional.Value = null;
         }
 
-        private void SumarCostoAlValorTotal(double costo)
+        private double SumarCostoAlValorTotal(double costo)
         {
             double uf = 36022.44;
             double valorTotal = Math.Floor(costo * uf);
-            txt_valor_total.Text = valorTotal.ToString();
+            return valorTotal;
         }
 
-        private double valorTotalActual = 0; // Variable para almacenar el valor actual de txt_valor_total
+        private double valorTotal = 0; // Variable para mantener el valor total acumulado
 
         private void txt_personal_adicional_ValueChanged(object sender, EventArgs e)
         {
@@ -237,7 +237,11 @@ namespace Vistas.Paginas.Contratos
                         costo = 5 + 0.5 * (numero_personas - 4);
                     }
                 }
-                SumarCostoAlValorTotal(costo);
+
+                double valorPersonalAdicional = SumarCostoAlValorTotal(costo);
+                valorTotal += valorPersonalAdicional; // Acumular el valor devuelto al valor total
+                txt_valor_total.Text = valorTotal.ToString();
+
             }
         }
 
@@ -305,7 +309,9 @@ namespace Vistas.Paginas.Contratos
                         costo = asistentes;
                     }
                 }
-                SumarCostoAlValorTotal(costo);
+                double valorAsistentes = SumarCostoAlValorTotal(costo); // Sumar el valor devuelto al valor actual
+                valorTotal += valorAsistentes; // Acumular el valor devuelto al valor total
+                txt_valor_total.Text = valorTotal.ToString();
             }
         }
 
@@ -331,6 +337,25 @@ namespace Vistas.Paginas.Contratos
             vtn_opc.Content = coffee;
             txt_tipo_evento.Text = "Coffee Break";
             LimpiarValor();
+        }
+
+        private string GenerarNumeroContrato()
+        {
+            DateTime now = DateTime.Now;
+            string año = now.Year.ToString();
+            string mes = now.Month.ToString("00");
+            string dia = now.Day.ToString("00");
+            string hora = now.Hour.ToString("00");
+            string minuto = now.Minute.ToString("00");
+
+            string numeroContrato = $"{año}{mes}{dia}{hora}{minuto}";
+
+            return numeroContrato;
+        }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            string numeroContrato = GenerarNumeroContrato();
         }
     }
 }

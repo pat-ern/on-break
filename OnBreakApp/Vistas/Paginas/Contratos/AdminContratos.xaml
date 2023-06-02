@@ -55,7 +55,7 @@
         <Label Content="REALIZADO" HorizontalAlignment="Left" Margin="58,522,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="167" Height="30" FontSize="13"/>
         <Label Content="VALOR TOTAL" HorizontalAlignment="Left" Margin="56,575,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.026,-1.424" Width="167" Height="30"  FontSize="13"/>
 
-        <Button HorizontalAlignment="Left" Margin="692,484,0,0" VerticalAlignment="Top"  Height="180" Width="280" Background="#FF99ACFF"  FontSize="15" >
+        <Button HorizontalAlignment="Left" Margin="692,484,0,0" VerticalAlignment="Top"  Height="180" Width="280" Background="#FF99ACFF"  FontSize="15" Click="Button_Click" >
             <StackPanel>
                 <Image Source="/assets/diskette.png" Width="76" Height="45"/>
                 <Label Foreground="White" Height="60" Width="118" FontSize="28" Content="Guardar"/>
