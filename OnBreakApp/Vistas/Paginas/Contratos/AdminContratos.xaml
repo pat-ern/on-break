@@ -346,22 +346,24 @@
         />
 
         <!--DETALLES EVENTO-->
-        <Rectangle x:Name="vtn_tipo" HorizontalAlignment="Left" Height="532" Margin="567,143,0,0" Stroke="{DynamicResource MahApps.Brushes.Gray1}" VerticalAlignment="Top" Width="203" Fill="{DynamicResource MahApps.Brushes.Gray10}"/>
+        <Rectangle x:Name="vtn_tipo" HorizontalAlignment="Left" Height="532" Margin="567,143,0,0" Stroke="{DynamicResource MahApps.Brushes.Gray1}" VerticalAlignment="Top" Width="203" Fill="Transparent"/>
 
         <Label 
             Content="DETALLES EVENTO" 
             x:Name="lbl_tipo_evento" 
             HorizontalAlignment="Left" 
-            Margin="598,157,0,0" 
+            Margin="577,150,0,0" 
             VerticalAlignment="Top" 
             RenderTransformOrigin="-0.026,-1.424" 
-            Width="141" Height="31"
-            FontSize="13"/>
+            Width="184" Height="39"
+            FontSize="20"
+            FontWeight="Semibold"
+            Foreground="White"/>
 
         <Frame x:Name="vtn_opc" Margin="568,194,510,29" NavigationUIVisibility="Hidden" Background="#00000000"/>
 
         <!--BOTON GUARDAR-->
-        <Button HorizontalAlignment="Left" Margin="1036,606,0,0" VerticalAlignment="Top"  Height="72" Width="223" Background="#FF99ACFF"  FontSize="15" Click="Button_Click" >
+        <Button HorizontalAlignment="Left" Margin="1036,601,0,0" VerticalAlignment="Top"  Height="72" Width="223" Background="#FF99ACFF"  FontSize="15" Click="Button_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="/assets/diskette.png" Width="76" Height="45"/>
                 <Label Foreground="White" Height="36" Width="118" FontSize="22" Content="GUARDAR" FontWeight="Semibold"/>
@@ -369,7 +371,7 @@
         </Button>
 
         <!--BOTON LIMPIAR-->
-        <Button  HorizontalAlignment="Left" Margin="801,606,0,0" VerticalAlignment="Top" Height="72" Width="223" Background="#FF99ACFF"  FontSize="18"  Click="Button_Clear" >
+        <Button  HorizontalAlignment="Left" Margin="801,601,0,0" VerticalAlignment="Top" Height="72" Width="223" Background="#FF99ACFF"  FontSize="18"  Click="Button_Clear" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="/assets/clear-format.png" Width="76" Height="45"/>
                 <Label Foreground="White" Height="39" Width="132" FontSize="22" Content="LIMPIAR" FontWeight="Semibold"/>
@@ -377,17 +379,17 @@
         </Button>
 
         <!-- BOTON DE COFFE BREAK -->
-        <Button x:Name="btn_coffee" FontSize="20" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,468,20,0" Height="110" Width="462" Background="#7F55D4" RenderTransformOrigin="0.542,0.52" Click="btn_coffee_Click">
+        <Button x:Name="btn_coffee" FontSize="20" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,457,20,0" Height="110" Width="462" Background="#7F55D4" RenderTransformOrigin="0.542,0.52" Click="btn_coffee_Click">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                 <Image Source="/assets/coffee-break.png" Height="57" Width="67" OpacityMask="{DynamicResource MahApps.Brushes.Gray10}"/>
                 <Label x:Name="lbl_coffee_break" Content="COFFEE BREAK" Foreground="White" Height="51" FontSize="28" FontWeight="Semibold"/>
             </StackPanel>
         </Button>
 
-        <Label Content="SELECCIONA EL TIPO DE CONTRATO" Foreground="White" Height="51" FontSize="27" FontWeight="Semibold" Margin="801,159,22,494"/>
+        <Label Content="SELECCIONA EL TIPO DE CONTRATO" Foreground="White" FontSize="20" FontWeight="Semibold" Margin="858,148,75,512"/>
 
         <!-- BOTON DE COCKTAIL -->
-        <Button x:Name="btn_cocktail" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="796,231,0,0" Height="110" Width="462" Background="#00C2C6" RenderTransformOrigin="0.542,0.52" Click="btn_cocktail_Click">
+        <Button x:Name="btn_cocktail" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="796,221,0,0" Height="110" Width="462" Background="#00C2C6" RenderTransformOrigin="0.542,0.52" Click="btn_cocktail_Click">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                 <Image Source="/assets/coctel.png" Height="55" Width="62"/>
                 <Label x:Name="lbl_cocktail" Content="COCKTAIL" Foreground="White" Height="51" Width="152" FontSize="28" VerticalAlignment="Top" Margin="0,0,0,0" FontWeight="Semibold"/>
@@ -395,7 +397,7 @@
         </Button>
 
         <!-- BOTON DE CENA -->
-        <Button x:Name="btn_cena" FontSize="20" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,348,20,0" Height="110" Width="464" Background="#2186C2" RenderTransformOrigin="0.542,0.52" Click="btn_cena_Click">
+        <Button x:Name="btn_cena" FontSize="20" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,339,20,0" Height="110" Width="464" Background="#2186C2" RenderTransformOrigin="0.542,0.52" Click="btn_cena_Click">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                 <Image Source="/assets/plato-de-servir.png" Height="50" Width="50"/>
                 <Label x:Name="lbl_cena" Content="CENA" Foreground="White" Height="51" Width="84" FontSize="28" VerticalAlignment="Top" Margin="0,0,0,0" FontWeight="Semibold"/>

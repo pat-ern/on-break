@@ -58,5 +58,10 @@ namespace Vistas.Paginas.Contratos
             // Seleccionar el objeto "Seleccione"
             comboBoxModalidades.SelectedIndex = 0;
         }
+
+        private void checkBoxMusicaAmbiental_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
