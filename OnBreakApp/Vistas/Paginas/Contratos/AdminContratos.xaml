@@ -363,7 +363,7 @@
         <Frame x:Name="vtn_opc" Margin="568,194,510,29" NavigationUIVisibility="Hidden" Background="#00000000"/>
 
         <!--BOTON GUARDAR-->
-        <Button HorizontalAlignment="Left" Margin="1036,601,0,0" VerticalAlignment="Top"  Height="72" Width="223" Background="#FF99ACFF"  FontSize="15" Click="Button_Click" >
+        <Button HorizontalAlignment="Left" Margin="1036,595,0,0" VerticalAlignment="Top"  Height="72" Width="223" Background="#FF99ACFF"  FontSize="15" Click="Button_Click" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="/assets/diskette.png" Width="76" Height="45"/>
                 <Label Foreground="White" Height="36" Width="118" FontSize="22" Content="GUARDAR" FontWeight="Semibold"/>
@@ -371,7 +371,7 @@
         </Button>
 
         <!--BOTON LIMPIAR-->
-        <Button  HorizontalAlignment="Left" Margin="801,601,0,0" VerticalAlignment="Top" Height="72" Width="223" Background="#FF99ACFF"  FontSize="18"  Click="Button_Clear" >
+        <Button  HorizontalAlignment="Left" Margin="801,595,0,0" VerticalAlignment="Top" Height="72" Width="223" Background="#FF99ACFF"  FontSize="18"  Click="Button_Clear" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="/assets/clear-format.png" Width="76" Height="45"/>
                 <Label Foreground="White" Height="39" Width="132" FontSize="22" Content="LIMPIAR" FontWeight="Semibold"/>
@@ -386,7 +386,7 @@
             </StackPanel>
         </Button>
 
-        <Label Content="SELECCIONA EL TIPO DE CONTRATO" Foreground="White" FontSize="20" FontWeight="Semibold" Margin="858,148,75,512"/>
+        <Label Content="SELECCIONA EL TIPO DE CONTRATO" Foreground="White" FontSize="20" FontWeight="Semibold" Margin="858,148,75,498"/>
 
         <!-- BOTON DE COCKTAIL -->
         <Button x:Name="btn_cocktail" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="796,221,0,0" Height="110" Width="462" Background="#00C2C6" RenderTransformOrigin="0.542,0.52" Click="btn_cocktail_Click">
