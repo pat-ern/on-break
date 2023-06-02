@@ -58,7 +58,7 @@ namespace Vistas.Paginas.Clientes
             txt_telefono.Text = cliente.Telefono;
             cbx_actividadEmpresa.SelectedValue = cliente.IdActividadEmpresa;
             cbx_tipoEmpresa.SelectedValue = cliente.IdTipoEmpresa;
-            btn_Actualizar.Visibility = Visibility.Visible;
+            //btn_Actualizar.Visibility = Visibility.Visible;
             btn_Eliminar.Visibility = Visibility.Visible;
 
         }
@@ -131,7 +131,7 @@ namespace Vistas.Paginas.Clientes
                         cbx_actividadEmpresa.SelectedValue = resultados.ElementAt(i).IdActividadEmpresa;
                         cbx_tipoEmpresa.SelectedValue = resultados.ElementAt(i).IdTipoEmpresa;
                     }
-                    btn_Actualizar.Visibility = Visibility.Visible;
+                    //btn_Actualizar.Visibility = Visibility.Visible;
                     btn_Eliminar.Visibility = Visibility.Visible;
                 }
                 else
@@ -296,7 +296,7 @@ namespace Vistas.Paginas.Clientes
                 // Limpiar los campos
                 LimpiarCampos();
 
-                btn_Actualizar.Visibility = Visibility.Hidden;
+                //btn_Actualizar.Visibility = Visibility.Hidden;
                 btn_Eliminar.Visibility = Visibility.Hidden;
 
                 LimpiarCampos();
@@ -320,7 +320,7 @@ namespace Vistas.Paginas.Clientes
             if(cli.Delete())
             {
                 await this.ShowMessageAsync("Éxito", "Cliente eliminado correctamente.");
-                btn_Actualizar.Visibility = Visibility.Hidden;
+                //btn_Actualizar.Visibility = Visibility.Hidden;
                 btn_Eliminar.Visibility = Visibility.Hidden;
 
                 LimpiarCampos();
