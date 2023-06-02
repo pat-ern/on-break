@@ -151,14 +151,6 @@ namespace Vistas.Paginas.Contratos
 
         public void comboBoxModalidades_SelectionChanged_2(object sender, SelectionChangedEventArgs e)
         {
-            if (comboBoxModalidades.SelectedIndex > 0)
-            {
-                var modalidadSeleccionada = comboBoxModalidades.SelectedItem as OnBreak.BC.ModalidadServicio;
-                if (modalidadSeleccionada != null)
-                {
-                    MessageBox.Show($"Se seleccionó la modalidad. ID: {modalidadSeleccionada.IdModalidad}, Nombre: {modalidadSeleccionada.Nombre}");
-                }
-            }
         }
     }
 }

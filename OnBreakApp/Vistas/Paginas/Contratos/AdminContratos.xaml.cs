@@ -32,7 +32,6 @@ namespace Vistas.Paginas.Contratos
         public AdminContratos(Contrato contrato)
         {
             InitializeComponent();
-            this.CargarModalidadServicio();
         }
 
         private void Go_Back(object sender, RoutedEventArgs e)
@@ -75,60 +74,8 @@ namespace Vistas.Paginas.Contratos
         }
 
 
-        private async void btn_buscar_Click_1(object sender, RoutedEventArgs e)
+        private void btn_buscar_Click_1(object sender, RoutedEventArgs e)
         {
-            //string textoBusqueda = txt_buscar_nro.Text;
-
-            //var resultados = from c in contratos
-            //                 where c.Numero.Contains(textoBusqueda)
-            //                 select c;
-
-            //var contrato = new Contrato();
-
-            //for (int i = 0; i < resultados.Count(); i++)
-            //{
-            //    if (resultados.ElementAt(i).Numero == textoBusqueda)
-            //    {
-
-            //        contrato = resultados.ElementAt(i);
-
-            //        txt_buscar_rut.Text = contrato.Cliente.RutCliente;
-            //        txt_tipo_evento.Text = contrato.ModalidadServicio.TipoEvento.Descripcion;
-            //        string fecha_inicio = contrato.FechaHoraInicio.ToString();
-            //        string fecha_termino = contrato.FechaHoraTermino.ToString();
-            //        txt_asistentes.Value = Convert.ToInt32(contrato.Asistentes);
-            //        txt_personal_adicional.Value = Convert.ToInt32(contrato.PersonalAdicional);
-            //        //txt_realizado.Text = contrato.Realizado.ToString();
-            //        txt_valor_total.Text = contrato.ValorTotalContrato.ToString();
-
-            //        AsignarFecha(fecha_inicio, fechaIni);
-            //        AsignarFecha(fecha_termino, fechaFin);
-
-
-            //        if (txt_tipo_evento.Text == "Cocktail")
-            //        {
-            //            Paginas.Contratos.Cocktail cocktail = new Paginas.Contratos.Cocktail();
-            //            vtn_opc.Content = cocktail;
-            //        }
-            //        else if (txt_tipo_evento.Text == "Cena")
-            //        {
-            //            Paginas.Contratos.Cena cena = new Paginas.Contratos.Cena();
-            //            vtn_opc.Content = cena;
-            //        }
-            //        else if (txt_tipo_evento.Text == "Coffee Break")
-            //        {
-            //            Paginas.Contratos.Coffee coffee = new Paginas.Contratos.Coffee();
-            //            vtn_opc.Content = coffee;
-            //        }
-
-            //    }
-            //    else
-            //    {
-            //        await this.ShowMessageAsync("Advertencia", "Debe ingresar un numero válido.");
-            //    }
-            //    break;
-            //}
-
 
             if (txt_tipo_evento.Text == "Cocktail")
             {
@@ -349,9 +296,17 @@ namespace Vistas.Paginas.Contratos
         }
 
 
-        private void CargarModalidadServicio()
+        bool obtenerValorCheckbox(CheckBox checkBox)
         {
+            return checkBox.IsChecked ?? true;
+        }
 
+        string GenerarNumeroRandom()
+        {
+            Random random = new Random();
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+            return new string(Enumerable.Repeat(chars, 6)
+                .Select(s => s[random.Next(s.Length)]).ToArray());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -373,29 +328,16 @@ namespace Vistas.Paginas.Contratos
                 return;
             }
 
-            OnBreak.BC.ModalidadServicio modalidadServicio = cocktail.ObtenerModalidadSeleccionada();
-            if (modalidadServicio != null)
-            {
-                MessageBox.Show($"Modalidad seleccionada: {modalidadServicio.IdModalidad} - {modalidadServicio.Nombre} -  {modalidadServicio.IdTipoEvento} ");
-            }
+            ModalidadServicio modalidadServicio = cocktail.ObtenerModalidadSeleccionada();
 
-            OnBreak.BC.TipoAmbientacion tipoAmbientacion = cocktail.ObtenerTipoAmbientacionSeleccionada();
-            if (tipoAmbientacion != null)
-            {
-                MessageBox.Show($"Se seleccionó la ambientación. ID: {tipoAmbientacion.IdTipoAmbientacion}, Descripción: {tipoAmbientacion.Descripcion}");
-            }
+            TipoAmbientacion tipoAmbientacion = cocktail.ObtenerTipoAmbientacionSeleccionada();
 
             bool musicaAmbiental = cocktail.ObtenerMusicaAmbiental();
-            if (musicaAmbiental)
-            {
-                MessageBox.Show("Se seleccionó la opción de música ambiental");
-            }
-            else
-            {
-                MessageBox.Show("No se seleccionó la opción de música ambiental");
-            }
 
-            // crear contrato 
+            bool tieneAmbientacion = cocktail.ValidarSeleccionAmbientacion();
+
+
+            // Crear contrato 
             Contrato contrato = new Contrato()
             {
                 Numero = GenerarNumeroRandom(),
@@ -413,29 +355,28 @@ namespace Vistas.Paginas.Contratos
                 Observaciones = "N/A"
             };
 
-
-            if (contrato.Create())
+            // Asignar el número de contrato al objeto Cocktail
+            OnBreak.BC.Cocktail datosCocktail = new OnBreak.BC.Cocktail()
             {
-                MessageBox.Show("Contrato creado correctamente");
+                Numero = contrato.Numero, // Asignar el mismo número de contrato
+                IdTipoAmbientacion = tipoAmbientacion.IdTipoAmbientacion,
+                Ambientacion = tieneAmbientacion,
+                MusicaAmbiental = musicaAmbiental,
+                MusicaCliente = false
+            };
+
+            if (contrato.Create() && datosCocktail.Create())
+            {
+                MessageBox.Show("Contrato y datos de Cocktail creados correctamente");
             }
             else
             {
-                MessageBox.Show("No se pudo crear el contrato");
+                MessageBox.Show("No se pudieron crear el contrato y los datos de Cocktail");
             }
+
         }
 
-        bool obtenerValorCheckbox(CheckBox checkBox)
-        {
-            return checkBox.IsChecked ?? true;
-        }
 
-        string GenerarNumeroRandom()
-        {
-            Random random = new Random();
-            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-            return new string(Enumerable.Repeat(chars, 6)
-                .Select(s => s[random.Next(s.Length)]).ToArray());
-        }
 
 
         private void checkBox_realizado_Checked(object sender, RoutedEventArgs e)

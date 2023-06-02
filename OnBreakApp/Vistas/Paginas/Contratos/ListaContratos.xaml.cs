@@ -103,7 +103,6 @@ namespace Vistas.Paginas.Contratos
 
         private void miTabla_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-
             var contratoSeleccionado = tablaContrato.SelectedItem as Contrato;
 
             if (contratoSeleccionado != null)
@@ -121,15 +120,38 @@ namespace Vistas.Paginas.Contratos
                     ParentWindow.checkBox_realizado.IsChecked = Convert.ToBoolean(contratoSeleccionado.Realizado);
                     ParentWindow.txt_valor_total.Text = contratoSeleccionado.ValorTotalContrato.ToString();
                 }
+
                 if (contratoSeleccionado.ModalidadServicio.TipoEvento.Descripcion == "Cocktail")
                 {
                     Paginas.Contratos.Cocktail cocktail = new Paginas.Contratos.Cocktail();
+
+                    // Acceder a la entidad Cocktail y rellenar los campos con los datos del contrato seleccionado
+                    cocktail.comboBoxModalidades.SelectedValue = contratoSeleccionado.ModalidadServicio.IdModalidad;
+
+                    var cocktails = new OnBreak.BC.Cocktail().ReadAll();
+                    var cocktailSeleccionado = cocktails.FirstOrDefault(c => c.Numero == contratoSeleccionado.Numero);
+
+                    if (cocktailSeleccionado != null)
+                    {
+                        cocktail.checkBoxMusicaAmbiental.IsChecked = cocktailSeleccionado.MusicaAmbiental;
+
+                        if (cocktailSeleccionado.Ambientacion)
+                        {
+                            cocktail.radioButtonAmbientacionBasica.IsChecked = true;
+                        }
+                        else
+                        {
+                            cocktail.radioButtonAmbientacionPersonalizada.IsChecked = true;
+                        }
+                    }
+
                     ParentWindow.vtn_opc.Content = cocktail;
                 }
+                this.Close();
             }
-            this.Close();
 
         }
+
 
         private void Resetear(object sender, RoutedEventArgs e)
         {
