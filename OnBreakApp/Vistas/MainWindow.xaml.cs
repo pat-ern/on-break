@@ -15,7 +15,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using Vistas.Paginas.Clientes;
+using Vistas.Paginas.Contratos;
 
 namespace Vistas
 {
@@ -46,9 +47,14 @@ namespace Vistas
         //TipoEvento cocktail = new TipoEvento() { IdTipoEvento = 02, Descripcion = "Cocktail" };
         //TipoEvento cenas = new TipoEvento() { IdTipoEvento = 03, Descripcion = "Cenas" };
 
+
+
+
+
         public MainWindow()
         {
             InitializeComponent();
+
 
             // Modalidades de servicio
             //ModalidadServicio lightBreak = new ModalidadServicio() { IdModalidad = "01LB", TipoEvento = coffeeBreak, Nombre = "Light Break", ValorBase = 3, PersonalBase = 2 };
@@ -76,42 +82,41 @@ namespace Vistas
             //this.contratos.Add(new Contrato { Numero = "C08", Creacion = DateTime.Now, Termino = DateTime.Now, Cliente = this.clientes[7], ModalidadServicio = journalBreak, FechaHoraInicio = DateTime.Now, FechaHoraTermino = DateTime.Now, Asistentes = 800, PersonalAdicional = 0, Realizado = false, ValorTotalContrato = 0, Observaciones = "Ninguna" });
             //this.contratos.Add(new Contrato { Numero = "C09", Creacion = DateTime.Now, Termino = DateTime.Now, Cliente = this.clientes[8], ModalidadServicio = lightBreak, FechaHoraInicio = DateTime.Now, FechaHoraTermino = DateTime.Now, Asistentes = 900, PersonalAdicional = 0, Realizado = false, ValorTotalContrato = 0, Observaciones = "Ninguna" });
             //this.contratos.Add(new Contrato { Numero = "C10", Creacion = DateTime.Now, Termino = DateTime.Now, Cliente = this.clientes[9], ModalidadServicio = dayBreak, FechaHoraInicio = DateTime.Now, FechaHoraTermino = DateTime.Now, Asistentes = 1000, PersonalAdicional = 0, Realizado = false, ValorTotalContrato = 0, Observaciones = "Ninguna" });
-
         }
         private void btn_adm_cliente_Click(object sender, RoutedEventArgs e)
         {
             // ABRIR LA VISTA DE ADMINISTRACION DE CLIENTES
+            AdminClientes adminClientes = new AdminClientes();
+            AbrirVentanaHija(adminClientes);
+        }
 
-            //var cliente = new Cliente();
-            Paginas.Clientes.AdminClientes index = new Paginas.Clientes.AdminClientes();
+        private void AbrirVentanaHija(MetroWindow ventanaHija)
+        {
             this.Close();
-            index.Show();
+            ventanaHija.Show();
+
         }
 
         // IR A PAGINA DE CREAR CLIENTES
         private void btn_cliente_Click(object sender, RoutedEventArgs e)
         {
             // ABRIR LA VISTA DE LISTA DE CLIENTES
-            Paginas.Clientes.ListaClientes lista = new Paginas.Clientes.ListaClientes();
-            this.Close();
-            lista.Show();
+            ListaClientes lista = new ListaClientes();
+            AbrirVentanaHija(lista);
+
         }
 
         // IR A PAGINA DE CREAR CONTRATOS
         private void btn_crear_contratos_Click(object sender, RoutedEventArgs e)
         {
-
-            Paginas.Contratos.CreacionContrato creacionContrato = new Paginas.Contratos.CreacionContrato();
-            this.Close();
-            creacionContrato.Show();
+   
+            AdminContratos adminContratos = new AdminContratos();
+            AbrirVentanaHija(adminContratos);
         }
-
-        // IR A PAGINA DE ADMINISTRACION DE CONTRATOS
         private void btn_contratos_Click(object sender, RoutedEventArgs e)
         {
-            Paginas.Contratos.ListaContratos listado = new Paginas.Contratos.ListaContratos();
-            this.Close();
-            listado.Show();
+            ListaContratos listado = new ListaContratos();
+            AbrirVentanaHija(listado);
         }
 
         private void btn_contraste_Click(object sender, RoutedEventArgs e)
@@ -144,9 +149,9 @@ namespace Vistas
 
         private void btn_adm_contratos_Click(object sender, RoutedEventArgs e)
         {
-            Paginas.Contratos.AdminContratos adminContratos = new Paginas.Contratos.AdminContratos();
-            this.Close();
-            adminContratos.Show();
+            AdminContratos adminContratos = new AdminContratos();
+            AbrirVentanaHija(adminContratos);
+
         }
     }
 }

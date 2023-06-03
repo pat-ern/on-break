@@ -7,6 +7,12 @@ using OnBreak.BD;
 
 namespace OnBreak.BC
 {
+
+    public enum TipoVentana
+    {
+        AdminClientes,
+        AdminContratos
+    }
     public class Cliente
     {
         public Cliente()
@@ -25,6 +31,8 @@ namespace OnBreak.BC
         public string Telefono { get; set; }
         public int IdActividadEmpresa { get; set; }
         public int IdTipoEmpresa { get; set; }
+
+        public TipoVentana TipoVentana { get; set; }
 
         public string DescripcionActividadEmpresa { get => _descripcionActividadEmpresa; }
         public string DescripcionTipoEmpresa { get => _descripcionTipoEmpresa; }

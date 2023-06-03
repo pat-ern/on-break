@@ -10,10 +10,14 @@
       Title="Coffee">
 
     <Grid>
-        <Label Content="Modalidad de Servicio:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" Height="35" />
-        <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Center" Margin="0,56,0,0" VerticalAlignment="Top"  Width="144" Height="28"/>
-        <Label Content="¿Alimentación Vegetariana?" HorizontalAlignment="Left" Margin="6,107,0,0" VerticalAlignment="Top" FontSize="14" />
-        <CheckBox x:Name="checkBoxVegetariana" Content="Sí" HorizontalAlignment="Left" Margin="13,161,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,0.557" Height="17" Width="38"/>
+
+        <!--TITULO-->
+        <Label Content="Modalidad de Servicio:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" Height="35" Foreground="White"/>
+        <!--COMBO-->
+        <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Left" Margin="15,52,0,0" VerticalAlignment="Top"  Width="144" Height="28" Background="Transparent" Foreground="White" SelectionChanged="comboBoxModalidades_SelectionChanged"/>
+        <Label Content="¿Alimentación Vegetariana?" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top" FontSize="12" Foreground="White"/>
+        <Label Content="Si" HorizontalAlignment="Left" Margin="34,143,0,0" VerticalAlignment="Top" FontSize="14" Foreground="White"/>
+        <CheckBox x:Name="checkBoxVegetariana" Content="" HorizontalAlignment="Left" Margin="15,148,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,0.557" Height="17" Width="38"/>
 
     </Grid>
 </Page>

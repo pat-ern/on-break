@@ -6,16 +6,21 @@
       xmlns:local="clr-namespace:Vistas.Paginas.Contratos"
       xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Vistas.Paginas.Contratos.Cocktail"
       mc:Ignorable="d" 
-      d:DesignHeight="394"
-      Title="Cocktail" Width="170">
+      d:DesignHeight="394" d:DesignWidth="170"
+      Title="Cocktail">
 
-    <Grid RenderTransformOrigin="0.221,0.392">
-        <Label Content="Modalidad de Servicio:" HorizontalAlignment="Center" Margin="0,12,0,0" VerticalAlignment="Top" FontSize="14" />
-        <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Left" Margin="12,54,0,0" VerticalAlignment="Top"  Width="144" Height="28"/>
-        <Label Content="¿Ambientación?:" HorizontalAlignment="Left" Margin="12,102,0,0" VerticalAlignment="Top" Height="36" Width="155" FontSize="14"/>
-        <RadioButton x:Name="radioButtonAmbientacionBasica" Content="Básica" HorizontalAlignment="Left" Margin="16,138,0,0" VerticalAlignment="Top" Height="36" Width="74" Background="Transparent"/>
-        <RadioButton x:Name="radioButtonAmbientacionPersonalizada" Content="Personalizada" HorizontalAlignment="Left" Margin="16,176,0,0" VerticalAlignment="Top" Height="34" Width="112" Background="Transparent"/>
-        <Label Content="¿Música Ambiental?" HorizontalAlignment="Left" Margin="12,219,0,0" VerticalAlignment="Top" Height="38" Width="140" FontSize="14"/>
-        <CheckBox x:Name="checkBoxMusicaAmbiental" Content="Sí" HorizontalAlignment="Left" Margin="16,265,0,0" VerticalAlignment="Top" Height="19" Width="38"/>
+    <Grid>
+
+        <!--TITULO-->
+        <Label Content="Modalidad de Servicio:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" Foreground="White"/>
+        <!--COMBO-->
+        <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Left" Margin="15,52,0,0" VerticalAlignment="Top"  Width="144" Height="28" SelectionChanged="comboBoxModalidades_SelectionChanged_2" Background="Transparent" Foreground="White"/>
+        
+        <Label Content="¿Ambientación?:" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Height="36" Width="155" FontSize="14" Foreground="White"/>
+        <RadioButton x:Name="radioButtonAmbientacionBasica" Content="Básica" HorizontalAlignment="Left" Margin="15,138,0,0" VerticalAlignment="Top" Height="36" Width="74" Background="Transparent" Foreground="White" Checked="radioButtonAmbientacionBasica_Checked"/>
+        <RadioButton x:Name="radioButtonAmbientacionPersonalizada" Content="Personalizada" HorizontalAlignment="Left" Margin="15,176,0,0" VerticalAlignment="Top" Height="34" Width="112" Background="Transparent" Foreground="White" Checked="radioButtonAmbientacionPersonalizada_Checked"/>
+        <Label Content="¿Música Ambiental?" HorizontalAlignment="Left" Margin="10,219,0,0" VerticalAlignment="Top" Height="38" Width="140" FontSize="14" Foreground="White"/>
+        <Label Content="Si" HorizontalAlignment="Left" Margin="38,260,0,0" VerticalAlignment="Top" Height="29" Width="37" FontSize="14" Foreground="White"/>
+        <CheckBox x:Name="checkBoxMusicaAmbiental" Content="" HorizontalAlignment="Left" Margin="15,265,0,0" VerticalAlignment="Top" Height="19" Width="38" Checked="checkBoxMusicaAmbiental_Checked"/>
     </Grid>
 </Page>
