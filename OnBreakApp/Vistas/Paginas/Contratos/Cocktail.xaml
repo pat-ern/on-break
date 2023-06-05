@@ -14,7 +14,7 @@
         <!--TITULO-->
         <Label Content="Modalidad de Servicio:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" Foreground="White"/>
         <!--COMBO-->
-        <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Left" Margin="15,52,0,0" VerticalAlignment="Top"  Width="144" Height="28" SelectionChanged="comboBoxModalidades_SelectionChanged_2" Background="Transparent" Foreground="White"/>
+        <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Left" Margin="15,52,0,0" VerticalAlignment="Top"  Width="144" Height="28" SelectionChanged="comboBoxModalidades_SelectionChanged" Background="Transparent" Foreground="White"/>
         
         <Label Content="¿Ambientación?:" HorizontalAlignment="Left" Margin="10,102,0,0" VerticalAlignment="Top" Height="36" Width="155" FontSize="14" Foreground="White"/>
         <RadioButton x:Name="radioButtonAmbientacionBasica" Content="Básica" HorizontalAlignment="Left" Margin="15,138,0,0" VerticalAlignment="Top" Height="36" Width="74" Background="Transparent" Foreground="White" Checked="radioButtonAmbientacionBasica_Checked"/>

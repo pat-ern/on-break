@@ -83,6 +83,7 @@ namespace Vistas.Paginas.Contratos
 
             // Seleccionar el objeto "Seleccione"
             comboBoxModalidades.SelectedIndex = 0;
+
         }
 
         // Este metodo lo que hace es que obtener la modalidad seleccionada y retornarla.
@@ -95,6 +96,17 @@ namespace Vistas.Paginas.Contratos
 
             return null;
         }
+
+        public (double PrecioBase, int PersonalBase) ObtenerDatosModalidadSeleccionada()
+        {
+            if (comboBoxModalidades.SelectedItem is OnBreak.BC.ModalidadServicio modalidadServicio)
+            {
+                return (modalidadServicio.ValorBase, modalidadServicio.PersonalBase);
+            }
+
+            return (0, 0); // Valores predeterminados en caso de que no se haya seleccionado ninguna modalidad
+        }
+
 
         // Este metodo es para obtener el tipo de ambietancion seleccionada en los radio button.
         public OnBreak.BC.TipoAmbientacion ObtenerTipoAmbientacionSeleccionada()
@@ -120,23 +132,6 @@ namespace Vistas.Paginas.Contratos
             return null;
         }
 
-
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
-
-        private void comboBoxModalidades_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
-        private void comboBoxModalidades_SelectionChanged_1(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
-
         private void radioButtonAmbientacionBasica_Checked(object sender, RoutedEventArgs e)
         {
 
@@ -154,8 +149,10 @@ namespace Vistas.Paginas.Contratos
 
         }
 
-        public void comboBoxModalidades_SelectionChanged_2(object sender, SelectionChangedEventArgs e)
+        public void comboBoxModalidades_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            
         }
+
     }
 }

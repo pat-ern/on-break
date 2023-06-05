@@ -78,6 +78,10 @@ namespace OnBreak.BC
             return listaNegocio;
         }
 
+        public static implicit operator TipoAmbientacion(bool v)
+        {
+            throw new NotImplementedException();
+        }
     }
 
 
