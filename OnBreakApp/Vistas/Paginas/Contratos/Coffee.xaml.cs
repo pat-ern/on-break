@@ -49,8 +49,6 @@ namespace Vistas.Paginas.Contratos
             //    return;
             //}
 
-            //boton buscar
-
             LeerModalidad();
 
         }
@@ -61,6 +59,22 @@ namespace Vistas.Paginas.Contratos
             Paginas.Clientes.ListaClientes listaClientes = new Paginas.Clientes.ListaClientes();
             listaClientes.Show();
         }
+
+        public bool ValidarSeleccionModalidad()
+        {
+            if (comboBoxModalidades.SelectedIndex <= 0)
+            {
+                MessageBox.Show("Debe seleccionar una modalidad.");
+                return false;
+            }
+            return true;
+        }
+
+        public bool ObtenerAlimentacionVegetariana()
+        {
+            return checkBoxVegetariana.IsChecked ?? false;
+        }
+
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -96,6 +110,16 @@ namespace Vistas.Paginas.Contratos
             comboBoxModalidades.SelectedIndex = 0;
         }
 
+        public OnBreak.BC.ModalidadServicio ObtenerModalidadSeleccionada()
+        {
+            if (comboBoxModalidades.SelectedItem is OnBreak.BC.ModalidadServicio modalidadServicio)
+            {
+                return modalidadServicio;
+            }
+
+            return null;
+        }
+
         public (double PrecioBase, int PersonalBase) ObtenerDatosModalidadSeleccionada()
         {
             if (comboBoxModalidades.SelectedItem is OnBreak.BC.ModalidadServicio modalidadServicio)
@@ -106,5 +130,9 @@ namespace Vistas.Paginas.Contratos
             return (0, 0); // Valores predeterminados en caso de que no se haya seleccionado ninguna modalidad
         }
 
+        private void checkBoxVegetariana_Checked(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }

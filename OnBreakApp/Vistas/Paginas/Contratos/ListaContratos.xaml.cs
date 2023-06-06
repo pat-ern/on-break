@@ -1,4 +1,5 @@
 ﻿using OnBreak.BC;
+using OnBreak.BD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,10 +30,10 @@ namespace Vistas.Paginas.Contratos
         {
             InitializeComponent();
 
-            var contratos = new Contrato().ReadAll();
-            var modalidad = new ModalidadServicio().ReadAll();
-            var tipoEvento = new TipoEvento().ReadAll();
-            var clientes = new Cliente().ReadAll();
+            var contratos = new OnBreak.BC.Contrato().ReadAll();
+            var modalidad = new OnBreak.BC.ModalidadServicio().ReadAll();
+            var tipoEvento = new OnBreak.BC.TipoEvento().ReadAll();
+            var clientes = new OnBreak.BC.Cliente().ReadAll();
 
 
             for (int i = 0; i < contratos.Count; i++)
@@ -103,7 +104,7 @@ namespace Vistas.Paginas.Contratos
 
         private void miTabla_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            var contratoSeleccionado = tablaContrato.SelectedItem as Contrato;
+            var contratoSeleccionado = tablaContrato.SelectedItem as OnBreak.BC.Contrato;
 
             if (contratoSeleccionado != null)
             {
@@ -176,7 +177,8 @@ namespace Vistas.Paginas.Contratos
                             cena.radioButtonLocalOnBreak.IsChecked = true;
                             cena.lblValorArriendo.Visibility = Visibility.Visible;
                             cena.textBoxValorArriendo.Visibility = Visibility.Visible;
-                            cena.textBoxValorArriendo.Text = cenaSeleccionada.ValorArriendo.ToString();
+                            double valorReal = (cenaSeleccionada.ValorArriendo/5) * 100;
+                            cena.textBoxValorArriendo.Text = valorReal.ToString();
                         }
                         else if (cenaSeleccionada.OtroLocalOnBreak)
                         {
@@ -187,6 +189,24 @@ namespace Vistas.Paginas.Contratos
                     }
 
                     ParentWindow.vtn_opc.Content = cena;
+                }
+                else if (contratoSeleccionado.ModalidadServicio.TipoEvento.Descripcion == "Coffee Break")
+                {
+                    Paginas.Contratos.Coffee coffee = new Paginas.Contratos.Coffee();
+
+                    // Acceder a la entidad Coffee y rellenar los campos con los datos del contrato seleccionado
+                    coffee.comboBoxModalidades.SelectedValue = contratoSeleccionado.ModalidadServicio.IdModalidad;
+
+                    var coffeeBreakList = new OnBreak.BC.CoffeeBreak().ReadAll();
+                    var coffeeBreakSeleccionado = coffeeBreakList.FirstOrDefault(c => c.Numero == contratoSeleccionado.Numero);
+
+                    if (coffeeBreakSeleccionado != null)
+                    {
+                        // Establecer el valor de checkBoxVegetariana en la instancia de CoffeeBreak seleccionada
+                        coffee.checkBoxVegetariana.IsChecked = coffeeBreakSeleccionado.Vegetariana;
+                    }
+
+                    ParentWindow.vtn_opc.Content = coffee;
                 }
                 this.Close();
             }

@@ -532,8 +532,66 @@ namespace Vistas.Paginas.Contratos
                 {
                     MessageBox.Show("No se pudieron crear el contrato y los datos de Cocktail");
                 }
-
             }
+            else if (txt_tipo_evento.Text == "Coffee Break")
+            {
+                if (!(vtn_opc.Content is Coffee coffeeBreak))
+                {
+                    return;
+                }
+                if (!coffeeBreak.ValidarSeleccionModalidad())
+                {
+                    MessageBox.Show("Debe seleccionar una modalidad de servicio");
+                    return;
+                }
+
+                OnBreak.BC.ModalidadServicio modalidadServicio = coffeeBreak.ObtenerModalidadSeleccionada();
+                bool vegetariana = coffeeBreak.ObtenerAlimentacionVegetariana();
+
+                // Crear contrato
+                OnBreak.BC.Contrato contrato = new OnBreak.BC.Contrato()
+                {
+                    Numero = GenerarNumeroContrato(),
+                    Creacion = DateTime.Now,
+                    Termino = DateTime.Now,
+                    RutCliente = txt_buscar_rut.Text,
+                    IdModalidad = modalidadServicio.IdModalidad,
+                    IdTipoEvento = modalidadServicio.IdTipoEvento,
+                    FechaHoraInicio = fechaIni.SelectedDateTime.Value,
+                    FechaHoraTermino = fechaFin.SelectedDateTime.Value,
+                    Asistentes = (int)(txt_asistentes.Value ?? 0),
+                    PersonalAdicional = (int)(txt_personal_adicional.Value ?? 0),
+                    Realizado = obtenerValorCheckbox(checkBox_realizado),
+                    ValorTotalContrato = double.Parse(txt_valor_total.Text),
+                    Observaciones = "N/A"
+                };
+
+                OnBreak.BC.CoffeeBreak datosCoffeeBreak = new OnBreak.BC.CoffeeBreak()
+                {
+                    Numero = contrato.Numero, // Asignar el mismo número de contrato
+                    Vegetariana = vegetariana // Asignar si es alimentación vegetariana
+                };
+
+                if (contrato.Create() && datosCoffeeBreak.Create())
+                {
+                    MessageBox.Show("Contrato y datos de Coffee Break creados correctamente");
+                    txt_buscar_rut.Text = string.Empty;
+                    fechaIni.SelectedDateTime = null;
+                    fechaFin.SelectedDateTime = null;
+                    txt_asistentes.Value = null;
+                    txt_personal_adicional.Value = null;
+                    txt_valor_total.Text = string.Empty;
+                    txt_buscar_nro.Text = string.Empty;
+                    txt_tipo_evento.Text = string.Empty;
+                    txt_razon_social.Text = string.Empty;
+                    vtn_opc.Content = null;
+                }
+                else
+                {
+                    MessageBox.Show("No se pudieron crear el contrato y los datos de Coffee Break");
+                }
+            }
+
         }
 
         private void checkBox_realizado_Checked(object sender, RoutedEventArgs e)

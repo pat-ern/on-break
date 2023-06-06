@@ -17,7 +17,7 @@
         <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Left" Margin="15,52,0,0" VerticalAlignment="Top"  Width="144" Height="28" Background="Transparent" Foreground="White" SelectionChanged="comboBoxModalidades_SelectionChanged"/>
         <Label Content="¿Alimentación Vegetariana?" HorizontalAlignment="Left" Margin="10,98,0,0" VerticalAlignment="Top" FontSize="12" Foreground="White"/>
         <Label Content="Si" HorizontalAlignment="Left" Margin="34,143,0,0" VerticalAlignment="Top" FontSize="14" Foreground="White"/>
-        <CheckBox x:Name="checkBoxVegetariana" Content="" HorizontalAlignment="Left" Margin="15,148,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,0.557" Height="17" Width="38"/>
+        <CheckBox x:Name="checkBoxVegetariana" Content="" HorizontalAlignment="Left" Margin="15,148,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.44,0.557" Height="17" Width="38" Checked="checkBoxVegetariana_Checked"/>
 
     </Grid>
 </Page>
