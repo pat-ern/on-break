@@ -132,6 +132,16 @@ namespace Vistas.Paginas.Contratos
                 (double precioBase, int personalBase) = cocktail.ObtenerDatosModalidadSeleccionada();
                 personasBase = personalBase;
             }
+            else if (vtn_opc.Content is Cena cena)
+            {
+                (double precioBase, int personalBase) = cena.ObtenerDatosModalidadSeleccionada();
+                personasBase = personalBase;
+            }
+            else if (vtn_opc.Content is Coffee coffee)
+            {
+                (double precioBase, int personalBase) = coffee.ObtenerDatosModalidadSeleccionada();
+                personasBase = personalBase;
+            }
             return personasBase;
         }
 
@@ -270,11 +280,18 @@ namespace Vistas.Paginas.Contratos
             if (vtn_opc.Content is Cocktail cocktail)
             {
                 (double precioBase, int personalBase) = cocktail.ObtenerDatosModalidadSeleccionada();
-                if (precioBase != 0)
-                {
                     valorBase = SumarCostoAlValorTotal(precioBase);
-                }
 
+            }
+            else if (vtn_opc.Content is Cena cena)
+            {
+                (double precioBase, int personalBase) = cena.ObtenerDatosModalidadSeleccionada();
+                valorBase = SumarCostoAlValorTotal(precioBase);
+            }
+            else if (vtn_opc.Content is Coffee coffee)
+            {
+                (double precioBase, int personalBase) = coffee.ObtenerDatosModalidadSeleccionada();
+                valorBase = SumarCostoAlValorTotal(precioBase);
             }
             return valorBase;
         }
@@ -461,7 +478,8 @@ namespace Vistas.Paginas.Contratos
                 OnBreak.BC.ModalidadServicio modalidadServicio = cena.ObtenerModalidadSeleccionada();
                 OnBreak.BC.TipoAmbientacion tipoAmbientacion = cena.ObtenerTipoAmbientacionSeleccionada();
                 bool musicaAmbiental = cena.ObtenerMusicaAmbiental();
-                bool tieneAmbientacion = cena.ValidarSeleccionAmbientacion();
+                bool localOnBreak = cena.LocalOnBreak();
+                bool otroLocal = cena.OtroLocal();
 
                 // Crear contrato 
                 OnBreak.BC.Contrato contrato = new OnBreak.BC.Contrato()
@@ -481,14 +499,39 @@ namespace Vistas.Paginas.Contratos
                     Observaciones = "N/A"
                 };
 
-                OnBreak.BC.Cenas datosCocktail = new OnBreak.BC.Cenas()
+                double ValorArriendo = 0;
+                if (localOnBreak)
+                {
+                    ValorArriendo = cena.Calcular5();
+                }
+
+                OnBreak.BC.Cenas datosCena = new OnBreak.BC.Cenas()
                 {
                     Numero = contrato.Numero, // Asignar el mismo número de contrato
                     IdTipoAmbientacion = tipoAmbientacion.IdTipoAmbientacion, // Asignar el id de la ambientación
-                    TipoAmbientacion = tieneAmbientacion, // Asignar si tiene ambientación
                     MusicaAmbiental = musicaAmbiental, // Asignar si tiene música ambiental
-                    // Faltan cosas
+                    LocalOnBreak = localOnBreak, // Asignar si es local OnBreak
+                    OtroLocalOnBreak = otroLocal, // Asignar si es otro local OnBreak
+                    ValorArriendo = ValorArriendo,
                 };
+                if (contrato.Create() && datosCena.Create())
+                {
+                    MessageBox.Show("Contrato y datos de Cocktail creados correctamente");
+                    txt_buscar_rut.Text = string.Empty;
+                    fechaIni.SelectedDateTime = null;
+                    fechaFin.SelectedDateTime = null;
+                    txt_asistentes.Value = null;
+                    txt_personal_adicional.Value = null;
+                    txt_valor_total.Text = string.Empty;
+                    txt_buscar_nro.Text = string.Empty;
+                    txt_tipo_evento.Text = string.Empty;
+                    txt_razon_social.Text = string.Empty;
+                    vtn_opc.Content = null;
+                }
+                else
+                {
+                    MessageBox.Show("No se pudieron crear el contrato y los datos de Cocktail");
+                }
 
             }
         }

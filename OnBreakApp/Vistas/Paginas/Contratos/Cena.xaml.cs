@@ -23,8 +23,6 @@ namespace Vistas.Paginas.Contratos
         public Cena()
         {
             InitializeComponent();
-            //comboBoxModalidades.Items.Add("Ejecutiva");
-            //comboBoxModalidades.Items.Add("Celebración");
 
             LeerModalidad();
         }
@@ -33,6 +31,19 @@ namespace Vistas.Paginas.Contratos
         {
 
         }
+
+        private void radioButtonLocalOnBreak_Checked(object sender, RoutedEventArgs e)
+        {
+            textBoxValorArriendo.Visibility = Visibility.Visible;
+            lblValorArriendo.Visibility = Visibility.Visible;
+        }
+
+        private void radioButtonLocalOnBreak_Unchecked(object sender, RoutedEventArgs e)
+        {
+            textBoxValorArriendo.Visibility = Visibility.Collapsed;
+            lblValorArriendo.Visibility = Visibility.Collapsed;
+        }
+
 
         public bool ValidarSeleccionModalidad()
         {
@@ -61,6 +72,35 @@ namespace Vistas.Paginas.Contratos
             cena.MusicaAmbiental = musicaAmbiental;
 
             return musicaAmbiental;
+        }
+
+        public bool LocalOnBreak()
+        {
+            OnBreak.BC.Cenas cena = new OnBreak.BC.Cenas();
+            bool localOnBreak = false;
+            if (radioButtonLocalOnBreak.IsChecked == true)
+            {
+                // El RadioButton "OnBreak" está marcado
+                localOnBreak = true;
+            }
+
+            cena.LocalOnBreak = localOnBreak;
+
+            return localOnBreak;
+        }
+
+        public bool OtroLocal()
+        {
+            OnBreak.BC.Cenas cena = new OnBreak.BC.Cenas();
+            bool otroLocal = false;
+            if (radioButtonLocalOtro.IsChecked == true)
+            {
+                otroLocal = true;
+            }
+
+            cena.OtroLocalOnBreak = otroLocal;
+
+            return otroLocal;
         }
 
         private void LeerModalidad()
@@ -95,6 +135,16 @@ namespace Vistas.Paginas.Contratos
             }
 
             return null;
+        }
+
+        public (double PrecioBase, int PersonalBase) ObtenerDatosModalidadSeleccionada()
+        {
+            if (comboBoxModalidades.SelectedItem is OnBreak.BC.ModalidadServicio modalidadServicio)
+            {
+                return (modalidadServicio.ValorBase, modalidadServicio.PersonalBase);
+            }
+
+            return (0, 0); // Valores predeterminados en caso de que no se haya seleccionado ninguna modalidad
         }
 
         public OnBreak.BC.TipoAmbientacion ObtenerTipoAmbientacionSeleccionada()
@@ -135,5 +185,28 @@ namespace Vistas.Paginas.Contratos
         {
 
         }
+
+        private void textBoxValorArriendo_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            Calcular5();
+        }
+
+        public double Calcular5()
+        {
+            double valorArriendo = 0;
+            if (double.TryParse(textBoxValorArriendo.Text, out valorArriendo))
+            {
+                double porcentaje = valorArriendo * 0.05;
+                return porcentaje;
+            }
+            else
+            {
+                // Manejar el caso en que el valor ingresado no sea válido (no es un número)
+                textBoxValorArriendo.Text = string.Empty;
+                MessageBox.Show("Debe ingresar un valor válido.");
+                return 0;
+            }
+        }
+
     }
 }

@@ -96,5 +96,15 @@ namespace Vistas.Paginas.Contratos
             comboBoxModalidades.SelectedIndex = 0;
         }
 
+        public (double PrecioBase, int PersonalBase) ObtenerDatosModalidadSeleccionada()
+        {
+            if (comboBoxModalidades.SelectedItem is OnBreak.BC.ModalidadServicio modalidadServicio)
+            {
+                return (modalidadServicio.ValorBase, modalidadServicio.PersonalBase);
+            }
+
+            return (0, 0); // Valores predeterminados en caso de que no se haya seleccionado ninguna modalidad
+        }
+
     }
 }

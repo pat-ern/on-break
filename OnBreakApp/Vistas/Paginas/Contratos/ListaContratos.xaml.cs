@@ -147,6 +147,47 @@ namespace Vistas.Paginas.Contratos
 
                     ParentWindow.vtn_opc.Content = cocktail;
                 }
+                else if (contratoSeleccionado.ModalidadServicio.TipoEvento.Descripcion == "Cenas")
+                {
+                    Paginas.Contratos.Cena cena = new Paginas.Contratos.Cena();
+
+                    // Acceder a la entidad Cocktail y rellenar los campos con los datos del contrato seleccionado
+                    cena.comboBoxModalidades.SelectedValue = contratoSeleccionado.ModalidadServicio.IdModalidad;
+
+                    var cenas = new OnBreak.BC.Cenas().ReadAll();
+                    var cenaSeleccionada = cenas.FirstOrDefault(c => c.Numero == contratoSeleccionado.Numero);
+
+                    if (cenaSeleccionada != null)
+                    {
+
+                        if (cenaSeleccionada.IdTipoAmbientacion == 10)
+                        {
+                            cena.radioButtonAmbientacionBasica.IsChecked = true;
+                        }
+                        else if (cenaSeleccionada.IdTipoAmbientacion == 20)
+                        {
+                            cena.radioButtonAmbientacionPersonalizada.IsChecked = true;
+                        }
+
+                        cena.checkBoxMusicaAmbiental.IsChecked = cenaSeleccionada.MusicaAmbiental;
+
+                        if (cenaSeleccionada.LocalOnBreak)
+                        {
+                            cena.radioButtonLocalOnBreak.IsChecked = true;
+                            cena.lblValorArriendo.Visibility = Visibility.Visible;
+                            cena.textBoxValorArriendo.Visibility = Visibility.Visible;
+                            cena.textBoxValorArriendo.Text = cenaSeleccionada.ValorArriendo.ToString();
+                        }
+                        else if (cenaSeleccionada.OtroLocalOnBreak)
+                        {
+                            cena.radioButtonLocalOtro.IsChecked = true;
+                            cena.lblValorArriendo.Visibility = Visibility.Collapsed;
+                            cena.textBoxValorArriendo.Visibility = Visibility.Collapsed;
+                        }
+                    }
+
+                    ParentWindow.vtn_opc.Content = cena;
+                }
                 this.Close();
             }
 

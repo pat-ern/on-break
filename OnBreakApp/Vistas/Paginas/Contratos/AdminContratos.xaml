@@ -146,8 +146,7 @@
             Background="Transparent"
             Foreground="White"
             
-            mah:TextBoxHelper.ClearTextButton="True" 
-            mah:TextBoxHelper.Watermark="NRO DEL CONTRATO"/>
+            mah:TextBoxHelper.Watermark="Numero de contrato"/>
 
         <Button x:Name="btn_buscar" HorizontalAlignment="Left" Margin="500,147,0,0" VerticalAlignment="Top" Width="43" Height="49" Click="btn_buscar_Click" RenderTransformOrigin="0.5,0.5">
             <Button.RenderTransform>

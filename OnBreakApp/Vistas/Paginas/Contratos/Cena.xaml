@@ -15,14 +15,29 @@
         <Label Content="Modalidad de Servicio:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" Foreground="White"/>
         <!--COMBO-->
         <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Left" Margin="15,52,0,0" VerticalAlignment="Top" Width="144" Height="28" SelectionChanged="comboBoxModalidades_SelectionChanged" Background="Transparent" Foreground="White"/>
-        <Label Content="Ambientación*:" HorizontalAlignment="Left" Margin="10,101,0,0" VerticalAlignment="Top" Height="37" Width="115" FontSize="14" Foreground="White"/>
-        <RadioButton x:Name="radioButtonAmbientacionBasica" Content="Básica" HorizontalAlignment="Left" Margin="15,138,0,0" VerticalAlignment="Top" Height="32" Width="72" Background="Transparent" Foreground="White"/>
-        <RadioButton x:Name="radioButtonAmbientacionPersonalizada" Content="Personalizada" HorizontalAlignment="Left" Margin="15,176,0,0" VerticalAlignment="Top" Height="30" Width="141" Background="Transparent" Foreground="White"/>
-        <Label Content="Música Ambiental:" HorizontalAlignment="Left" Margin="10,216,0,0" VerticalAlignment="Top" Height="38" Width="146" FontSize="14" Foreground="White"/>
-        <Label Content="Si" HorizontalAlignment="Left" Margin="47,250,0,0" VerticalAlignment="Top" Height="28" Width="81" FontSize="14" Foreground="White"/>
-        <CheckBox x:Name="checkBoxMusicaAmbiental" HorizontalAlignment="Left" Margin="15,253,0,0" VerticalAlignment="Top" Height="25" Width="52" Foreground="White" Checked="checkBoxMusicaAmbiental_Checked"/>
-        <Label Content="Local:" HorizontalAlignment="Left" Margin="10,288,0,0" VerticalAlignment="Top" Height="34" Width="62" FontSize="14" Foreground="White"/>
-        <RadioButton x:Name="radioButtonLocalOnBreak" Content="OnBreak" HorizontalAlignment="Left" Margin="15,321,0,0" VerticalAlignment="Top" Height="22" Width="108" Background="Transparent" Foreground="White"/>
-        <RadioButton x:Name="radioButtonLocalOtro" Content="Otro" HorizontalAlignment="Left" Margin="15,354,0,0" VerticalAlignment="Top" Height="22" Width="75" Background="Transparent" Foreground="White"/>
+        <Label Content="Ambientación*:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="37" Width="115" FontSize="14" Foreground="White"/>
+
+        <GroupBox Margin="0,113,0,208" BorderBrush="{x:Null}" >
+            <StackPanel>
+                <RadioButton x:Name="radioButtonAmbientacionBasica" Content="Básica" HorizontalAlignment="Left" Margin="15,2,0,0" Height="22" Width="80" Background="Transparent" Foreground="White" />
+                <RadioButton x:Name="radioButtonAmbientacionPersonalizada" Content="Personalizada" HorizontalAlignment="Left" Margin="15,5,0,0" Height="22" Width="100" Background="Transparent" Foreground="White" />
+            </StackPanel>
+        </GroupBox>
+        
+        <Label Content="Música Ambiental:" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top" Height="38" Width="146" FontSize="14" Foreground="White"/>
+        <CheckBox x:Name="checkBoxMusicaAmbiental" HorizontalAlignment="Left" Margin="15,226,0,0" VerticalAlignment="Top" Height="25" Width="52" Foreground="White" Checked="checkBoxMusicaAmbiental_Checked"/>
+        <Label Content="Local:" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Height="34" Width="62" FontSize="14" Foreground="White"/>
+
+
+        <Label x:Name="lblValorArriendo" Content="Valor:" HorizontalAlignment="Left" Margin="15,360,0,0" VerticalAlignment="Top" Height="34" Width="62" FontSize="14" Foreground="White" Visibility="Collapsed" />
+        <TextBox x:Name="textBoxValorArriendo" Margin="70,356,10,80" Visibility="Collapsed"  />
+
+
+        <GroupBox Margin="0,281,0,43" BorderBrush="{x:Null}">
+            <StackPanel>
+                <RadioButton x:Name="radioButtonLocalOnBreak" Content="OnBreak" HorizontalAlignment="Left" Margin="15,2,0,0" Height="22" Width="75"  Background="Transparent" Foreground="White" Checked="radioButtonLocalOnBreak_Checked" Unchecked="radioButtonLocalOnBreak_Unchecked"/>
+                <RadioButton x:Name="radioButtonLocalOtro" Content="Otro" HorizontalAlignment="Left" Margin="15,5,0,0" Height="22" Width="50" Background="Transparent" Foreground="White"/>
+            </StackPanel>
+        </GroupBox>
     </Grid>
 </Page>
