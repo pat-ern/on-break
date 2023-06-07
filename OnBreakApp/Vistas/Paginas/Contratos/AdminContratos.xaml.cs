@@ -614,37 +614,69 @@ namespace Vistas.Paginas.Contratos
                 Numero = txt_buscar_nro.Text
             };
 
-
-                if (cocktail.Delete() && contrato.Delete())
-                {
-                    await this.ShowMessageAsync("Éxito", "Contrato eliminado correctamente.");
-                    //btn_Actualizar.Visibility = Visibility.Hidden;
-                    //btn_Eliminar.Visibility = Visibility.Hidden;
-
-                    txt_buscar_rut.Text = string.Empty;
-                    fechaIni.SelectedDateTime = null;
-                    fechaFin.SelectedDateTime = null;
-                    txt_asistentes.Value = null;
-                    txt_personal_adicional.Value = null;
-                    txt_valor_total.Text = string.Empty;
-                    txt_buscar_nro.Text = string.Empty;
-                    txt_tipo_evento.Text = string.Empty;
-                    txt_razon_social.Text = string.Empty;
-                    vtn_opc.Content = null;
-
-                }
-
-            
-
-            else
+            switch (txt_tipo_evento.Text)
             {
-                await this.ShowMessageAsync("Error", "No se pudo eliminar el contrato");
-            }
+                case "Cocktail":
+                    if (cocktail.Delete() && contrato.Delete())
+                    {
+                        await this.ShowMessageAsync("Éxito", "Contrato eliminado correctamente.");
+                        limpiarCampos();
+                        //btn_Actualizar.Visibility = Visibility.Hidden;
+                        //btn_Eliminar.Visibility = Visibility.Hidden;
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Error", "No se pudo eliminar el contrato");
+                    }
+                    break;
+                case "Cenas":
+                    if (cena.Delete() && contrato.Delete())
+                    {
+                        await this.ShowMessageAsync("Éxito", "Contrato eliminado correctamente.");
+                        limpiarCampos();
+                        //btn_Actualizar.Visibility = Visibility.Hidden;
+                        //btn_Eliminar.Visibility = Visibility.Hidden;
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Error", "No se pudo eliminar el contrato");
+                    }
+                    break;
+                case "Coffee Break":
+                    if (coffee.Delete() && contrato.Delete())
+                    {
+                        await this.ShowMessageAsync("Éxito", "Contrato eliminado correctamente.");
+                        limpiarCampos();
+                        //btn_Actualizar.Visibility = Visibility.Hidden;
+                        //btn_Eliminar.Visibility = Visibility.Hidden;
+                    }
+                    else
+                    {
+                        await this.ShowMessageAsync("Error", "No se pudo eliminar el contrato");
+                    }
+                    break;
+            }   
+
         }
 
         private void checkBox_realizado_Checked(object sender, RoutedEventArgs e)
         {
 
         }
+
+        private void limpiarCampos()
+        {
+            txt_buscar_rut.Text = string.Empty;
+            fechaIni.SelectedDateTime = null;
+            fechaFin.SelectedDateTime = null;
+            txt_asistentes.Value = null;
+            txt_personal_adicional.Value = null;
+            txt_valor_total.Text = string.Empty;
+            txt_buscar_nro.Text = string.Empty;
+            txt_tipo_evento.Text = string.Empty;
+            txt_razon_social.Text = string.Empty;
+            vtn_opc.Content = null;
+        }
+
     }
 }
