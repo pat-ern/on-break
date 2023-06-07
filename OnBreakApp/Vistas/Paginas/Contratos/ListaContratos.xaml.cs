@@ -1,5 +1,4 @@
 ﻿using OnBreak.BC;
-using OnBreak.BD;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -26,25 +25,62 @@ namespace Vistas.Paginas.Contratos
         public string VentanaOrigen { get; set; }
         public AdminContratos ParentWindow { get; internal set; }
 
+        private List<Contrato> contratos;
+
         public ListaContratos()
         {
             InitializeComponent();
 
-            var contratos = new OnBreak.BC.Contrato().ReadAll();
-            var modalidad = new OnBreak.BC.ModalidadServicio().ReadAll();
-            var tipoEvento = new OnBreak.BC.TipoEvento().ReadAll();
-            var clientes = new OnBreak.BC.Cliente().ReadAll();
+            var modalidad = new ModalidadServicio().ReadAll();
+            var tipoEvento = new TipoEvento().ReadAll();
+            var clientes = new Cliente().ReadAll();
 
 
-            for (int i = 0; i < contratos.Count; i++)
+
+            foreach (var modalidades in modalidad)
             {
-                // RESCATAR EL RUT DEL CLIENTE
-                contratos[i].Cliente = clientes.Find(a => a.RutCliente == contratos[i].RutCliente);
-                contratos[i].ModalidadServicio = modalidad.Find(a => a.IdModalidad == contratos[i].IdModalidad);
-                contratos[i].ModalidadServicio.TipoEvento = tipoEvento.Find(a => a.IdTipoEvento == contratos[i].ModalidadServicio.IdTipoEvento);
+                MenuItem menuItenModalidad = new MenuItem();
+                menuItenModalidad.Header = modalidades.Nombre;
+                menuItenModalidad.Click += ModalidadServicio_Click;
+                filtroModalidadServicio.Items.Add(menuItenModalidad);
             }
 
+            foreach (var tipoEventos in tipoEvento)
+            {
+                MenuItem menuItenTipoEvento = new MenuItem();
+                menuItenTipoEvento.Header = tipoEventos.Descripcion;
+                menuItenTipoEvento.Click += TipoEvento_Click;
+                filtroTipoEvento.Items.Add(menuItenTipoEvento);
+            }
+
+            // Obtener los clientes originales y asignar modalidadservicio y tipo evento
+            contratos = new Contrato().ReadAll().Select(c =>
+            {
+                c.ModalidadServicio = modalidad.Find(a => a.IdModalidad == c.IdModalidad);
+                c.ModalidadServicio.TipoEvento = tipoEvento.Find(a => a.IdTipoEvento == c.ModalidadServicio.IdTipoEvento);
+                c.Cliente = clientes.Find(a => a.RutCliente == c.RutCliente);
+                return c;
+            }).ToList();
+
+
+
+
             this.tablaContrato.ItemsSource = contratos;
+
+
+
+
+
+
+            //for (int i = 0; i < contratos.Count; i++)
+            //{
+            //    // RESCATAR EL RUT DEL CLIENTE
+            //    contratos[i].Cliente = clientes.Find(a => a.RutCliente == contratos[i].RutCliente);
+            //    contratos[i].ModalidadServicio = modalidad.Find(a => a.IdModalidad == contratos[i].IdModalidad);
+            //    contratos[i].ModalidadServicio.TipoEvento = tipoEvento.Find(a => a.IdTipoEvento == contratos[i].ModalidadServicio.IdTipoEvento);
+            //}
+
+            //this.tablaContrato.ItemsSource = contratos;
         }
 
         private void Go_Back(object sender, RoutedEventArgs e)
@@ -56,49 +92,49 @@ namespace Vistas.Paginas.Contratos
 
         private void TextBoxRut_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //string textoBusqueda = txt_busquedaRut.Text;
+            string textoBusqueda = txt_busquedaRut.Text;
 
-            //var resultadosRut = from c in contratos
-            //                    where c.Cliente.RutCliente.Contains(textoBusqueda)
-            //                    select c;
+            var resultadosRut = from c in contratos
+                                where c.Cliente.RutCliente.Contains(textoBusqueda)
+                                select c;
 
-            //this.miTabla.ItemsSource = resultadosRut.ToList();
+            this.tablaContrato.ItemsSource = resultadosRut.ToList();
         }
 
         private void TextBoxNroContrato_TextChanged(object sender, TextChangedEventArgs e)
         {
-            //string textoBusqueda = txt_busquedaNroContrato.Text;
+            string textoBusqueda = txt_busquedaNroContrato.Text;
 
-            //var resultadosRut = from c in contratos
-            //                    where c.Numero.Contains(textoBusqueda)
-            //                    select c;
+            var resultadosRut = from c in contratos
+                                where c.Numero.Contains(textoBusqueda)
+                                select c;
 
-            //this.miTabla.ItemsSource = resultadosRut.ToList();
+            this.tablaContrato.ItemsSource = resultadosRut.ToList();
         }
 
         private void TipoEvento_Click(object sender, RoutedEventArgs e)
         {
 
-            //var valorSeleccionado = ((MenuItem)sender).Header;
+            var valorSeleccionado = ((MenuItem)sender).Header;
 
-            //var resultados = from c in contratos
-            //                 where c.ModalidadServicio.TipoEvento.Descripcion.Equals((String)valorSeleccionado)
-            //                 select c;
+            var resultados = from c in contratos
+                             where c.ModalidadServicio.TipoEvento.Descripcion.Equals((String)valorSeleccionado)
+                             select c;
 
-            //this.miTabla.ItemsSource = resultados.ToList();
+            this.tablaContrato.ItemsSource = resultados.ToList();
 
         }
 
         private void ModalidadServicio_Click(object sender, RoutedEventArgs e)
         {
 
-            //var valorSeleccionado = ((MenuItem)sender).Header;
+            var valorSeleccionado = ((MenuItem)sender).Header;
 
-            //var resultados = from c in contratos
-            //                 where c.ModalidadServicio.Nombre.Equals((String)valorSeleccionado)
-            //                 select c;
+            var resultados = from c in contratos
+                             where c.ModalidadServicio.Nombre.Equals((String)valorSeleccionado)
+                             select c;
 
-            //this.miTabla.ItemsSource = resultados.ToList();
+            this.tablaContrato.ItemsSource = resultados.ToList();
 
         }
 
@@ -121,21 +157,16 @@ namespace Vistas.Paginas.Contratos
                     ParentWindow.checkBox_realizado.IsChecked = Convert.ToBoolean(contratoSeleccionado.Realizado);
                     ParentWindow.txt_valor_total.Text = contratoSeleccionado.ValorTotalContrato.ToString();
                 }
-
                 if (contratoSeleccionado.ModalidadServicio.TipoEvento.Descripcion == "Cocktail")
                 {
                     Paginas.Contratos.Cocktail cocktail = new Paginas.Contratos.Cocktail();
-
                     // Acceder a la entidad Cocktail y rellenar los campos con los datos del contrato seleccionado
                     cocktail.comboBoxModalidades.SelectedValue = contratoSeleccionado.ModalidadServicio.IdModalidad;
-
                     var cocktails = new OnBreak.BC.Cocktail().ReadAll();
                     var cocktailSeleccionado = cocktails.FirstOrDefault(c => c.Numero == contratoSeleccionado.Numero);
-
                     if (cocktailSeleccionado != null)
                     {
                         cocktail.checkBoxMusicaAmbiental.IsChecked = cocktailSeleccionado.MusicaAmbiental;
-
                         if (cocktailSeleccionado.Ambientacion)
                         {
                             cocktail.radioButtonAmbientacionBasica.IsChecked = true;
@@ -145,22 +176,17 @@ namespace Vistas.Paginas.Contratos
                             cocktail.radioButtonAmbientacionPersonalizada.IsChecked = true;
                         }
                     }
-
                     ParentWindow.vtn_opc.Content = cocktail;
                 }
                 else if (contratoSeleccionado.ModalidadServicio.TipoEvento.Descripcion == "Cenas")
                 {
                     Paginas.Contratos.Cena cena = new Paginas.Contratos.Cena();
-
                     // Acceder a la entidad Cocktail y rellenar los campos con los datos del contrato seleccionado
                     cena.comboBoxModalidades.SelectedValue = contratoSeleccionado.ModalidadServicio.IdModalidad;
-
                     var cenas = new OnBreak.BC.Cenas().ReadAll();
                     var cenaSeleccionada = cenas.FirstOrDefault(c => c.Numero == contratoSeleccionado.Numero);
-
                     if (cenaSeleccionada != null)
                     {
-
                         if (cenaSeleccionada.IdTipoAmbientacion == 10)
                         {
                             cena.radioButtonAmbientacionBasica.IsChecked = true;
@@ -169,15 +195,14 @@ namespace Vistas.Paginas.Contratos
                         {
                             cena.radioButtonAmbientacionPersonalizada.IsChecked = true;
                         }
-
                         cena.checkBoxMusicaAmbiental.IsChecked = cenaSeleccionada.MusicaAmbiental;
-
                         if (cenaSeleccionada.LocalOnBreak)
                         {
                             cena.radioButtonLocalOnBreak.IsChecked = true;
                             cena.lblValorArriendo.Visibility = Visibility.Visible;
                             cena.textBoxValorArriendo.Visibility = Visibility.Visible;
-                            double valorReal = (cenaSeleccionada.ValorArriendo/5) * 100;
+                            cena.textBoxValorArriendo.Text = cenaSeleccionada.ValorArriendo.ToString();
+                            double valorReal = (cenaSeleccionada.ValorArriendo / 5) * 100;
                             cena.textBoxValorArriendo.Text = valorReal.ToString();
                         }
                         else if (cenaSeleccionada.OtroLocalOnBreak)
@@ -210,13 +235,12 @@ namespace Vistas.Paginas.Contratos
                 }
                 this.Close();
             }
-
         }
 
 
-        private void Resetear(object sender, RoutedEventArgs e)
+            private void Resetear(object sender, RoutedEventArgs e)
         {
-            //this.miTabla.ItemsSource = this.contratos;
+            this.tablaContrato.ItemsSource = contratos;
         }
 
 

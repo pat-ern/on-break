@@ -594,6 +594,54 @@ namespace Vistas.Paginas.Contratos
 
         }
 
+        private async void Button_Eliminar(object sender, RoutedEventArgs e)
+        {
+            OnBreak.BC.Contrato contrato = new OnBreak.BC.Contrato()
+            {
+                Numero = txt_buscar_nro.Text
+            };
+
+            OnBreak.BC.Cocktail cocktail = new OnBreak.BC.Cocktail()
+            {
+                Numero = txt_buscar_nro.Text
+            };
+            OnBreak.BC.Cenas cena = new OnBreak.BC.Cenas()
+            {
+                Numero = txt_buscar_nro.Text
+            };
+            OnBreak.BC.CoffeeBreak coffee = new OnBreak.BC.CoffeeBreak()
+            {
+                Numero = txt_buscar_nro.Text
+            };
+
+
+                if (cocktail.Delete() && contrato.Delete())
+                {
+                    await this.ShowMessageAsync("Éxito", "Contrato eliminado correctamente.");
+                    //btn_Actualizar.Visibility = Visibility.Hidden;
+                    //btn_Eliminar.Visibility = Visibility.Hidden;
+
+                    txt_buscar_rut.Text = string.Empty;
+                    fechaIni.SelectedDateTime = null;
+                    fechaFin.SelectedDateTime = null;
+                    txt_asistentes.Value = null;
+                    txt_personal_adicional.Value = null;
+                    txt_valor_total.Text = string.Empty;
+                    txt_buscar_nro.Text = string.Empty;
+                    txt_tipo_evento.Text = string.Empty;
+                    txt_razon_social.Text = string.Empty;
+                    vtn_opc.Content = null;
+
+                }
+
+            
+
+            else
+            {
+                await this.ShowMessageAsync("Error", "No se pudo eliminar el contrato");
+            }
+        }
+
         private void checkBox_realizado_Checked(object sender, RoutedEventArgs e)
         {
 

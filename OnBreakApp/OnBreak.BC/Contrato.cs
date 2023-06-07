@@ -16,6 +16,8 @@ namespace OnBreak.BC
             this.Init();
         }
 
+
+
         string _modalidadServicio;
         string _tipoEvento;
 
@@ -39,7 +41,10 @@ namespace OnBreak.BC
         public virtual CoffeeBreak CoffeeBreak { get; set; }
         public virtual ModalidadServicio ModalidadServicio { get; set; }
 
-
+        public Contrato(string numero)
+        {
+            this.Numero = numero;
+        }
 
         private void Init()
         {
@@ -107,6 +112,25 @@ namespace OnBreak.BC
                 return false;
             }
         }
+
+        public bool ReadByNumber()
+        {
+            //Crear una conexión al Entities
+            BD.OnBreakEntities bdd = new BD.OnBreakEntities();
+            try
+            {
+                //Buscar el cliente que se quiere leer
+                BD.Contrato objContrato = bdd.Contrato.First(c => c.Numero.Equals(this.Numero));
+                //Pasar los datos del objeto de Entity al objeto actual
+                CommonBC.Syncronize(objContrato, this);
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }   
+
         public bool Update()
         {
             //Crear una conexión al Entities
@@ -135,7 +159,8 @@ namespace OnBreak.BC
             {
                 //busco por el id el contenido de la entidad a eliminar
                 BD.Contrato objContrato =
-                    bdd.Contrato.First(e => e.RutCliente.Equals(this.RutCliente));
+                    bdd.Contrato.First(e => e.Numero.Equals(this.Numero));
+                Console.WriteLine(objContrato.Numero);
                 bdd.Contrato.Remove(objContrato);
                 bdd.SaveChanges();
                 return true;

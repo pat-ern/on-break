@@ -105,6 +105,8 @@
             VerticalAlignment="Top" 
             Width="152" 
             Height="38"
+            FontWeight="Semibold"
+            FontSize="20"
             Background="Transparent"
             Foreground="White"
         />
@@ -375,8 +377,9 @@
                 <Label Foreground="White" Height="36" Width="118" FontSize="22" Content="GUARDAR" FontWeight="Semibold"/>
             </StackPanel>
         </Button>
-
-        <Button HorizontalAlignment="Left" Margin="796,595,0,0" VerticalAlignment="Top"  Height="72" Width="223" Background="Gray"  FontSize="15" >
+        
+        <!--BOTON ELIMINAR-->
+        <Button HorizontalAlignment="Left" Margin="796,595,0,0" VerticalAlignment="Top"  Height="72" Width="223" Background="Gray"  FontSize="15" Click="Button_Eliminar">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/assets/trash-can.png" Width="76" Height="45"/>
                 <Label Foreground="White" Height="36" Width="118" FontSize="22" Content="ELIMINAR" FontWeight="Semibold"/>

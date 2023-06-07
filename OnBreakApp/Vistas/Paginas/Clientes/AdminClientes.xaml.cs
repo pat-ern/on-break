@@ -317,11 +317,30 @@ namespace Vistas.Paginas.Clientes
                 RutCliente = txt_rut.Text
             };
 
-            if(cli.Delete())
+            Contrato contrato = new Contrato()
+            {
+                RutCliente = txt_rut.Text
+            };
+
+            // si el cliente tiene contratos asociados, no se puede eliminar
+
+            var contratos = contrato.ReadAll();
+
+            var contratosCliente = from c in contratos
+                                   where c.RutCliente.Equals(txt_rut.Text)
+                                   select c;
+
+            if (contratosCliente.Count() > 0)
+            {
+                await this.ShowMessageAsync("Error", "No se puede eliminar el cliente porque tiene contratos asociados.");
+                return;
+            }
+
+            if (cli.Delete())
             {
                 await this.ShowMessageAsync("Éxito", "Cliente eliminado correctamente.");
                 //btn_Actualizar.Visibility = Visibility.Hidden;
-                btn_Eliminar.Visibility = Visibility.Hidden;
+                //btn_Eliminar.Visibility = Visibility.Hidden;
 
                 LimpiarCampos();
 

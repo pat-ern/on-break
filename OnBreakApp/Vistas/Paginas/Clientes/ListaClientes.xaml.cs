@@ -17,7 +17,7 @@ using Vistas.Paginas.Contratos;
 using OnBreak.BC;
 using MahApps.Metro.Controls;
 
-namespace Vistas.Paginas.Clientes 
+namespace Vistas.Paginas.Clientes
 {
     /// <summary>
     /// Lógica de interacción para Lista.xaml
@@ -30,25 +30,41 @@ namespace Vistas.Paginas.Clientes
         public AdminContratos ParentWindow2 { get; internal set; }
         public string VentanaOrigen { get; set; }
 
+        // Variable de clase para almacenar los clientes originales
+        private List<Cliente> clientesOriginales;
         public ListaClientes()
         {
             InitializeComponent();
 
-
-            var clientes = new Cliente().ReadAll();
             var actEmp = new ActividadEmpresa().ReadAll();
             var tipEmp = new TipoEmpresa().ReadAll();
 
-
-            // Agregar los resultados al control DataGrid
-            for (int i = 0; i < clientes.Count; i++)
+            foreach (var actividadEmpresa in actEmp)
             {
-                clientes[i].ActividadEmpresa = actEmp.Find(a => a.IdActividadEmpresa == clientes[i].IdActividadEmpresa);
-                clientes[i].TipoEmpresa = tipEmp.Find(t => t.IdTipoEmpresa == clientes[i].IdTipoEmpresa);
+                MenuItem menuItemAct = new MenuItem();
+                menuItemAct.Header = actividadEmpresa.Descripcion;
+                menuItemAct.Click += ActividadEmpresa_Click;
+                filtroActividadEmpresa.Items.Add(menuItemAct);
             }
 
-            this.miTabla.ItemsSource = clientes;
+            foreach (var tipoEmpresa in tipEmp)
+            {
+                MenuItem menuItemTip = new MenuItem();
+                menuItemTip.Header = tipoEmpresa.Descripcion;
+                menuItemTip.Click += TipoEmpresa_Click;
+                filtroTipoEmpresa.Items.Add(menuItemTip);
+            }
 
+            // Obtener los clientes originales y asignar actividad empresa y tipo empresa
+            clientesOriginales = new Cliente().ReadAll().Select(c =>
+            {
+                c.ActividadEmpresa = actEmp.Find(a => a.IdActividadEmpresa == c.IdActividadEmpresa);
+                c.TipoEmpresa = tipEmp.Find(t => t.IdTipoEmpresa == c.IdTipoEmpresa);
+                return c;
+            }).ToList();
+
+            // Mostrar los clientes originales en la tabla
+            this.miTabla.ItemsSource = clientesOriginales;
 
         }
 
@@ -60,55 +76,62 @@ namespace Vistas.Paginas.Clientes
 
         }
 
+
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
-
-            var clientes = new Cliente().ReadAll();
+            var actEmp = new ActividadEmpresa().ReadAll();
+            var tipEmp = new TipoEmpresa().ReadAll();
 
             string textoBusqueda = txt_busquedaRut.Text;
 
             // Consultar la lista de objetos para obtener los resultados de la búsqueda
-            var resultadosRut = from c in clientes
+            var resultadosRut = from c in clientesOriginales
                                 where c.RutCliente.Contains(textoBusqueda)
-                                select c;
+                                select new Cliente
+                                {
+                                    RutCliente = c.RutCliente,
+                                    RazonSocial = c.RazonSocial,
+                                    NombreContacto = c.NombreContacto,
+                                    MailContacto = c.MailContacto,
+                                    Direccion = c.Direccion,
+                                    Telefono = c.Telefono,
+                                    ActividadEmpresa = actEmp.Find(a => a.IdActividadEmpresa == c.IdActividadEmpresa),
+                                    TipoEmpresa = tipEmp.Find(t => t.IdTipoEmpresa == c.IdTipoEmpresa)
+                                };
 
             // Agregar los resultados al control DataGrid
             this.miTabla.ItemsSource = resultadosRut.ToList();
         }
 
+
         private void ActividadEmpresa_Click(object sender, RoutedEventArgs e)
         {
-            //Obtener el valor seleccionado del DropDownButton
+            var valorSeleccionado = ((MenuItem)sender).Header.ToString();
 
-            //var clientes = new Cliente().ReadAll();
+            // Filtrar los clientes originales por actividad empresa
+            var resultadosAct = from c in clientesOriginales
+                                where c.ActividadEmpresa != null && c.ActividadEmpresa.Descripcion.Equals(valorSeleccionado)
+                                select c;
 
-            //var valorSeleccionado = ((MenuItem)sender).Header;
-
-            //var resultadosAct = from c in clientes
-            //                    where c.ActividadEmpresa.Descripcion.Equals((String)valorSeleccionado)
-            //                    select c;
-
-            //this.miTabla.ItemsSource = resultadosAct.ToList();
-
+            this.miTabla.ItemsSource = resultadosAct.ToList();
         }
 
         private void TipoEmpresa_Click(object sender, RoutedEventArgs e)
         {
-            //var clientes = new Cliente().ReadAll();
+            var valorSeleccionado = ((MenuItem)sender).Header.ToString();
 
-            //var valorSeleccionado = ((MenuItem)sender).Header;
+            // Filtrar los clientes originales por tipo empresa
+            var resultadosTip = from c in clientesOriginales
+                                where c.TipoEmpresa != null && c.TipoEmpresa.Descripcion.Equals(valorSeleccionado)
+                                select c;
 
-            //var resultadosTip = from c in clientes
-            //                    where c.TipoEmpresa.Descripcion.Equals((String)valorSeleccionado)
-            //                    select c;
-
-            //this.miTabla.ItemsSource = resultadosTip.ToList();
-
+            this.miTabla.ItemsSource = resultadosTip.ToList();
         }
+
 
         private void Resetear(object sender, RoutedEventArgs e)
         {
-            //this.miTabla.ItemsSource = this.clientes;
+            this.miTabla.ItemsSource = clientesOriginales;
         }
 
         private void txt_busquedaRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -122,7 +145,7 @@ namespace Vistas.Paginas.Clientes
 
             if (clienteSeleccionado != null)
             {
-                if(VentanaOrigen == "AdminClientes")
+                if (VentanaOrigen == "AdminClientes")
                 {
                     ParentWindow.txt_rut.Text = clienteSeleccionado.RutCliente;
                     ParentWindow.txt_razonSocial.Text = clienteSeleccionado.RazonSocial;
@@ -133,12 +156,13 @@ namespace Vistas.Paginas.Clientes
                     ParentWindow.cbx_actividadEmpresa.Text = clienteSeleccionado.ActividadEmpresa.Descripcion;
                     ParentWindow.cbx_tipoEmpresa.Text = clienteSeleccionado.TipoEmpresa.Descripcion;
 
-                }else if(VentanaOrigen == "AdminContratos")
+                }
+                else if (VentanaOrigen == "AdminContratos")
                 {
                     ParentWindow2.txt_buscar_rut.Text = clienteSeleccionado.RutCliente;
                     ParentWindow2.txt_razon_social.Text = clienteSeleccionado.RazonSocial;
 
-                }   
+                }
                 this.Close();
 
 
@@ -168,3 +192,11 @@ namespace Vistas.Paginas.Clientes
 
 
 }
+
+
+
+
+
+
+
+
