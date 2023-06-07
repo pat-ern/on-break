@@ -64,7 +64,6 @@ namespace Vistas.Paginas.Contratos
         {
             if (comboBoxModalidades.SelectedIndex <= 0)
             {
-                MessageBox.Show("Debe seleccionar una modalidad.");
                 return false;
             }
             return true;

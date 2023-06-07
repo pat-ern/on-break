@@ -49,7 +49,6 @@ namespace Vistas.Paginas.Contratos
         {
             if (comboBoxModalidades.SelectedIndex <= 0)
             {
-                MessageBox.Show("Debe seleccionar una modalidad.");
                 return false;
             }
             return true;
@@ -58,7 +57,6 @@ namespace Vistas.Paginas.Contratos
         {
             if (radioButtonAmbientacionBasica.IsChecked == false && radioButtonAmbientacionPersonalizada.IsChecked == false)
             {
-                MessageBox.Show("Debe seleccionar una ambientación.");
                 return false;
             }
 

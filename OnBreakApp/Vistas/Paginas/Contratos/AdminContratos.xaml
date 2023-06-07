@@ -328,7 +328,7 @@
             IsReadOnly="True"
             Background="Transparent"
             FontSize="20"
-            Foreground="White"
+            Foreground="White" TextChanged="txt_valor_total_TextChanged"
         />
 
         <!-- REALIZADO -->

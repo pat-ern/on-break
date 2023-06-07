@@ -93,6 +93,12 @@
                 <Label Content="GUARDAR" Height="33" Foreground="White" FontSize="20"/>
             </StackPanel>
         </Button>
+        <Button x:Name="___btn_actualizarCliente" HorizontalAlignment="Left" Margin="643,98,0,0" VerticalAlignment="Top" Height="150" Width="337" Background="#2186C2"  FontSize="15" Grid.Row="1" Click="___btn_actualizarCliente_Click" Grid.ColumnSpan="2" Grid.RowSpan="3" Visibility="Hidden">
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="0,0,0,0">
+                <Image Source="/assets/save.png" Width="100" Height="55"/>
+                <Label Content="GUARDAR" Height="33" Foreground="White" FontSize="20"/>
+            </StackPanel>
+        </Button>
 
 
 

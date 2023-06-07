@@ -155,6 +155,13 @@ namespace Vistas.Paginas.Clientes
                     ParentWindow.txt_telefono.Text = clienteSeleccionado.Telefono;
                     ParentWindow.cbx_actividadEmpresa.Text = clienteSeleccionado.ActividadEmpresa.Descripcion;
                     ParentWindow.cbx_tipoEmpresa.Text = clienteSeleccionado.TipoEmpresa.Descripcion;
+                    // esconder boton de guardar 
+                    ParentWindow.___btn_guardarCliente.Visibility = Visibility.Hidden;
+
+                    ParentWindow.___btn_actualizarCliente.Visibility = Visibility.Visible;
+
+
+       
 
                 }
                 else if (VentanaOrigen == "AdminContratos")
@@ -164,9 +171,6 @@ namespace Vistas.Paginas.Clientes
 
                 }
                 this.Close();
-
-
-
 
             }
         }

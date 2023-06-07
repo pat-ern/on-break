@@ -131,7 +131,7 @@ namespace Vistas.Paginas.Clientes
                         cbx_actividadEmpresa.SelectedValue = resultados.ElementAt(i).IdActividadEmpresa;
                         cbx_tipoEmpresa.SelectedValue = resultados.ElementAt(i).IdTipoEmpresa;
                     }
-                    //btn_Actualizar.Visibility = Visibility.Visible;
+                    ___btn_actualizarCliente.Visibility = Visibility.Visible;
                     btn_Eliminar.Visibility = Visibility.Visible;
                 }
                 else
@@ -258,6 +258,50 @@ namespace Vistas.Paginas.Clientes
 
         }
 
+        private async void ___btn_actualizarCliente_Click(object sender, RoutedEventArgs e)
+        {
+            // Crear objeto cliente y asignarle los valores de los campos.
+            Cliente cli = new Cliente()
+            {
+                RutCliente = txt_rut.Text,
+                RazonSocial = txt_razonSocial.Text,
+                NombreContacto = txt_nombreContacto.Text,
+                MailContacto = txt_contacto.Text,
+                Direccion = txt_direccion.Text,
+                Telefono = txt_telefono.Text,
+                IdActividadEmpresa = (int)cbx_actividadEmpresa.SelectedValue,
+                IdTipoEmpresa = (int)cbx_tipoEmpresa.SelectedValue
+
+
+            };
+
+
+            //var rutCliente = cli.ReadAll().Where(c => c.RutCliente == txt_rut.Text).FirstOrDefault();
+
+            if (cli.Read())
+            {
+                if (cli.Update())
+                {
+                    await this.ShowMessageAsync("Éxito", "Cliente actualizado correctamente.");
+
+                    // Limpiar los campos
+                    LimpiarCampos();
+
+                    ___btn_actualizarCliente.Visibility = Visibility.Hidden;
+                    ___btn_guardarCliente.Visibility = Visibility.Visible;
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Error", "No se pudo actualizar el cliente.");
+                }
+            }
+            else
+            {
+                await this.ShowMessageAsync("Error", "No se encontró el cliente.");
+            }
+
+        }
+
 
 
         private void LimpiarCampos()
@@ -275,37 +319,6 @@ namespace Vistas.Paginas.Clientes
 
         private async void btn_Actualizar_Click(object sender, RoutedEventArgs e)
         {
-            // Crear objeto cliente y asignarle los valores de los campos.
-            Cliente cli = new Cliente()
-            {
-                RutCliente = txt_rut.Text,
-                RazonSocial = txt_razonSocial.Text,
-                NombreContacto = txt_nombreContacto.Text,
-                MailContacto = txt_contacto.Text,
-                Direccion = txt_direccion.Text,
-                Telefono = txt_telefono.Text,
-                IdActividadEmpresa = (int)cbx_actividadEmpresa.SelectedValue,
-                IdTipoEmpresa = (int)cbx_tipoEmpresa.SelectedValue
-
-
-            };
-            // Crear el cliente en la base de datos
-            if (cli.Update())
-            {
-                await this.ShowMessageAsync("Éxito", "Cliente actualizado correctamente.");
-                // Limpiar los campos
-                LimpiarCampos();
-
-                //btn_Actualizar.Visibility = Visibility.Hidden;
-                btn_Eliminar.Visibility = Visibility.Hidden;
-
-                LimpiarCampos();
-
-            }
-            else
-            {
-                await this.ShowMessageAsync("Error", "No se pudo actualizar el cliente.");
-            }
 
         }
 
@@ -348,7 +361,7 @@ namespace Vistas.Paginas.Clientes
             }
             else
             {
-                await this.ShowMessageAsync("Error", "No se pudo eliminar el cliente");
+                await this.ShowMessageAsync("Error", "No se pudo eliminar cliente");
             }
 
 

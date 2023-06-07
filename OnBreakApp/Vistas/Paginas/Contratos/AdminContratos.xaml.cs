@@ -94,7 +94,7 @@ namespace Vistas.Paginas.Contratos
             fechaFin.SelectedDateTime = null;
             txt_asistentes.Value = null;
             txt_personal_adicional.Value = null;
-            //txt_realizado.Text = string.Empty;
+            checkBox_realizado.IsChecked = false;
             txt_valor_total.Text = string.Empty;
             txt_buscar_nro.Text = string.Empty;
             txt_razon_social.Text = string.Empty;
@@ -146,7 +146,7 @@ namespace Vistas.Paginas.Contratos
         }
 
 
-        private double ObtenerCostoPersonalAdicional()
+        private async Task<double> ObtenerCostoPersonalAdicional()
         {
             double costo = 0;
 
@@ -154,7 +154,7 @@ namespace Vistas.Paginas.Contratos
             {
                 if (string.IsNullOrEmpty(txt_tipo_evento.Text))
                 {
-                    MessageBox.Show("Primero debes seleccionar un tipo de evento.");
+                    await this.ShowMessageAsync("Error", "Primero debes seleccionar un tipo de evento.");
                     txt_personal_adicional.Value = null;
                     return costo; // Devuelve 0 si no se puede calcular el costo
                 }
@@ -205,7 +205,7 @@ namespace Vistas.Paginas.Contratos
             return SumarCostoAlValorTotal(costo);
         }
 
-        private double ObtenerCostoAsistentes()
+        private async Task<double> ObtenerCostoAsistentes()
         {
             double costo = 0;
 
@@ -213,7 +213,7 @@ namespace Vistas.Paginas.Contratos
             {
                 if (string.IsNullOrEmpty(txt_tipo_evento.Text))
                 {
-                    MessageBox.Show("Primero debes seleccionar un tipo de evento.");
+                    await this.ShowMessageAsync("Error", "Primero debes seleccionar un tipo de evento.");
                     txt_asistentes.Value = null;
                     return costo; // Sale del método para evitar que continúe la lógica
                 }                
@@ -296,13 +296,13 @@ namespace Vistas.Paginas.Contratos
             return valorBase;
         }
 
-        private void CalcularValorTotal()
+        private async void CalcularValorTotal()
         {
             double valorBase = CalcularBase();
 
             // Obtener el costo utilizando el método ObtenerCostoPersonalAdicional()
-            double personalAdicional = ObtenerCostoPersonalAdicional();
-            double asistentes = ObtenerCostoAsistentes();
+            double personalAdicional = await ObtenerCostoPersonalAdicional();
+            double asistentes = await ObtenerCostoAsistentes();
 
             // Realizar la operación
             double valorTotal = valorBase + personalAdicional + asistentes;
@@ -370,7 +370,7 @@ namespace Vistas.Paginas.Contratos
             return checkBox.IsChecked ?? true;
         }
 
-        private void Button_Guardar(object sender, RoutedEventArgs e)
+        private async void Button_Guardar(object sender, RoutedEventArgs e)
         {
             if (txt_tipo_evento.Text == "Cocktail")
             {
@@ -382,7 +382,7 @@ namespace Vistas.Paginas.Contratos
                 // este metodo esta declarado en la Pagina Cocktail y se encarga de validar que los campos esten completos.
                 if (!cocktail.ValidarSeleccionModalidad())
                 {
-                    MessageBox.Show("Debe seleccionar una modalidad de servicio");
+                    await this.ShowMessageAsync("Error", "Debe seleccionar una modalidad de servicio");
                     return;
                 }
 
@@ -390,7 +390,7 @@ namespace Vistas.Paginas.Contratos
 
                 if (!cocktail.ValidarSeleccionAmbientacion())
                 {
-                    MessageBox.Show("Debe seleccionar una ambientación");
+                    await this.ShowMessageAsync("Error", "Debe seleccionar una ambientación");
                     return;
                 }
 
@@ -437,7 +437,7 @@ namespace Vistas.Paginas.Contratos
 
                 if (contrato.Create() && datosCocktail.Create())
                 {
-                    MessageBox.Show("Contrato y datos de Cocktail creados correctamente");
+                    await this.ShowMessageAsync("Error", "Contrato y datos de Cocktail creados correctamente");
                     txt_buscar_rut.Text = string.Empty;
                     fechaIni.SelectedDateTime = null;
                     fechaFin.SelectedDateTime = null;
@@ -451,7 +451,7 @@ namespace Vistas.Paginas.Contratos
                 }
                 else
                 {
-                    MessageBox.Show("No se pudieron crear el contrato y los datos de Cocktail");
+                    await this.ShowMessageAsync("Error", "No se pudieron crear el contrato y los datos de Cocktail");
                 }
             }
             else if (txt_tipo_evento.Text == "Cena")
@@ -462,17 +462,17 @@ namespace Vistas.Paginas.Contratos
                 }
                 if (!cena.ValidarSeleccionModalidad())
                 {
-                    MessageBox.Show("Debe seleccionar una modalidad de servicio");
+                    await this.ShowMessageAsync("Error", "Debe seleccionar una modalidad de servicio");
                     return;
                 }
                 if (!cena.ValidarSeleccionAmbientacion())
                 {
-                    MessageBox.Show("Debe seleccionar una ambientación");
+                    await this.ShowMessageAsync("Error", "Debe seleccionar una ambientación");
                     return;
                 }
                 if (!cena.ValidarSeleccionLocal())
                 {
-                    MessageBox.Show("Debe seleccionar un local");
+                    await this.ShowMessageAsync("Error", "Debe seleccionar un local");
                     return;
                 }
                 OnBreak.BC.ModalidadServicio modalidadServicio = cena.ObtenerModalidadSeleccionada();
@@ -516,7 +516,7 @@ namespace Vistas.Paginas.Contratos
                 };
                 if (contrato.Create() && datosCena.Create())
                 {
-                    MessageBox.Show("Contrato y datos de Cocktail creados correctamente");
+                    await this.ShowMessageAsync("Éxito", "Contrato y datos de Cocktail creados correctamente");
                     txt_buscar_rut.Text = string.Empty;
                     fechaIni.SelectedDateTime = null;
                     fechaFin.SelectedDateTime = null;
@@ -530,7 +530,7 @@ namespace Vistas.Paginas.Contratos
                 }
                 else
                 {
-                    MessageBox.Show("No se pudieron crear el contrato y los datos de Cocktail");
+                    await this.ShowMessageAsync("Error", "No se pudieron crear el contrato y los datos de Cocktail");
                 }
             }
             else if (txt_tipo_evento.Text == "Coffee Break")
@@ -541,7 +541,7 @@ namespace Vistas.Paginas.Contratos
                 }
                 if (!coffeeBreak.ValidarSeleccionModalidad())
                 {
-                    MessageBox.Show("Debe seleccionar una modalidad de servicio");
+                    await this.ShowMessageAsync("Error", "Debe seleccionar una modalidad de servicio");
                     return;
                 }
 
@@ -574,7 +574,7 @@ namespace Vistas.Paginas.Contratos
 
                 if (contrato.Create() && datosCoffeeBreak.Create())
                 {
-                    MessageBox.Show("Contrato y datos de Coffee Break creados correctamente");
+                    await this.ShowMessageAsync("Éxito", "Contrato y datos de Coffee Break creados correctamente");
                     txt_buscar_rut.Text = string.Empty;
                     fechaIni.SelectedDateTime = null;
                     fechaFin.SelectedDateTime = null;
@@ -588,7 +588,7 @@ namespace Vistas.Paginas.Contratos
                 }
                 else
                 {
-                    MessageBox.Show("No se pudieron crear el contrato y los datos de Coffee Break");
+                    await this.ShowMessageAsync("Error", "No se pudieron crear el contrato y los datos de Coffee Break");
                 }
             }
 
@@ -678,5 +678,9 @@ namespace Vistas.Paginas.Contratos
             vtn_opc.Content = null;
         }
 
+        private void txt_valor_total_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
