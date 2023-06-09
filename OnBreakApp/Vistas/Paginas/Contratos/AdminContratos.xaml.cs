@@ -89,7 +89,6 @@ namespace Vistas.Paginas.Contratos
         private void Button_Clear(object sender, RoutedEventArgs e)
         {
             txt_buscar_rut.Text = string.Empty;
-            txt_tipo_evento.Text = string.Empty;
             fechaIni.SelectedDateTime = null;
             fechaFin.SelectedDateTime = null;
             txt_asistentes.Value = null;
@@ -98,6 +97,7 @@ namespace Vistas.Paginas.Contratos
             txt_valor_total.Text = string.Empty;
             txt_buscar_nro.Text = string.Empty;
             txt_razon_social.Text = string.Empty;
+            txt_tipo_evento.Text = string.Empty;
             vtn_opc.Content = null;
         }
         private void LimpiarValor()
@@ -355,12 +355,67 @@ namespace Vistas.Paginas.Contratos
             return numeroContrato;
         }
 
-        private void btn_buscar_RUT_Click(object sender, RoutedEventArgs e)
+        private async void btn_buscar_RUT_Click(object sender, RoutedEventArgs e)
         {
             ListaClientes listaClientes = new ListaClientes();
             listaClientes.VentanaOrigen = "AdminContratos";
             listaClientes.ParentWindow2 = this;
             listaClientes.Show();
+
+
+            //    var contratos = new OnBreak.BC.Contrato().ReadAll();
+            //    var clientes = new OnBreak.BC.Cliente().ReadAll();
+
+            //    // Rescatar la razon social de cliente mediante el rut 
+
+            //    var contrato = new OnBreak.BC.Contrato().Read();
+            //    var cliente = new OnBreak.BC.Cliente().Read();
+                  
+
+
+                
+
+
+
+            //string textoBusqueda = txt_buscar_rut.Text;
+
+            //    // Validar si el Rut es nulo
+            //    if (string.IsNullOrEmpty(textoBusqueda))
+            //    {
+            //        await this.ShowMessageAsync("Error", "Debe ingresar un Rut.");
+            //        return; // Salir del método para evitar la búsqueda en la base de datos
+            //    }
+
+            //    // Continuar con la búsqueda en la base de datos
+            //    if (contratos.Count > 0)
+            //    {
+            //        var resultados = from c in contratos
+            //                         where c.RutCliente.Equals(textoBusqueda) 
+            //                         select c;
+
+            //        if (resultados.Count() > 0)
+            //        {
+            //            for (int i = 0; i < resultados.Count(); i++)
+            //            {
+            //            txt_buscar_rut.Text = resultados.ElementAt(i).RutCliente;
+            //            }
+            //        }
+            //        else
+            //        {
+            //            await this.ShowMessageAsync("Error", "No se encontraron resultados.");
+            //        }
+            //    }
+            //    else
+            //    {
+            //        await this.ShowMessageAsync("Error", "No se encontraron clientes en la base de datos.");
+            //    }
+            
+
+
+
+
+
+
         }
 
 

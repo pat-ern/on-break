@@ -110,7 +110,7 @@
          -->
         <Button x:Name="btn_Limpiar" HorizontalAlignment="Left" Margin="534,77,0,0" VerticalAlignment="Top" Height="59" Width="83" Background="Transparent"  FontSize="15" Click="Button_Clear" BorderBrush="Transparent">
             <StackPanel Orientation="Horizontal">
-                <Image Source="/assets/eraser.png" Width="68" Height="45"/>
+                <Image Source="/assets/eraser.png" Width="68" Height="45" RenderTransformOrigin="0.669,0.5"/>
             </StackPanel>
         </Button>
 

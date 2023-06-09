@@ -26,7 +26,6 @@ namespace Vistas.Paginas.Clientes
     {
         public MetroWindow PaginaActual { get; set; }
         public AdminClientes ParentWindow { get; internal set; }
-
         public AdminContratos ParentWindow2 { get; internal set; }
         public string VentanaOrigen { get; set; }
 
@@ -35,6 +34,7 @@ namespace Vistas.Paginas.Clientes
         public ListaClientes()
         {
             InitializeComponent();
+
 
             var actEmp = new ActividadEmpresa().ReadAll();
             var tipEmp = new TipoEmpresa().ReadAll();
@@ -148,6 +148,7 @@ namespace Vistas.Paginas.Clientes
                 if (VentanaOrigen == "AdminClientes")
                 {
                     ParentWindow.txt_rut.Text = clienteSeleccionado.RutCliente;
+                    ParentWindow.txt_rut.IsReadOnly = true;
                     ParentWindow.txt_razonSocial.Text = clienteSeleccionado.RazonSocial;
                     ParentWindow.txt_nombreContacto.Text = clienteSeleccionado.NombreContacto;
                     ParentWindow.txt_contacto.Text = clienteSeleccionado.MailContacto;

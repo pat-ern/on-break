@@ -71,6 +71,7 @@ namespace Vistas.Paginas.Clientes
             listaClientes.VentanaOrigen = "AdminClientes";
             listaClientes.ParentWindow = this;
             listaClientes.Show();
+
         }
 
         private void btn_agregar_Click(object sender, RoutedEventArgs e)
@@ -123,6 +124,7 @@ namespace Vistas.Paginas.Clientes
                     for (int i = 0; i < resultados.Count(); i++)
                     {
                         txt_rut.Text = resultados.ElementAt(i).RutCliente;
+                        txt_rut.IsReadOnly = true;
                         txt_razonSocial.Text = resultados.ElementAt(i).RazonSocial;
                         txt_nombreContacto.Text = resultados.ElementAt(i).NombreContacto;
                         txt_contacto.Text = resultados.ElementAt(i).MailContacto;
@@ -163,16 +165,8 @@ namespace Vistas.Paginas.Clientes
 
         private void Button_Clear(object sender, RoutedEventArgs e)
         {
-            // limpiar textbox
-            txt_busqueda.Text = "";
-            txt_rut.Text = "";
-            txt_razonSocial.Text = "";
-            txt_nombreContacto.Text = "";
-            txt_contacto.Text = "";
-            txt_direccion.Text = "";
-            txt_telefono.Text = "";
-            cbx_actividadEmpresa.SelectedIndex = 0;
-            cbx_tipoEmpresa.SelectedIndex = 0;
+            LimpiarCampos();
+
         }
 
         private void CargarActividadEmpresa()
@@ -275,11 +269,6 @@ namespace Vistas.Paginas.Clientes
 
             };
 
-
-            //var rutCliente = cli.ReadAll().Where(c => c.RutCliente == txt_rut.Text).FirstOrDefault();
-
-            if (cli.Read())
-            {
                 if (cli.Update())
                 {
                     await this.ShowMessageAsync("Éxito", "Cliente actualizado correctamente.");
@@ -294,11 +283,6 @@ namespace Vistas.Paginas.Clientes
                 {
                     await this.ShowMessageAsync("Error", "No se pudo actualizar el cliente.");
                 }
-            }
-            else
-            {
-                await this.ShowMessageAsync("Error", "No se encontró el cliente.");
-            }
 
         }
 
@@ -315,6 +299,9 @@ namespace Vistas.Paginas.Clientes
             txt_telefono.Text = "";
             cbx_actividadEmpresa.SelectedIndex = 0;
             cbx_tipoEmpresa.SelectedIndex = 0;
+            txt_rut.IsReadOnly = false;
+            ___btn_actualizarCliente.Visibility = Visibility.Hidden;
+            ___btn_guardarCliente.Visibility = Visibility.Visible;
         }
 
         private async void btn_Actualizar_Click(object sender, RoutedEventArgs e)
