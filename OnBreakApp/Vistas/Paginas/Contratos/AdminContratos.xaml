@@ -373,7 +373,12 @@
         <Frame x:Name="vtn_opc" Margin="568,194,510,29" NavigationUIVisibility="Hidden" Background="#00000000"/>
 
         <!--BOTON GUARDAR-->
-        <Button HorizontalAlignment="Left" Margin="1085,595,0,0" VerticalAlignment="Top"  Height="72" Width="174" Background="#2186C2"  FontSize="15" Click="Button_Guardar" >
+        <Button x:Name="btn_Guardar" HorizontalAlignment="Left" Margin="1085,595,0,0" VerticalAlignment="Top"  Height="72" Width="174" Background="#2186C2"  FontSize="15" Click="Button_Guardar" >
+            <StackPanel Orientation="Horizontal">
+                <Image Source="/assets/save.png" Width="76" Height="45"/>
+            </StackPanel>
+        </Button>
+        <Button x:Name="btn_Actualizar" HorizontalAlignment="Left" Margin="1085,595,0,0" VerticalAlignment="Top"  Height="72" Width="174" Background="#2186C2"  FontSize="15" Click="Button_Actualizar" Visibility="Hidden">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/assets/save.png" Width="76" Height="45"/>
             </StackPanel>

@@ -88,17 +88,7 @@ namespace Vistas.Paginas.Contratos
 
         private void Button_Clear(object sender, RoutedEventArgs e)
         {
-            txt_buscar_rut.Text = string.Empty;
-            fechaIni.SelectedDateTime = null;
-            fechaFin.SelectedDateTime = null;
-            txt_asistentes.Value = null;
-            txt_personal_adicional.Value = null;
-            checkBox_realizado.IsChecked = false;
-            txt_valor_total.Text = string.Empty;
-            txt_buscar_nro.Text = string.Empty;
-            txt_razon_social.Text = string.Empty;
-            txt_tipo_evento.Text = string.Empty;
-            vtn_opc.Content = null;
+            limpiarCampos();
         }
         private void LimpiarValor()
         {
@@ -492,7 +482,7 @@ namespace Vistas.Paginas.Contratos
 
                 if (contrato.Create() && datosCocktail.Create())
                 {
-                    await this.ShowMessageAsync("Error", "Contrato y datos de Cocktail creados correctamente");
+                    await this.ShowMessageAsync("Éxito", "Contrato y datos de Cocktail creados correctamente");
                     txt_buscar_rut.Text = string.Empty;
                     fechaIni.SelectedDateTime = null;
                     fechaFin.SelectedDateTime = null;
@@ -571,7 +561,7 @@ namespace Vistas.Paginas.Contratos
                 };
                 if (contrato.Create() && datosCena.Create())
                 {
-                    await this.ShowMessageAsync("Éxito", "Contrato y datos de Cocktail creados correctamente");
+                    await this.ShowMessageAsync("Éxito", "Contrato y datos de cena creados correctamente");
                     txt_buscar_rut.Text = string.Empty;
                     fechaIni.SelectedDateTime = null;
                     fechaFin.SelectedDateTime = null;
@@ -649,6 +639,212 @@ namespace Vistas.Paginas.Contratos
 
         }
 
+
+        private async void Button_Actualizar(object sender, RoutedEventArgs e)
+        {
+
+            if (txt_tipo_evento.Text == "Cocktail")
+            {
+                // aqui valido que el contenido de la ventana sea un objeto de tipo Cocktail
+                if (!(vtn_opc.Content is Cocktail cocktail))
+                {
+                    return;
+                }
+                // este metodo esta declarado en la Pagina Cocktail y se encarga de validar que los campos esten completos.
+                if (!cocktail.ValidarSeleccionModalidad())
+                {
+                    await this.ShowMessageAsync("Error", "Debe seleccionar una modalidad de servicio");
+                    return;
+                }
+
+                // este metodo esta declarado en la Pagina Cocktail y se encarga de validar que los campos esten completos.
+
+                if (!cocktail.ValidarSeleccionAmbientacion())
+                {
+                    await this.ShowMessageAsync("Error", "Debe seleccionar una ambientación");
+                    return;
+                }
+
+                // este metodo esta declarado en la Pagina Cocktail y se encarga de obtener la modalidad seleccionada en la pagina.
+                OnBreak.BC.ModalidadServicio modalidadServicio = cocktail.ObtenerModalidadSeleccionada();
+
+                // este metodo esta declarado en la Pagina Cocktail y se encarga de obtener la ambientacion seleccionada en la pagina.
+                OnBreak.BC.TipoAmbientacion tipoAmbientacion = cocktail.ObtenerTipoAmbientacionSeleccionada();
+
+                // este metodo esta declarado en la Pagina Cocktail y se encarga de obtener el valor de la musica ambiental seleccionada en la pagina.
+                bool musicaAmbiental = cocktail.ObtenerMusicaAmbiental();
+
+                // este metetdo esta declarado en la Pagina Cocktail y se encarga de obtener el valor de la seleccion de ambientacion cliente seleccionada en la pagina.
+                bool tieneAmbientacion = cocktail.ValidarSeleccionAmbientacion();
+
+
+                // Crear contrato 
+                OnBreak.BC.Contrato contrato = new OnBreak.BC.Contrato()
+                {
+                    Numero = txt_buscar_nro.Text,
+                    Creacion = DateTime.Now,
+                    Termino = DateTime.Now,
+                    RutCliente = txt_buscar_rut.Text,
+                    IdModalidad = modalidadServicio.IdModalidad,
+                    IdTipoEvento = modalidadServicio.IdTipoEvento,
+                    FechaHoraInicio = fechaIni.SelectedDateTime.Value,
+                    FechaHoraTermino = fechaFin.SelectedDateTime.Value,
+                    Asistentes = (int)(txt_asistentes.Value ?? 0),
+                    PersonalAdicional = (int)(txt_personal_adicional.Value ?? 0),
+                    Realizado = obtenerValorCheckbox(checkBox_realizado),
+                    ValorTotalContrato = double.Parse(txt_valor_total.Text),
+                    Observaciones = "N/A"
+                };
+
+                // Asignar el número de contrato al objeto Cocktail para que se cree en la base de datos
+                OnBreak.BC.Cocktail datosCocktail = new OnBreak.BC.Cocktail()
+                {
+                    Numero = contrato.Numero, // Asignar el mismo número de contrato
+                    IdTipoAmbientacion = tipoAmbientacion.IdTipoAmbientacion, // Asignar el id de la ambientación
+                    Ambientacion = tieneAmbientacion, // Asignar si tiene ambientación
+                    MusicaAmbiental = musicaAmbiental, // Asignar si tiene música ambiental
+                    MusicaCliente = false // Pendiente
+                };
+
+                if (contrato.Update() && datosCocktail.Update())
+                {
+                    await this.ShowMessageAsync("Éxito", "Contrato y datos de Cocktail actualizados correctamente.");
+                    limpiarCampos();
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Éxito", "No se pudo actualizar el contrato y los datos de Cocktail.");
+                }
+            }
+            else if (txt_tipo_evento.Text == "Cena")
+            {
+                if (!(vtn_opc.Content is Cena cena))
+                {
+                    return;
+                }
+                if (!cena.ValidarSeleccionModalidad())
+                {
+                    await this.ShowMessageAsync("Error", "Debe seleccionar una modalidad de servicio");
+                    return;
+                }
+                if (!cena.ValidarSeleccionAmbientacion())
+                {
+                    await this.ShowMessageAsync("Error", "Debe seleccionar una ambientación");
+                    return;
+                }
+                if (!cena.ValidarSeleccionLocal())
+                {
+                    await this.ShowMessageAsync("Error", "Debe seleccionar un local");
+                    return;
+                }
+                OnBreak.BC.ModalidadServicio modalidadServicio = cena.ObtenerModalidadSeleccionada();
+                OnBreak.BC.TipoAmbientacion tipoAmbientacion = cena.ObtenerTipoAmbientacionSeleccionada();
+                bool musicaAmbiental = cena.ObtenerMusicaAmbiental();
+                bool localOnBreak = cena.LocalOnBreak();
+                bool otroLocal = cena.OtroLocal();
+
+                // Crear contrato 
+                OnBreak.BC.Contrato contrato = new OnBreak.BC.Contrato()
+                {
+                    Numero = txt_buscar_nro.Text,
+                    Creacion = DateTime.Now,
+                    Termino = DateTime.Now,
+                    RutCliente = txt_buscar_rut.Text,
+                    IdModalidad = modalidadServicio.IdModalidad,
+                    IdTipoEvento = modalidadServicio.IdTipoEvento,
+                    FechaHoraInicio = fechaIni.SelectedDateTime.Value,
+                    FechaHoraTermino = fechaFin.SelectedDateTime.Value,
+                    Asistentes = (int)(txt_asistentes.Value ?? 0),
+                    PersonalAdicional = (int)(txt_personal_adicional.Value ?? 0),
+                    Realizado = obtenerValorCheckbox(checkBox_realizado),
+                    ValorTotalContrato = double.Parse(txt_valor_total.Text),
+                    Observaciones = "N/A"
+                };
+
+                double ValorArriendo = 0;
+                if (localOnBreak)
+                {
+                    ValorArriendo = cena.Calcular5();
+                }
+
+                OnBreak.BC.Cenas datosCena = new OnBreak.BC.Cenas()
+                {
+                    Numero = contrato.Numero, // Asignar el mismo número de contrato
+                    IdTipoAmbientacion = tipoAmbientacion.IdTipoAmbientacion, // Asignar el id de la ambientación
+                    MusicaAmbiental = musicaAmbiental, // Asignar si tiene música ambiental
+                    LocalOnBreak = localOnBreak, // Asignar si es local OnBreak
+                    OtroLocalOnBreak = otroLocal, // Asignar si es otro local OnBreak
+                    ValorArriendo = ValorArriendo,
+                };
+                if (contrato.Update() && datosCena.Update())
+                {
+                    await this.ShowMessageAsync("Éxito", "Contrato y datos de Cena actualizados correctamente");
+                    limpiarCampos();
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Error", "No se pudo actualizar el contrato y los datos de Cocktail");
+                }
+            }
+            else if (txt_tipo_evento.Text == "Coffee Break")
+            {
+                if (!(vtn_opc.Content is Coffee coffeeBreak))
+                {
+                    return;
+                }
+                if (!coffeeBreak.ValidarSeleccionModalidad())
+                {
+                    await this.ShowMessageAsync("Error", "Debe seleccionar una modalidad de servicio");
+                    return;
+                }
+
+                OnBreak.BC.ModalidadServicio modalidadServicio = coffeeBreak.ObtenerModalidadSeleccionada();
+                bool vegetariana = coffeeBreak.ObtenerAlimentacionVegetariana();
+
+                // Crear contrato
+                OnBreak.BC.Contrato contrato = new OnBreak.BC.Contrato()
+                {
+                    Numero = txt_buscar_nro.Text,
+                    Creacion = DateTime.Now,
+                    Termino = DateTime.Now,
+                    RutCliente = txt_buscar_rut.Text,
+                    IdModalidad = modalidadServicio.IdModalidad,
+                    IdTipoEvento = modalidadServicio.IdTipoEvento,
+                    FechaHoraInicio = fechaIni.SelectedDateTime.Value,
+                    FechaHoraTermino = fechaFin.SelectedDateTime.Value,
+                    Asistentes = (int)(txt_asistentes.Value ?? 0),
+                    PersonalAdicional = (int)(txt_personal_adicional.Value ?? 0),
+                    Realizado = obtenerValorCheckbox(checkBox_realizado),
+                    ValorTotalContrato = double.Parse(txt_valor_total.Text),
+                    Observaciones = "N/A"
+                };
+
+                OnBreak.BC.CoffeeBreak datosCoffeeBreak = new OnBreak.BC.CoffeeBreak()
+                {
+                    Numero = contrato.Numero, // Asignar el mismo número de contrato
+                    Vegetariana = vegetariana // Asignar si es alimentación vegetariana
+                };
+
+                if (contrato.Update() && datosCoffeeBreak.Update())
+                {
+                    await this.ShowMessageAsync("Éxito", "Contrato y datos de Coffee Break actualizados correctamente");
+                    limpiarCampos();
+                }
+                else
+                {
+                    await this.ShowMessageAsync("Error", "No se pudo actualizar el contrato y los datos de Coffee Break");
+                }
+            }
+
+
+
+
+
+
+
+
+        }
+
         private async void Button_Eliminar(object sender, RoutedEventArgs e)
         {
             OnBreak.BC.Contrato contrato = new OnBreak.BC.Contrato()
@@ -684,7 +880,7 @@ namespace Vistas.Paginas.Contratos
                         await this.ShowMessageAsync("Error", "No se pudo eliminar el contrato");
                     }
                     break;
-                case "Cenas":
+                case "Cena":
                     if (cena.Delete() && contrato.Delete())
                     {
                         await this.ShowMessageAsync("Éxito", "Contrato eliminado correctamente.");
@@ -731,6 +927,8 @@ namespace Vistas.Paginas.Contratos
             txt_tipo_evento.Text = string.Empty;
             txt_razon_social.Text = string.Empty;
             vtn_opc.Content = null;
+            btn_Guardar.Visibility = Visibility.Visible;
+            btn_Actualizar.Visibility = Visibility.Hidden;
         }
 
         private void txt_valor_total_TextChanged(object sender, TextChangedEventArgs e)

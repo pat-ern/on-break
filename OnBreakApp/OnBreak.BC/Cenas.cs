@@ -66,6 +66,25 @@ namespace OnBreak.BC
             }
         }
 
+        public bool Update()
+        {
+            //Crear una conexión al Entities
+            BD.OnBreakEntities bdd = new BD.OnBreakEntities();
+            try
+            {
+                //busco por el id el contenido de la entidad a modificar
+                BD.Cenas cenas =
+                    bdd.Cenas.First(e => e.Numero.Equals(this.Numero));
+                CommonBC.Syncronize(this, cenas);
+                bdd.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         private List<Cenas> GenerarListado(List<BD.Cenas> listaDatos)
         {
             List<Cenas> listaNegocio = new List<Cenas>();

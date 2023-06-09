@@ -45,8 +45,27 @@ namespace OnBreak.BC
             return false;
         }
     }
+        public bool Update()
+        {
+            //Crear una conexión al Entities
+            BD.OnBreakEntities bdd = new BD.OnBreakEntities();
+            try
+            {
+                //busco por el id el contenido de la entidad a modificar
+                BD.CoffeeBreak coffeeBreak =
+                    bdd.CoffeeBreak.First(e => e.Numero.Equals(this.Numero));
+                CommonBC.Syncronize(this, coffeeBreak);
+                bdd.SaveChanges();
+                return true;
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
 
-    public List<CoffeeBreak> ReadAll()
+
+        public List<CoffeeBreak> ReadAll()
     {
         BD.OnBreakEntities bd = new BD.OnBreakEntities();
 

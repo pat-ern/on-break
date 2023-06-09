@@ -187,6 +187,9 @@ namespace Vistas.Paginas.Contratos
                         }
                     }
                     ParentWindow.vtn_opc.Content = cocktail;
+                    ParentWindow.btn_Guardar.Visibility = Visibility.Hidden;
+                    ParentWindow.btn_Actualizar.Visibility = Visibility.Visible;
+
                 }
                 else if (contratoSeleccionado.ModalidadServicio.TipoEvento.Descripcion == "Cenas")
                 {
@@ -222,8 +225,10 @@ namespace Vistas.Paginas.Contratos
                             cena.textBoxValorArriendo.Visibility = Visibility.Collapsed;
                         }
                     }
-
+                    ParentWindow.txt_tipo_evento.Text = "Cena";
                     ParentWindow.vtn_opc.Content = cena;
+                    ParentWindow.btn_Guardar.Visibility = Visibility.Hidden;
+                    ParentWindow.btn_Actualizar.Visibility = Visibility.Visible;
                 }
                 else if (contratoSeleccionado.ModalidadServicio.TipoEvento.Descripcion == "Coffee Break")
                 {
@@ -242,6 +247,8 @@ namespace Vistas.Paginas.Contratos
                     }
 
                     ParentWindow.vtn_opc.Content = coffee;
+                    ParentWindow.btn_Guardar.Visibility = Visibility.Hidden;
+                    ParentWindow.btn_Actualizar.Visibility = Visibility.Visible;
                 }
                 this.Close();
             }

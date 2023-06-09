@@ -139,8 +139,8 @@ namespace OnBreak.BC
             {
                 //busco por el id el contenido de la entidad a modificar
                 BD.Contrato objContrato =
-                    bdd.Contrato.First(e => e.RutCliente.Equals(this.RutCliente));
-                CommonBC.Syncronize(this, Cliente);
+                    bdd.Contrato.First(e => e.Numero.Equals(this.Numero));
+                CommonBC.Syncronize(this, objContrato);
                 bdd.SaveChanges();
                 return true;
             }
