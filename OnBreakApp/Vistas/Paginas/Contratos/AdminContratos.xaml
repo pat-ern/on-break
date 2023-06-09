@@ -36,7 +36,7 @@
             Margin="27,73,0,0" 
             Stroke="{DynamicResource MahApps.Brushes.Gray1}" 
             VerticalAlignment="Top" 
-            Width="743" 
+            Width="851" 
             Fill="#2186C2"/>
 
         <!--RUT CLIENTE-->
@@ -69,7 +69,7 @@
             IsReadOnly="True"
             />
 
-        <Button x:Name="btn_buscar_RUT" HorizontalAlignment="Left" Margin="705,78,0,0" VerticalAlignment="Top" Width="47" Height="47" RenderTransformOrigin="0.5,0.5" Click="btn_buscar_RUT_Click" BorderBrush="Transparent" Background="Transparent">
+        <Button x:Name="btn_buscar_RUT" HorizontalAlignment="Left" Margin="745,78,0,0" VerticalAlignment="Top" Width="47" Height="47" RenderTransformOrigin="0.5,0.5" Click="btn_buscar_RUT_Click" BorderBrush="Transparent" Background="Transparent">
             <Button.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -356,24 +356,24 @@
         />
 
         <!--DETALLES EVENTO-->
-        <Rectangle x:Name="vtn_tipo" HorizontalAlignment="Left" Height="532" Margin="567,143,0,0" Stroke="{DynamicResource MahApps.Brushes.Gray1}" VerticalAlignment="Top" Width="203" Fill="Transparent"/>
 
         <Label 
             Content="DETALLES EVENTO" 
             x:Name="lbl_tipo_evento" 
             HorizontalAlignment="Left" 
-            Margin="577,150,0,0" 
+            Margin="622,150,0,0" 
             VerticalAlignment="Top" 
             RenderTransformOrigin="-0.026,-1.424" 
-            Width="184" Height="39"
+            Width="193" Height="39"
             FontSize="20"
             FontWeight="Semibold"
+            
             Foreground="White"/>
 
-        <Frame x:Name="vtn_opc" Margin="568,194,510,29" NavigationUIVisibility="Hidden" Background="#00000000"/>
+        <Frame x:Name="vtn_opc" Margin="568,194,402,29" NavigationUIVisibility="Hidden" Background="#00000000"/>
 
         <!--BOTON GUARDAR-->
-        <Button x:Name="btn_Guardar" HorizontalAlignment="Left" Margin="1085,595,0,0" VerticalAlignment="Top"  Height="72" Width="174" Background="#2186C2"  FontSize="15" Click="Button_Guardar" >
+        <Button x:Name="btn_Guardar" HorizontalAlignment="Left" Margin="1083,575,0,0" VerticalAlignment="Top"  Height="92" Width="177" Background="#2186C2"  FontSize="15" Click="Button_Guardar" >
             <StackPanel Orientation="Horizontal">
                 <Image Source="/assets/save.png" Width="76" Height="45"/>
             </StackPanel>
@@ -385,14 +385,14 @@
         </Button>
 
         <!--BOTON ELIMINAR-->
-        <Button HorizontalAlignment="Left" Margin="910,595,0,0" VerticalAlignment="Top"  Height="72" Width="166" Background="Gray"  FontSize="15" Click="Button_Eliminar">
+        <Button HorizontalAlignment="Left" Margin="908,575,0,0" VerticalAlignment="Top"  Height="92" Width="172" Background="Gray"  FontSize="15" Click="Button_Eliminar">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/assets/trash-can.png" Width="76" Height="45"/>
             </StackPanel>
         </Button>
 
         <!--BOTON LIMPIAR-->
-        <Button  HorizontalAlignment="Left" Margin="791,74,0,0" VerticalAlignment="Top" Height="59" Width="87" Background="Transparent"  FontSize="18"  Click="Button_Clear" BorderBrush="White">
+        <Button  HorizontalAlignment="Left" Margin="751,614,0,0" VerticalAlignment="Top" Height="59" Width="87" Background="Transparent"  FontSize="18"  Click="Button_Clear" BorderBrush="Transparent">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/assets/eraser.png" Width="76" Height="45"/>
 
@@ -400,7 +400,7 @@
         </Button>
 
         <!-- BOTON DE COFFE BREAK -->
-        <Button x:Name="btn_coffee" FontSize="20" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,441,20,0" Height="130" Width="350" Background="#7F55D4" RenderTransformOrigin="0.542,0.52" Click="btn_coffee_Click">
+        <Button x:Name="btn_coffee" FontSize="20" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,429,20,0" Height="141" Width="352" Background="#7F55D4" RenderTransformOrigin="0.542,0.52" Click="btn_coffee_Click">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                 <Image Source="/assets/coffee.png" Height="57" Width="67" OpacityMask="{DynamicResource MahApps.Brushes.Gray10}"/>
                 <Label x:Name="lbl_coffee_break" Content="COFFEE BREAK" Foreground="White" Height="51" FontSize="28" FontWeight="Semibold"/>
@@ -410,7 +410,7 @@
 
 
         <!-- BOTON DE COCKTAIL -->
-        <Button x:Name="btn_cocktail" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="908,148,0,0" Height="130" Width="350" Background="#FFC53FB5" RenderTransformOrigin="0.542,0.52" Click="btn_cocktail_Click">
+        <Button x:Name="btn_cocktail" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="908,137,0,0" Height="141" Width="352" Background="#FFC53FB5" RenderTransformOrigin="0.542,0.52" Click="btn_cocktail_Click">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                 <Image Source="/assets/drink.png" Height="55" Width="62"/>
                 <Label x:Name="lbl_cocktail" Content="COCKTAIL" Foreground="White" Height="51" Width="152" FontSize="28" VerticalAlignment="Top" Margin="0,0,0,0" FontWeight="Semibold"/>
@@ -418,7 +418,7 @@
         </Button>
 
         <!-- BOTON DE CENA -->
-        <Button x:Name="btn_cena" FontSize="20" HorizontalAlignment="Right"  VerticalAlignment="Top" Margin="0,294,20,0" Height="130" Width="352" Background="#FF2E51D9" RenderTransformOrigin="0.542,0.52" Click="btn_cena_Click">
+        <Button x:Name="btn_cena" FontSize="20" HorizontalAlignment="Left"  VerticalAlignment="Top" Margin="908,283,0,0" Height="141" Width="352" Background="#FF2E51D9" RenderTransformOrigin="0.542,0.52" Click="btn_cena_Click">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                 <Image Source="/assets/dinner.png" Height="50" Width="77"/>
                 <Label x:Name="lbl_cena" Content="CENA" Foreground="White" Height="51" Width="84" FontSize="28" VerticalAlignment="Top" Margin="0,0,0,0" FontWeight="Semibold"/>
@@ -426,21 +426,26 @@
         </Button>
 
         <!--BOTON DE LISTAR CONTRATOS-->
-        <Button x:Name="btn_listado" HorizontalAlignment="Left" Margin="908,13,0,0" VerticalAlignment="Top" Height="49" Width="350" Background="Transparent"  FontSize="18" Click="btn_listado_Click">
+        <Button x:Name="btn_listado" HorizontalAlignment="Left" Margin="908,13,0,0" VerticalAlignment="Top" Height="55" Width="352" Background="Transparent"  FontSize="18" Click="btn_listado_Click">
             <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
                 <Image Source="/assets/list.png" Height="36" Width="42"/>
                 <Label x:Name="lbl_lista_contrato" Content="IR A LISTA DE CONTRATOS" Foreground="White" FontSize="20" FontWeight="Semibold" Height="36"/>
             </StackPanel>
         </Button>
 
-        <!--BOTON DE LISTAR CONTRATOS-->
-        <Button x:Name="selecciona" HorizontalAlignment="Left" Margin="908,73,0,0" VerticalAlignment="Top" Height="60" Width="351" Background="Blue"  FontSize="18" 
+        <Rectangle 
+            HorizontalAlignment="Left" 
+            Height="60" 
+            Margin="908,73,0,0" 
+            Stroke="{DynamicResource MahApps.Brushes.Gray1}" 
+            VerticalAlignment="Top" 
+            Width="352" 
+            Fill="#2186C2"/>
 
-                Click="btn_listado_Click">
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,0">
-                <Label x:Name="seleccionas" Content="SELECCIONA UN TIPO DE CONTRATO" Foreground="White" FontSize="18" FontWeight="Semibold" Height="36" Width="318"/>
-            </StackPanel>
-        </Button>
+        <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Top" Height="60" Width="316" Margin="0,73,36,0">
+            <Label x:Name="seleccionas" Content="SELECCIONA UN TIPO DE CONTRATO" Foreground="White" FontSize="18" FontWeight="Semibold" Height="36" Width="316"/>
+        </StackPanel>
+
 
     </Grid>
 </mah:MetroWindow>

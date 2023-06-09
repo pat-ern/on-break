@@ -62,15 +62,15 @@ namespace Vistas.Paginas.Contratos
                 return c;
             }).ToList();
 
-
-
-
             this.tablaContrato.ItemsSource = contratos;
 
-
-
-
-
+            this.Loaded += (s, e) =>
+            {
+                if (VentanaOrigen == null)
+                {
+                    SelectColumn.Visibility = Visibility.Collapsed;
+                }
+            };
 
             //for (int i = 0; i < contratos.Count; i++)
             //{
