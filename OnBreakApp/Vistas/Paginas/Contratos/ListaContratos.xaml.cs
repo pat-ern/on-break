@@ -138,9 +138,19 @@ namespace Vistas.Paginas.Contratos
 
         }
 
-        private void miTabla_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void Resetear(object sender, RoutedEventArgs e)
         {
-            var contratoSeleccionado = tablaContrato.SelectedItem as OnBreak.BC.Contrato;
+            this.tablaContrato.ItemsSource = contratos;
+        }
+
+        private void select_Contract(object sender, RoutedEventArgs e) 
+        {
+            Button button = (Button)sender;
+            var item = button.Tag;
+            int index = tablaContrato.Items.IndexOf(item);
+
+            Contrato contratoSeleccionado = (Contrato)tablaContrato.Items[index];
 
             if (contratoSeleccionado != null)
             {
@@ -235,12 +245,7 @@ namespace Vistas.Paginas.Contratos
                 }
                 this.Close();
             }
-        }
 
-
-            private void Resetear(object sender, RoutedEventArgs e)
-        {
-            this.tablaContrato.ItemsSource = contratos;
         }
 
 

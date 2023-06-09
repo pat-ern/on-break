@@ -64,7 +64,7 @@ namespace Vistas.Paginas.Clientes
             }).ToList();
 
             // Mostrar los clientes originales en la tabla
-            this.miTabla.ItemsSource = clientesOriginales;
+            this.tablaClientes.ItemsSource = clientesOriginales;
 
         }
 
@@ -100,7 +100,7 @@ namespace Vistas.Paginas.Clientes
                                 };
 
             // Agregar los resultados al control DataGrid
-            this.miTabla.ItemsSource = resultadosRut.ToList();
+            this.tablaClientes.ItemsSource = resultadosRut.ToList();
         }
 
 
@@ -113,7 +113,7 @@ namespace Vistas.Paginas.Clientes
                                 where c.ActividadEmpresa != null && c.ActividadEmpresa.Descripcion.Equals(valorSeleccionado)
                                 select c;
 
-            this.miTabla.ItemsSource = resultadosAct.ToList();
+            this.tablaClientes.ItemsSource = resultadosAct.ToList();
         }
 
         private void TipoEmpresa_Click(object sender, RoutedEventArgs e)
@@ -125,13 +125,13 @@ namespace Vistas.Paginas.Clientes
                                 where c.TipoEmpresa != null && c.TipoEmpresa.Descripcion.Equals(valorSeleccionado)
                                 select c;
 
-            this.miTabla.ItemsSource = resultadosTip.ToList();
+            this.tablaClientes.ItemsSource = resultadosTip.ToList();
         }
 
 
         private void Resetear(object sender, RoutedEventArgs e)
         {
-            this.miTabla.ItemsSource = clientesOriginales;
+            this.tablaClientes.ItemsSource = clientesOriginales;
         }
 
         private void txt_busquedaRut_PreviewTextInput(object sender, TextCompositionEventArgs e)
@@ -139,9 +139,13 @@ namespace Vistas.Paginas.Clientes
 
 
         }
-        private void miTabla_SelectionChanged(object sender, SelectionChangedEventArgs e)
+
+        private void select_Client(object sender, RoutedEventArgs e)
         {
-            var clienteSeleccionado = miTabla.SelectedItem as Cliente;
+            Button button = (Button)sender;
+            var item = button.Tag;
+            int index = tablaClientes.Items.IndexOf(item);
+            Cliente clienteSeleccionado = (Cliente)tablaClientes.Items[index];
 
             if (clienteSeleccionado != null)
             {
@@ -156,27 +160,22 @@ namespace Vistas.Paginas.Clientes
                     ParentWindow.txt_telefono.Text = clienteSeleccionado.Telefono;
                     ParentWindow.cbx_actividadEmpresa.Text = clienteSeleccionado.ActividadEmpresa.Descripcion;
                     ParentWindow.cbx_tipoEmpresa.Text = clienteSeleccionado.TipoEmpresa.Descripcion;
+
                     // esconder boton de guardar 
                     ParentWindow.___btn_guardarCliente.Visibility = Visibility.Hidden;
-
                     ParentWindow.___btn_actualizarCliente.Visibility = Visibility.Visible;
-
-
-       
-
+                    this.Close();
                 }
                 else if (VentanaOrigen == "AdminContratos")
                 {
                     ParentWindow2.txt_buscar_rut.Text = clienteSeleccionado.RutCliente;
                     ParentWindow2.txt_razon_social.Text = clienteSeleccionado.RazonSocial;
-
+                    this.Close();
                 }
-                this.Close();
 
             }
+
         }
-
-
 
     }
 

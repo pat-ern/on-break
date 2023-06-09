@@ -17,8 +17,10 @@
             <Image Source="/assets/back-button.png" Width="40"/>
         </Button>
 
+        <Label x:Name="lbl_titulo" Content="LISTA DE CLIENTES" Margin="80,14,0,0" Width="570" FontFamily="Arial Black" FontSize="30" Height="44" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+
         <!-- FILTRO ACTIVIDAD EMPRESA -->
-        <mah:DropDownButton x:Name="filtroActividadEmpresa" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,610,0" Width="240" Height="42" FontSize="15"
+        <mah:DropDownButton x:Name="filtroActividadEmpresa" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,75,582,0" Width="240" Height="42" FontSize="15"
                     Content="ACTIVIDAD DE EMPRESA"
                     ItemsSource="{Binding actividadEmpresaItems}">
             <mah:DropDownButton.ItemContainerStyle>
@@ -29,7 +31,7 @@
         </mah:DropDownButton>
 
         <!-- FILTRO TIPO EMPRESA -->
-        <mah:DropDownButton x:Name="filtroTipoEmpresa" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,350,0" Width="240" Height="42"  FontSize="15"
+        <mah:DropDownButton x:Name="filtroTipoEmpresa" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,75,329,0" Width="240" Height="42"  FontSize="15"
                     Content="TIPO DE EMPRESA"
                     ItemsSource="{Binding tipoEmpresaItems}">
             <mah:DropDownButton.ItemContainerStyle>
@@ -42,7 +44,7 @@
 
 
         <!-- BUSQUEDA RUT -->
-        <TextBox x:Name="txt_busquedaRut" HorizontalAlignment="Right" Margin="0,15,90,0" VerticalAlignment="Top" Width="240" TextChanged="TextBox_TextChanged" Height="42"
+        <TextBox x:Name="txt_busquedaRut" HorizontalAlignment="Right" Margin="0,75,78,0" VerticalAlignment="Top" Width="240" TextChanged="TextBox_TextChanged" Height="42"
                  
                  Padding="10" FontSize="15"
                  
@@ -54,22 +56,32 @@
 
         </TextBox>
         <!-- RESETEAR FILTROS -->
-        <Button Click="Resetear" BorderThickness="0" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Background="Transparent">
+        <Button Click="Resetear" BorderThickness="0" HorizontalAlignment="Right" Margin="0,73,12,0" VerticalAlignment="Top" Background="Transparent">
             <Image Source="/assets/clear-filter.png" Width="40"/>
         </Button>
 
 
-        <Grid Margin="0,61,0,0">
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="237*"/>
-                <ColumnDefinition Width="13*"/>
-            </Grid.ColumnDefinitions>
-            <Grid.RowDefinitions>
-                <RowDefinition Height="388*"/>
-                <RowDefinition Height="197*"/>
-            </Grid.RowDefinitions>
-            <DataGrid x:Name="miTabla" AutoGenerateColumns="False" HorizontalAlignment="Left" Margin="10,10,0,10" Grid.RowSpan="2" SelectionChanged="miTabla_SelectionChanged" Width="980" Grid.ColumnSpan="2" >
+        <Grid Margin="0,128,0,0">
+
+            <DataGrid 
+                x:Name="tablaClientes" 
+                AutoGenerateColumns="False" 
+                HorizontalAlignment="Center" 
+                Margin="0,0,0,10"
+                Width="980"
+                IsReadOnly="True"
+                FrozenColumnCount="2"
+                
+             >
+
                 <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Ver" x:Name="SelectColumn" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Ver" Click="select_Client" Tag="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=Item}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                     <DataGridTextColumn Header="RUT" Binding="{Binding RutCliente}" />
                     <DataGridTextColumn Header="Razón Social" Binding="{Binding RazonSocial}" />
                     <DataGridTextColumn Header="Nombre Contacto" Binding="{Binding NombreContacto}" />
@@ -78,7 +90,9 @@
                     <DataGridTextColumn Header="Teléfono" Binding="{Binding Telefono}" />
                     <DataGridTextColumn Header="Actividad Empresa" Binding="{Binding ActividadEmpresa.Descripcion}" />
                     <DataGridTextColumn Header="Tipo Empresa" Binding="{Binding TipoEmpresa.Descripcion}" />
+
                 </DataGrid.Columns>
+
             </DataGrid>
 
 

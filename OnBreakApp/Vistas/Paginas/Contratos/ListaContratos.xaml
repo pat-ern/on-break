@@ -13,8 +13,11 @@
         <Button Click="Go_Back" BorderThickness="0" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontWeight="Bold" Background="Transparent">
             <Image Source="/assets/back-button.png" Width="40"/>
         </Button>
+
+        <Label x:Name="lbl_titulo" Content="LISTA DE CONTRATOS" Margin="80,14,0,0" Width="570" FontFamily="Arial Black" FontSize="30" Height="44" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" HorizontalAlignment="Left" VerticalAlignment="Top" Foreground="White"/>
+
         <!-- FILTRO ACTIVIDAD EMPRESA -->
-        <mah:DropDownButton x:Name="filtroTipoEvento" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,14,696,0" Width="188" Height="42" FontSize="15"
+        <mah:DropDownButton x:Name="filtroTipoEvento" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,69,770,0" Width="220" Height="42" FontSize="15"
                     Content="TIPO DE EVENTO"
                     ItemsSource="{Binding tipoEventoItems}">
             <mah:DropDownButton.ItemContainerStyle>
@@ -25,7 +28,7 @@
         </mah:DropDownButton>
 
         <!-- FILTRO TIPO EMPRESA -->
-        <mah:DropDownButton x:Name="filtroModalidadServicio" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,15,486,0" Width="188" Height="42"  FontSize="15"
+        <mah:DropDownButton x:Name="filtroModalidadServicio" HorizontalAlignment="Right" VerticalAlignment="Top" Margin="0,70,537,0" Width="220" Height="42"  FontSize="15"
                     Content="MODALIDAD"
                     ItemsSource="{Binding ModalidadServicioItems}">
             <mah:DropDownButton.ItemContainerStyle>
@@ -36,31 +39,43 @@
         </mah:DropDownButton>
 
         <!-- BUSQUEDA RUT -->
-        <TextBox x:Name="txt_busquedaRut" HorizontalAlignment="Right" Margin="0,15,278,0" VerticalAlignment="Top" Width="188" TextChanged="TextBoxRut_TextChanged" Height="42"
+        <TextBox x:Name="txt_busquedaRut" HorizontalAlignment="Right" Margin="0,70,303,0" VerticalAlignment="Top" Width="220" TextChanged="TextBoxRut_TextChanged" Height="42"
                  Padding="10" FontSize="15"
                  Controls:TextBoxHelper.ClearTextButton="True" 
                  Controls:TextBoxHelper.Watermark="RUT CLIENTE">
         </TextBox>
 
         <!-- BUSQUEDA RUT -->
-        <TextBox x:Name="txt_busquedaNroContrato" HorizontalAlignment="Right" Margin="0,15,70,0" VerticalAlignment="Top" Width="188" TextChanged="TextBoxNroContrato_TextChanged" Height="42"
+        <TextBox x:Name="txt_busquedaNroContrato" HorizontalAlignment="Right" Margin="0,70,68,0" VerticalAlignment="Top" Width="220" TextChanged="TextBoxNroContrato_TextChanged" Height="42"
                  Padding="10" FontSize="15"
                  Controls:TextBoxHelper.ClearTextButton="True" 
                  Controls:TextBoxHelper.Watermark="NRO CONTRATO">
         </TextBox>
 
         <!-- RESETEAR FILTROS -->
-        <Button  Click="Resetear" BorderThickness="0" HorizontalAlignment="Right" Margin="0,10,10,0" VerticalAlignment="Top" Background="Transparent">
+        <Button  Click="Resetear" BorderThickness="0" HorizontalAlignment="Right" Margin="0,65,10,0" VerticalAlignment="Top" Background="Transparent">
             <Image Source="/assets/clear-filter.png" Width="40"/>
         </Button>
 
-        <Grid Margin="0,61,0,0">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="388*"/>
-                <RowDefinition Height="197*"/>
-            </Grid.RowDefinitions>
-            <DataGrid x:Name="tablaContrato" AutoGenerateColumns="False" Margin="10,10,10,10" Grid.RowSpan="2" SelectionChanged="miTabla_SelectionChanged">
+        <Grid Margin="0,128,0,0">
+
+            <DataGrid 
+                x:Name="tablaContrato" 
+                AutoGenerateColumns="False" 
+                HorizontalAlignment="Center" 
+                Margin="0,0,0,10"
+                Width="980"
+                IsReadOnly="True"
+                FrozenColumnCount="2"
+            >
                 <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Ver" x:Name="SelectColumn" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <Button Content="Ver" Click="select_Contract" Tag="{Binding RelativeSource={RelativeSource AncestorType=DataGridRow}, Path=Item}"/>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
                     <DataGridTextColumn Header="NÚMERO" Binding="{Binding Numero}" />
                     <DataGridTextColumn Header="CREACIÓN" Binding="{Binding Creacion}" />
                     <DataGridTextColumn Header="TÉRMINO" Binding="{Binding Termino}" />
