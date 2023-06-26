@@ -12,7 +12,11 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnBreak.BD", "OnBreak.BD\On
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnBreak.BC", "OnBreak.BC\OnBreak.BC.csproj", "{F053AC35-3290-4CE9-A7C8-52DDF83E2DF6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vistas", "Vistas\Vistas.csproj", "{67F08F53-8E8C-4219-B789-D65343A7034D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Vistas", "Vistas\Vistas.csproj", "{67F08F53-8E8C-4219-B789-D65343A7034D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OnBreakWeb", "OnBreakWeb\OnBreakWeb.csproj", "{C5E21556-E600-493B-ABB2-AA6E8805E211}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OnBreakAPI", "OnBreakAPI\OnBreakAPI.csproj", "{8B50C2AC-7C0F-4DDF-A6AE-041D711FAD7E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -32,6 +36,14 @@ Global
 		{67F08F53-8E8C-4219-B789-D65343A7034D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67F08F53-8E8C-4219-B789-D65343A7034D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67F08F53-8E8C-4219-B789-D65343A7034D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C5E21556-E600-493B-ABB2-AA6E8805E211}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C5E21556-E600-493B-ABB2-AA6E8805E211}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C5E21556-E600-493B-ABB2-AA6E8805E211}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C5E21556-E600-493B-ABB2-AA6E8805E211}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B50C2AC-7C0F-4DDF-A6AE-041D711FAD7E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B50C2AC-7C0F-4DDF-A6AE-041D711FAD7E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B50C2AC-7C0F-4DDF-A6AE-041D711FAD7E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B50C2AC-7C0F-4DDF-A6AE-041D711FAD7E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

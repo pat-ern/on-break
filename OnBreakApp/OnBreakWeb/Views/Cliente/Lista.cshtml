@@ -1,0 +1,49 @@
+﻿@using Models;
+@{
+    ViewData["Title"] = "Listado de clientes";
+}
+
+@model List<Cliente>
+
+
+<table class="table">
+    <thead class="thead-dark">
+        <tr>
+            <th scope="col">Rut</th>
+            <th scope="col">Razon social</th>
+            <th scope="col">Nombre contacto</th>
+            <th scope="col">Correo contacto</th>
+            <th scope="col">Dirección</th>
+            <th scope="col">Telefono</th>
+            <th scope="col">Actividad Empresa</th>
+            <th scope="col">Tipo Empresa</th>
+            
+            <!-- Otros campos -->
+        </tr>
+    </thead>
+    <tbody>
+        @if (Model != null && Model.Count > 0)
+        {
+            @foreach (var cliente in Model)
+            {
+                <tr>
+                    <th scope="row">@cliente.RutCliente</th>
+                    <td>@cliente.RazonSocial</td>
+                    <td>@cliente.NombreContacto</td>
+                    <td>@cliente.MailContacto</td>
+                    <td>@cliente.Direccion</td>
+                    <td>@cliente.Telefono</td>
+                    <td>@cliente.IdActividadEmpresa</td>
+                    <td>@cliente.IdTipoEmpresa</td>
+
+                </tr>
+            }
+        }
+        else
+        {
+            <tr>
+                <td colspan="3">No clients found.</td>
+            </tr>
+        }
+    </tbody>
+</table>
