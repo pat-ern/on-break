@@ -10,14 +10,16 @@ namespace Models
 {
     public class ActividadEmpresa
     {
+
         [Key]
         public int IdActividadEmpresa { get; set; }
         public string Descripcion { get; set; }
 
-    
+
+        public virtual List<Cliente> Cliente { get; set; }
+
     }
 
 
 }
-
 

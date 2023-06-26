@@ -59,6 +59,44 @@ namespace OnBreakWeb.Services
             }
         }
 
+        public async Task<TipoEmpresa> Get(int idTipoEmpresa)
+        {
+            string urlBase = "https://localhost:7010/api/";
+            string url = $"Get/{idTipoEmpresa}";
+
+            try
+            {
+                using (HttpClient httpClient = new HttpClient())
+                {
+                    HttpResponseMessage response = await httpClient.GetAsync($"{urlBase}TipoEmpresa/{url}");
+
+                    if (!response.IsSuccessStatusCode)
+                    {
+                        return null;
+                    }
+
+                    var data = await response.Content.ReadAsStringAsync();
+                    var obj = JsonConvert.DeserializeObject<TipoEmpresa>(data);
+
+                    if (obj == null)
+                    {
+                        return null;
+                    }
+
+                    TipoEmpresa tipoEmpresa = new TipoEmpresa
+                    {
+                        IdTipoEmpresa = obj.IdTipoEmpresa,
+                        Descripcion = obj.Descripcion,
+                    };
+
+                    return tipoEmpresa;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+}
 
     }
 }

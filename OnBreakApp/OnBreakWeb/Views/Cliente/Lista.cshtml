@@ -1,6 +1,11 @@
 ﻿@using Models;
 @{
     ViewData["Title"] = "Listado de clientes";
+    var mensajeAgregado = TempData["mensajeAgregado"] as string;
+    var mensajeAdvertenciaAgregar = TempData["mensajeAdvertenciaAgregar"] as string;
+    var mensajeActualizado = TempData["mensajeActualizado"] as string;
+    var mensajeAdvertencia = TempData["mensajeAdvertencia"] as string;
+    var mensajeEliminado = TempData["mensajeEliminado"] as string;
 }
 
 @model List<Cliente>
@@ -17,8 +22,7 @@
             <th scope="col">Telefono</th>
             <th scope="col">Actividad Empresa</th>
             <th scope="col">Tipo Empresa</th>
-            
-            <!-- Otros campos -->
+            <th scope="col">Acciones</th>
         </tr>
     </thead>
     <tbody>
@@ -35,15 +39,83 @@
                     <td>@cliente.Telefono</td>
                     <td>@cliente.IdActividadEmpresa</td>
                     <td>@cliente.IdTipoEmpresa</td>
-
+                    <td>
+                        <a asp-action="Edit" asp-route-id="@cliente.RutCliente"><i class="fas fa-edit"></i> Editar</a>
+                        <a asp-action="Delete" asp-route-id="@cliente.RutCliente" onclick="return confirm('¿Estás seguro de que deseas eliminar este cliente?')"><i class="fas fa-trash-alt"></i> Eliminar</a>
+                    </td>
                 </tr>
             }
         }
         else
         {
             <tr>
-                <td colspan="3">No clients found.</td>
+                <td colspan="9">No se encontraron clientes.</td>
             </tr>
         }
     </tbody>
 </table>
+@if (!string.IsNullOrEmpty(mensajeAgregado))
+{
+    <div id="mensajeAgregado" class="alert alert-success" role="alert">
+        @mensajeAgregado
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(mensajeAdvertenciaAgregar))
+{
+    <div id="mensajeAdvertenciaAgregar" class="alert alert-warning" role="alert">
+        @mensajeAdvertenciaAgregar
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(mensajeActualizado))
+{
+    <div id="mensajeActualizado" class="alert alert-success" role="alert">
+        @mensajeActualizado
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(mensajeAdvertencia))
+{
+    <div id="mensajeAdvertencia" class="alert alert-warning" role="alert">
+        @mensajeAdvertencia
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(mensajeEliminado))
+{
+    <div id="mensajeEliminado" class="alert alert-success" role="alert">
+        @mensajeEliminado
+    </div>
+}
+
+@section Scripts {
+    <script>
+        setTimeout(function() {
+            var mensajeAgregado = document.getElementById("mensajeAgregado");
+            if (mensajeAgregado) {
+                mensajeAgregado.style.display = "none";
+            }
+            
+            var mensajeAdvertenciaAgregar = document.getElementById("mensajeAdvertenciaAgregar");
+            if (mensajeAdvertenciaAgregar) {
+                mensajeAdvertenciaAgregar.style.display = "none";
+            }
+            
+            var mensajeActualizado = document.getElementById("mensajeActualizado");
+            if (mensajeActualizado) {
+                mensajeActualizado.style.display = "none";
+            }
+            
+            var mensajeAdvertencia = document.getElementById("mensajeAdvertencia");
+            if (mensajeAdvertencia) {
+                mensajeAdvertencia.style.display = "none";
+            }
+            
+            var mensajeEliminado = document.getElementById("mensajeEliminado");
+            if (mensajeEliminado) {
+                mensajeEliminado.style.display = "none";
+            }
+        }, 3000);
+    </script>
+}

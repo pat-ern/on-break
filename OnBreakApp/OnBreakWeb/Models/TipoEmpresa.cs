@@ -8,15 +8,16 @@ using Models;
 
 namespace Models
 { 
-
-
     public class TipoEmpresa
     {
         [Key]
         public int IdTipoEmpresa { get; set; }
         public string Descripcion { get; set; }
 
-     
+
+        public virtual List<Cliente> Cliente { get; set; }
+
+
     }
 }
 

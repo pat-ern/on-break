@@ -38,6 +38,38 @@ namespace OnBreakAPI.Controllers
         }
 
 
+        [HttpGet]
+        [Route("Get/{idTipoEmpresa}")]
+        public async Task<TipoEmpresa> Get(int idTipoEmpresa)
+        {
+            try
+            {
+                using (DbConnection db = new DbConnection())
+                {
+                    TipoEmpresa objTipoEmpresa = await db.TipoEmpresa.FirstOrDefaultAsync(c => c.IdTipoEmpresa == idTipoEmpresa);
+
+                    if (objTipoEmpresa == null)
+                    {
+                        return null;
+                    }
+
+                    TipoEmpresa tipoEmpresa = new TipoEmpresa()
+                    {
+                        IdTipoEmpresa = objTipoEmpresa.IdTipoEmpresa,
+                        Descripcion = objTipoEmpresa.Descripcion
+
+                    };
+
+                    return tipoEmpresa;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
 
     }
 }

@@ -1,5 +1,87 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Models;
+
 @{
+ViewData["Title"] = "Cliente: " + Model.RutCliente;
+}
+
+@model Cliente
+
+
+
+
+
+
+<form asp-action="Edit" runat="server">
+
+    <div class="container">
+        <div class="row justify-content-center mt-5">
+            <div class="col-md-6">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="card-title">Editar Cliente</h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            <label for="txtNombre">Rut</label>
+                            <input type="text" id="txtNombre" class="form-control" asp-for="RutCliente" />
+                            <span asp-validation-for="RutCliente" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtNombre">Razon Social:</label>
+                            <input type="text" id="txtNombre" class="form-control" asp-for="RazonSocial" />
+                            <span asp-validation-for="RazonSocial" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtNombre">Nombre Contacto:</label>
+                            <input id="txtNombre" class="form-control" asp-for="NombreContacto" />
+                            <span asp-validation-for="NombreContacto" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEmail">Correo Contacto</label>
+                            <input type="email" id="txtEmail" class="form-control" asp-for="MailContacto" />
+                            <span asp-validation-for="MailContacto" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEmail">Dirección</label>
+                            <input id="txtEmail" class="form-control" asp-for="Direccion" />
+                            <span asp-validation-for="Direccion" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="txtEmail">Teléfono</label>
+                            <input id="txtEmail" class="form-control" asp-for="Telefono" />
+                            <span asp-validation-for="Telefono" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="IdDniType">Actividad Empresa</label>
+                            <select class="form-control" id="IdDniType" asp-for="IdActividadEmpresa"
+                                    asp-items="@(new SelectList(Model.ListActividadEmpresa, nameof(ActividadEmpresa.IdActividadEmpresa), nameof(ActividadEmpresa.Descripcion)))">
+                                <option value="0">Listado ActividadEmpresa</option>
+                            </select>
+                            <span asp-validation-for="IdActividadEmpresa" class="text-danger"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="IdDniType">Tipo Empresa</label>
+                            <select class="form-control" id="IdDniType" asp-for="IdTipoEmpresa"
+                                    asp-items="@(new SelectList(Model.ListTipoEmpresa, nameof(TipoEmpresa.IdTipoEmpresa), nameof(TipoEmpresa.Descripcion)))">
+                                <option value="0">Listado Tipo Empresa</option>
+                            </select>
+                            <span asp-validation-for="IdTipoEmpresa" class="text-danger"></span>
+                        </div>
+                        <br />
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-primary" onclick="return confirm('¿Estás seguro de que deseas actualizar este cliente?')">Guardar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</form>
+
+
+@section scripts {
+    <partial name="_ValidationScriptsPartial" />
 }

@@ -7,7 +7,6 @@
 
 <form asp-action="Add" runat="server">
     <div class="container">
-        <input type="hidden" asp-for="RutCliente" value="0" />
         <div class="row justify-content-center mt-5">
             <div class="col-md-6">
                 <div class="card">
@@ -16,28 +15,34 @@
                     </div>
                     <div class="card-body">
                         <div class="form-group">
-                            <label for="txtNombre">Rut:</label>
+                            <label for="txtNombre">Rut</label>
                             <input type="text" id="txtNombre" class="form-control" asp-for="RutCliente"/>
+                            <span asp-validation-for="RutCliente" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label for="txtNombre">Razon Social:</label>
                             <input type="text" id="txtNombre" class="form-control" asp-for="RazonSocial"/>
+                            <span asp-validation-for="RazonSocial" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label for="txtNombre">Nombre Contacto:</label>
                             <input  id="txtNombre" class="form-control" asp-for="NombreContacto" />
+                            <span asp-validation-for="NombreContacto" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label for="txtEmail">Correo Contacto:</label>
+                            <label for="txtEmail">Correo Contacto</label>
                             <input type="email" id="txtEmail" class="form-control" asp-for="MailContacto"/>
+                            <span asp-validation-for="MailContacto" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label for="txtEmail">Dirección:</label>
+                            <label for="txtEmail">Dirección</label>
                             <input  id="txtEmail" class="form-control" asp-for="Direccion" />
+                            <span asp-validation-for="Direccion" class="text-danger"></span>
                         </div>
                         <div class="form-group">
-                            <label for="txtEmail">Teléfono:</label>
+                            <label for="txtEmail">Teléfono</label>
                             <input  id="txtEmail" class="form-control" asp-for="Telefono" />
+                            <span asp-validation-for="Telefono" class="text-danger"></span>
                         </div>
                         <div class="form-group">
                             <label for="IdDniType">Actividad Empresa</label>
@@ -69,3 +74,7 @@
         </div>
     </div>
 </form>
+
+@section scripts {
+  <partial name="_ValidationScriptsPartial" />
+}
