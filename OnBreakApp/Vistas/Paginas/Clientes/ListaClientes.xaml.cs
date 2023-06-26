@@ -28,9 +28,11 @@ namespace Vistas.Paginas.Clientes
         public AdminClientes ParentWindow { get; internal set; }
         public AdminContratos ParentWindow2 { get; internal set; }
         public string VentanaOrigen { get; set; }
+        public bool FromMainWindow { get; set; }
 
         // Variable de clase para almacenar los clientes originales
         private List<Cliente> clientesOriginales;
+
         public ListaClientes()
         {
             InitializeComponent();
@@ -65,6 +67,14 @@ namespace Vistas.Paginas.Clientes
 
             // Mostrar los clientes originales en la tabla
             this.tablaClientes.ItemsSource = clientesOriginales;
+
+            this.Loaded += (s, e) =>
+            {
+                if (VentanaOrigen == null)
+                {
+                    SelectColumn.Visibility = Visibility.Collapsed;
+                }
+            };  
 
         }
 

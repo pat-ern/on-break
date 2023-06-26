@@ -6,37 +6,42 @@
       xmlns:local="clr-namespace:Vistas.Paginas.Contratos"
       xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls" x:Class="Vistas.Paginas.Contratos.Cena"
       mc:Ignorable="d" 
-      d:DesignHeight="394" d:DesignWidth="170"
+      d:DesignHeight="450" d:DesignWidth="320"
       Title="Cena">
 
     <Grid>
-        
-        <!--TITULO-->
-        <Label Content="Modalidad de Servicio:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" FontSize="14" Foreground="White"/>
-        <!--COMBO-->
-        <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Left" Margin="15,52,0,0" VerticalAlignment="Top" Width="144" Height="28" SelectionChanged="comboBoxModalidades_SelectionChanged" Background="Transparent" Foreground="White"/>
-        <Label Content="Ambientación*:" HorizontalAlignment="Left" Margin="10,90,0,0" VerticalAlignment="Top" Height="37" Width="115" FontSize="14" Foreground="White"/>
 
-        <GroupBox Margin="0,113,0,208" BorderBrush="{x:Null}" >
-            <StackPanel>
-                <RadioButton x:Name="radioButtonAmbientacionBasica" Content="Básica" HorizontalAlignment="Left" Margin="15,2,0,0" Height="22" Width="80" Background="Transparent" Foreground="White" />
-                <RadioButton x:Name="radioButtonAmbientacionPersonalizada" Content="Personalizada" HorizontalAlignment="Left" Margin="15,5,0,0" Height="22" Width="100" Background="Transparent" Foreground="White" />
+        <!--TITULO-->
+        <Label Content="MODALIDAD DE SERVICIO:" HorizontalAlignment="Left" Margin="34,10,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
+        <!--COMBO-->
+        <ComboBox x:Name="comboBoxModalidades" HorizontalAlignment="Left" Margin="29,59,0,0" VerticalAlignment="Top"  Width="252" Height="49" SelectionChanged="comboBoxModalidades_SelectionChanged" Background="Transparent" Foreground="White"  FontSize="20"/>
+
+
+        <Label Content="AMBIENTACION:" HorizontalAlignment="Left" Margin="33,128,0,0" VerticalAlignment="Top" Height="36" Width="253" FontSize="20" Foreground="White"/>
+
+        <GroupBox Margin="0,155,0,192" BorderBrush="{x:Null}" >
+            <StackPanel Height="87">
+                <RadioButton x:Name="radioButtonAmbientacionBasica" Content="BASICA" HorizontalAlignment="Left" Margin="33,2,0,0" Height="33" Width="251" Background="Transparent" Foreground="White" FontSize="20" />
+                <RadioButton x:Name="radioButtonAmbientacionPersonalizada" Content="PERSONALIZADA" HorizontalAlignment="Left" Margin="33,5,0,0" Height="31" Width="252" Background="Transparent" Foreground="White" FontSize="20"/>
             </StackPanel>
         </GroupBox>
+
+        <Label Content="MUSICA AMBIENTAL:" HorizontalAlignment="Left" Margin="33,262,0,0" VerticalAlignment="Top" Height="38" Width="251" FontSize="20" Foreground="White"/>
+        <CheckBox x:Name="checkBoxMusicaAmbiental" HorizontalAlignment="Left" Margin="39,304,0,0" VerticalAlignment="Top" Height="25" Width="55" Foreground="White" Checked="checkBoxMusicaAmbiental_Checked"/>
+        <Label Content="SI" HorizontalAlignment="Left" Margin="56,297,0,0" VerticalAlignment="Top" FontSize="20" Foreground="White"/>
+
         
-        <Label Content="Música Ambiental:" HorizontalAlignment="Left" Margin="10,192,0,0" VerticalAlignment="Top" Height="38" Width="146" FontSize="14" Foreground="White"/>
-        <CheckBox x:Name="checkBoxMusicaAmbiental" HorizontalAlignment="Left" Margin="15,226,0,0" VerticalAlignment="Top" Height="25" Width="52" Foreground="White" Checked="checkBoxMusicaAmbiental_Checked"/>
-        <Label Content="Local:" HorizontalAlignment="Left" Margin="10,258,0,0" VerticalAlignment="Top" Height="34" Width="62" FontSize="14" Foreground="White"/>
+        <Label Content="LOCAL:" HorizontalAlignment="Left" Margin="33,338,0,0" VerticalAlignment="Top" Height="34" Width="87" FontSize="20" Foreground="White"/>
 
 
         <Label x:Name="lblValorArriendo" Content="Valor:" HorizontalAlignment="Left" Margin="15,360,0,0" VerticalAlignment="Top" Height="34" Width="62" FontSize="14" Foreground="White" Visibility="Collapsed" />
         <TextBox x:Name="textBoxValorArriendo" Margin="70,356,10,80" Visibility="Collapsed"  />
 
 
-        <GroupBox Margin="0,281,0,43" BorderBrush="{x:Null}">
-            <StackPanel>
-                <RadioButton x:Name="radioButtonLocalOnBreak" Content="OnBreak" HorizontalAlignment="Left" Margin="15,2,0,0" Height="22" Width="75"  Background="Transparent" Foreground="White" Checked="radioButtonLocalOnBreak_Checked" Unchecked="radioButtonLocalOnBreak_Unchecked"/>
-                <RadioButton x:Name="radioButtonLocalOtro" Content="Otro" HorizontalAlignment="Left" Margin="15,5,0,0" Height="22" Width="50" Background="Transparent" Foreground="White"/>
+        <GroupBox Margin="0,362,0,0" BorderBrush="Transparent">
+            <StackPanel Height="76">
+                <RadioButton x:Name="radioButtonLocalOnBreak" FontSize="20" Content="ONBREAK" HorizontalAlignment="Left" Margin="33,2,0,0" Height="30" Width="114"  Background="Transparent" Foreground="White" Checked="radioButtonLocalOnBreak_Checked" Unchecked="radioButtonLocalOnBreak_Unchecked"/>
+                <RadioButton x:Name="radioButtonLocalOtro" FontSize="20" Content="OTRO" HorizontalAlignment="Left" Margin="33,5,0,0" Height="27" Width="113" Background="Transparent" Foreground="White"/>
             </StackPanel>
         </GroupBox>
     </Grid>
