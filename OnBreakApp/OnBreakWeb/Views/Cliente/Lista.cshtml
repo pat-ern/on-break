@@ -10,50 +10,68 @@
 
 @model List<Cliente>
 
+<div class="card p-1">
+    <div class="card-header">
+        <div class="row">
+            <div class="col col-10">
+                <h3 class="card-title">Listado de clientes</h3>
+            </div>
+            <div class="col col-2 text-end">
+                <a class="nav-link text-dark" asp-area="" asp-controller="Cliente" asp-action="Add">
+                    <button type="button" class="btn btn-primary">Agregar Cliente</button>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">Rut</th>
+                        <th scope="col">Razon social</th>
+                        <th scope="col">Nombre contacto</th>
+                        <th scope="col">Correo contacto</th>
+                        <th scope="col">Dirección</th>
+                        <th scope="col">Telefono</th>
+                        <th scope="col">Actividad Empresa</th>
+                        <th scope="col">Tipo Empresa</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @if (Model != null && Model.Count > 0)
+                    {
+                        @foreach (var cliente in Model)
+                        {
+                            <tr>
+                                <th scope="row">@cliente.RutCliente</th>
+                                <td>@cliente.RazonSocial</td>
+                                <td>@cliente.NombreContacto</td>
+                                <td>@cliente.MailContacto</td>
+                                <td>@cliente.Direccion</td>
+                                <td>@cliente.Telefono</td>
+                                <td>@cliente.IdActividadEmpresa</td>
+                                <td>@cliente.IdTipoEmpresa</td>
+                                <td>
+                                    <a asp-action="Edit" asp-route-id="@cliente.RutCliente"><i class="fas fa-edit"></i> Editar</a>
+                                    <a asp-action="Delete" asp-route-id="@cliente.RutCliente" onclick="return confirm('¿Estás seguro de que deseas eliminar este cliente?')"><i class="fas fa-trash-alt"></i> Eliminar</a>
+                                </td>
+                            </tr>
+                        }
+                    }
+                    else
+                    {
+                        <tr>
+                            <td colspan="9">No se encontraron clientes.</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
 
-<table class="table">
-    <thead class="thead-dark">
-        <tr>
-            <th scope="col">Rut</th>
-            <th scope="col">Razon social</th>
-            <th scope="col">Nombre contacto</th>
-            <th scope="col">Correo contacto</th>
-            <th scope="col">Dirección</th>
-            <th scope="col">Telefono</th>
-            <th scope="col">Actividad Empresa</th>
-            <th scope="col">Tipo Empresa</th>
-            <th scope="col">Acciones</th>
-        </tr>
-    </thead>
-    <tbody>
-        @if (Model != null && Model.Count > 0)
-        {
-            @foreach (var cliente in Model)
-            {
-                <tr>
-                    <th scope="row">@cliente.RutCliente</th>
-                    <td>@cliente.RazonSocial</td>
-                    <td>@cliente.NombreContacto</td>
-                    <td>@cliente.MailContacto</td>
-                    <td>@cliente.Direccion</td>
-                    <td>@cliente.Telefono</td>
-                    <td>@cliente.IdActividadEmpresa</td>
-                    <td>@cliente.IdTipoEmpresa</td>
-                    <td>
-                        <a asp-action="Edit" asp-route-id="@cliente.RutCliente"><i class="fas fa-edit"></i> Editar</a>
-                        <a asp-action="Delete" asp-route-id="@cliente.RutCliente" onclick="return confirm('¿Estás seguro de que deseas eliminar este cliente?')"><i class="fas fa-trash-alt"></i> Eliminar</a>
-                    </td>
-                </tr>
-            }
-        }
-        else
-        {
-            <tr>
-                <td colspan="9">No se encontraron clientes.</td>
-            </tr>
-        }
-    </tbody>
-</table>
+    </div>
+</div>
 @if (!string.IsNullOrEmpty(mensajeAgregado))
 {
     <div id="mensajeAgregado" class="alert alert-success" role="alert">
