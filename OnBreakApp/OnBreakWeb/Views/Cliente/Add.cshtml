@@ -10,8 +10,8 @@
         <div class="row justify-content-center mt-5">
             <div class="col-md-6">
                 <div class="card">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="card-title">Agregar Cliente</h5>
+                    <div class="card-header">
+                        <h5 class="card-title mt-1"><i class="fa-solid fa-plus"></i>&nbsp;Agregar Cliente</h5>
                     </div>
                     <div class="card-body">
                         <div class="form-group">
@@ -65,9 +65,29 @@
 
 
                         <br />
-                        <div class="text-center">
-                            <button type="submit" class="btn btn-primary">Enviar</button>
+
+                        <div class="row">
+
+                            <div class="col text-start">
+
+                                <button type="button" class="btn btn-secondary" onclick="window.location.href = '@Url.Action("", "Cliente")' ">
+                                    <i class="fa-solid fa-arrow-left"></i>&nbsp;
+                                    Volver
+                                </button>
+
+                            </div>
+
+                            <div class="col text-end">
+
+                                <button type="submit" class="btn btn-primary">
+                                    <i class="fa-solid fa-floppy-disk"></i>&nbsp;
+                                    Guardar
+                                </button>
+
+                            </div>
+
                         </div>
+
                     </div>
                 </div>
             </div>

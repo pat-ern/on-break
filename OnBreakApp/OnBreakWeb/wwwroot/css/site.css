@@ -16,3 +16,21 @@ html {
 body {
   margin-bottom: 60px;
 }
+
+.btn-primary {
+    background-color: #845ea0 !important;
+    border-color: #845ea0 !important;
+}
+
+.btn-primary:hover {
+    background-color: #6c4f8e !important;
+    border-color: #6c4f8e !important;
+}
+
+.fas {
+    color: #845ea0 !important;
+}
+
+.fas:hover {
+    color: #6c4f8e !important;
+}

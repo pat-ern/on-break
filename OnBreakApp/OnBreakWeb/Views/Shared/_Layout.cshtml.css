@@ -46,3 +46,16 @@ button.accept-policy {
   white-space: nowrap;
   line-height: 60px;
 }
+
+ul li.nav-item:hover {
+    background-color: #baa6ba;
+    border-radius: 5px;
+}
+
+ul li.nav-item nav-link a {
+    color: black;
+}
+
+ul li.nav-item nav-link:hover {
+    color: white !important;
+}
