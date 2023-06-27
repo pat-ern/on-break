@@ -1,14 +1,14 @@
 ﻿@using Models;
 @{
-    ViewData["Title"] = "Listado de clientes";
-    var mensajeAgregado = TempData["mensajeAgregado"] as string;
-    var mensajeAdvertenciaAgregar = TempData["mensajeAdvertenciaAgregar"] as string;
-    var mensajeActualizado = TempData["mensajeActualizado"] as string;
-    var mensajeAdvertencia = TempData["mensajeAdvertencia"] as string;
-    var mensajeEliminado = TempData["mensajeEliminado"] as string;
+    ViewData["Title"] = "Listado de Actividad Empresa";
+    //var mensajeAgregado = TempData["mensajeAgregado"] as string;
+    //var mensajeAdvertenciaAgregar = TempData["mensajeAdvertenciaAgregar"] as string;
+    //var mensajeActualizado = TempData["mensajeActualizado"] as string;
+    //var mensajeAdvertencia = TempData["mensajeAdvertencia"] as string;
+    //var mensajeEliminado = TempData["mensajeEliminado"] as string;
 }
 
-@model List<Cliente>
+@model List<ActividadEmpresa>
 
 <div class="card p-0">
     <div class="card-header">
@@ -17,15 +17,15 @@
             <div class="col col-6">
                 <h4 class="card-title mt-1">
                     <i class="fa-solid fa-list-check"></i>&nbsp;
-                    Lista de clientes
-                 </h4>
+                    Lista de Actividad Empresa
+                </h4>
             </div>
 
             <div class="col col-6 text-end">
-                <a class="nav-link text-dark" asp-area="" asp-controller="Cliente" asp-action="Add">
+                <a class="nav-link text-dark" asp-area="" asp-controller="ActividadEmpresa" asp-action="Add">
                     <button type="button" class="btn btn-primary">
                         <i class="fa-solid fa-plus"></i>
-                        Agregar Cliente
+                        Agregar Actividad Empresa
                     </button>
                 </a>
             </div>
@@ -35,37 +35,26 @@
     <div class="card-body py-1">
         <div class="table-responsive" style="height:600px;overflow-x: auto;">
             <table class="table table-hover">
-                    <thead class="thead-dark">
+                <thead class="thead-dark">
                     <tr>
-                        <th scope="col">Rut</th>
-                        <th scope="col">Razon social</th>
-                        <th scope="col">Nombre contacto</th>
-                        <th scope="col">Correo contacto</th>
-                        <th scope="col">Dirección</th>
-                        <th scope="col">Telefono</th>
-                        <th scope="col">Actividad Empresa</th>
-                        <th scope="col">Tipo Empresa</th>
+                        <th scope="col">Id</th>
+                        <th scope="col">Descripción</th>
                         <th scope="col">Acciones</th>
                     </tr>
                 </thead>
                 <tbody>
                     @if (Model != null && Model.Count > 0)
                     {
-                        @foreach (var cliente in Model)
+                        @foreach (var actividadEmpresa in Model)
                         {
                             <tr>
-                                <th scope="row">@cliente.RutCliente</th>
-                                <td>@cliente.RazonSocial</td>
-                                <td>@cliente.NombreContacto</td>
-                                <td>@cliente.MailContacto</td>
-                                <td>@cliente.Direccion</td>
-                                <td>@cliente.Telefono</td>
-                                <td class="text-center">@cliente.IdActividadEmpresa</td>
-                                <td class="text-center">@cliente.IdTipoEmpresa</td>
+                                <th scope="row">@actividadEmpresa.IdActividadEmpresa</th>
+                                <td scope="row">@actividadEmpresa.Descripcion</td>
+
                                 <td class="text-center">
-                                    <a asp-action="Edit" asp-route-id="@cliente.RutCliente"><i class="fas fa-edit"></i></a>
+                                    <a asp-action="Edit" asp-route-id="@actividadEmpresa.IdActividadEmpresa"><i class="fas fa-edit"></i></a>
                                     &nbsp;
-                                    <a asp-action="Delete" asp-route-id="@cliente.RutCliente" onclick="return confirm('¿Estás seguro de que deseas eliminar este cliente?')"><i class="fas fa-trash-alt"></i></a>
+                                    <a asp-action="Delete" asp-route-id="@actividadEmpresa.IdActividadEmpresa" onclick="return confirm('¿Estás seguro de que deseas eliminar la actividad empresa?')"><i class="fas fa-trash-alt"></i></a>
                                 </td>
                             </tr>
                         }
@@ -73,7 +62,7 @@
                     else
                     {
                         <tr>
-                            <td colspan="9">No se encontraron clientes.</td>
+                            <td colspan="9">No se encontraron actividades de empresa.</td>
                         </tr>
                     }
                 </tbody>
@@ -82,7 +71,7 @@
 
     </div>
 </div>
-@if (!string.IsNullOrEmpty(mensajeAgregado))
+@*@if (!string.IsNullOrEmpty(mensajeAgregado))
 {
     <div id="mensajeAgregado" class="alert alert-success" role="alert">
         @mensajeAgregado
@@ -114,36 +103,36 @@
 {
     <div id="mensajeEliminado" class="alert alert-success" role="alert">
         @mensajeEliminado
-    </div>
+    </div>*@
 }
 
 @section Scripts {
-    <script>
-        setTimeout(function() {
+@*    <script>
+        setTimeout(function () {
             var mensajeAgregado = document.getElementById("mensajeAgregado");
             if (mensajeAgregado) {
                 mensajeAgregado.style.display = "none";
             }
-            
+
             var mensajeAdvertenciaAgregar = document.getElementById("mensajeAdvertenciaAgregar");
             if (mensajeAdvertenciaAgregar) {
                 mensajeAdvertenciaAgregar.style.display = "none";
             }
-            
+
             var mensajeActualizado = document.getElementById("mensajeActualizado");
             if (mensajeActualizado) {
                 mensajeActualizado.style.display = "none";
             }
-            
+
             var mensajeAdvertencia = document.getElementById("mensajeAdvertencia");
             if (mensajeAdvertencia) {
                 mensajeAdvertencia.style.display = "none";
             }
-            
+
             var mensajeEliminado = document.getElementById("mensajeEliminado");
             if (mensajeEliminado) {
                 mensajeEliminado.style.display = "none";
             }
         }, 3000);
-    </script>
+    </script>*@
 }

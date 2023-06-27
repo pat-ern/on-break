@@ -33,4 +33,14 @@ app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Cliente}/{action=Lista}");
 
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=ActividadEmpresa}/{action=Lista}");
+
+
+app.MapControllerRoute(
+    name: "default",
+    pattern: "{controller=TipoEmpresa}/{action=Lista}");
+
 app.Run();
